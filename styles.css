@@ -864,8 +864,9 @@ textarea {
 }
 
 .mongle-img {
-    width: 140px;
+    width: 280px;
     height: auto;
+    border-radius: 12px;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
@@ -907,7 +908,21 @@ textarea {
 .login-desc {
     font-size: 0.9rem;
     color: #AAA;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
+}
+
+.guest-warning {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #F59E0B;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+    border: 1px solid rgba(245, 158, 11, 0.2);
 }
 
 .login-btn {
@@ -933,17 +948,6 @@ textarea {
 .google-btn {
     background: #FFF;
     color: #333;
-}
-
-.apple-btn {
-    background: #000;
-    color: #FFF;
-}
-
-.email-btn {
-    background: #333;
-    color: var(--point-color);
-    border: 1px solid #444;
 }
 
 .login-footer-links {

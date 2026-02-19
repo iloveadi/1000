@@ -193,8 +193,10 @@ window.closeProModal = function () {
 
 // Account & Login Logic
 window.handleLogin = function (provider) {
-    // Simulate Login
-    alert(`${provider} 로 로그인 중...`);
+    if (provider !== 'google') return;
+
+    // Simulate Google Login
+    alert('Google 로 로그인 중...');
 
     // Set Login State
     localStorage.setItem('cheonjamun_is_logged_in', 'true');
@@ -204,7 +206,6 @@ window.handleLogin = function (provider) {
     setTimeout(() => {
         alert('학습 데이터가 클라우드와 동기화되었습니다!');
         renderAccountView();
-        checkAttendance();
     }, 500);
 };
 
@@ -304,10 +305,16 @@ function renderDictionaryList(reset = false) {
 }
 
 window.toggleCompleted = function (id) {
+    const isLoggedIn = localStorage.getItem('cheonjamun_is_logged_in') === 'true';
+    if (!isLoggedIn) {
+        alert('학습 기록을 저장하려면 로그인이 필요합니다!');
+        return;
+    }
+
     const char = cheonjamunData.characters.find(c => c.id === id);
     if (char) {
         char.is_completed = !char.is_completed;
-        if (char.is_completed) char.is_wrong = false; // If completed, it shouldn't be in wrong answers
+        if (char.is_completed) char.is_wrong = false;
 
         const completed = cheonjamunData.characters.filter(c => c.is_completed).map(c => c.id);
         const wrong = cheonjamunData.characters.filter(c => c.is_wrong).map(c => c.id);
@@ -321,6 +328,9 @@ window.toggleCompleted = function (id) {
 
 // Learning state helper for games
 window.updateLearningState = function (id, isCorrect) {
+    const isLoggedIn = localStorage.getItem('cheonjamun_is_logged_in') === 'true';
+    if (!isLoggedIn) return; // Silent return for auto-updates during games
+
     const char = cheonjamunData.characters.find(c => c.id === id);
     if (!char) return;
 
