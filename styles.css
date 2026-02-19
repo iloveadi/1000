@@ -581,6 +581,19 @@ textarea {
     font-weight: 700;
 }
 
+.soon-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #64748B;
+    /* Slate 500 */
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
 .lock-icon {
     position: absolute;
     top: 10px;
@@ -1077,4 +1090,396 @@ textarea {
     font-size: 0.8rem;
     color: #888;
     text-align: center;
+}
+
+/* ===== Sentence Fill-in-the-Blank Game ===== */
+
+.sent-blank-question {
+    background: var(--card-bg-color);
+    border-radius: 20px;
+    padding: 28px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.sent-blank-phrase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.sent-blank-char {
+    font-size: 2.4rem;
+    color: var(--text-color);
+}
+
+.sent-blank-slot {
+    font-size: 2.4rem;
+    width: 58px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--point-color);
+    color: #fff;
+    border-radius: 12px;
+    font-weight: 700;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+    }
+
+    to {
+        box-shadow: 0 0 0 8px rgba(99, 102, 241, 0);
+    }
+}
+
+.sent-blank-interp {
+    font-size: 1rem;
+    color: var(--sub-text-color);
+}
+
+.sent-blank-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.sent-blank-opt {
+    background: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 16px 10px;
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    transition: transform 0.15s, border-color 0.15s;
+}
+
+.sent-blank-opt:active {
+    transform: scale(0.96);
+}
+
+.sent-blank-opt:hover:not(:disabled) {
+    border-color: var(--point-color);
+}
+
+.sent-blank-opt .opt-hanja {
+    font-size: 1.8rem;
+    color: var(--point-color);
+}
+
+.sent-blank-opt .opt-reading {
+    font-size: 0.85rem;
+    color: var(--sub-text-color);
+}
+
+.sent-blank-opt.correct {
+    background: rgba(34, 197, 94, 0.15);
+    border-color: #22c55e;
+}
+
+.sent-blank-opt.correct .opt-hanja {
+    color: #22c55e;
+}
+
+.sent-blank-opt.wrong {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: #ef4444;
+}
+
+.sent-blank-opt.wrong .opt-hanja {
+    color: #ef4444;
+}
+
+.sent-blank-opt:disabled {
+    cursor: default;
+}
+
+/* Sentence Numbering */
+.sentence-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sentence-number {
+    font-size: 0.85rem;
+    color: var(--point-color);
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: 1px;
+    background: rgba(99, 102, 241, 0.1);
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+/* Board Game (Memory Match) */
+.board-container {
+    padding: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.board-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 12px;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.board-card {
+    aspect-ratio: 1;
+    perspective: 1000px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    width: 100%;
+}
+
+.board-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.4s;
+    transform-style: preserve-3d;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.board-card.flipped .board-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Match styling */
+.board-card.matched .board-card-inner {
+    box-shadow: 0 0 0 3px #10B981;
+    /* Solid green border */
+    opacity: 0.3;
+    /* Much more faded */
+    filter: grayscale(100%);
+    /* Fully grayed out */
+    transform: scale(0.95) rotateY(180deg);
+    /* Slightly smaller to indicate 'done' */
+}
+
+.board-card-front,
+.board-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    padding: 4px;
+    box-sizing: border-box;
+}
+
+.board-card-front {
+    background-color: #2A2A2A;
+    background-image: radial-gradient(circle at center, #333 1px, transparent 1px);
+    background-size: 10px 10px;
+    border: 2px solid #333;
+}
+
+.board-card-front svg {
+    color: #6366F1;
+    opacity: 0.5;
+    display: block;
+}
+
+.board-card-back {
+    background-color: #3730A3;
+    /* Indigo base */
+    color: white;
+    transform: rotateY(180deg);
+    border: 2px solid #4F46E5;
+    font-weight: bold;
+    word-break: keep-all;
+    line-height: 1.2;
+}
+
+/* Hanja Card Style */
+.board-card-inner.type-hanja .board-card-back {
+    background-color: #1E1E1E;
+    border: 2px solid #FAFAFA;
+    color: #FAFAFA;
+}
+
+/* Meaning Card Style */
+.board-card-inner.type-meaning .board-card-back {
+    background-color: #4F46E5;
+    border: 2px solid #818CF8;
+    color: #FFF;
+}
+
+.card-hanja {
+    font-size: 1.8rem;
+}
+
+.card-meaning {
+    font-size: 0.85rem;
+    padding: 4px;
+}
+
+/* Account Profile Image */
+.account-container .profile-header {
+    display: flex;
+    flex-direction: column;
+    /* Stack vertically for large image */
+    background: linear-gradient(135deg, #1E1E1E 0%, #2A2A2A 100%);
+    padding: 24px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    gap: 16px;
+}
+
+.account-container .profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.account-container .profile-avatar {
+    width: 100%;
+    /* Full width of container */
+    max-width: 380px;
+    /* Limit max width */
+    aspect-ratio: 16/9;
+    /* Landscape aspect ratio */
+    border-radius: 16px;
+    /* Rounded corners */
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    margin: 0 auto;
+}
+
+.account-container .logout-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #FFF;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    backdrop-filter: blur(4px);
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    /* Hidden by default via inline style 'display: none' */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: #1E1E1E;
+    border-radius: 20px;
+    padding: 24px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    color: #E2E8F0;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+.close-modal-btn {
+    background: none;
+    border: none;
+    color: #94A3B8;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-modal-btn:hover {
+    color: white;
+}
+
+.modal-body {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #CBD5E1;
+}
+
+.modal-body h3 {
+    color: white;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.modal-body p {
+    margin-bottom: 12px;
+}
+
+.modal-body ul {
+    margin-bottom: 12px;
+    padding-left: 20px;
+}
+
+.modal-body li {
+    margin-bottom: 4px;
 }

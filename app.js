@@ -58,6 +58,30 @@ function handleRouting() {
                 document.getElementById('active-game-view').style.display = 'block';
             }
             break;
+        case '#hanja-selection':
+            if (quizState.questions.length === 0) {
+                initHanjaSelectionGame();
+            } else {
+                document.getElementById('active-game-view').style.display = 'block';
+            }
+            break;
+        case '#word-board':
+            if (boardGameState.cards.length === 0) {
+                initBoardGame();
+            } else {
+                document.getElementById('active-game-view').style.display = 'block';
+                if (!document.getElementById('board-game-grid')) {
+                    renderBoardGame();
+                }
+            }
+            break;
+        case '#sent-match':
+            if (sentMeaningState.questions.length === 0) {
+                initSentenceMeaningGame();
+            } else {
+                document.getElementById('active-sent-game-view').style.display = 'block';
+            }
+            break;
         default:
             document.getElementById('dashboard-grid').style.display = 'grid';
             break;
@@ -396,11 +420,8 @@ function renderDictionaryList(reset = false) {
 }
 
 window.toggleCompleted = async function (id) {
-    const isLoggedIn = !!auth.currentUser;
-    if (!isLoggedIn) {
-        alert('학습 기록을 저장하려면 로그인이 필요합니다!');
-        return;
-    }
+    // Login check removed for offline mode
+    // const isLoggedIn = !!auth.currentUser; 
 
     const char = cheonjamunData.characters.find(c => c.id === id);
     if (char) {
@@ -413,9 +434,9 @@ window.toggleCompleted = async function (id) {
         localStorage.setItem('cheonjamun_completed', JSON.stringify(completed));
         localStorage.setItem('cheonjamun_wrong_answers', JSON.stringify(wrong));
 
-        // Sync to Cloud
+        // Sync to Cloud (Silent fail if not logged in)
         if (auth.currentUser) {
-            await saveProgressToFirestore(auth.currentUser.uid, completed, wrong);
+            saveProgressToFirestore(auth.currentUser.uid, completed, wrong).catch(console.error);
         }
 
         renderDictionaryList(true);
@@ -424,8 +445,7 @@ window.toggleCompleted = async function (id) {
 
 // Learning state helper for games
 window.updateLearningState = function (id, isCorrect) {
-    const isLoggedIn = !!auth.currentUser;
-    if (!isLoggedIn) return;
+    // Login check removed for offline mode
 
     const char = cheonjamunData.characters.find(c => c.id === id);
     if (!char) return;
@@ -446,7 +466,7 @@ window.updateLearningState = function (id, isCorrect) {
 
     // Sync to Cloud
     if (auth.currentUser) {
-        saveProgressToFirestore(auth.currentUser.uid, completed, wrong);
+        saveProgressToFirestore(auth.currentUser.uid, completed, wrong).catch(console.error);
     }
 };
 
@@ -493,7 +513,8 @@ function hideAllViews() {
         'sentence-game-view',
         'sentences-view',
         'account-view',
-        'active-game-view'
+        'active-game-view',
+        'active-sent-game-view'
     ];
     views.forEach(id => {
         const el = document.getElementById(id);
@@ -577,13 +598,16 @@ window.handleGameClick = function (gameId, isPro) {
     } else {
         if (gameId === 'word-multi') {
             startWordQuiz();
+        } else if (gameId === 'sent-blank') {
+            startSentenceBlankGame();
+        } else if (gameId === 'word-hanzi') {
+            startHanjaSelectionGame();
+        } else if (gameId === 'word-board') {
+            startBoardGame();
+        } else if (gameId === 'sent-match') {
+            startSentenceMeaningGame();
         } else {
-            const gameNames = {
-                'word-hanzi': '한자 고르기',
-                'sent-blank': '빈칸 채우기'
-            };
-            const name = gameNames[gameId] || gameId;
-            alert(`${name} 게임을 시작합니다! (준비중)`);
+            alert(`${gameId} 게임을 시작합니다! (준비중)`);
         }
     }
 };
@@ -658,6 +682,12 @@ function renderQuizQuestion() {
     const container = document.getElementById('active-game-view');
     const q = quizState.questions[quizState.currentIndex];
 
+    const optButtons = q.options.map(opt => `
+        <button class="sent-blank-opt" onclick="handleQuizAnswer(${opt.id})">
+            <span class="opt-reading" style="font-size:1.1rem; font-weight:600;">${opt.meaning} ${opt.sound}</span>
+        </button>
+    `).join('');
+
     container.innerHTML = `
         <div class="quiz-container">
             <div class="quiz-header">
@@ -666,15 +696,8 @@ function renderQuizQuestion() {
             </div>
             <div class="quiz-question-card">
                 <span class="quiz-hanja hanja-text">${q.target.hanja}</span>
-                <p class="quiz-instruction">위 한자의 뜻과 음을 고르세요.</p>
             </div>
-            <div class="quiz-options">
-                ${q.options.map(opt => `
-                    <button class="quiz-opt-btn" onclick="handleQuizAnswer(${opt.id})">
-                        ${opt.meaning} ${opt.sound}
-                    </button>
-                `).join('')}
-            </div>
+            <div class="sent-blank-options">${optButtons}</div>
         </div>
     `;
 }
@@ -685,26 +708,43 @@ window.handleQuizAnswer = function (selectedId) {
 
     if (isCorrect) {
         quizState.score += 10;
-        // Optional: If correct, we don't necessarily mark as completed here, 
-        // as completing might require more than one correct answer.
-        // But for now, let's keep it simple.
+        // Correct: score only. Completion can only be set from the dictionary.
     } else {
         quizState.wrongAnswers.push(q.target);
-        // Mark as wrong in data and unmark complete if it was
+        // Wrong: mark as wrong and remove completion
         const char = cheonjamunData.characters.find(c => c.id === q.target.id);
         if (char) {
             char.is_wrong = true;
             char.is_completed = false;
         }
+        const completed = cheonjamunData.characters.filter(c => c.is_completed).map(c => c.id);
+        const wrong = cheonjamunData.characters.filter(c => c.is_wrong).map(c => c.id);
+        localStorage.setItem('cheonjamun_completed', JSON.stringify(completed));
+        localStorage.setItem('cheonjamun_wrong_answers', JSON.stringify(wrong));
+        if (auth.currentUser) saveProgressToFirestore(auth.currentUser.uid, completed, wrong).catch(console.error);
     }
 
-    quizState.currentIndex++;
+    // Disable buttons and flash feedback
+    const container = document.getElementById('active-game-view');
+    const buttons = container.querySelectorAll('.sent-blank-opt');
+    buttons.forEach(btn => { btn.disabled = true; btn.onclick = null; });
 
-    if (quizState.currentIndex < 10) {
-        renderQuizQuestion();
-    } else {
-        showQuizResults();
-    }
+    q.options.forEach((opt, i) => {
+        if (opt.id === q.target.id) {
+            buttons[i].classList.add('correct');
+        } else if (opt.id === selectedId && !isCorrect) {
+            buttons[i].classList.add('wrong');
+        }
+    });
+
+    setTimeout(() => {
+        quizState.currentIndex++;
+        if (quizState.currentIndex < 10) {
+            renderQuizQuestion();
+        } else {
+            showQuizResults();
+        }
+    }, 900);
 };
 
 function showQuizResults() {
@@ -743,6 +783,155 @@ function showQuizResults() {
 window.closeProModal = function () {
     document.getElementById('pro-modal').style.display = 'none';
 };
+
+// ===== Hanja Selection Game (Meaning -> Hanja) =====
+
+function startHanjaSelectionGame() {
+    initHanjaSelectionGame();
+    window.location.hash = '#hanja-selection';
+}
+
+function initHanjaSelectionGame() {
+    hideAllViews();
+    document.getElementById('active-game-view').style.display = 'block';
+
+    const allChars = cheonjamunData.characters;
+    if (allChars.length < 4) {
+        alert('한자 데이터가 부족합니다.');
+        return;
+    }
+
+    // Reuse selection logic from Word Quiz
+    const unlearnedPool = allChars.filter(c => c.is_wrong || !c.is_completed);
+    const completedPool = allChars.filter(c => c.is_completed && !c.is_wrong);
+
+    const shuffledUnlearned = [...unlearnedPool].sort(() => 0.5 - Math.random());
+    const shuffledCompleted = [...completedPool].sort(() => 0.5 - Math.random());
+
+    let selected = [];
+    selected = shuffledUnlearned.slice(0, Math.min(8, shuffledUnlearned.length));
+    selected = selected.concat(shuffledCompleted.slice(0, Math.min(2, shuffledCompleted.length)));
+
+    if (selected.length < 10) {
+        const remainingID = selected.map(s => s.id);
+        const remainingPool = allChars.filter(c => !remainingID.includes(c.id));
+        const extra = [...remainingPool].sort(() => 0.5 - Math.random()).slice(0, 10 - selected.length);
+        selected = selected.concat(extra);
+    }
+
+    selected = selected.sort(() => 0.5 - Math.random());
+
+    quizState = {
+        questions: selected.map(char => {
+            const distractors = allChars
+                .filter(c => c.id !== char.id)
+                .sort(() => 0.5 - Math.random())
+                .slice(0, 3);
+            const options = [...distractors, char].sort(() => 0.5 - Math.random());
+            return { target: char, options: options };
+        }),
+        currentIndex: 0,
+        score: 0,
+        wrongAnswers: []
+    };
+
+    renderHanjaSelectionQuestion();
+}
+
+function renderHanjaSelectionQuestion() {
+    const container = document.getElementById('active-game-view');
+    const q = quizState.questions[quizState.currentIndex];
+
+    // Options are Hanja characters
+    const optButtons = q.options.map(opt => `
+        <button class="sent-blank-opt" onclick="handleHanjaSelectionAnswer(${opt.id})">
+            <span class="opt-hanja hanja-text" style="font-size: 2.2rem;">${opt.hanja}</span>
+        </button>
+    `).join('');
+
+    container.innerHTML = `
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <span class="quiz-progress">문제 ${quizState.currentIndex + 1} / 10</span>
+                <span class="quiz-score">점수: ${quizState.score}</span>
+            </div>
+            <div class="quiz-question-card">
+                <!-- Word Meaning Question -->
+                <span class="hanja-text" style="font-size: 2.5rem; color: white; display:block; margin-bottom:10px;">
+                    ${q.target.meaning} ${q.target.sound}
+                </span>
+            </div>
+            <div class="sent-blank-options">${optButtons}</div>
+        </div>
+    `;
+}
+
+window.handleHanjaSelectionAnswer = function (selectedId) {
+    const q = quizState.questions[quizState.currentIndex];
+    const isCorrect = selectedId === q.target.id;
+
+    if (isCorrect) {
+        quizState.score += 10;
+    } else {
+        quizState.wrongAnswers.push(q.target);
+        updateLearningState(q.target.id, false);
+    }
+
+    // Feedback
+    const container = document.getElementById('active-game-view');
+    const buttons = container.querySelectorAll('.sent-blank-opt');
+    buttons.forEach(btn => { btn.disabled = true; btn.onclick = null; });
+
+    q.options.forEach((opt, i) => {
+        if (opt.id === q.target.id) {
+            buttons[i].classList.add('correct');
+        } else if (opt.id === selectedId && !isCorrect) {
+            buttons[i].classList.add('wrong');
+        }
+    });
+
+    setTimeout(() => {
+        quizState.currentIndex++;
+        if (quizState.currentIndex < 10) {
+            renderHanjaSelectionQuestion();
+        } else {
+            showHanjaSelectionResults();
+        }
+    }, 900);
+};
+
+function showHanjaSelectionResults() {
+    const container = document.getElementById('active-game-view');
+    container.innerHTML = `
+        <div class="quiz-results">
+            <h2 class="results-title">한자 고르기 완료!</h2>
+            <div class="results-score-circle">
+                <span class="results-score">${quizState.score}</span>
+                <span class="results-label">점</span>
+            </div>
+            <p class="results-msg">${quizState.score === 100 ? '완벽해요! 한자 박사님이시네요!' : '수고하셨습니다! 다시 도전해보세요.'}</p>
+            
+            ${quizState.wrongAnswers.length > 0 ? `
+                <div class="wrong-list">
+                    <h3>틀린 문제 복습</h3>
+                    <div class="wrong-grid">
+                        ${quizState.wrongAnswers.map(char => `
+                            <div class="wrong-item">
+                                <span class="hanja-text" style="font-size:1.5rem;">${char.hanja}</span>
+                                <span style="font-size:0.9rem;">${char.meaning} ${char.sound}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            ` : ''}
+
+            <div class="results-actions">
+                <button class="results-btn primary" onclick="startHanjaSelectionGame()">다시 하기</button>
+                <button class="results-btn secondary" onclick="window.location.hash = '#word-games'">메인으로</button>
+            </div>
+        </div>
+    `;
+}
 
 // ... existing code ...
 
@@ -790,19 +979,532 @@ function renderCheonjamun() {
         const card = document.createElement('div');
         card.className = 'sentence-card';
 
-        const details = sentence.char_ids.map(id => {
+        // Build individual character mini-cards (using original CSS class names)
+        const charCards = sentence.char_ids.map(id => {
             const char = data.characters.find(c => c.id === id);
-            return char ? `<span class="detail-char" onclick="openStrokeModal('${char.hanja}')">${char.hanja} <span class="detail-sound">${char.sound}</span></span>` : '';
+            if (!char) return '';
+            return `
+                <div class="char-card" onclick="openStrokeModal('${char.hanja}')" style="cursor:pointer;">
+                    <span class="char-hanja hanja-text">${char.hanja}</span>
+                    <span class="char-sound-meaning">${char.meaning} ${char.sound}</span>
+                    <span class="char-info">${char.level} / ${char.stroke_count}획</span>
+                </div>`;
         }).join('');
 
         card.innerHTML = `
             <div class="sentence-header">
-                <span class="sentence-id">${sentence.id}</span>
-                <span class="sentence-phrase">${sentence.phrase}</span>
+                <span class="sentence-number">${String(sentence.id).padStart(3, '0')}</span>
+                <div class="sentence-phrase hanja-text">${sentence.phrase}</div>
+                <div class="sentence-meaning">${sentence.interpretation}</div>
             </div>
-            <div class="sentence-interpretation">${sentence.interpretation}</div>
-            <div class="sentence-details">${details}</div>
+            <div class="char-grid">${charCards}</div>
         `;
         listContainer.appendChild(card);
     });
 }
+
+// ===== Sentence Fill-in-the-Blank Game =====
+
+let sentBlankState = {
+    questions: [],
+    currentIndex: 0,
+    score: 0,
+    wrongAnswers: []
+};
+
+function startSentenceBlankGame() {
+    initSentenceBlankGame();
+}
+
+function initSentenceBlankGame() {
+    hideAllViews();
+    const container = document.getElementById('active-sent-game-view');
+    container.style.display = 'block';
+
+    const sentences = cheonjamunData.sentences;
+    const characters = cheonjamunData.characters;
+
+    if (!sentences || sentences.length < 10) {
+        container.innerHTML = '<p style="text-align:center;padding:40px;">문장 데이터가 부족합니다.</p>';
+        return;
+    }
+
+    // Pick 10 random sentences
+    const shuffled = [...sentences].sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, 10);
+
+    sentBlankState = {
+        questions: selected.map(sentence => {
+            // Pick a random position (0-3) to blank out
+            const blankPos = Math.floor(Math.random() * sentence.char_ids.length);
+            const correctId = sentence.char_ids[blankPos];
+            const correctChar = characters.find(c => c.id === correctId);
+
+            // Generate 3 unique distractors
+            const distractors = characters
+                .filter(c => c.id !== correctId)
+                .sort(() => 0.5 - Math.random())
+                .slice(0, 3);
+
+            const options = [...distractors, correctChar].sort(() => 0.5 - Math.random());
+
+            return { sentence, blankPos, correctChar, options };
+        }),
+        currentIndex: 0,
+        score: 0,
+        wrongAnswers: []
+    };
+
+    renderSentBlankQuestion();
+}
+
+function renderSentBlankQuestion() {
+    const container = document.getElementById('active-sent-game-view');
+    const q = sentBlankState.questions[sentBlankState.currentIndex];
+    const { sentence, blankPos, options } = q;
+    const characters = cheonjamunData.characters;
+
+    // Build the 4-character display with one blank slot
+    const charDisplay = sentence.char_ids.map((id, idx) => {
+        const char = characters.find(c => c.id === id);
+        if (idx === blankPos) {
+            return `<span class="sent-blank-slot">?</span>`;
+        }
+        return `<span class="sent-blank-char hanja-text">${char ? char.hanja : '?'}</span>`;
+    }).join('');
+
+    // Option buttons
+    const optButtons = options.map(opt => `
+        <button class="sent-blank-opt" onclick="handleSentBlankAnswer(${opt.id})">
+            <span class="opt-hanja hanja-text">${opt.hanja}</span>
+        </button>
+    `).join('');
+
+    container.innerHTML = `
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <span class="quiz-progress">문제 ${sentBlankState.currentIndex + 1} / 10</span>
+                <span class="quiz-score">점수: ${sentBlankState.score}</span>
+            </div>
+            <div class="sent-blank-question">
+                <div class="sent-blank-phrase">${charDisplay}</div>
+                <div class="sent-blank-interp">${sentence.interpretation}</div>
+            </div>
+            <p class="quiz-instruction">빈칸에 들어갈 한자를 고르세요.</p>
+            <div class="sent-blank-options">${optButtons}</div>
+        </div>
+    `;
+}
+
+window.handleSentBlankAnswer = function (selectedId) {
+    const q = sentBlankState.questions[sentBlankState.currentIndex];
+    const isCorrect = selectedId === q.correctChar.id;
+
+    if (isCorrect) {
+        sentBlankState.score += 10;
+        // Sentence game does NOT affect learning state
+    } else {
+        sentBlankState.wrongAnswers.push(q);
+        // Sentence game does NOT affect learning state
+    }
+
+    // Disable buttons and show feedback colors
+    const container = document.getElementById('active-sent-game-view');
+    const buttons = container.querySelectorAll('.sent-blank-opt');
+    buttons.forEach(btn => { btn.disabled = true; btn.onclick = null; });
+
+    q.options.forEach((opt, i) => {
+        if (opt.id === q.correctChar.id) {
+            buttons[i].classList.add('correct');
+        } else if (opt.id === selectedId && !isCorrect) {
+            buttons[i].classList.add('wrong');
+        }
+    });
+
+    setTimeout(() => {
+        sentBlankState.currentIndex++;
+        if (sentBlankState.currentIndex < 10) {
+            renderSentBlankQuestion();
+        } else {
+            showSentBlankResults();
+        }
+    }, 900);
+};
+
+function showSentBlankResults() {
+    const container = document.getElementById('active-sent-game-view');
+    const wrong = sentBlankState.wrongAnswers;
+
+    container.innerHTML = `
+        <div class="quiz-results">
+            <h2 class="results-title">빈칸 채우기 완료!</h2>
+            <div class="results-score-circle">
+                <span class="results-score">${sentBlankState.score}</span>
+                <span class="results-label">점</span>
+            </div>
+            <p class="results-msg">${sentBlankState.score === 100 ? '완벽해요! 천자문 마스터!' : '수고하셨습니다!'}</p>
+            ${wrong.length > 0 ? `
+                <div class="wrong-list">
+                    <h3>틀린 문장</h3>
+                    <div style="display:flex; flex-direction:column; gap:10px;">
+                        ${wrong.map(q => `
+                            <div style="background:rgba(255,255,255,0.04); padding:12px; border-radius:12px; text-align:center;">
+                                <div class="hanja-text" style="font-size:1.4rem; letter-spacing:4px; margin-bottom:4px;">${q.sentence.phrase}</div>
+                                <div style="color:#94A3B8; font-size:0.85rem;">${q.sentence.interpretation}</div>
+                                <div style="margin-top:6px; font-size:0.9rem;">정답: <span class="hanja-text" style="color:#6366F1; font-size:1.2rem;">${q.correctChar.hanja}</span> (${q.correctChar.meaning} ${q.correctChar.sound})</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            ` : ''}
+            <div class="results-actions">
+                <button class="results-btn primary" onclick="startSentenceBlankGame()">다시 하기</button>
+                <button class="results-btn secondary" onclick="window.location.hash = '#sentence-games'">메인으로</button>
+            </div>
+        </div>
+    `;
+}
+
+// ===== Sentence Meaning Match Game (Hanja Phrase -> Meaning) =====
+
+let sentMeaningState = {
+    questions: [],
+    currentIndex: 0,
+    score: 0,
+    wrongAnswers: []
+};
+
+function startSentenceMeaningGame() {
+    initSentenceMeaningGame();
+    window.location.hash = '#sent-match';
+}
+
+function initSentenceMeaningGame() {
+    hideAllViews();
+    const container = document.getElementById('active-sent-game-view');
+    container.style.display = 'block';
+
+    const sentences = cheonjamunData.sentences;
+    if (!sentences || sentences.length < 10) {
+        container.innerHTML = '<p style="text-align:center;padding:40px;">문장 데이터가 부족합니다.</p>';
+        return;
+    }
+
+    // Pick 10 random sentences
+    const shuffled = [...sentences].sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, 10);
+
+    sentMeaningState = {
+        questions: selected.map(sentence => {
+            const distractors = sentences
+                .filter(s => s.id !== sentence.id)
+                .sort(() => 0.5 - Math.random())
+                .slice(0, 3);
+            const options = [...distractors, sentence].sort(() => 0.5 - Math.random());
+            return { target: sentence, options: options };
+        }),
+        currentIndex: 0,
+        score: 0,
+        wrongAnswers: []
+    };
+
+    renderSentenceMeaningQuestion();
+}
+
+function renderSentenceMeaningQuestion() {
+    const container = document.getElementById('active-sent-game-view');
+    const q = sentMeaningState.questions[sentMeaningState.currentIndex];
+
+    // Options are Meanings
+    const optButtons = q.options.map(opt => `
+        <button class="sent-blank-opt" onclick="handleSentenceMeaningAnswer(${opt.id})" style="flex-direction:row; justify-content:center; text-align:center;">
+            <span class="opt-reading" style="font-size:1.1rem; color:var(--text-color);">${opt.interpretation}</span>
+        </button>
+    `).join('');
+
+    container.innerHTML = `
+        <div class="quiz-container">
+            <div class="quiz-header">
+                <span class="quiz-progress">문제 ${sentMeaningState.currentIndex + 1} / 10</span>
+                <span class="quiz-score">점수: ${sentMeaningState.score}</span>
+            </div>
+            <div class="quiz-question-card">
+                <span class="hanja-text" style="font-size: 3rem; color: white; display:block; margin-bottom:10px;">
+                    ${q.target.phrase}
+                </span>
+            </div>
+            <div class="sent-blank-options" style="grid-template-columns: 1fr;">${optButtons}</div>
+        </div>
+    `;
+}
+
+window.handleSentenceMeaningAnswer = function (selectedId) {
+    const q = sentMeaningState.questions[sentMeaningState.currentIndex];
+    const isCorrect = selectedId === q.target.id;
+
+    if (isCorrect) {
+        sentMeaningState.score += 10;
+    } else {
+        sentMeaningState.wrongAnswers.push(q.target);
+    }
+
+    // Feedback
+    const container = document.getElementById('active-sent-game-view');
+    const buttons = container.querySelectorAll('.sent-blank-opt');
+    buttons.forEach(btn => { btn.disabled = true; btn.onclick = null; });
+
+    q.options.forEach((opt, i) => {
+        if (opt.id === q.target.id) {
+            buttons[i].classList.add('correct');
+        } else if (opt.id === selectedId && !isCorrect) {
+            buttons[i].classList.add('wrong');
+        }
+    });
+
+    setTimeout(() => {
+        sentMeaningState.currentIndex++;
+        if (sentMeaningState.currentIndex < 10) {
+            renderSentenceMeaningQuestion();
+        } else {
+            showSentenceMeaningResults();
+        }
+    }, 900);
+};
+
+function showSentenceMeaningResults() {
+    const container = document.getElementById('active-sent-game-view');
+    container.innerHTML = `
+        <div class="quiz-results">
+            <h2 class="results-title">의미 맞추기 완료!</h2>
+            <div class="results-score-circle">
+                <span class="results-score">${sentMeaningState.score}</span>
+                <span class="results-label">점</span>
+            </div>
+            <p class="results-msg">${sentMeaningState.score === 100 ? '완벽해요! 문해력이 대단하시네요!' : '수고하셨습니다!'}</p>
+            
+            ${sentMeaningState.wrongAnswers.length > 0 ? `
+                <div class="wrong-list">
+                    <h3>틀린 문장 복습</h3>
+                    <div style="display:flex; flex-direction:column; gap:10px;">
+                        ${sentMeaningState.wrongAnswers.map(s => `
+                            <div style="background:rgba(255,255,255,0.04); padding:12px; border-radius:12px; text-align:center;">
+                                <div class="hanja-text" style="font-size:1.4rem; letter-spacing:4px; margin-bottom:4px;">${s.phrase}</div>
+                                <div style="color:#94A3B8; font-size:0.9rem;">${s.interpretation}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            ` : ''}
+
+            <div class="results-actions">
+                <button class="results-btn primary" onclick="startSentenceMeaningGame()">다시 하기</button>
+                <button class="results-btn secondary" onclick="window.location.hash = '#sentence-games'">메인으로</button>
+            </div>
+        </div>
+    `;
+}
+
+// ===== Board Game (Memory Match) =====
+
+let boardGameState = {
+    cards: [],
+    flippedIndices: [],
+    matchedPairs: 0,
+    moves: 0,
+    isLocked: false
+};
+
+function startBoardGame() {
+    initBoardGame();
+    window.location.hash = '#word-board';
+}
+
+function initBoardGame() {
+    hideAllViews();
+    document.getElementById('active-game-view').style.display = 'block';
+
+    const allChars = cheonjamunData.characters;
+    if (allChars.length < 8) {
+        alert('한자 데이터가 부족합니다.');
+        return;
+    }
+
+    // Select 8 random characters
+    // Mix of unlearned and random
+    const unlearnedPool = allChars.filter(c => c.is_wrong || !c.is_completed);
+    const completedPool = allChars.filter(c => c.is_completed && !c.is_wrong);
+
+    // Prioritize unlearned, fill with random/completed
+    let selectedChars = [...unlearnedPool].sort(() => 0.5 - Math.random()).slice(0, 8);
+    if (selectedChars.length < 8) {
+        const moreNeeded = 8 - selectedChars.length;
+        const others = allChars.filter(c => !selectedChars.find(s => s.id === c.id));
+        selectedChars = selectedChars.concat(others.sort(() => 0.5 - Math.random()).slice(0, moreNeeded));
+    }
+
+    // Create 16 cards (8 pairs)
+    let cards = [];
+    selectedChars.forEach(char => {
+        // Card 1: Hanja
+        cards.push({
+            id: char.id,
+            type: 'hanja',
+            content: char.hanja,
+            meaning: char.meaning,
+            sound: char.sound,
+            isFlipped: false,
+            isMatched: false
+        });
+        // Card 2: Meaning/Sound
+        cards.push({
+            id: char.id,
+            type: 'meaning',
+            content: `${char.meaning} ${char.sound}`,
+            isFlipped: false,
+            isMatched: false
+        });
+    });
+
+    // Shuffle
+    cards.sort(() => 0.5 - Math.random());
+
+    boardGameState = {
+        cards: cards,
+        flippedIndices: [],
+        matchedPairs: 0,
+        moves: 0,
+        isLocked: false
+    };
+
+    renderBoardGame();
+}
+
+function renderBoardGame() {
+    const container = document.getElementById('active-game-view');
+
+    const gridHtml = boardGameState.cards.map((card, index) => `
+        <div class="board-card ${card.isFlipped ? 'flipped' : ''} ${card.isMatched ? 'matched' : ''}" onclick="handleBoardCardClick(${index})">
+            <div class="board-card-inner type-${card.type}">
+                <div class="board-card-front">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 16v-4"></path>
+                        <path d="M12 8h.01"></path>
+                    </svg>
+                </div>
+                <div class="board-card-back">
+                    <span class="${card.type === 'hanja' ? 'card-hanja' : 'card-meaning'} hanja-text">${card.content}</span>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    container.innerHTML = `
+        <div class="board-container">
+            <div class="board-header">
+                <h2 style="margin:0; font-size:1.2rem; color:var(--point-color);">카드 뒤집기</h2>
+                <span style="font-size:0.9rem; color:#888;">이동: ${boardGameState.moves}</span>
+            </div>
+            <div class="board-grid" id="board-game-grid">
+                ${gridHtml}
+            </div>
+            <div style="margin-top:20px; text-align:center;">
+                 <button class="results-btn secondary" onclick="window.location.hash = '#word-games'" style="padding: 8px 16px; font-size: 0.9rem;">나가기</button>
+            </div>
+        </div>
+    `;
+}
+
+window.handleBoardCardClick = function (index) {
+    if (boardGameState.isLocked) return;
+    const card = boardGameState.cards[index];
+
+    // Ignore if already matched or flipped
+    if (card.isMatched || card.isFlipped) return;
+
+    // Flip card
+    card.isFlipped = true;
+    boardGameState.flippedIndices.push(index);
+
+    renderBoardGame();
+
+    // Check match if 2 cards flipped
+    if (boardGameState.flippedIndices.length === 2) {
+        boardGameState.isLocked = true;
+        boardGameState.moves++;
+
+        const idx1 = boardGameState.flippedIndices[0];
+        const idx2 = boardGameState.flippedIndices[1];
+        const card1 = boardGameState.cards[idx1];
+        const card2 = boardGameState.cards[idx2];
+
+        if (card1.id === card2.id) {
+            // Match!
+            setTimeout(() => {
+                card1.isMatched = true;
+                card2.isMatched = true;
+                boardGameState.matchedPairs++;
+                boardGameState.flippedIndices = [];
+                boardGameState.isLocked = false;
+                renderBoardGame();
+
+                if (boardGameState.matchedPairs === 8) {
+                    showBoardGameResults();
+                }
+            }, 600);
+        } else {
+            // No Match
+            setTimeout(() => {
+                card1.isFlipped = false;
+                card2.isFlipped = false;
+                boardGameState.flippedIndices = [];
+                boardGameState.isLocked = false;
+                renderBoardGame();
+            }, 1000);
+        }
+    }
+};
+
+function showBoardGameResults() {
+    const container = document.getElementById('active-game-view');
+    container.innerHTML = `
+        <div class="quiz-results">
+            <h2 class="results-title">게임 클리어!</h2>
+            <div class="results-score-circle">
+                <span class="results-score" style="font-size:2rem;">${boardGameState.moves}</span>
+                <span class="results-label">회 이동</span>
+            </div>
+            <p class="results-msg">참 잘했어요! 기억력이 대단하시네요.</p>
+            <div class="results-actions">
+                <button class="results-btn primary" onclick="startBoardGame()">다시 하기</button>
+                <button class="results-btn secondary" onclick="window.location.hash = '#word-games'">메인으로</button>
+            </div>
+        </div>
+    `;
+}
+
+// ===== Modal Functions =====
+
+window.openModal = function (modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+};
+
+window.closeModal = function (modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = ''; // Restore background scrolling
+    }
+};
+
+// Close modal when clicking outside
+window.onclick = function (event) {
+    if (event.target.classList.contains('modal-overlay')) {
+        event.target.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+};
