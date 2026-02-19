@@ -12,10 +12,24 @@ if ('serviceWorker' in navigator) {
 
 // Navigation Routing
 function handleRouting() {
-    const hash = window.location.hash || '#dashboard';
+    const hash = window.location.hash;
+
+    // Exit confirmation for main screen (dashboard)
+    if (hash === "" || hash === "#") {
+        if (confirm("앱을 종료하시겠습니까?")) {
+            // User wants to exit. We can't close the app programmatically in most PWA environments,
+            // but we show the message as requested.
+        } else {
+            // Stay on dashboard
+            window.location.hash = "#dashboard";
+            return;
+        }
+    }
+
+    const activeHash = hash || '#dashboard';
     hideAllViews();
 
-    switch (hash) {
+    switch (activeHash) {
         case '#dashboard':
             document.getElementById('dashboard-grid').style.display = 'grid';
             break;
