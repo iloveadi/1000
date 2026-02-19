@@ -13,6 +13,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="천자문 마스터">
     <link rel="apple-touch-icon" href="icons/icon.svg">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 
 <body>
@@ -426,7 +427,6 @@
                 <div class="login-header">
                     <div class="login-pattern"></div>
                     <div class="mongle-wrapper">
-                        <div class="speech-bubble">어서 오게, 학도여!</div>
                         <img src="assets/welcome_dog.png" alt="Scholar Dog" class="mongle-img">
                     </div>
                 </div>
@@ -434,13 +434,7 @@
                     <h2 class="login-title">천자문 마스터 시작하기</h2>
                     <p class="login-desc">로그인하여 학습 기록을 동기화하세요.</p>
 
-                    <button class="login-btn google-btn" onclick="handleLogin('google')">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 6.91-4.09.51-6.74-2.47-7.57-5.48-.34-1.23-.34-2.43 0-3.66C5.58 6.01 9.99 3.06 14.12 5.3c1.55.53 2.76 1.48 3.59 2.1l2.2-2.33c-2.4-2.14-5.2-3.32-8.72-3.08C4.55 2.16.89 7.6.89 13.06c.03 5.44 3.79 9.95 9.07 10.93 5.37.98 10.15-2.07 11.69-5.91 1.05-2.61.81-6.37-.3-6.98z" />
-                        </svg>
-                        Google로 시작하기
-                    </button>
+                    <div id="google-login-button"></div>
 
                     <div class="guest-warning">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"

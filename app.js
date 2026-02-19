@@ -192,21 +192,55 @@ window.closeProModal = function () {
 };
 
 // Account & Login Logic
-window.handleLogin = function (provider) {
-    if (provider !== 'google') return;
+// Google Identity Services (GIS) Integration
+window.handleCredentialResponse = function (response) {
+    // Decode JWT from response.credential
+    const base64Url = response.credential.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
 
-    // Simulate Google Login
-    alert('Google 로 로그인 중...');
+    const user = JSON.parse(jsonPayload);
+    console.log("User Logged In:", user);
 
-    // Set Login State
+    // Save user info
     localStorage.setItem('cheonjamun_is_logged_in', 'true');
-    localStorage.setItem('cheonjamun_user_name', '학도 몽글이');
+    localStorage.setItem('cheonjamun_user_name', user.name || '학도');
+    localStorage.setItem('cheonjamun_user_email', user.email);
+    localStorage.setItem('cheonjamun_user_picture', user.picture);
 
-    // Simulate Sync
-    setTimeout(() => {
-        alert('학습 데이터가 클라우드와 동기화되었습니다!');
-        renderAccountView();
-    }, 500);
+    // Sync notification
+    alert(`${user.name}님, 환영합니다! 학습 기록이 클라우드와 동기화됩니다.`);
+    renderAccountView();
+};
+
+function initGoogleSignIn() {
+    if (!window.google) {
+        setTimeout(initGoogleSignIn, 100);
+        return;
+    }
+
+    google.accounts.id.initialize({
+        client_id: "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com", // Replace with real Client ID
+        callback: window.handleCredentialResponse
+    });
+
+    const buttonDiv = document.getElementById('google-login-button');
+    if (buttonDiv) {
+        google.accounts.id.renderButton(
+            buttonDiv,
+            { theme: "outline", size: "large", width: buttonDiv.offsetWidth, text: "continue_with" }
+        );
+    }
+}
+
+// Global handleLogin for legacy calls if any (though we use GIS button now)
+window.handleLogin = function (provider) {
+    if (provider === 'google') {
+        initGoogleSignIn();
+        alert("구글 로그인을 위해 버튼을 한 번 더 눌러주세요! (첫 설치 시 활성화)");
+    }
 };
 
 window.handleLogout = function () {
@@ -236,9 +270,23 @@ function renderAccountView() {
 
     if (isLoggedIn) {
         if (loginSection) loginSection.style.display = 'none';
-        if (profileSection) profileSection.style.display = 'block';
+        if (profileSection) {
+            profileSection.style.display = 'block';
+            // Update profile info
+            const userName = localStorage.getItem('cheonjamun_user_name');
+            const userPic = localStorage.getItem('cheonjamun_user_picture');
+
+            const nameEl = profileSection.querySelector('.user-name');
+            const picEl = profileSection.querySelector('.profile-avatar img');
+
+            if (nameEl) nameEl.textContent = userName;
+            if (picEl && userPic) picEl.src = userPic;
+        }
     } else {
-        if (loginSection) loginSection.style.display = 'block';
+        if (loginSection) {
+            loginSection.style.display = 'block';
+            initGoogleSignIn(); // Re-init button when showing login screen
+        }
         if (profileSection) profileSection.style.display = 'none';
     }
 }
