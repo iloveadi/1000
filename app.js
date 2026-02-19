@@ -10,6 +10,54 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+// Navigation Routing
+function handleRouting() {
+    const hash = window.location.hash || '#dashboard';
+    hideAllViews();
+
+    switch (hash) {
+        case '#dashboard':
+            document.getElementById('dashboard-grid').style.display = 'grid';
+            break;
+        case '#dictionary':
+            document.getElementById('dictionary-view').style.display = 'block';
+            renderDictionaryList(true);
+            break;
+        case '#sentences':
+            document.getElementById('sentences-view').style.display = 'block';
+            renderCheonjamun();
+            break;
+        case '#word-games':
+            document.getElementById('word-game-view').style.display = 'block';
+            break;
+        case '#sentence-games':
+            document.getElementById('sentence-game-view').style.display = 'block';
+            break;
+        case '#account':
+            document.getElementById('account-view').style.display = 'block';
+            renderAccountView();
+            break;
+        case '#word-quiz':
+            if (quizState.questions.length === 0) {
+                initWordQuiz();
+            } else {
+                document.getElementById('active-game-view').style.display = 'block';
+            }
+            break;
+        default:
+            document.getElementById('dashboard-grid').style.display = 'grid';
+            break;
+    }
+}
+
+window.addEventListener('hashchange', handleRouting);
+window.addEventListener('load', () => {
+    if (!window.location.hash) {
+        window.location.hash = '#dashboard';
+    }
+    handleRouting();
+});
+
 // Data Handling
 let cheonjamunData = {
     characters: [],
@@ -336,9 +384,7 @@ window.addEventListener('dataLoaded', (e) => {
     const dictBtn = document.querySelector('button[data-target="dictionary"]');
     if (dictBtn) {
         dictBtn.addEventListener('click', () => {
-            hideAllViews();
-            document.getElementById('dictionary-view').style.display = 'block';
-            renderDictionaryList(true);
+            window.location.hash = '#dictionary';
         });
     }
 
@@ -346,8 +392,7 @@ window.addEventListener('dataLoaded', (e) => {
     const wordBtn = document.querySelector('button[data-target="word-games"]');
     if (wordBtn) {
         wordBtn.addEventListener('click', () => {
-            hideAllViews();
-            document.getElementById('word-game-view').style.display = 'block';
+            window.location.hash = '#word-games';
         });
     }
 
@@ -355,8 +400,7 @@ window.addEventListener('dataLoaded', (e) => {
     const sentBtn = document.querySelector('button[data-target="sentence-games"]');
     if (sentBtn) {
         sentBtn.addEventListener('click', () => {
-            hideAllViews();
-            document.getElementById('sentence-game-view').style.display = 'block';
+            window.location.hash = '#sentence-games';
         });
     }
 
@@ -364,9 +408,7 @@ window.addEventListener('dataLoaded', (e) => {
     const acctBtn = document.querySelector('button[data-target="account"]');
     if (acctBtn) {
         acctBtn.addEventListener('click', () => {
-            hideAllViews();
-            document.getElementById('account-view').style.display = 'block';
-            renderAccountView();
+            window.location.hash = '#account';
         });
     }
 
@@ -374,9 +416,7 @@ window.addEventListener('dataLoaded', (e) => {
     const sentencesBtn = document.querySelector('button[data-target="sentences"]');
     if (sentencesBtn) {
         sentencesBtn.addEventListener('click', () => {
-            hideAllViews();
-            document.getElementById('sentences-view').style.display = 'block';
-            renderCheonjamun();
+            window.location.hash = '#sentences';
         });
     }
 
@@ -393,8 +433,7 @@ window.addEventListener('dataLoaded', (e) => {
     const titleBtn = document.querySelector('.target-title');
     if (titleBtn) {
         titleBtn.addEventListener('click', () => {
-            hideAllViews();
-            document.getElementById('dashboard-grid').style.display = 'grid';
+            window.location.hash = '#dashboard';
         });
     }
 });
@@ -425,6 +464,11 @@ window.handleGameClick = function (gameId, isPro) {
 };
 
 function startWordQuiz() {
+    initWordQuiz();
+    window.location.hash = '#word-quiz';
+}
+
+function initWordQuiz() {
     hideAllViews();
     document.getElementById('active-game-view').style.display = 'block';
 
@@ -565,7 +609,7 @@ function showQuizResults() {
 
             <div class="results-actions">
                 <button class="results-btn primary" onclick="startWordQuiz()">다시 하기</button>
-                <button class="results-btn secondary" onclick="location.reload()">메인으로</button>
+                <button class="results-btn secondary" onclick="window.location.hash = '#word-games'">메인으로</button>
             </div>
         </div>
     `;

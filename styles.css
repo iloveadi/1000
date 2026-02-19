@@ -35,10 +35,22 @@ body {
     padding-top: var(--header-height);
     padding-bottom: var(--ad-height);
     transition: background-color 0.3s, color 0.3s;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 }
 
 .hanja-text {
     font-family: 'Noto Serif KR', serif;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+input,
+textarea {
+    user-select: text !important;
+    -webkit-user-select: text !important;
 }
 
 /* Header Styles */
