@@ -584,12 +584,127 @@ window.addEventListener('dataLoaded', (e) => {
     }
 });
 
-// Theme Logic - REMOVED
-// function applyTheme(theme) {}
-// window.toggleTheme = function() {};
-// window.toggleSettings = function() {};
+// ===== Settings Functions =====
 
-// ... existing logic ...
+// Toggle Settings Panel
+window.toggleSettings = function () {
+    const overlay = document.getElementById('settings-overlay');
+    const panel = document.getElementById('settings-panel');
+    const isOpen = panel.classList.contains('open');
+
+    if (isOpen) {
+        panel.classList.remove('open');
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+    } else {
+        overlay.style.display = 'block';
+        panel.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        updateSettingsStats();
+    }
+};
+
+// Settings button event listener
+document.addEventListener('DOMContentLoaded', () => {
+    const settingsBtn = document.querySelector('.app-header .icon-btn[aria-label="설정"]');
+    if (settingsBtn) {
+        settingsBtn.addEventListener('click', toggleSettings);
+    }
+
+    // Restore saved settings
+    restoreSettings();
+});
+
+function restoreSettings() {
+    // Restore theme
+    const savedTheme = localStorage.getItem('app-theme');
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+        const toggle = document.getElementById('theme-toggle');
+        if (toggle) toggle.checked = true;
+    }
+
+    // Restore font size
+    const savedFontSize = localStorage.getItem('app-font-size') || 'medium';
+    changeFontSize(savedFontSize, false);
+
+    // Restore TTS
+    const savedTTS = localStorage.getItem('app-tts');
+    if (savedTTS === 'true') {
+        const toggle = document.getElementById('tts-toggle');
+        if (toggle) toggle.checked = true;
+    }
+}
+
+// Theme Toggle
+window.toggleTheme = function () {
+    const isLight = document.body.classList.toggle('light-mode');
+    localStorage.setItem('app-theme', isLight ? 'light' : 'dark');
+};
+
+// Font Size
+window.changeFontSize = function (size, save = true) {
+    document.body.classList.remove('font-small', 'font-medium', 'font-large');
+    document.body.classList.add(`font-${size}`);
+
+    // Update active button
+    document.querySelectorAll('.font-size-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.size === size);
+    });
+
+    if (save) localStorage.setItem('app-font-size', size);
+};
+
+// TTS Toggle
+window.toggleTTS = function () {
+    const toggle = document.getElementById('tts-toggle');
+    const enabled = toggle.checked;
+    localStorage.setItem('app-tts', enabled);
+};
+
+// Reset Progress
+window.resetProgress = function () {
+    if (confirm('정말 학습 기록을 초기화하시겠습니까?\n이 작업은 되돌릴 수 없습니다.')) {
+        // Reset all character progress
+        if (typeof cheonjamunData !== 'undefined' && cheonjamunData.characters) {
+            cheonjamunData.characters.forEach(c => {
+                c.is_completed = false;
+                c.is_wrong = false;
+                c.is_favorite = false;
+            });
+        }
+
+        // Clear localStorage progress keys
+        localStorage.removeItem('cheonjamun_progress');
+        localStorage.removeItem('quiz_stats');
+
+        // Update stats display
+        updateSettingsStats();
+
+        alert('학습 기록이 초기화되었습니다.');
+    }
+};
+
+// Update Statistics in Settings
+function updateSettingsStats() {
+    if (typeof cheonjamunData === 'undefined' || !cheonjamunData.characters) return;
+
+    const chars = cheonjamunData.characters;
+    const learned = chars.filter(c => c.is_completed).length;
+    const favorites = chars.filter(c => c.is_favorite).length;
+
+    // Calculate accuracy from quiz stats
+    const quizStats = JSON.parse(localStorage.getItem('quiz_stats') || '{"correct":0,"total":0}');
+    const accuracy = quizStats.total > 0 ? Math.round((quizStats.correct / quizStats.total) * 100) : 0;
+
+    const learnedEl = document.getElementById('stat-learned');
+    const accuracyEl = document.getElementById('stat-accuracy');
+    const favoritesEl = document.getElementById('stat-favorites');
+
+    if (learnedEl) learnedEl.textContent = `${learned}자`;
+    if (accuracyEl) accuracyEl.textContent = `${accuracy}%`;
+    if (favoritesEl) favoritesEl.textContent = `${favorites}개`;
+}
 
 window.handleGameClick = function (gameId, isPro) {
     if (isPro) {
@@ -943,12 +1058,6 @@ loadData();
 // Event Listeners
 window.addEventListener('dataLoaded', (e) => {
     // ... existing listeners ...
-
-    // Settings Button (Disabled for now or remove listener)
-    // const settingsBtn = document.querySelector('.app-header .icon-btn[aria-label="설정"]');
-    // if(settingsBtn) {
-    //     settingsBtn.addEventListener('click', toggleSettings);
-    // }
 });
 // Render Sentences
 function renderCheonjamun() {

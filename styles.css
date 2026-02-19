@@ -116,46 +116,528 @@ textarea {
 }
 
 /* Settings Menu Overlay */
+/* Premium Light Mode */
+body.light-mode {
+    --bg-color: #F8F6F0;
+    --text-color: #1A1A2E;
+    --card-bg-color: #FFFFFF;
+    --input-bg-color: #F1EDE6;
+    --border-color: #E2DDD5;
+    --sub-text-color: #6B7280;
+    --point-color: #4F46E5;
+    --point-hover: #4338CA;
+    --ad-bg-color: #0D9488;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .app-header {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E2DDD5;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .settings-panel {
+    background-color: #FFFFFF;
+    border-left: 1px solid #E2DDD5;
+}
+
+body.light-mode .settings-divider {
+    background: #E2DDD5;
+}
+
+body.light-mode .settings-item-btn:hover {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .font-size-btn {
+    background: #F1EDE6;
+    color: #6B7280;
+    border-color: #E2DDD5;
+}
+
+body.light-mode .font-size-btn.active {
+    background: var(--point-color);
+    color: white;
+    border-color: var(--point-color);
+}
+
+body.light-mode .settings-stats {
+    background: #F8F6F0;
+}
+
+body.light-mode .stat-mini-label {
+    color: #6B7280;
+}
+
+body.light-mode .stat-mini-value {
+    color: #1A1A2E;
+}
+
+body.light-mode .settings-app-info {
+    background: #F8F6F0;
+}
+
+body.light-mode .menu-card {
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .menu-card:active {
+    background-color: #F8F6F0;
+}
+
+body.light-mode .hanja-list-card {
+    background-color: #FFFFFF;
+}
+
+body.light-mode .sentence-card {
+    background-color: #FFFFFF;
+}
+
+body.light-mode .quiz-question-card {
+    background-color: #FFFFFF;
+}
+
+body.light-mode .quiz-opt-btn {
+    background: #FFFFFF;
+    color: #1A1A2E;
+    border-color: #E2DDD5;
+}
+
+body.light-mode .quiz-opt-btn:hover {
+    background: #F8F6F0;
+    border-color: var(--point-color);
+}
+
+body.light-mode .stat-card {
+    background-color: #FFFFFF;
+}
+
+body.light-mode .modal-content {
+    background: #FFFFFF;
+    color: #1A1A2E;
+    border-color: #E2DDD5;
+}
+
+body.light-mode .modal-body {
+    color: #374151;
+}
+
+body.light-mode .modal-body h3 {
+    color: #1A1A2E;
+}
+
+body.light-mode .quiz-results {
+    background: #FFFFFF;
+}
+
+body.light-mode .search-container {
+    background-color: #F1EDE6;
+}
+
+body.light-mode .filter-tab {
+    background-color: #F1EDE6;
+    border-color: #E2DDD5;
+    color: #6B7280;
+}
+
+body.light-mode .ad-banner-placeholder {
+    background-color: var(--ad-bg-color);
+}
+
+/* Light mode text fixes */
+body.light-mode .menu-title {
+    color: #1A1A2E;
+}
+
+body.light-mode .icon-wrapper {
+    color: #4F46E5;
+}
+
+body.light-mode .hanja-main-char {
+    color: #1A1A2E;
+}
+
+body.light-mode .hanja-sub-text {
+    color: #6B7280;
+}
+
+body.light-mode .quiz-hanja {
+    color: #1A1A2E;
+    text-shadow: none;
+}
+
+body.light-mode .quiz-instruction {
+    color: #6B7280;
+}
+
+body.light-mode .results-title {
+    color: #1A1A2E;
+}
+
+body.light-mode .results-msg {
+    color: #6B7280;
+}
+
+body.light-mode .results-btn.secondary {
+    background: #F1EDE6;
+    color: #1A1A2E;
+}
+
+body.light-mode .char-hanja {
+    color: #4F46E5;
+}
+
+body.light-mode .char-sound-meaning {
+    color: #374151;
+}
+
+body.light-mode .char-info {
+    color: #6B7280;
+}
+
+body.light-mode .sentence-phrase {
+    color: #1A1A2E;
+}
+
+body.light-mode .sentence-meaning {
+    color: #6B7280;
+}
+
+body.light-mode .char-card {
+    background-color: #F1EDE6;
+}
+
+body.light-mode .user-name {
+    color: #1A1A2E;
+}
+
+body.light-mode .login-title {
+    color: #1A1A2E;
+}
+
+body.light-mode .login-desc {
+    color: #6B7280;
+}
+
+body.light-mode .login-header {
+    background: linear-gradient(135deg, #F1EDE6 0%, #E8E4DD 100%);
+}
+
+body.light-mode .login-body {
+    background-color: #FFFFFF;
+}
+
+body.light-mode .google-btn {
+    background: #F1EDE6;
+    color: #1A1A2E;
+    border: 1px solid #E2DDD5;
+}
+
+body.light-mode .guest-warning {
+    background: #FEF9C3;
+    color: #92400E;
+    border-color: #FDE68A;
+}
+
+body.light-mode .notification-dot {
+    box-shadow: 0 0 4px rgba(255, 215, 0, 0.8);
+}
+
+body.light-mode .board-container,
+body.light-mode .quiz-container {
+    color: #1A1A2E;
+}
+
+body.light-mode .pro-modal-content {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8F6F0 100%);
+    border-color: #E2DDD5;
+}
+
+body.light-mode .pro-title {
+    color: #1A1A2E;
+}
+
+body.light-mode .pro-desc {
+    color: #6B7280;
+}
+
+body.light-mode #hanja-search,
+body.light-mode #sentence-search {
+    color: #1A1A2E;
+}
+
+/* Settings Overlay */
 .settings-overlay {
     position: fixed;
-    top: var(--header-height);
+    top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1500;
     display: none;
-    /* Hidden by default */
+    backdrop-filter: blur(2px);
 }
 
-.settings-menu {
+/* Settings Panel (Slide-in from right) */
+.settings-panel {
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 320px;
+    max-width: 85vw;
+    height: 100%;
+    background: #1E293B;
+    z-index: 1600;
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.settings-panel.open {
+    right: 0;
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.settings-header h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.settings-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 8px 0;
+}
+
+.settings-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+}
+
+.settings-item-row.column {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.settings-item-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.settings-item-info svg {
+    color: var(--sub-text-color);
+    flex-shrink: 0;
+}
+
+.settings-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+    margin: 0 20px;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    width: 48px;
+    height: 26px;
+    flex-shrink: 0;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: var(--card-bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    width: 200px;
-    overflow: hidden;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #475569;
+    transition: 0.3s;
+    border-radius: 26px;
 }
 
-.settings-item {
-    padding: 12px 16px;
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+.toggle-switch input:checked+.toggle-slider {
+    background-color: var(--point-color);
+}
+
+.toggle-switch input:checked+.toggle-slider:before {
+    transform: translateX(22px);
+}
+
+/* Font Size Selector */
+.font-size-selector {
+    display: flex;
+    gap: 8px;
     width: 100%;
-    text-align: left;
+}
+
+.font-size-btn {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    background: #334155;
+    color: #94A3B8;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.font-size-btn[data-size="small"] {
+    font-size: 0.8rem;
+}
+
+.font-size-btn[data-size="medium"] {
+    font-size: 1rem;
+}
+
+.font-size-btn[data-size="large"] {
+    font-size: 1.2rem;
+}
+
+.font-size-btn.active {
+    background: var(--point-color);
+    color: white;
+    border-color: var(--point-color);
+}
+
+/* Settings Stats */
+.settings-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+.stat-mini {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-mini-label {
+    font-size: 0.7rem;
+    color: #94A3B8;
+}
+
+.stat-mini-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+/* Settings Button Items */
+.settings-item-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 20px;
     background: none;
     border: none;
     color: var(--text-color);
-    font-size: 1rem;
+    font-size: 0.95rem;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    text-align: left;
+    transition: background 0.2s;
 }
 
-.settings-item:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    /* Subtle hover */
+.settings-item-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.settings-item-btn svg {
+    color: var(--sub-text-color);
+    flex-shrink: 0;
+}
+
+.settings-item-btn.danger {
+    color: #EF4444;
+}
+
+.settings-item-btn.danger svg {
+    color: #EF4444;
+}
+
+/* App Info */
+.settings-app-info {
+    text-align: center;
+    padding: 24px 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    margin: 8px 20px 20px;
+}
+
+.app-info-logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+    background: var(--premium-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+}
+
+.app-info-desc {
+    font-size: 0.85rem;
+    color: var(--sub-text-color);
+    margin-bottom: 4px;
+}
+
+.app-info-copyright {
+    font-size: 0.75rem;
+    color: #64748B;
+}
+
+/* Font Size Classes */
+body.font-small {
+    font-size: 14px;
+}
+
+body.font-medium {
+    font-size: 16px;
+}
+
+body.font-large {
+    font-size: 18px;
 }
 
 .target-title {
