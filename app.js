@@ -192,61 +192,110 @@ window.closeProModal = function () {
 };
 
 // Account & Login Logic
-// Google Identity Services (GIS) Integration
-window.handleCredentialResponse = function (response) {
-    // Decode JWT from response.credential
-    const base64Url = response.credential.split('.')[1];
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-    const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
-
-    const user = JSON.parse(jsonPayload);
-    console.log("User Logged In:", user);
-
-    // Save user info
-    localStorage.setItem('cheonjamun_is_logged_in', 'true');
-    localStorage.setItem('cheonjamun_user_name', user.name || '학도');
-    localStorage.setItem('cheonjamun_user_email', user.email);
-    localStorage.setItem('cheonjamun_user_picture', user.picture);
-
-    // Sync notification
-    alert(`${user.name}님, 환영합니다! 학습 기록이 클라우드와 동기화됩니다.`);
-    renderAccountView();
+// Firebase Configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyBtJXDh39vsPhIQdyhV4kkW9AkqF-JrRP4",
+    authDomain: "project-8679285663544329468.firebaseapp.com",
+    projectId: "project-8679285663544329468",
+    storageBucket: "project-8679285663544329468.firebasestorage.app",
+    messagingSenderId: "427077245166",
+    appId: "1:427077245166:web:17630fc4555e1b01b1bbff",
+    measurementId: "G-LG0WYLFVWJ"
 };
 
-function initGoogleSignIn() {
-    if (!window.google) {
-        setTimeout(initGoogleSignIn, 100);
-        return;
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+// Auth State Observer
+auth.onAuthStateChanged(user => {
+    if (user) {
+        localStorage.setItem('cheonjamun_is_logged_in', 'true');
+        localStorage.setItem('cheonjamun_user_name', user.displayName || '학도');
+        localStorage.setItem('cheonjamun_user_email', user.email);
+        localStorage.setItem('cheonjamun_user_picture', user.photoURL);
+
+        // Sync data from Firestore
+        syncProgressFromFirestore(user.uid);
+    } else {
+        localStorage.removeItem('cheonjamun_is_logged_in');
+        localStorage.removeItem('cheonjamun_user_name');
+        localStorage.removeItem('cheonjamun_user_email');
+        localStorage.removeItem('cheonjamun_user_picture');
     }
+    renderAccountView();
+});
 
-    google.accounts.id.initialize({
-        client_id: "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com", // Replace with real Client ID
-        callback: window.handleCredentialResponse
-    });
+async function syncProgressFromFirestore(uid) {
+    try {
+        const doc = await db.collection('users').doc(uid).get();
+        if (doc.exists) {
+            const cloudData = doc.data();
+            const cloudCompleted = cloudData.completed || [];
+            const cloudWrong = cloudData.wrong_answers || [];
 
-    const buttonDiv = document.getElementById('google-login-button');
-    if (buttonDiv) {
-        google.accounts.id.renderButton(
-            buttonDiv,
-            { theme: "outline", size: "large", width: buttonDiv.offsetWidth, text: "continue_with" }
-        );
+            // Merge with local data (migration)
+            const localCompleted = JSON.parse(localStorage.getItem('cheonjamun_completed') || '[]');
+            const localWrong = JSON.parse(localStorage.getItem('cheonjamun_wrong_answers') || '[]');
+
+            const mergedCompleted = [...new Set([...cloudCompleted, ...localCompleted])];
+            const mergedWrong = [...new Set([...cloudWrong, ...localWrong])];
+
+            // Update local state and storage
+            cheonjamunData.characters.forEach(char => {
+                char.is_completed = mergedCompleted.includes(char.id);
+                char.is_wrong = mergedWrong.includes(char.id);
+            });
+
+            localStorage.setItem('cheonjamun_completed', JSON.stringify(mergedCompleted));
+            localStorage.setItem('cheonjamun_wrong_answers', JSON.stringify(mergedWrong));
+
+            // Push merged data back to cloud if it changed
+            if (mergedCompleted.length > cloudCompleted.length || mergedWrong.length > cloudWrong.length) {
+                await saveProgressToFirestore(uid, mergedCompleted, mergedWrong);
+            }
+
+            console.log('Firebase Cloud Sync Complete');
+            window.dispatchEvent(new CustomEvent('dataLoaded', { detail: cheonjamunData }));
+        } else {
+            // First time login: push current local data to cloud
+            const localCompleted = JSON.parse(localStorage.getItem('cheonjamun_completed') || '[]');
+            const localWrong = JSON.parse(localStorage.getItem('cheonjamun_wrong_answers') || '[]');
+            await saveProgressToFirestore(uid, localCompleted, localWrong);
+        }
+    } catch (error) {
+        console.error('Error syncing from Firestore:', error);
     }
 }
 
-// Global handleLogin for legacy calls if any (though we use GIS button now)
-window.handleLogin = function (provider) {
+async function saveProgressToFirestore(uid, completed, wrong) {
+    try {
+        await db.collection('users').doc(uid).set({
+            completed: completed,
+            wrong_answers: wrong,
+            lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
+        }, { merge: true });
+    } catch (error) {
+        console.error('Error saving to Firestore:', error);
+    }
+}
+
+window.handleLogin = async function (provider) {
     if (provider === 'google') {
-        initGoogleSignIn();
-        alert("구글 로그인을 위해 버튼을 한 번 더 눌러주세요! (첫 설치 시 활성화)");
+        const provider = new firebase.auth.GoogleAuthProvider();
+        try {
+            await auth.signInWithPopup(provider);
+        } catch (error) {
+            console.error('Login Error:', error);
+            alert('로그인 중 오류가 발생했습니다: ' + error.message);
+        }
     }
 };
 
 window.handleLogout = function () {
     if (confirm('로그아웃 하시겠습니까?')) {
-        localStorage.removeItem('cheonjamun_is_logged_in');
-        renderAccountView();
+        auth.signOut();
     }
 };
 
@@ -264,29 +313,23 @@ window.goToFavorites = function () {
 };
 
 function renderAccountView() {
-    const isLoggedIn = localStorage.getItem('cheonjamun_is_logged_in') === 'true';
+    const user = auth.currentUser;
     const loginSection = document.getElementById('login-section');
     const profileSection = document.getElementById('profile-section');
 
-    if (isLoggedIn) {
+    if (user) {
         if (loginSection) loginSection.style.display = 'none';
         if (profileSection) {
             profileSection.style.display = 'block';
-            // Update profile info
-            const userName = localStorage.getItem('cheonjamun_user_name');
-            const userPic = localStorage.getItem('cheonjamun_user_picture');
 
             const nameEl = profileSection.querySelector('.user-name');
             const picEl = profileSection.querySelector('.profile-avatar img');
 
-            if (nameEl) nameEl.textContent = userName;
-            if (picEl && userPic) picEl.src = userPic;
+            if (nameEl) nameEl.textContent = user.displayName;
+            if (picEl && user.photoURL) picEl.src = user.photoURL;
         }
     } else {
-        if (loginSection) {
-            loginSection.style.display = 'block';
-            initGoogleSignIn(); // Re-init button when showing login screen
-        }
+        if (loginSection) loginSection.style.display = 'block';
         if (profileSection) profileSection.style.display = 'none';
     }
 }
@@ -352,8 +395,8 @@ function renderDictionaryList(reset = false) {
     });
 }
 
-window.toggleCompleted = function (id) {
-    const isLoggedIn = localStorage.getItem('cheonjamun_is_logged_in') === 'true';
+window.toggleCompleted = async function (id) {
+    const isLoggedIn = !!auth.currentUser;
     if (!isLoggedIn) {
         alert('학습 기록을 저장하려면 로그인이 필요합니다!');
         return;
@@ -370,14 +413,19 @@ window.toggleCompleted = function (id) {
         localStorage.setItem('cheonjamun_completed', JSON.stringify(completed));
         localStorage.setItem('cheonjamun_wrong_answers', JSON.stringify(wrong));
 
+        // Sync to Cloud
+        if (auth.currentUser) {
+            await saveProgressToFirestore(auth.currentUser.uid, completed, wrong);
+        }
+
         renderDictionaryList(true);
     }
 };
 
 // Learning state helper for games
 window.updateLearningState = function (id, isCorrect) {
-    const isLoggedIn = localStorage.getItem('cheonjamun_is_logged_in') === 'true';
-    if (!isLoggedIn) return; // Silent return for auto-updates during games
+    const isLoggedIn = !!auth.currentUser;
+    if (!isLoggedIn) return;
 
     const char = cheonjamunData.characters.find(c => c.id === id);
     if (!char) return;
@@ -395,6 +443,11 @@ window.updateLearningState = function (id, isCorrect) {
 
     localStorage.setItem('cheonjamun_completed', JSON.stringify(completed));
     localStorage.setItem('cheonjamun_wrong_answers', JSON.stringify(wrong));
+
+    // Sync to Cloud
+    if (auth.currentUser) {
+        saveProgressToFirestore(auth.currentUser.uid, completed, wrong);
+    }
 };
 
 function setupDictionaryListeners() {
@@ -737,26 +790,18 @@ function renderCheonjamun() {
         const card = document.createElement('div');
         card.className = 'sentence-card';
 
-        const details = sentence.char_ids.map(id =>
-            data.characters.find(c => c.id === id)
-        ).filter(Boolean);
-
-        const gridHtml = details.map(char => `
-            <div class="char-card">
-                <span class="char-hanja hanja-text">${char.hanja}</span>
-                <span class="char-sound-meaning">${char.meaning} ${char.sound}</span>
-                <span class="char-info">${char.level} / ${char.stroke_count}획</span>
-            </div>
-        `).join('');
+        const details = sentence.char_ids.map(id => {
+            const char = data.characters.find(c => c.id === id);
+            return char ? `<span class="detail-char" onclick="openStrokeModal('${char.hanja}')">${char.hanja} <span class="detail-sound">${char.sound}</span></span>` : '';
+        }).join('');
 
         card.innerHTML = `
             <div class="sentence-header">
-                <h2 class="sentence-phrase hanja-text">${sentence.phrase}</h2>
-                <p class="sentence-meaning">${sentence.interpretation}</p>
+                <span class="sentence-id">${sentence.id}</span>
+                <span class="sentence-phrase">${sentence.phrase}</span>
             </div>
-            <div class="char-grid">
-                ${gridHtml}
-            </div>
+            <div class="sentence-interpretation">${sentence.interpretation}</div>
+            <div class="sentence-details">${details}</div>
         `;
         listContainer.appendChild(card);
     });
