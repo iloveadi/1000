@@ -1,0 +1,6881 @@
+{
+    "characters": [
+        {
+            "id": 1,
+            "hanja": "天",
+            "meaning": "하늘",
+            "sound": "천",
+            "radical": "大",
+            "stroke_count": 4,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 2,
+            "hanja": "地",
+            "meaning": "땅",
+            "sound": "지",
+            "radical": "土",
+            "stroke_count": 6,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 3,
+            "hanja": "玄",
+            "meaning": "검을",
+            "sound": "현",
+            "radical": "玄",
+            "stroke_count": 5,
+            "level": "3급II",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 4,
+            "hanja": "黃",
+            "meaning": "누를",
+            "sound": "황",
+            "radical": "黃",
+            "stroke_count": 12,
+            "level": "3급II",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 5,
+            "hanja": "宇",
+            "meaning": "집",
+            "sound": "우",
+            "radical": "宀",
+            "stroke_count": 6,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 6,
+            "hanja": "宙",
+            "meaning": "집",
+            "sound": "주",
+            "radical": "宀",
+            "stroke_count": 8,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 7,
+            "hanja": "洪",
+            "meaning": "넓을",
+            "sound": "홍",
+            "radical": "氵",
+            "stroke_count": 9,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 8,
+            "hanja": "荒",
+            "meaning": "거칠",
+            "sound": "황",
+            "radical": "艹",
+            "stroke_count": 9,
+            "level": "3급II",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 9,
+            "hanja": "日",
+            "meaning": "날",
+            "sound": "일",
+            "radical": "日",
+            "stroke_count": 4,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 10,
+            "hanja": "月",
+            "meaning": "달",
+            "sound": "월",
+            "radical": "月",
+            "stroke_count": 4,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 11,
+            "hanja": "盈",
+            "meaning": "찰",
+            "sound": "영",
+            "radical": "皿",
+            "stroke_count": 9,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 12,
+            "hanja": "昃",
+            "meaning": "기울",
+            "sound": "측",
+            "radical": "日",
+            "stroke_count": 8,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 13,
+            "hanja": "辰",
+            "meaning": "별",
+            "sound": "진",
+            "radical": "辰",
+            "stroke_count": 7,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 14,
+            "hanja": "宿",
+            "meaning": "별/잠잘",
+            "sound": "숙",
+            "radical": "宀",
+            "stroke_count": 11,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 15,
+            "hanja": "列",
+            "meaning": "벌일",
+            "sound": "렬",
+            "radical": "刀",
+            "stroke_count": 6,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 16,
+            "hanja": "張",
+            "meaning": "베풀",
+            "sound": "장",
+            "radical": "弓",
+            "stroke_count": 11,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 17,
+            "hanja": "寒",
+            "meaning": "찰",
+            "sound": "한",
+            "radical": "宀",
+            "stroke_count": 12,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 18,
+            "hanja": "來",
+            "meaning": "올",
+            "sound": "래",
+            "radical": "人",
+            "stroke_count": 8,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 19,
+            "hanja": "暑",
+            "meaning": "더울",
+            "sound": "서",
+            "radical": "日",
+            "stroke_count": 12,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 20,
+            "hanja": "往",
+            "meaning": "갈",
+            "sound": "왕",
+            "radical": "彳",
+            "stroke_count": 8,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 21,
+            "hanja": "秋",
+            "meaning": "가을",
+            "sound": "추",
+            "radical": "禾",
+            "stroke_count": 9,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 22,
+            "hanja": "收",
+            "meaning": "거둘",
+            "sound": "수",
+            "radical": "攵",
+            "stroke_count": 6,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 23,
+            "hanja": "冬",
+            "meaning": "겨울",
+            "sound": "동",
+            "radical": "冫",
+            "stroke_count": 5,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 24,
+            "hanja": "藏",
+            "meaning": "감출",
+            "sound": "장",
+            "radical": "艹",
+            "stroke_count": 17,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 25,
+            "hanja": "閏",
+            "meaning": "윤달",
+            "sound": "윤",
+            "radical": "門",
+            "stroke_count": 12,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 26,
+            "hanja": "餘",
+            "meaning": "남을",
+            "sound": "여",
+            "radical": "食",
+            "stroke_count": 16,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 27,
+            "hanja": "成",
+            "meaning": "이룰",
+            "sound": "성",
+            "radical": "戈",
+            "stroke_count": 6,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 28,
+            "hanja": "歲",
+            "meaning": "해",
+            "sound": "세",
+            "radical": "止",
+            "stroke_count": 13,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 29,
+            "hanja": "律",
+            "meaning": "법칙",
+            "sound": "률",
+            "radical": "彳",
+            "stroke_count": 9,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 30,
+            "hanja": "呂",
+            "meaning": "음률",
+            "sound": "려",
+            "radical": "口",
+            "stroke_count": 7,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 31,
+            "hanja": "調",
+            "meaning": "고를",
+            "sound": "조",
+            "radical": "言",
+            "stroke_count": 15,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 32,
+            "hanja": "陽",
+            "meaning": "볕",
+            "sound": "양",
+            "radical": "阜",
+            "stroke_count": 12,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 33,
+            "hanja": "雲",
+            "meaning": "구름",
+            "sound": "운",
+            "radical": "雨",
+            "stroke_count": 12,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 34,
+            "hanja": "騰",
+            "meaning": "오를",
+            "sound": "등",
+            "radical": "馬",
+            "stroke_count": 20,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 35,
+            "hanja": "致",
+            "meaning": "이를",
+            "sound": "치",
+            "radical": "至",
+            "stroke_count": 10,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 36,
+            "hanja": "雨",
+            "meaning": "비",
+            "sound": "우",
+            "radical": "雨",
+            "stroke_count": 8,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 37,
+            "hanja": "露",
+            "meaning": "이슬",
+            "sound": "로",
+            "radical": "雨",
+            "stroke_count": 21,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 38,
+            "hanja": "結",
+            "meaning": "맺을",
+            "sound": "결",
+            "radical": "糸",
+            "stroke_count": 12,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 39,
+            "hanja": "爲",
+            "meaning": "할",
+            "sound": "위",
+            "radical": "爪",
+            "stroke_count": 9,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 40,
+            "hanja": "霜",
+            "meaning": "서리",
+            "sound": "상",
+            "radical": "雨",
+            "stroke_count": 17,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 41,
+            "hanja": "金",
+            "meaning": "쇠",
+            "sound": "금",
+            "radical": "金",
+            "stroke_count": 8,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 42,
+            "hanja": "生",
+            "meaning": "날",
+            "sound": "생",
+            "radical": "生",
+            "stroke_count": 5,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 43,
+            "hanja": "麗",
+            "meaning": "고울",
+            "sound": "려",
+            "radical": "鹿",
+            "stroke_count": 19,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 44,
+            "hanja": "水",
+            "meaning": "물",
+            "sound": "수",
+            "radical": "水",
+            "stroke_count": 4,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 45,
+            "hanja": "玉",
+            "meaning": "구슬",
+            "sound": "옥",
+            "radical": "玉",
+            "stroke_count": 5,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 46,
+            "hanja": "出",
+            "meaning": "날",
+            "sound": "출",
+            "radical": "凵",
+            "stroke_count": 5,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 47,
+            "hanja": "崑",
+            "meaning": "산이름",
+            "sound": "곤",
+            "radical": "山",
+            "stroke_count": 11,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 48,
+            "hanja": "岡",
+            "meaning": "메",
+            "sound": "강",
+            "radical": "山",
+            "stroke_count": 8,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 49,
+            "hanja": "劍",
+            "meaning": "칼",
+            "sound": "검",
+            "radical": "刀",
+            "stroke_count": 15,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 50,
+            "hanja": "號",
+            "meaning": "이름",
+            "sound": "호",
+            "radical": "虍",
+            "stroke_count": 13,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 51,
+            "hanja": "巨",
+            "meaning": "클",
+            "sound": "거",
+            "radical": "工",
+            "stroke_count": 5,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 52,
+            "hanja": "闕",
+            "meaning": "대궐",
+            "sound": "궐",
+            "radical": "門",
+            "stroke_count": 18,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 53,
+            "hanja": "珠",
+            "meaning": "구슬",
+            "sound": "주",
+            "radical": "玉",
+            "stroke_count": 10,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 54,
+            "hanja": "稱",
+            "meaning": "일컬을",
+            "sound": "칭",
+            "radical": "禾",
+            "stroke_count": 14,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 55,
+            "hanja": "夜",
+            "meaning": "밤",
+            "sound": "야",
+            "radical": "夕",
+            "stroke_count": 8,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 56,
+            "hanja": "光",
+            "meaning": "빛",
+            "sound": "광",
+            "radical": "儿",
+            "stroke_count": 6,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 57,
+            "hanja": "果",
+            "meaning": "열매",
+            "sound": "과",
+            "radical": "木",
+            "stroke_count": 8,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 58,
+            "hanja": "珍",
+            "meaning": "보배",
+            "sound": "진",
+            "radical": "玉",
+            "stroke_count": 9,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 59,
+            "hanja": "李",
+            "meaning": "오얏",
+            "sound": "리",
+            "radical": "木",
+            "stroke_count": 7,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 60,
+            "hanja": "柰",
+            "meaning": "능금나무",
+            "sound": "내",
+            "radical": "木",
+            "stroke_count": 9,
+            "level": "준1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 61,
+            "hanja": "菜",
+            "meaning": "나물",
+            "sound": "채",
+            "radical": "艹",
+            "stroke_count": 11,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 62,
+            "hanja": "重",
+            "meaning": "무거울",
+            "sound": "중",
+            "radical": "里",
+            "stroke_count": 9,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 63,
+            "hanja": "芥",
+            "meaning": "겨자",
+            "sound": "개",
+            "radical": "艹",
+            "stroke_count": 7,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 64,
+            "hanja": "薑",
+            "meaning": "생강",
+            "sound": "강",
+            "radical": "艹",
+            "stroke_count": 16,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 65,
+            "hanja": "海",
+            "meaning": "바다",
+            "sound": "해",
+            "radical": "水",
+            "stroke_count": 10,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 66,
+            "hanja": "鹹",
+            "meaning": "짤",
+            "sound": "함",
+            "radical": "鹵",
+            "stroke_count": 20,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 67,
+            "hanja": "河",
+            "meaning": "물",
+            "sound": "하",
+            "radical": "水",
+            "stroke_count": 8,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 68,
+            "hanja": "淡",
+            "meaning": "맑을",
+            "sound": "담",
+            "radical": "水",
+            "stroke_count": 11,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 69,
+            "hanja": "鱗",
+            "meaning": "비늘",
+            "sound": "린",
+            "radical": "魚",
+            "stroke_count": 23,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 70,
+            "hanja": "潛",
+            "meaning": "잠길",
+            "sound": "잠",
+            "radical": "水",
+            "stroke_count": 15,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 71,
+            "hanja": "羽",
+            "meaning": "깃",
+            "sound": "우",
+            "radical": "羽",
+            "stroke_count": 6,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 72,
+            "hanja": "翔",
+            "meaning": "날",
+            "sound": "상",
+            "radical": "羽",
+            "stroke_count": 12,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 73,
+            "hanja": "龍",
+            "meaning": "룡",
+            "sound": "룡",
+            "radical": "龍",
+            "stroke_count": 16,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 74,
+            "hanja": "師",
+            "meaning": "스승",
+            "sound": "사",
+            "radical": "巾",
+            "stroke_count": 10,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 75,
+            "hanja": "火",
+            "meaning": "불",
+            "sound": "화",
+            "radical": "火",
+            "stroke_count": 4,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 76,
+            "hanja": "帝",
+            "meaning": "임금",
+            "sound": "제",
+            "radical": "巾",
+            "stroke_count": 9,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 77,
+            "hanja": "鳥",
+            "meaning": "새",
+            "sound": "조",
+            "radical": "鳥",
+            "stroke_count": 11,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 78,
+            "hanja": "官",
+            "meaning": "벼슬",
+            "sound": "관",
+            "radical": "宀",
+            "stroke_count": 8,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 79,
+            "hanja": "人",
+            "meaning": "사람",
+            "sound": "인",
+            "radical": "人",
+            "stroke_count": 2,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 80,
+            "hanja": "皇",
+            "meaning": "임금",
+            "sound": "황",
+            "radical": "白",
+            "stroke_count": 9,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 81,
+            "hanja": "始",
+            "meaning": "처음",
+            "sound": "시",
+            "radical": "女",
+            "stroke_count": 8,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 82,
+            "hanja": "制",
+            "meaning": "만들",
+            "sound": "제",
+            "radical": "刀",
+            "stroke_count": 8,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 83,
+            "hanja": "文",
+            "meaning": "글월",
+            "sound": "문",
+            "radical": "文",
+            "stroke_count": 4,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 84,
+            "hanja": "字",
+            "meaning": "글자",
+            "sound": "자",
+            "radical": "宀",
+            "stroke_count": 6,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 85,
+            "hanja": "乃",
+            "meaning": "곧",
+            "sound": "내",
+            "radical": "丿",
+            "stroke_count": 2,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 86,
+            "hanja": "服",
+            "meaning": "입을",
+            "sound": "복",
+            "radical": "月",
+            "stroke_count": 8,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 87,
+            "hanja": "衣",
+            "meaning": "옷",
+            "sound": "의",
+            "radical": "衣",
+            "stroke_count": 6,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 88,
+            "hanja": "裳",
+            "meaning": "치마",
+            "sound": "상",
+            "radical": "衣",
+            "stroke_count": 14,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 89,
+            "hanja": "推",
+            "meaning": "밀",
+            "sound": "추",
+            "radical": "扌",
+            "stroke_count": 11,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 90,
+            "hanja": "位",
+            "meaning": "자리",
+            "sound": "위",
+            "radical": "人",
+            "stroke_count": 7,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 91,
+            "hanja": "讓",
+            "meaning": "사양할",
+            "sound": "양",
+            "radical": "言",
+            "stroke_count": 24,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 92,
+            "hanja": "國",
+            "meaning": "나라",
+            "sound": "국",
+            "radical": "囗",
+            "stroke_count": 11,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 93,
+            "hanja": "有",
+            "meaning": "있을",
+            "sound": "유",
+            "radical": "月",
+            "stroke_count": 6,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 94,
+            "hanja": "虞",
+            "meaning": "나라이름",
+            "sound": "우",
+            "radical": "虍",
+            "stroke_count": 13,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 95,
+            "hanja": "陶",
+            "meaning": "질그릇",
+            "sound": "도",
+            "radical": "阜",
+            "stroke_count": 11,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 96,
+            "hanja": "唐",
+            "meaning": "당나라",
+            "sound": "당",
+            "radical": "口",
+            "stroke_count": 10,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 97,
+            "hanja": "弔",
+            "meaning": "위문할",
+            "sound": "조",
+            "radical": "弓",
+            "stroke_count": 4,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 98,
+            "hanja": "民",
+            "meaning": "백성",
+            "sound": "민",
+            "radical": "氏",
+            "stroke_count": 5,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 99,
+            "hanja": "伐",
+            "meaning": "칠",
+            "sound": "벌",
+            "radical": "人",
+            "stroke_count": 6,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 100,
+            "hanja": "罪",
+            "meaning": "허물",
+            "sound": "죄",
+            "radical": "罒",
+            "stroke_count": 13,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 101,
+            "hanja": "周",
+            "meaning": "두루",
+            "sound": "주",
+            "radical": "口",
+            "stroke_count": 8,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 102,
+            "hanja": "發",
+            "meaning": "필",
+            "sound": "발",
+            "radical": "癶",
+            "stroke_count": 12,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 103,
+            "hanja": "殷",
+            "meaning": "성할",
+            "sound": "은",
+            "radical": "殳",
+            "stroke_count": 10,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 104,
+            "hanja": "湯",
+            "meaning": "끓을",
+            "sound": "탕",
+            "radical": "水",
+            "stroke_count": 12,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 105,
+            "hanja": "坐",
+            "meaning": "앉을",
+            "sound": "좌",
+            "radical": "土",
+            "stroke_count": 7,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 106,
+            "hanja": "朝",
+            "meaning": "아침",
+            "sound": "조",
+            "radical": "月",
+            "stroke_count": 12,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 107,
+            "hanja": "問",
+            "meaning": "물을",
+            "sound": "문",
+            "radical": "門",
+            "stroke_count": 11,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 108,
+            "hanja": "道",
+            "meaning": "길",
+            "sound": "도",
+            "radical": "辵",
+            "stroke_count": 13,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 109,
+            "hanja": "垂",
+            "meaning": "드리울",
+            "sound": "수",
+            "radical": "土",
+            "stroke_count": 8,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 110,
+            "hanja": "拱",
+            "meaning": "팔짱낄",
+            "sound": "공",
+            "radical": "手",
+            "stroke_count": 9,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 111,
+            "hanja": "平",
+            "meaning": "평평할",
+            "sound": "평",
+            "radical": "干",
+            "stroke_count": 5,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 112,
+            "hanja": "章",
+            "meaning": "글",
+            "sound": "장",
+            "radical": "立",
+            "stroke_count": 11,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 113,
+            "hanja": "愛",
+            "meaning": "사랑",
+            "sound": "애",
+            "radical": "心",
+            "stroke_count": 13,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 114,
+            "hanja": "育",
+            "meaning": "기를",
+            "sound": "육",
+            "radical": "肉",
+            "stroke_count": 8,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 115,
+            "hanja": "黎",
+            "meaning": "검을",
+            "sound": "려",
+            "radical": "黍",
+            "stroke_count": 15,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 116,
+            "hanja": "首",
+            "meaning": "머리",
+            "sound": "수",
+            "radical": "首",
+            "stroke_count": 9,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 117,
+            "hanja": "臣",
+            "meaning": "신하",
+            "sound": "신",
+            "radical": "臣",
+            "stroke_count": 6,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 118,
+            "hanja": "伏",
+            "meaning": "엎드릴",
+            "sound": "복",
+            "radical": "人",
+            "stroke_count": 6,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 119,
+            "hanja": "戎",
+            "meaning": "오랑캐",
+            "sound": "융",
+            "radical": "戈",
+            "stroke_count": 6,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 120,
+            "hanja": "羌",
+            "meaning": "종족이름",
+            "sound": "강",
+            "radical": "羊",
+            "stroke_count": 7,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 121,
+            "hanja": "遐",
+            "meaning": "멀",
+            "sound": "하",
+            "radical": "辵",
+            "stroke_count": 13,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 122,
+            "hanja": "邇",
+            "meaning": "가까울",
+            "sound": "이",
+            "radical": "辵",
+            "stroke_count": 17,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 123,
+            "hanja": "一",
+            "meaning": "한",
+            "sound": "일",
+            "radical": "一",
+            "stroke_count": 1,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 124,
+            "hanja": "體",
+            "meaning": "몸",
+            "sound": "체",
+            "radical": "骨",
+            "stroke_count": 23,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 125,
+            "hanja": "率",
+            "meaning": "거느릴",
+            "sound": "솔",
+            "radical": "玄",
+            "stroke_count": 11,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 126,
+            "hanja": "賓",
+            "meaning": "손",
+            "sound": "빈",
+            "radical": "貝",
+            "stroke_count": 14,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 127,
+            "hanja": "歸",
+            "meaning": "돌아갈",
+            "sound": "귀",
+            "radical": "止",
+            "stroke_count": 18,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 128,
+            "hanja": "王",
+            "meaning": "임금",
+            "sound": "왕",
+            "radical": "玉",
+            "stroke_count": 4,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 129,
+            "hanja": "鳴",
+            "meaning": "울",
+            "sound": "명",
+            "radical": "鳥",
+            "stroke_count": 14,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 130,
+            "hanja": "鳳",
+            "meaning": "봉황",
+            "sound": "봉",
+            "radical": "鳥",
+            "stroke_count": 14,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 131,
+            "hanja": "在",
+            "meaning": "있을",
+            "sound": "재",
+            "radical": "土",
+            "stroke_count": 6,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 132,
+            "hanja": "樹",
+            "meaning": "나무",
+            "sound": "수",
+            "radical": "木",
+            "stroke_count": 16,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 133,
+            "hanja": "白",
+            "meaning": "흰",
+            "sound": "백",
+            "radical": "白",
+            "stroke_count": 5,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 134,
+            "hanja": "駒",
+            "meaning": "망아지",
+            "sound": "구",
+            "radical": "馬",
+            "stroke_count": 15,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 135,
+            "hanja": "食",
+            "meaning": "먹을",
+            "sound": "식",
+            "radical": "食",
+            "stroke_count": 9,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 136,
+            "hanja": "場",
+            "meaning": "마당",
+            "sound": "장",
+            "radical": "土",
+            "stroke_count": 12,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 137,
+            "hanja": "化",
+            "meaning": "될",
+            "sound": "화",
+            "radical": "匕",
+            "stroke_count": 4,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 138,
+            "hanja": "被",
+            "meaning": "입을",
+            "sound": "피",
+            "radical": "衣",
+            "stroke_count": 10,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 139,
+            "hanja": "草",
+            "meaning": "풀",
+            "sound": "초",
+            "radical": "艹",
+            "stroke_count": 9,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 140,
+            "hanja": "木",
+            "meaning": "나무",
+            "sound": "목",
+            "radical": "木",
+            "stroke_count": 4,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 141,
+            "hanja": "賴",
+            "meaning": "힘입을",
+            "sound": "뢰",
+            "radical": "貝",
+            "stroke_count": 16,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 142,
+            "hanja": "及",
+            "meaning": "미칠",
+            "sound": "급",
+            "radical": "又",
+            "stroke_count": 3,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 143,
+            "hanja": "萬",
+            "meaning": "일만",
+            "sound": "만",
+            "radical": "艸",
+            "stroke_count": 13,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 144,
+            "hanja": "方",
+            "meaning": "모",
+            "sound": "방",
+            "radical": "方",
+            "stroke_count": 4,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 145,
+            "hanja": "蓋",
+            "meaning": "덮개",
+            "sound": "개",
+            "radical": "艹",
+            "stroke_count": 14,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 146,
+            "hanja": "此",
+            "meaning": "이",
+            "sound": "차",
+            "radical": "止",
+            "stroke_count": 6,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 147,
+            "hanja": "身",
+            "meaning": "몸",
+            "sound": "신",
+            "radical": "身",
+            "stroke_count": 7,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 148,
+            "hanja": "髮",
+            "meaning": "머리터럭",
+            "sound": "발",
+            "radical": "髟",
+            "stroke_count": 15,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 149,
+            "hanja": "四",
+            "meaning": "넉",
+            "sound": "사",
+            "radical": "囗",
+            "stroke_count": 5,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 150,
+            "hanja": "大",
+            "meaning": "큰",
+            "sound": "대",
+            "radical": "大",
+            "stroke_count": 3,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 151,
+            "hanja": "五",
+            "meaning": "다섯",
+            "sound": "오",
+            "radical": "二",
+            "stroke_count": 4,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 152,
+            "hanja": "常",
+            "meaning": "항상",
+            "sound": "상",
+            "radical": "巾",
+            "stroke_count": 11,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 153,
+            "hanja": "恭",
+            "meaning": "공손할",
+            "sound": "공",
+            "radical": "心",
+            "stroke_count": 10,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 154,
+            "hanja": "惟",
+            "meaning": "생각할",
+            "sound": "유",
+            "radical": "心",
+            "stroke_count": 11,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 155,
+            "hanja": "鞠",
+            "meaning": "국문할",
+            "sound": "국",
+            "radical": "革",
+            "stroke_count": 17,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 156,
+            "hanja": "養",
+            "meaning": "기를",
+            "sound": "양",
+            "radical": "食",
+            "stroke_count": 15,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 157,
+            "hanja": "豈",
+            "meaning": "어찌",
+            "sound": "기",
+            "radical": "豆",
+            "stroke_count": 10,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 158,
+            "hanja": "敢",
+            "meaning": "감히",
+            "sound": "감",
+            "radical": "攵",
+            "stroke_count": 12,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 159,
+            "hanja": "毁",
+            "meaning": "헐",
+            "sound": "훼",
+            "radical": "殳",
+            "stroke_count": 13,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 160,
+            "hanja": "傷",
+            "meaning": "다칠",
+            "sound": "상",
+            "radical": "人",
+            "stroke_count": 13,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 161,
+            "hanja": "女",
+            "meaning": "계집",
+            "sound": "녀",
+            "radical": "女",
+            "stroke_count": 3,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 162,
+            "hanja": "慕",
+            "meaning": "그리워할",
+            "sound": "모",
+            "radical": "心",
+            "stroke_count": 15,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 163,
+            "hanja": "貞",
+            "meaning": "곧을",
+            "sound": "정",
+            "radical": "貝",
+            "stroke_count": 9,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 164,
+            "hanja": "潔",
+            "meaning": "깨끗할",
+            "sound": "결",
+            "radical": "水",
+            "stroke_count": 15,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 165,
+            "hanja": "男",
+            "meaning": "사내",
+            "sound": "남",
+            "radical": "田",
+            "stroke_count": 7,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 166,
+            "hanja": "效",
+            "meaning": "본받을",
+            "sound": "효",
+            "radical": "攵",
+            "stroke_count": 10,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 167,
+            "hanja": "才",
+            "meaning": "재주",
+            "sound": "재",
+            "radical": "手",
+            "stroke_count": 3,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 168,
+            "hanja": "良",
+            "meaning": "어질",
+            "sound": "량",
+            "radical": "艮",
+            "stroke_count": 7,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 169,
+            "hanja": "知",
+            "meaning": "알",
+            "sound": "지",
+            "radical": "矢",
+            "stroke_count": 8,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 170,
+            "hanja": "過",
+            "meaning": "허물",
+            "sound": "과",
+            "radical": "辵",
+            "stroke_count": 13,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 171,
+            "hanja": "必",
+            "meaning": "반드시",
+            "sound": "필",
+            "radical": "心",
+            "stroke_count": 5,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 172,
+            "hanja": "改",
+            "meaning": "고칠",
+            "sound": "개",
+            "radical": "攵",
+            "stroke_count": 7,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 173,
+            "hanja": "得",
+            "meaning": "얻을",
+            "sound": "득",
+            "radical": "彳",
+            "stroke_count": 11,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 174,
+            "hanja": "能",
+            "meaning": "능할",
+            "sound": "능",
+            "radical": "肉",
+            "stroke_count": 10,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 175,
+            "hanja": "莫",
+            "meaning": "없을",
+            "sound": "막",
+            "radical": "艸",
+            "stroke_count": 11,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 176,
+            "hanja": "忘",
+            "meaning": "잊을",
+            "sound": "망",
+            "radical": "心",
+            "stroke_count": 7,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 177,
+            "hanja": "罔",
+            "meaning": "없을",
+            "sound": "망",
+            "radical": "网",
+            "stroke_count": 9,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 178,
+            "hanja": "談",
+            "meaning": "말씀",
+            "sound": "담",
+            "radical": "言",
+            "stroke_count": 15,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 179,
+            "hanja": "彼",
+            "meaning": "저",
+            "sound": "피",
+            "radical": "彳",
+            "stroke_count": 8,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 180,
+            "hanja": "短",
+            "meaning": "짧을",
+            "sound": "단",
+            "radical": "矢",
+            "stroke_count": 12,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 181,
+            "hanja": "靡",
+            "meaning": "아니",
+            "sound": "미",
+            "radical": "非",
+            "stroke_count": 19,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 182,
+            "hanja": "恃",
+            "meaning": "믿을",
+            "sound": "시",
+            "radical": "心",
+            "stroke_count": 9,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 183,
+            "hanja": "己",
+            "meaning": "몸",
+            "sound": "기",
+            "radical": "己",
+            "stroke_count": 3,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 184,
+            "hanja": "長",
+            "meaning": "길",
+            "sound": "장",
+            "radical": "長",
+            "stroke_count": 8,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 185,
+            "hanja": "信",
+            "meaning": "믿을",
+            "sound": "신",
+            "radical": "人",
+            "stroke_count": 9,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 186,
+            "hanja": "使",
+            "meaning": "하여금",
+            "sound": "사",
+            "radical": "人",
+            "stroke_count": 8,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 187,
+            "hanja": "可",
+            "meaning": "옳을",
+            "sound": "가",
+            "radical": "口",
+            "stroke_count": 5,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 188,
+            "hanja": "覆",
+            "meaning": "다시/엎어질",
+            "sound": "복",
+            "radical": "襾",
+            "stroke_count": 18,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 189,
+            "hanja": "器",
+            "meaning": "그릇",
+            "sound": "기",
+            "radical": "口",
+            "stroke_count": 16,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 190,
+            "hanja": "欲",
+            "meaning": "하고자할",
+            "sound": "욕",
+            "radical": "欠",
+            "stroke_count": 11,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 191,
+            "hanja": "難",
+            "meaning": "어려울",
+            "sound": "난",
+            "radical": "隹",
+            "stroke_count": 19,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 192,
+            "hanja": "量",
+            "meaning": "헤아릴",
+            "sound": "량",
+            "radical": "里",
+            "stroke_count": 12,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 193,
+            "hanja": "墨",
+            "meaning": "먹",
+            "sound": "묵",
+            "radical": "土",
+            "stroke_count": 15,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 194,
+            "hanja": "悲",
+            "meaning": "슬플",
+            "sound": "비",
+            "radical": "心",
+            "stroke_count": 12,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 195,
+            "hanja": "絲",
+            "meaning": "실",
+            "sound": "사",
+            "radical": "糸",
+            "stroke_count": 12,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 196,
+            "hanja": "染",
+            "meaning": "물들일",
+            "sound": "염",
+            "radical": "水",
+            "stroke_count": 9,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 197,
+            "hanja": "詩",
+            "meaning": "글",
+            "sound": "시",
+            "radical": "言",
+            "stroke_count": 13,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 198,
+            "hanja": "讚",
+            "meaning": "기릴",
+            "sound": "찬",
+            "radical": "言",
+            "stroke_count": 26,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 199,
+            "hanja": "羔",
+            "meaning": "새끼양",
+            "sound": "고",
+            "radical": "羊",
+            "stroke_count": 10,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 200,
+            "hanja": "羊",
+            "meaning": "양",
+            "sound": "양",
+            "radical": "羊",
+            "stroke_count": 6,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 201,
+            "hanja": "景",
+            "meaning": "볕",
+            "sound": "경",
+            "radical": "日",
+            "stroke_count": 12,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 202,
+            "hanja": "行",
+            "meaning": "다닐",
+            "sound": "행",
+            "radical": "行",
+            "stroke_count": 6,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 203,
+            "hanja": "維",
+            "meaning": "벼리/오직",
+            "sound": "유",
+            "radical": "糸",
+            "stroke_count": 14,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 204,
+            "hanja": "賢",
+            "meaning": "어질",
+            "sound": "현",
+            "radical": "貝",
+            "stroke_count": 15,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 205,
+            "hanja": "克",
+            "meaning": "이길",
+            "sound": "극",
+            "radical": "儿",
+            "stroke_count": 7,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 206,
+            "hanja": "念",
+            "meaning": "생각할",
+            "sound": "념",
+            "radical": "心",
+            "stroke_count": 8,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 207,
+            "hanja": "作",
+            "meaning": "지을",
+            "sound": "작",
+            "radical": "人",
+            "stroke_count": 7,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 208,
+            "hanja": "聖",
+            "meaning": "성인",
+            "sound": "성",
+            "radical": "耳",
+            "stroke_count": 13,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 209,
+            "hanja": "德",
+            "meaning": "큰",
+            "sound": "덕",
+            "radical": "彳",
+            "stroke_count": 15,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 210,
+            "hanja": "建",
+            "meaning": "세울",
+            "sound": "건",
+            "radical": "廴",
+            "stroke_count": 9,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 211,
+            "hanja": "名",
+            "meaning": "이름",
+            "sound": "명",
+            "radical": "口",
+            "stroke_count": 6,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 212,
+            "hanja": "立",
+            "meaning": "설",
+            "sound": "립",
+            "radical": "立",
+            "stroke_count": 5,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 213,
+            "hanja": "形",
+            "meaning": "모양",
+            "sound": "형",
+            "radical": "彡",
+            "stroke_count": 7,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 214,
+            "hanja": "端",
+            "meaning": "바를",
+            "sound": "단",
+            "radical": "立",
+            "stroke_count": 14,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 215,
+            "hanja": "表",
+            "meaning": "겉",
+            "sound": "표",
+            "radical": "衣",
+            "stroke_count": 8,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 216,
+            "hanja": "正",
+            "meaning": "바를",
+            "sound": "정",
+            "radical": "止",
+            "stroke_count": 5,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 217,
+            "hanja": "空",
+            "meaning": "빌",
+            "sound": "공",
+            "radical": "穴",
+            "stroke_count": 8,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 218,
+            "hanja": "谷",
+            "meaning": "골",
+            "sound": "곡",
+            "radical": "谷",
+            "stroke_count": 7,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 219,
+            "hanja": "傳",
+            "meaning": "전할",
+            "sound": "전",
+            "radical": "人",
+            "stroke_count": 13,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 220,
+            "hanja": "聲",
+            "meaning": "소리",
+            "sound": "성",
+            "radical": "耳",
+            "stroke_count": 17,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 221,
+            "hanja": "虛",
+            "meaning": "빌",
+            "sound": "허",
+            "radical": "虍",
+            "stroke_count": 12,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 222,
+            "hanja": "堂",
+            "meaning": "집",
+            "sound": "당",
+            "radical": "土",
+            "stroke_count": 11,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 223,
+            "hanja": "習",
+            "meaning": "익힐",
+            "sound": "습",
+            "radical": "羽",
+            "stroke_count": 11,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 224,
+            "hanja": "聽",
+            "meaning": "들을",
+            "sound": "청",
+            "radical": "耳",
+            "stroke_count": 22,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 225,
+            "hanja": "禍",
+            "meaning": "재앙",
+            "sound": "화",
+            "radical": "示",
+            "stroke_count": 13,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 226,
+            "hanja": "因",
+            "meaning": "말씀",
+            "sound": "인",
+            "radical": "囗",
+            "stroke_count": 6,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 227,
+            "hanja": "惡",
+            "meaning": "악할",
+            "sound": "악",
+            "radical": "心",
+            "stroke_count": 12,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 228,
+            "hanja": "積",
+            "meaning": "쌓을",
+            "sound": "적",
+            "radical": "禾",
+            "stroke_count": 16,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 229,
+            "hanja": "福",
+            "meaning": "복",
+            "sound": "복",
+            "radical": "示",
+            "stroke_count": 13,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 230,
+            "hanja": "緣",
+            "meaning": "말미암을",
+            "sound": "연",
+            "radical": "糸",
+            "stroke_count": 15,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 231,
+            "hanja": "善",
+            "meaning": "착할",
+            "sound": "선",
+            "radical": "口",
+            "stroke_count": 12,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 232,
+            "hanja": "慶",
+            "meaning": "경사",
+            "sound": "경",
+            "radical": "心",
+            "stroke_count": 15,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 233,
+            "hanja": "尺",
+            "meaning": "자",
+            "sound": "척",
+            "radical": "尸",
+            "stroke_count": 4,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 234,
+            "hanja": "璧",
+            "meaning": "둥근옥",
+            "sound": "벽",
+            "radical": "玉",
+            "stroke_count": 18,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 235,
+            "hanja": "非",
+            "meaning": "아니",
+            "sound": "비",
+            "radical": "非",
+            "stroke_count": 8,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 236,
+            "hanja": "寶",
+            "meaning": "보배",
+            "sound": "보",
+            "radical": "宀",
+            "stroke_count": 20,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 237,
+            "hanja": "寸",
+            "meaning": "마디",
+            "sound": "촌",
+            "radical": "寸",
+            "stroke_count": 3,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 238,
+            "hanja": "陰",
+            "meaning": "그늘",
+            "sound": "음",
+            "radical": "阜",
+            "stroke_count": 11,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 239,
+            "hanja": "是",
+            "meaning": "이",
+            "sound": "시",
+            "radical": "日",
+            "stroke_count": 9,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 240,
+            "hanja": "競",
+            "meaning": "다툴",
+            "sound": "경",
+            "radical": "立",
+            "stroke_count": 20,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 241,
+            "hanja": "資",
+            "meaning": "재물",
+            "sound": "자",
+            "radical": "貝",
+            "stroke_count": 13,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 242,
+            "hanja": "父",
+            "meaning": "아비",
+            "sound": "부",
+            "radical": "父",
+            "stroke_count": 4,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 243,
+            "hanja": "事",
+            "meaning": "일",
+            "sound": "사",
+            "radical": "亅",
+            "stroke_count": 8,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 244,
+            "hanja": "君",
+            "meaning": "임금",
+            "sound": "군",
+            "radical": "口",
+            "stroke_count": 7,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 245,
+            "hanja": "曰",
+            "meaning": "가로",
+            "sound": "왈",
+            "radical": "曰",
+            "stroke_count": 4,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 246,
+            "hanja": "嚴",
+            "meaning": "엄할",
+            "sound": "엄",
+            "radical": "口",
+            "stroke_count": 17,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 247,
+            "hanja": "與",
+            "meaning": "더불어",
+            "sound": "여",
+            "radical": "臼",
+            "stroke_count": 14,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 248,
+            "hanja": "敬",
+            "meaning": "공경할",
+            "sound": "경",
+            "radical": "攵",
+            "stroke_count": 12,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 249,
+            "hanja": "孝",
+            "meaning": "효도",
+            "sound": "효",
+            "radical": "子",
+            "stroke_count": 7,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 250,
+            "hanja": "當",
+            "meaning": "마땅할",
+            "sound": "당",
+            "radical": "田",
+            "stroke_count": 13,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 251,
+            "hanja": "竭",
+            "meaning": "다할",
+            "sound": "갈",
+            "radical": "立",
+            "stroke_count": 14,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 252,
+            "hanja": "力",
+            "meaning": "힘",
+            "sound": "력",
+            "radical": "力",
+            "stroke_count": 2,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 253,
+            "hanja": "忠",
+            "meaning": "충성",
+            "sound": "충",
+            "radical": "心",
+            "stroke_count": 8,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 254,
+            "hanja": "則",
+            "meaning": "법칙/곧",
+            "sound": "칙/즉",
+            "radical": "刀",
+            "stroke_count": 9,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 255,
+            "hanja": "盡",
+            "meaning": "다할",
+            "sound": "진",
+            "radical": "皿",
+            "stroke_count": 14,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 256,
+            "hanja": "命",
+            "meaning": "목숨",
+            "sound": "명",
+            "radical": "口",
+            "stroke_count": 8,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 257,
+            "hanja": "臨",
+            "meaning": "임할",
+            "sound": "임",
+            "radical": "臣",
+            "stroke_count": 17,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 258,
+            "hanja": "深",
+            "meaning": "깊을",
+            "sound": "심",
+            "radical": "水",
+            "stroke_count": 11,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 259,
+            "hanja": "履",
+            "meaning": "밟을",
+            "sound": "리",
+            "radical": "尸",
+            "stroke_count": 15,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 260,
+            "hanja": "薄",
+            "meaning": "엷을",
+            "sound": "박",
+            "radical": "艸",
+            "stroke_count": 17,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 261,
+            "hanja": "夙",
+            "meaning": "이를",
+            "sound": "숙",
+            "radical": "夕",
+            "stroke_count": 6,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 262,
+            "hanja": "興",
+            "meaning": "일어날",
+            "sound": "흥",
+            "radical": "臼",
+            "stroke_count": 16,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 263,
+            "hanja": "溫",
+            "meaning": "따뜻할",
+            "sound": "온",
+            "radical": "水",
+            "stroke_count": 13,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 264,
+            "hanja": "凊",
+            "meaning": "서늘할",
+            "sound": "청",
+            "radical": "冫",
+            "stroke_count": 10,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 265,
+            "hanja": "似",
+            "meaning": "같을",
+            "sound": "사",
+            "radical": "人",
+            "stroke_count": 7,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 266,
+            "hanja": "蘭",
+            "meaning": "난초",
+            "sound": "란",
+            "radical": "艸",
+            "stroke_count": 21,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 267,
+            "hanja": "斯",
+            "meaning": "이",
+            "sound": "사",
+            "radical": "斤",
+            "stroke_count": 12,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 268,
+            "hanja": "馨",
+            "meaning": "향기",
+            "sound": "형",
+            "radical": "香",
+            "stroke_count": 20,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 269,
+            "hanja": "如",
+            "meaning": "같을",
+            "sound": "여",
+            "radical": "女",
+            "stroke_count": 6,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 270,
+            "hanja": "松",
+            "meaning": "소나무",
+            "sound": "송",
+            "radical": "木",
+            "stroke_count": 8,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 271,
+            "hanja": "之",
+            "meaning": "갈/의",
+            "sound": "지",
+            "radical": "丿",
+            "stroke_count": 4,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 272,
+            "hanja": "盛",
+            "meaning": "성할",
+            "sound": "성",
+            "radical": "皿",
+            "stroke_count": 12,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 273,
+            "hanja": "川",
+            "meaning": "시내",
+            "sound": "천",
+            "radical": "川",
+            "stroke_count": 3,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 274,
+            "hanja": "流",
+            "meaning": "흐를",
+            "sound": "류",
+            "radical": "水",
+            "stroke_count": 10,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 275,
+            "hanja": "不",
+            "meaning": "아닐/아니할",
+            "sound": "불/부",
+            "radical": "一",
+            "stroke_count": 4,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 276,
+            "hanja": "息",
+            "meaning": "쉴",
+            "sound": "식",
+            "radical": "心",
+            "stroke_count": 10,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 277,
+            "hanja": "淵",
+            "meaning": "못",
+            "sound": "연",
+            "radical": "水",
+            "stroke_count": 12,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 278,
+            "hanja": "澄",
+            "meaning": "맑을",
+            "sound": "징",
+            "radical": "水",
+            "stroke_count": 15,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 279,
+            "hanja": "取",
+            "meaning": "취할",
+            "sound": "취",
+            "radical": "又",
+            "stroke_count": 8,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 280,
+            "hanja": "映",
+            "meaning": "비칠",
+            "sound": "영",
+            "radical": "日",
+            "stroke_count": 9,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 281,
+            "hanja": "容",
+            "meaning": "얼굴",
+            "sound": "용",
+            "radical": "宀",
+            "stroke_count": 10,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 282,
+            "hanja": "止",
+            "meaning": "그칠",
+            "sound": "지",
+            "radical": "止",
+            "stroke_count": 4,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 283,
+            "hanja": "若",
+            "meaning": "같을",
+            "sound": "약",
+            "radical": "艸",
+            "stroke_count": 9,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 284,
+            "hanja": "思",
+            "meaning": "생각",
+            "sound": "사",
+            "radical": "心",
+            "stroke_count": 9,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 285,
+            "hanja": "言",
+            "meaning": "말씀",
+            "sound": "언",
+            "radical": "言",
+            "stroke_count": 7,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 286,
+            "hanja": "辭",
+            "meaning": "말씀/사양할",
+            "sound": "사",
+            "radical": "辛",
+            "stroke_count": 19,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 287,
+            "hanja": "安",
+            "meaning": "편안",
+            "sound": "안",
+            "radical": "宀",
+            "stroke_count": 6,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 288,
+            "hanja": "定",
+            "meaning": "정할",
+            "sound": "정",
+            "radical": "宀",
+            "stroke_count": 8,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 289,
+            "hanja": "篤",
+            "meaning": "도타울",
+            "sound": "독",
+            "radical": "竹",
+            "stroke_count": 16,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 290,
+            "hanja": "初",
+            "meaning": "처음",
+            "sound": "초",
+            "radical": "刀",
+            "stroke_count": 7,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 291,
+            "hanja": "誠",
+            "meaning": "정성",
+            "sound": "성",
+            "radical": "言",
+            "stroke_count": 14,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 292,
+            "hanja": "美",
+            "meaning": "아름다울",
+            "sound": "미",
+            "radical": "羊",
+            "stroke_count": 9,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 293,
+            "hanja": "愼",
+            "meaning": "삼갈",
+            "sound": "신",
+            "radical": "心",
+            "stroke_count": 13,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 294,
+            "hanja": "終",
+            "meaning": "마칠",
+            "sound": "종",
+            "radical": "糸",
+            "stroke_count": 11,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 295,
+            "hanja": "宜",
+            "meaning": "마땅",
+            "sound": "의",
+            "radical": "宀",
+            "stroke_count": 8,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 296,
+            "hanja": "令",
+            "meaning": "하여금",
+            "sound": "령",
+            "radical": "人",
+            "stroke_count": 5,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 297,
+            "hanja": "榮",
+            "meaning": "영화",
+            "sound": "영",
+            "radical": "木",
+            "stroke_count": 14,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 298,
+            "hanja": "業",
+            "meaning": "업",
+            "sound": "업",
+            "radical": "木",
+            "stroke_count": 13,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 299,
+            "hanja": "所",
+            "meaning": "바",
+            "sound": "소",
+            "radical": "戶",
+            "stroke_count": 8,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 300,
+            "hanja": "基",
+            "meaning": "터",
+            "sound": "기",
+            "radical": "土",
+            "stroke_count": 11,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 301,
+            "hanja": "籍",
+            "meaning": "문서",
+            "sound": "적",
+            "radical": "竹",
+            "stroke_count": 20,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 302,
+            "hanja": "甚",
+            "meaning": "심할",
+            "sound": "심",
+            "radical": "甘",
+            "stroke_count": 9,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 303,
+            "hanja": "無",
+            "meaning": "없을",
+            "sound": "무",
+            "radical": "火",
+            "stroke_count": 12,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 304,
+            "hanja": "竟",
+            "meaning": "마칠",
+            "sound": "경",
+            "radical": "立",
+            "stroke_count": 11,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 305,
+            "hanja": "學",
+            "meaning": "배울",
+            "sound": "학",
+            "radical": "子",
+            "stroke_count": 16,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 306,
+            "hanja": "優",
+            "meaning": "넉넉할",
+            "sound": "우",
+            "radical": "人",
+            "stroke_count": 17,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 307,
+            "hanja": "登",
+            "meaning": "오를",
+            "sound": "등",
+            "radical": "癶",
+            "stroke_count": 12,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 308,
+            "hanja": "仕",
+            "meaning": "벼슬",
+            "sound": "사",
+            "radical": "人",
+            "stroke_count": 5,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 309,
+            "hanja": "攝",
+            "meaning": "잡을",
+            "sound": "섭",
+            "radical": "手",
+            "stroke_count": 21,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 310,
+            "hanja": "職",
+            "meaning": "직분",
+            "sound": "직",
+            "radical": "耳",
+            "stroke_count": 18,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 311,
+            "hanja": "從",
+            "meaning": "좇을",
+            "sound": "종",
+            "radical": "彳",
+            "stroke_count": 11,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 312,
+            "hanja": "政",
+            "meaning": "정사",
+            "sound": "정",
+            "radical": "攴",
+            "stroke_count": 9,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 313,
+            "hanja": "存",
+            "meaning": "살",
+            "sound": "존",
+            "radical": "子",
+            "stroke_count": 6,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 314,
+            "hanja": "以",
+            "meaning": "써",
+            "sound": "이",
+            "radical": "人",
+            "stroke_count": 5,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 315,
+            "hanja": "甘",
+            "meaning": "달",
+            "sound": "감",
+            "radical": "甘",
+            "stroke_count": 5,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 316,
+            "hanja": "棠",
+            "meaning": "아가위 나무",
+            "sound": "당",
+            "radical": "木",
+            "stroke_count": 12,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 317,
+            "hanja": "去",
+            "meaning": "갈",
+            "sound": "거",
+            "radical": "厶",
+            "stroke_count": 5,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 318,
+            "hanja": "而",
+            "meaning": "말 이을",
+            "sound": "이",
+            "radical": "而",
+            "stroke_count": 6,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 319,
+            "hanja": "益",
+            "meaning": "더할",
+            "sound": "익",
+            "radical": "皿",
+            "stroke_count": 10,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 320,
+            "hanja": "詠",
+            "meaning": "읊을",
+            "sound": "영",
+            "radical": "言",
+            "stroke_count": 12,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 321,
+            "hanja": "樂",
+            "meaning": "풍류",
+            "sound": "악",
+            "radical": "木",
+            "stroke_count": 15,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 322,
+            "hanja": "殊",
+            "meaning": "다를",
+            "sound": "수",
+            "radical": "歹",
+            "stroke_count": 10,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 323,
+            "hanja": "貴",
+            "meaning": "귀할",
+            "sound": "귀",
+            "radical": "貝",
+            "stroke_count": 12,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 324,
+            "hanja": "賤",
+            "meaning": "천할",
+            "sound": "천",
+            "radical": "貝",
+            "stroke_count": 15,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 325,
+            "hanja": "禮",
+            "meaning": "예도",
+            "sound": "례",
+            "radical": "示",
+            "stroke_count": 18,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 326,
+            "hanja": "別",
+            "meaning": "나눌",
+            "sound": "별",
+            "radical": "刀",
+            "stroke_count": 7,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 327,
+            "hanja": "尊",
+            "meaning": "높을",
+            "sound": "존",
+            "radical": "寸",
+            "stroke_count": 12,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 328,
+            "hanja": "卑",
+            "meaning": "낮을",
+            "sound": "비",
+            "radical": "十",
+            "stroke_count": 9,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 329,
+            "hanja": "上",
+            "meaning": "위",
+            "sound": "상",
+            "radical": "一",
+            "stroke_count": 3,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 330,
+            "hanja": "和",
+            "meaning": "화할",
+            "sound": "화",
+            "radical": "口",
+            "stroke_count": 8,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 331,
+            "hanja": "下",
+            "meaning": "아래",
+            "sound": "하",
+            "radical": "一",
+            "stroke_count": 3,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 332,
+            "hanja": "睦",
+            "meaning": "화목할",
+            "sound": "목",
+            "radical": "目",
+            "stroke_count": 13,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 333,
+            "hanja": "夫",
+            "meaning": "사내",
+            "sound": "부",
+            "radical": "大",
+            "stroke_count": 4,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 334,
+            "hanja": "唱",
+            "meaning": "부를",
+            "sound": "창",
+            "radical": "口",
+            "stroke_count": 11,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 335,
+            "hanja": "婦",
+            "meaning": "며느리",
+            "sound": "부",
+            "radical": "女",
+            "stroke_count": 11,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 336,
+            "hanja": "隨",
+            "meaning": "좇을",
+            "sound": "수",
+            "radical": "阜",
+            "stroke_count": 15,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 337,
+            "hanja": "外",
+            "meaning": "밖",
+            "sound": "외",
+            "radical": "夕",
+            "stroke_count": 5,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 338,
+            "hanja": "受",
+            "meaning": "받을",
+            "sound": "수",
+            "radical": "又",
+            "stroke_count": 8,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 339,
+            "hanja": "傅",
+            "meaning": "스승",
+            "sound": "부",
+            "radical": "人",
+            "stroke_count": 12,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 340,
+            "hanja": "訓",
+            "meaning": "가르칠",
+            "sound": "훈",
+            "radical": "言",
+            "stroke_count": 10,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 341,
+            "hanja": "入",
+            "meaning": "들",
+            "sound": "입",
+            "radical": "入",
+            "stroke_count": 2,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 342,
+            "hanja": "奉",
+            "meaning": "받들",
+            "sound": "봉",
+            "radical": "大",
+            "stroke_count": 8,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 343,
+            "hanja": "母",
+            "meaning": "어미",
+            "sound": "모",
+            "radical": "母",
+            "stroke_count": 5,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 344,
+            "hanja": "儀",
+            "meaning": "거동",
+            "sound": "의",
+            "radical": "人",
+            "stroke_count": 15,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 345,
+            "hanja": "諸",
+            "meaning": "모든",
+            "sound": "제",
+            "radical": "言",
+            "stroke_count": 15,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 346,
+            "hanja": "姑",
+            "meaning": "고모",
+            "sound": "고",
+            "radical": "女",
+            "stroke_count": 8,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 347,
+            "hanja": "伯",
+            "meaning": "맏",
+            "sound": "백",
+            "radical": "人",
+            "stroke_count": 7,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 348,
+            "hanja": "叔",
+            "meaning": "아저씨",
+            "sound": "숙",
+            "radical": "又",
+            "stroke_count": 8,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 349,
+            "hanja": "猶",
+            "meaning": "오히려",
+            "sound": "유",
+            "radical": "犬",
+            "stroke_count": 12,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 350,
+            "hanja": "子",
+            "meaning": "아들",
+            "sound": "자",
+            "radical": "子",
+            "stroke_count": 3,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 351,
+            "hanja": "比",
+            "meaning": "견줄",
+            "sound": "비",
+            "radical": "比",
+            "stroke_count": 4,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 352,
+            "hanja": "兒",
+            "meaning": "아이",
+            "sound": "아",
+            "radical": "儿",
+            "stroke_count": 8,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 353,
+            "hanja": "孔",
+            "meaning": "구멍",
+            "sound": "공",
+            "radical": "子",
+            "stroke_count": 4,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 354,
+            "hanja": "懷",
+            "meaning": "품을",
+            "sound": "회",
+            "radical": "心",
+            "stroke_count": 19,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 355,
+            "hanja": "兄",
+            "meaning": "형",
+            "sound": "형",
+            "radical": "儿",
+            "stroke_count": 5,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 356,
+            "hanja": "弟",
+            "meaning": "아우",
+            "sound": "제",
+            "radical": "弓",
+            "stroke_count": 7,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 357,
+            "hanja": "同",
+            "meaning": "한가지",
+            "sound": "동",
+            "radical": "口",
+            "stroke_count": 6,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 358,
+            "hanja": "氣",
+            "meaning": "기운",
+            "sound": "기",
+            "radical": "气",
+            "stroke_count": 10,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 359,
+            "hanja": "連",
+            "meaning": "이을",
+            "sound": "련",
+            "radical": "辵",
+            "stroke_count": 11,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 360,
+            "hanja": "枝",
+            "meaning": "가지",
+            "sound": "지",
+            "radical": "木",
+            "stroke_count": 8,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 361,
+            "hanja": "交",
+            "meaning": "사귈",
+            "sound": "교",
+            "radical": "亠",
+            "stroke_count": 6,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 362,
+            "hanja": "友",
+            "meaning": "벗",
+            "sound": "우",
+            "radical": "又",
+            "stroke_count": 4,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 363,
+            "hanja": "投",
+            "meaning": "던질",
+            "sound": "투",
+            "radical": "手",
+            "stroke_count": 7,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 364,
+            "hanja": "分",
+            "meaning": "나눌",
+            "sound": "분",
+            "radical": "刀",
+            "stroke_count": 4,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 365,
+            "hanja": "切",
+            "meaning": "끊을",
+            "sound": "절",
+            "radical": "刀",
+            "stroke_count": 4,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 366,
+            "hanja": "磨",
+            "meaning": "갈",
+            "sound": "마",
+            "radical": "石",
+            "stroke_count": 16,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 367,
+            "hanja": "箴",
+            "meaning": "경계",
+            "sound": "잠",
+            "radical": "竹",
+            "stroke_count": 15,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 368,
+            "hanja": "規",
+            "meaning": "법",
+            "sound": "규",
+            "radical": "見",
+            "stroke_count": 11,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 369,
+            "hanja": "仁",
+            "meaning": "어질",
+            "sound": "인",
+            "radical": "人",
+            "stroke_count": 4,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 370,
+            "hanja": "慈",
+            "meaning": "사랑",
+            "sound": "자",
+            "radical": "心",
+            "stroke_count": 13,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 371,
+            "hanja": "隱",
+            "meaning": "숨을",
+            "sound": "은",
+            "radical": "阜",
+            "stroke_count": 17,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 372,
+            "hanja": "惻",
+            "meaning": "슬퍼할",
+            "sound": "측",
+            "radical": "心",
+            "stroke_count": 12,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 373,
+            "hanja": "造",
+            "meaning": "지을",
+            "sound": "조",
+            "radical": "辵",
+            "stroke_count": 11,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 374,
+            "hanja": "次",
+            "meaning": "차례",
+            "sound": "차",
+            "radical": "欠",
+            "stroke_count": 6,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 375,
+            "hanja": "弗",
+            "meaning": "아니",
+            "sound": "불",
+            "radical": "弓",
+            "stroke_count": 5,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 376,
+            "hanja": "離",
+            "meaning": "떠날",
+            "sound": "리",
+            "radical": "隹",
+            "stroke_count": 19,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 377,
+            "hanja": "節",
+            "meaning": "마디",
+            "sound": "절",
+            "radical": "竹",
+            "stroke_count": 13,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 378,
+            "hanja": "義",
+            "meaning": "옳을",
+            "sound": "의",
+            "radical": "羊",
+            "stroke_count": 13,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 379,
+            "hanja": "廉",
+            "meaning": "청렴할",
+            "sound": "렴",
+            "radical": "广",
+            "stroke_count": 13,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 380,
+            "hanja": "退",
+            "meaning": "물러갈",
+            "sound": "퇴",
+            "radical": "辵",
+            "stroke_count": 10,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 381,
+            "hanja": "顛",
+            "meaning": "정수리",
+            "sound": "전",
+            "radical": "頁",
+            "stroke_count": 19,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 382,
+            "hanja": "沛",
+            "meaning": "자지러질",
+            "sound": "패",
+            "radical": "水",
+            "stroke_count": 8,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 383,
+            "hanja": "匪",
+            "meaning": "아니",
+            "sound": "비",
+            "radical": "匚",
+            "stroke_count": 10,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 384,
+            "hanja": "虧",
+            "meaning": "이지러질",
+            "sound": "휴",
+            "radical": "虍",
+            "stroke_count": 18,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 385,
+            "hanja": "性",
+            "meaning": "성품",
+            "sound": "성",
+            "radical": "心",
+            "stroke_count": 8,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 386,
+            "hanja": "靜",
+            "meaning": "고요할",
+            "sound": "정",
+            "radical": "靑",
+            "stroke_count": 14,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 387,
+            "hanja": "情",
+            "meaning": "뜻",
+            "sound": "정",
+            "radical": "心",
+            "stroke_count": 11,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 388,
+            "hanja": "逸",
+            "meaning": "편안할",
+            "sound": "일",
+            "radical": "辵",
+            "stroke_count": 12,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 389,
+            "hanja": "心",
+            "meaning": "마음",
+            "sound": "심",
+            "radical": "心",
+            "stroke_count": 4,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 390,
+            "hanja": "動",
+            "meaning": "움직일",
+            "sound": "동",
+            "radical": "力",
+            "stroke_count": 11,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 391,
+            "hanja": "神",
+            "meaning": "귀신",
+            "sound": "신",
+            "radical": "示",
+            "stroke_count": 10,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 392,
+            "hanja": "疲",
+            "meaning": "피곤할",
+            "sound": "피",
+            "radical": "疒",
+            "stroke_count": 10,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 393,
+            "hanja": "守",
+            "meaning": "지킬",
+            "sound": "수",
+            "radical": "宀",
+            "stroke_count": 6,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 394,
+            "hanja": "真",
+            "meaning": "참",
+            "sound": "진",
+            "radical": "目",
+            "stroke_count": 10,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 395,
+            "hanja": "志",
+            "meaning": "뜻",
+            "sound": "지",
+            "radical": "心",
+            "stroke_count": 7,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 396,
+            "hanja": "滿",
+            "meaning": "찰",
+            "sound": "만",
+            "radical": "水",
+            "stroke_count": 14,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 397,
+            "hanja": "逐",
+            "meaning": "쫓을",
+            "sound": "축",
+            "radical": "辵",
+            "stroke_count": 10,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 398,
+            "hanja": "物",
+            "meaning": "만물",
+            "sound": "물",
+            "radical": "牛",
+            "stroke_count": 8,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 399,
+            "hanja": "意",
+            "meaning": "뜻",
+            "sound": "의",
+            "radical": "心",
+            "stroke_count": 13,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 400,
+            "hanja": "移",
+            "meaning": "옮길",
+            "sound": "이",
+            "radical": "禾",
+            "stroke_count": 11,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 401,
+            "hanja": "堅",
+            "meaning": "굳을",
+            "sound": "견",
+            "radical": "土",
+            "stroke_count": 11,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 402,
+            "hanja": "持",
+            "meaning": "가질",
+            "sound": "지",
+            "radical": "手",
+            "stroke_count": 9,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 403,
+            "hanja": "雅",
+            "meaning": "우아할",
+            "sound": "아",
+            "radical": "隹",
+            "stroke_count": 12,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 404,
+            "hanja": "操",
+            "meaning": "잡을",
+            "sound": "조",
+            "radical": "手",
+            "stroke_count": 16,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 405,
+            "hanja": "好",
+            "meaning": "좋을",
+            "sound": "호",
+            "radical": "女",
+            "stroke_count": 6,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 406,
+            "hanja": "爵",
+            "meaning": "벼슬",
+            "sound": "작",
+            "radical": "爪",
+            "stroke_count": 18,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 407,
+            "hanja": "自",
+            "meaning": "스스로",
+            "sound": "자",
+            "radical": "自",
+            "stroke_count": 6,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 408,
+            "hanja": "縻",
+            "meaning": "얽을",
+            "sound": "미",
+            "radical": "糸",
+            "stroke_count": 17,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 409,
+            "hanja": "都",
+            "meaning": "도읍",
+            "sound": "도",
+            "radical": "邑",
+            "stroke_count": 11,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 410,
+            "hanja": "邑",
+            "meaning": "고을",
+            "sound": "읍",
+            "radical": "邑",
+            "stroke_count": 7,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 411,
+            "hanja": "華",
+            "meaning": "빛날",
+            "sound": "화",
+            "radical": "艸",
+            "stroke_count": 12,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 412,
+            "hanja": "夏",
+            "meaning": "여름",
+            "sound": "하",
+            "radical": "夊",
+            "stroke_count": 10,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 413,
+            "hanja": "東",
+            "meaning": "동녘",
+            "sound": "동",
+            "radical": "木",
+            "stroke_count": 8,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 414,
+            "hanja": "西",
+            "meaning": "서녘",
+            "sound": "서",
+            "radical": "襾",
+            "stroke_count": 6,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 415,
+            "hanja": "二",
+            "meaning": "두",
+            "sound": "이",
+            "radical": "二",
+            "stroke_count": 2,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 416,
+            "hanja": "京",
+            "meaning": "서울",
+            "sound": "경",
+            "radical": "亠",
+            "stroke_count": 8,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 417,
+            "hanja": "背",
+            "meaning": "등",
+            "sound": "배",
+            "radical": "肉",
+            "stroke_count": 9,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 418,
+            "hanja": "邙",
+            "meaning": "산이름",
+            "sound": "망",
+            "radical": "邑",
+            "stroke_count": 7,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 419,
+            "hanja": "面",
+            "meaning": "낯",
+            "sound": "면",
+            "radical": "面",
+            "stroke_count": 9,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 420,
+            "hanja": "洛",
+            "meaning": "물 이름",
+            "sound": "락",
+            "radical": "水",
+            "stroke_count": 9,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 421,
+            "hanja": "浮",
+            "meaning": "뜰",
+            "sound": "부",
+            "radical": "水",
+            "stroke_count": 10,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 422,
+            "hanja": "渭",
+            "meaning": "물 이름",
+            "sound": "위",
+            "radical": "水",
+            "stroke_count": 12,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 423,
+            "hanja": "據",
+            "meaning": "의지할",
+            "sound": "거",
+            "radical": "手",
+            "stroke_count": 16,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 424,
+            "hanja": "涇",
+            "meaning": "물 이름",
+            "sound": "경",
+            "radical": "水",
+            "stroke_count": 10,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 425,
+            "hanja": "宮",
+            "meaning": "집",
+            "sound": "궁",
+            "radical": "宀",
+            "stroke_count": 10,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 426,
+            "hanja": "殿",
+            "meaning": "전각",
+            "sound": "전",
+            "radical": "殳",
+            "stroke_count": 13,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 427,
+            "hanja": "盤",
+            "meaning": "소반",
+            "sound": "반",
+            "radical": "皿",
+            "stroke_count": 15,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 428,
+            "hanja": "郁",
+            "meaning": "향기",
+            "sound": "욱",
+            "radical": "邑",
+            "stroke_count": 9,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 429,
+            "hanja": "樓",
+            "meaning": "다락",
+            "sound": "루",
+            "radical": "木",
+            "stroke_count": 15,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 430,
+            "hanja": "觀",
+            "meaning": "볼",
+            "sound": "관",
+            "radical": "見",
+            "stroke_count": 25,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 431,
+            "hanja": "飛",
+            "meaning": "날",
+            "sound": "비",
+            "radical": "飛",
+            "stroke_count": 9,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 432,
+            "hanja": "驚",
+            "meaning": "놀랄",
+            "sound": "경",
+            "radical": "馬",
+            "stroke_count": 23,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 433,
+            "hanja": "圖",
+            "meaning": "그림",
+            "sound": "도",
+            "radical": "囗",
+            "stroke_count": 14,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 434,
+            "hanja": "寫",
+            "meaning": "베낄",
+            "sound": "사",
+            "radical": "宀",
+            "stroke_count": 15,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 435,
+            "hanja": "禽",
+            "meaning": "새",
+            "sound": "금",
+            "radical": "禸",
+            "stroke_count": 13,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 436,
+            "hanja": "獸",
+            "meaning": "짐승",
+            "sound": "수",
+            "radical": "犬",
+            "stroke_count": 19,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 437,
+            "hanja": "畫",
+            "meaning": "그림",
+            "sound": "화",
+            "radical": "田",
+            "stroke_count": 12,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 438,
+            "hanja": "彩",
+            "meaning": "채색",
+            "sound": "채",
+            "radical": "彡",
+            "stroke_count": 11,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 439,
+            "hanja": "仙",
+            "meaning": "신선",
+            "sound": "신",
+            "radical": "人",
+            "stroke_count": 5,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 440,
+            "hanja": "靈",
+            "meaning": "신령",
+            "sound": "령",
+            "radical": "雨",
+            "stroke_count": 24,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 441,
+            "hanja": "丙",
+            "meaning": "남녁",
+            "sound": "병",
+            "radical": "一",
+            "stroke_count": 5,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 442,
+            "hanja": "舍",
+            "meaning": "집",
+            "sound": "사",
+            "radical": "舌",
+            "stroke_count": 8,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 443,
+            "hanja": "傍",
+            "meaning": "곁",
+            "sound": "방",
+            "radical": "人",
+            "stroke_count": 12,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 444,
+            "hanja": "啟",
+            "meaning": "열",
+            "sound": "계",
+            "radical": "口",
+            "stroke_count": 11,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 445,
+            "hanja": "甲",
+            "meaning": "갑옷",
+            "sound": "갑",
+            "radical": "田",
+            "stroke_count": 5,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 446,
+            "hanja": "帳",
+            "meaning": "휘장",
+            "sound": "장",
+            "radical": "巾",
+            "stroke_count": 11,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 447,
+            "hanja": "對",
+            "meaning": "대답할",
+            "sound": "대",
+            "radical": "寸",
+            "stroke_count": 14,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 448,
+            "hanja": "楹",
+            "meaning": "기둥",
+            "sound": "영",
+            "radical": "木",
+            "stroke_count": 13,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 449,
+            "hanja": "肆",
+            "meaning": "배풀",
+            "sound": "사",
+            "radical": "聿",
+            "stroke_count": 13,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 450,
+            "hanja": "筵",
+            "meaning": "대자리",
+            "sound": "연",
+            "radical": "竹",
+            "stroke_count": 13,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 451,
+            "hanja": "設",
+            "meaning": "베풀",
+            "sound": "설",
+            "radical": "言",
+            "stroke_count": 11,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 452,
+            "hanja": "席",
+            "meaning": "자리",
+            "sound": "석",
+            "radical": "巾",
+            "stroke_count": 10,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 453,
+            "hanja": "鼓",
+            "meaning": "북",
+            "sound": "고",
+            "radical": "鼓",
+            "stroke_count": 13,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 454,
+            "hanja": "瑟",
+            "meaning": "비파",
+            "sound": "슬",
+            "radical": "玉",
+            "stroke_count": 13,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 455,
+            "hanja": "吹",
+            "meaning": "불",
+            "sound": "취",
+            "radical": "口",
+            "stroke_count": 7,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 456,
+            "hanja": "笙",
+            "meaning": "생황",
+            "sound": "생",
+            "radical": "竹",
+            "stroke_count": 11,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 457,
+            "hanja": "升",
+            "meaning": "오를",
+            "sound": "승",
+            "radical": "十",
+            "stroke_count": 4,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 458,
+            "hanja": "階",
+            "meaning": "섬돌",
+            "sound": "계",
+            "radical": "阜",
+            "stroke_count": 12,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 459,
+            "hanja": "納",
+            "meaning": "들일",
+            "sound": "납",
+            "radical": "糸",
+            "stroke_count": 10,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 460,
+            "hanja": "陛",
+            "meaning": "섬돌",
+            "sound": "폐",
+            "radical": "阜",
+            "stroke_count": 10,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 461,
+            "hanja": "弁",
+            "meaning": "고깔",
+            "sound": "변",
+            "radical": "廾",
+            "stroke_count": 5,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 462,
+            "hanja": "轉",
+            "meaning": "구를",
+            "sound": "전",
+            "radical": "車",
+            "stroke_count": 18,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 463,
+            "hanja": "疑",
+            "meaning": "의심할",
+            "sound": "의",
+            "radical": "疋",
+            "stroke_count": 14,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 464,
+            "hanja": "星",
+            "meaning": "별",
+            "sound": "성",
+            "radical": "日",
+            "stroke_count": 9,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 465,
+            "hanja": "右",
+            "meaning": "오른쪽",
+            "sound": "우",
+            "radical": "口",
+            "stroke_count": 5,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 466,
+            "hanja": "通",
+            "meaning": "통할",
+            "sound": "통",
+            "radical": "辵",
+            "stroke_count": 11,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 467,
+            "hanja": "廣",
+            "meaning": "넓을",
+            "sound": "광",
+            "radical": "广",
+            "stroke_count": 15,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 468,
+            "hanja": "內",
+            "meaning": "안",
+            "sound": "내",
+            "radical": "入",
+            "stroke_count": 4,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 469,
+            "hanja": "左",
+            "meaning": "왼쪽",
+            "sound": "좌",
+            "radical": "工",
+            "stroke_count": 5,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 470,
+            "hanja": "達",
+            "meaning": "통달할",
+            "sound": "달",
+            "radical": "辵",
+            "stroke_count": 13,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 471,
+            "hanja": "承",
+            "meaning": "이을",
+            "sound": "승",
+            "radical": "手",
+            "stroke_count": 8,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 472,
+            "hanja": "明",
+            "meaning": "밝을",
+            "sound": "명",
+            "radical": "日",
+            "stroke_count": 8,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 473,
+            "hanja": "既",
+            "meaning": "이미",
+            "sound": "기",
+            "radical": "无",
+            "stroke_count": 11,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 474,
+            "hanja": "集",
+            "meaning": "모을",
+            "sound": "집",
+            "radical": "隹",
+            "stroke_count": 12,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 475,
+            "hanja": "墳",
+            "meaning": "무덤",
+            "sound": "분",
+            "radical": "土",
+            "stroke_count": 15,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 476,
+            "hanja": "典",
+            "meaning": "법",
+            "sound": "전",
+            "radical": "八",
+            "stroke_count": 8,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 477,
+            "hanja": "亦",
+            "meaning": "또",
+            "sound": "역",
+            "radical": "亠",
+            "stroke_count": 6,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 478,
+            "hanja": "聚",
+            "meaning": "모을",
+            "sound": "취",
+            "radical": "耳",
+            "stroke_count": 14,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 479,
+            "hanja": "群",
+            "meaning": "무리",
+            "sound": "군",
+            "radical": "羊",
+            "stroke_count": 13,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 480,
+            "hanja": "英",
+            "meaning": "꽃부리",
+            "sound": "영",
+            "radical": "艸",
+            "stroke_count": 9,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 481,
+            "hanja": "杜",
+            "meaning": "막을",
+            "sound": "두",
+            "radical": "木",
+            "stroke_count": 7,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 482,
+            "hanja": "稿",
+            "meaning": "볏짚",
+            "sound": "고",
+            "radical": "禾",
+            "stroke_count": 15,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 483,
+            "hanja": "鍾",
+            "meaning": "쇠북",
+            "sound": "종",
+            "radical": "金",
+            "stroke_count": 17,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 484,
+            "hanja": "隸",
+            "meaning": "종",
+            "sound": "례",
+            "radical": "隹",
+            "stroke_count": 16,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 485,
+            "hanja": "漆",
+            "meaning": "옻",
+            "sound": "칠",
+            "radical": "水",
+            "stroke_count": 14,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 486,
+            "hanja": "書",
+            "meaning": "글",
+            "sound": "서",
+            "radical": "曰",
+            "stroke_count": 10,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 487,
+            "hanja": "壁",
+            "meaning": "벽",
+            "sound": "벽",
+            "radical": "土",
+            "stroke_count": 16,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 488,
+            "hanja": "經",
+            "meaning": "지날",
+            "sound": "경",
+            "radical": "糸",
+            "stroke_count": 13,
+            "level": "6급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 489,
+            "hanja": "府",
+            "meaning": "관청",
+            "sound": "부",
+            "radical": "广",
+            "stroke_count": 8,
+            "level": "5급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 490,
+            "hanja": "羅",
+            "meaning": "그물",
+            "sound": "라",
+            "radical": "罒",
+            "stroke_count": 19,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 491,
+            "hanja": "將",
+            "meaning": "장수",
+            "sound": "장",
+            "radical": "寸",
+            "stroke_count": 11,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 492,
+            "hanja": "相",
+            "meaning": "서로",
+            "sound": "상",
+            "radical": "木",
+            "stroke_count": 9,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 493,
+            "hanja": "路",
+            "meaning": "길",
+            "sound": "로",
+            "radical": "足",
+            "stroke_count": 13,
+            "level": "7급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 494,
+            "hanja": "俠",
+            "meaning": "의협할",
+            "sound": "협",
+            "radical": "人",
+            "stroke_count": 9,
+            "level": "2급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 495,
+            "hanja": "槐",
+            "meaning": "홰나무",
+            "sound": "괴",
+            "radical": "木",
+            "stroke_count": 13,
+            "level": "1급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 496,
+            "hanja": "卿",
+            "meaning": "벼슬",
+            "sound": "경",
+            "radical": "卩",
+            "stroke_count": 12,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 497,
+            "hanja": "戶",
+            "meaning": "지게",
+            "sound": "호",
+            "radical": "戶",
+            "stroke_count": 4,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 498,
+            "hanja": "封",
+            "meaning": "봉할",
+            "sound": "봉",
+            "radical": "寸",
+            "stroke_count": 9,
+            "level": "4급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 499,
+            "hanja": "八",
+            "meaning": "여덟",
+            "sound": "팔",
+            "radical": "八",
+            "stroke_count": 2,
+            "level": "8급",
+            "is_wrong": false,
+            "is_completed": false
+        },
+        {
+            "id": 500,
+            "hanja": "縣",
+            "meaning": "고을",
+            "sound": "현",
+            "radical": "糸",
+            "stroke_count": 16,
+            "level": "3급",
+            "is_wrong": false,
+            "is_completed": false
+        }
+    ],
+    "sentences": [
+        {
+            "id": 1,
+            "phrase": "天地玄黃",
+            "interpretation": "하늘은 검고 땅은 누르다",
+            "char_ids": [
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "id": 2,
+            "phrase": "宇宙洪荒",
+            "interpretation": "우주는 넓고 거칠다",
+            "char_ids": [
+                5,
+                6,
+                7,
+                8
+            ]
+        },
+        {
+            "id": 3,
+            "phrase": "日月盈昃",
+            "interpretation": "해와 달이 차고 기울며",
+            "char_ids": [
+                9,
+                10,
+                11,
+                12
+            ]
+        },
+        {
+            "id": 4,
+            "phrase": "辰宿列張",
+            "interpretation": "별자리가 하늘에 제각기 벌려져 있다",
+            "char_ids": [
+                13,
+                14,
+                15,
+                16
+            ]
+        },
+        {
+            "id": 5,
+            "phrase": "寒來暑往",
+            "interpretation": "추위가 오면 더위가 가고",
+            "char_ids": [
+                17,
+                18,
+                19,
+                20
+            ]
+        },
+        {
+            "id": 6,
+            "phrase": "秋收冬藏",
+            "interpretation": "가을에 거두고 겨울에 갈무리한다",
+            "char_ids": [
+                21,
+                22,
+                23,
+                24
+            ]
+        },
+        {
+            "id": 7,
+            "phrase": "閏餘成歲",
+            "interpretation": "윤달이 남아 한 해를 이룬다",
+            "char_ids": [
+                25,
+                26,
+                27,
+                28
+            ]
+        },
+        {
+            "id": 8,
+            "phrase": "律呂調陽",
+            "interpretation": "율려가 양기를 조절한다",
+            "char_ids": [
+                29,
+                30,
+                31,
+                32
+            ]
+        },
+        {
+            "id": 9,
+            "phrase": "雲騰致雨",
+            "interpretation": "구름이 올라가 비를 내리고",
+            "char_ids": [
+                33,
+                34,
+                35,
+                36
+            ]
+        },
+        {
+            "id": 10,
+            "phrase": "露結爲霜",
+            "interpretation": "이슬이 맺혀 서리가 된다",
+            "char_ids": [
+                37,
+                38,
+                39,
+                40
+            ]
+        },
+        {
+            "id": 11,
+            "phrase": "金生麗水",
+            "interpretation": "금은 여수에서 나오고",
+            "char_ids": [
+                41,
+                42,
+                43,
+                44
+            ]
+        },
+        {
+            "id": 12,
+            "phrase": "玉出崑岡",
+            "interpretation": "옥은 곤강에서 난다",
+            "char_ids": [
+                45,
+                46,
+                47,
+                48
+            ]
+        },
+        {
+            "id": 13,
+            "phrase": "劍號巨闕",
+            "interpretation": "칼 중에는 거궐이 이름나 있고",
+            "char_ids": [
+                49,
+                50,
+                51,
+                52
+            ]
+        },
+        {
+            "id": 14,
+            "phrase": "珠稱夜光",
+            "interpretation": "구슬 중에는 야광주가 일컬어진다",
+            "char_ids": [
+                53,
+                54,
+                55,
+                56
+            ]
+        },
+        {
+            "id": 15,
+            "phrase": "果珍李柰",
+            "interpretation": "과실 중에는 오얏과 능금이 보배이고",
+            "char_ids": [
+                57,
+                58,
+                59,
+                60
+            ]
+        },
+        {
+            "id": 16,
+            "phrase": "菜重芥薑",
+            "interpretation": "나물 중에는 겨자와 생강이 소중하다",
+            "char_ids": [
+                61,
+                62,
+                63,
+                64
+            ]
+        },
+        {
+            "id": 17,
+            "phrase": "海鹹河淡",
+            "interpretation": "바닷물은 짜고 민물은 담백하다",
+            "char_ids": [
+                65,
+                66,
+                67,
+                68
+            ]
+        },
+        {
+            "id": 18,
+            "phrase": "鱗潛羽翔",
+            "interpretation": "비늘 있는 것은 잠기고 깃 있는 것은 난다",
+            "char_ids": [
+                69,
+                70,
+                71,
+                72
+            ]
+        },
+        {
+            "id": 19,
+            "phrase": "龍師火帝",
+            "interpretation": "복희씨는 용으로 벼슬 이름을 하고 신농씨는 불로 하였다",
+            "char_ids": [
+                73,
+                74,
+                75,
+                76
+            ]
+        },
+        {
+            "id": 20,
+            "phrase": "鳥官人皇",
+            "interpretation": "소호씨는 새로 벼슬 이름을 하고 황제는 인문을 갖추었다",
+            "char_ids": [
+                77,
+                78,
+                79,
+                80
+            ]
+        },
+        {
+            "id": 21,
+            "phrase": "始制文字",
+            "interpretation": "비로소 문자를 만들고",
+            "char_ids": [
+                81,
+                82,
+                83,
+                84
+            ]
+        },
+        {
+            "id": 22,
+            "phrase": "乃服衣裳",
+            "interpretation": "이에 의상을 입기에 이르렀다",
+            "char_ids": [
+                85,
+                86,
+                87,
+                88
+            ]
+        },
+        {
+            "id": 23,
+            "phrase": "推位讓國",
+            "interpretation": "제위를 물려주고 나라를 사양했다",
+            "char_ids": [
+                89,
+                90,
+                91,
+                92
+            ]
+        },
+        {
+            "id": 24,
+            "phrase": "有虞陶唐",
+            "interpretation": "유우씨와 도당씨는 성천자이다",
+            "char_ids": [
+                93,
+                94,
+                95,
+                96
+            ]
+        },
+        {
+            "id": 25,
+            "phrase": "弔民伐罪",
+            "interpretation": "불쌍한 백성을 돕고 죄짓는 왕을 쳤다",
+            "char_ids": [
+                97,
+                98,
+                99,
+                100
+            ]
+        },
+        {
+            "id": 26,
+            "phrase": "周發殷湯",
+            "interpretation": "주나라 무왕 무발과 은나라 탕왕이다",
+            "char_ids": [
+                101,
+                102,
+                103,
+                104
+            ]
+        },
+        {
+            "id": 27,
+            "phrase": "坐朝問道",
+            "interpretation": "조정에 앉아 도를 물었다",
+            "char_ids": [
+                105,
+                106,
+                107,
+                108
+            ]
+        },
+        {
+            "id": 28,
+            "phrase": "垂拱平章",
+            "interpretation": "팔을 드리우고 손을 마주잡아도 나라가 다스려졌다",
+            "char_ids": [
+                109,
+                110,
+                111,
+                112
+            ]
+        },
+        {
+            "id": 29,
+            "phrase": "愛育黎首",
+            "interpretation": "검은 머리 백성을 사랑으로 길렀다",
+            "char_ids": [
+                113,
+                114,
+                115,
+                116
+            ]
+        },
+        {
+            "id": 30,
+            "phrase": "臣伏戎羌",
+            "interpretation": "오랑캐인 융과 강도 신하로 복종했다",
+            "char_ids": [
+                117,
+                118,
+                119,
+                120
+            ]
+        },
+        {
+            "id": 31,
+            "phrase": "遐邇一體",
+            "interpretation": "멀고 가까운 곳이 한 몸이 되었다",
+            "char_ids": [
+                121,
+                122,
+                123,
+                124
+            ]
+        },
+        {
+            "id": 32,
+            "phrase": "率賓歸王",
+            "interpretation": "모두가 손님으로 와서 왕에게 귀순했다",
+            "char_ids": [
+                125,
+                126,
+                127,
+                128
+            ]
+        },
+        {
+            "id": 33,
+            "phrase": "鳴鳳在樹",
+            "interpretation": "봉황이 나무에서 울고",
+            "char_ids": [
+                129,
+                130,
+                131,
+                132
+            ]
+        },
+        {
+            "id": 34,
+            "phrase": "白駒食場",
+            "interpretation": "흰 망아지가 마당에서 풀을 먹는다",
+            "char_ids": [
+                133,
+                134,
+                135,
+                136
+            ]
+        },
+        {
+            "id": 35,
+            "phrase": "化被草木",
+            "interpretation": "덕화가 풀과 나무에까지 입히고",
+            "char_ids": [
+                137,
+                138,
+                139,
+                140
+            ]
+        },
+        {
+            "id": 36,
+            "phrase": "賴及萬方",
+            "interpretation": "그 혜택이 만방에 미쳤다",
+            "char_ids": [
+                141,
+                142,
+                143,
+                144
+            ]
+        },
+        {
+            "id": 37,
+            "phrase": "蓋此身髮",
+            "interpretation": "대개 이 몸과 머리리털은",
+            "char_ids": [
+                145,
+                146,
+                147,
+                148
+            ]
+        },
+        {
+            "id": 38,
+            "phrase": "四大五常",
+            "interpretation": "사대와 오상으로 되어 있다",
+            "char_ids": [
+                149,
+                150,
+                151,
+                152
+            ]
+        },
+        {
+            "id": 39,
+            "phrase": "恭惟鞠養",
+            "interpretation": "공손히 나를 길러주신 것을 생각하니",
+            "char_ids": [
+                153,
+                154,
+                155,
+                156
+            ]
+        },
+        {
+            "id": 40,
+            "phrase": "豈敢毁傷",
+            "interpretation": "어찌 감히 헐거나 다치게 하겠는가",
+            "char_ids": [
+                157,
+                158,
+                159,
+                160
+            ]
+        },
+        {
+            "id": 41,
+            "phrase": "女慕貞潔",
+            "interpretation": "여자는 곧고 깨끗함을 그리워하고",
+            "char_ids": [
+                161,
+                162,
+                163,
+                164
+            ]
+        },
+        {
+            "id": 42,
+            "phrase": "男效才良",
+            "interpretation": "남자는 재주 있고 어짐을 본받아야 한다",
+            "char_ids": [
+                165,
+                166,
+                167,
+                168
+            ]
+        },
+        {
+            "id": 43,
+            "phrase": "知過必改",
+            "interpretation": "허물을 알면 반드시 고쳐야 하고",
+            "char_ids": [
+                169,
+                170,
+                171,
+                172
+            ]
+        },
+        {
+            "id": 44,
+            "phrase": "得能莫忘",
+            "interpretation": "능함을 얻으면 잊지 말아야 한다",
+            "char_ids": [
+                173,
+                174,
+                175,
+                176
+            ]
+        },
+        {
+            "id": 45,
+            "phrase": "罔談彼短",
+            "interpretation": "남의 단점을 말하지 말며",
+            "char_ids": [
+                177,
+                178,
+                179,
+                180
+            ]
+        },
+        {
+            "id": 46,
+            "phrase": "靡恃己長",
+            "interpretation": "나의 장점을 믿지 말라",
+            "char_ids": [
+                181,
+                182,
+                183,
+                184
+            ]
+        },
+        {
+            "id": 47,
+            "phrase": "信使可覆",
+            "interpretation": "믿음은 가히 다시 살펴볼 수 있게 하고",
+            "char_ids": [
+                185,
+                186,
+                187,
+                188
+            ]
+        },
+        {
+            "id": 48,
+            "phrase": "器欲難量",
+            "interpretation": "그릇은 헤아리기 어렵게 하고자 해야 한다",
+            "char_ids": [
+                189,
+                190,
+                191,
+                192
+            ]
+        },
+        {
+            "id": 49,
+            "phrase": "墨悲絲染",
+            "interpretation": "묵자는 실이 물드는 것을 슬퍼하고",
+            "char_ids": [
+                193,
+                194,
+                195,
+                196
+            ]
+        },
+        {
+            "id": 50,
+            "phrase": "詩讚羔羊",
+            "interpretation": "시경에서는 고양편을 찬미했다",
+            "char_ids": [
+                197,
+                198,
+                199,
+                200
+            ]
+        },
+        {
+            "id": 51,
+            "phrase": "景行維賢",
+            "interpretation": "큰 길을 행하는 것은 오직 어진 사람이다",
+            "char_ids": [
+                201,
+                202,
+                203,
+                204
+            ]
+        },
+        {
+            "id": 52,
+            "phrase": "克念作聖",
+            "interpretation": "생각을 잘 다스리면 성인이 된다",
+            "char_ids": [
+                205,
+                206,
+                207,
+                208
+            ]
+        },
+        {
+            "id": 53,
+            "phrase": "德建名立",
+            "interpretation": "덕이 세워지면 이름이 서고",
+            "char_ids": [
+                209,
+                210,
+                211,
+                212
+            ]
+        },
+        {
+            "id": 54,
+            "phrase": "形端表正",
+            "interpretation": "모양새가 단정하면 겉모습도 바르다",
+            "char_ids": [
+                213,
+                214,
+                215,
+                216
+            ]
+        },
+        {
+            "id": 55,
+            "phrase": "空谷傳聲",
+            "interpretation": "빈 골짜기에 소리가 전해지고",
+            "char_ids": [
+                217,
+                218,
+                219,
+                220
+            ]
+        },
+        {
+            "id": 56,
+            "phrase": "虛堂習聽",
+            "interpretation": "빈 방에서 소리를 익혀 듣는다",
+            "char_ids": [
+                221,
+                222,
+                223,
+                224
+            ]
+        },
+        {
+            "id": 57,
+            "phrase": "禍因惡積",
+            "interpretation": "재앙은 악을 쌓음으로 인함이요",
+            "char_ids": [
+                225,
+                226,
+                227,
+                228
+            ]
+        },
+        {
+            "id": 58,
+            "phrase": "福緣善慶",
+            "interpretation": "복은 착한 경사로 말미암는다",
+            "char_ids": [
+                229,
+                230,
+                231,
+                232
+            ]
+        },
+        {
+            "id": 59,
+            "phrase": "尺璧非寶",
+            "interpretation": "한 자 되는 구슬도 보배가 아니요",
+            "char_ids": [
+                233,
+                234,
+                235,
+                236
+            ]
+        },
+        {
+            "id": 60,
+            "phrase": "寸陰是競",
+            "interpretation": "짦은 시간이라도 다투어 아껴야 한다",
+            "char_ids": [
+                237,
+                238,
+                239,
+                240
+            ]
+        },
+        {
+            "id": 61,
+            "phrase": "資父事君",
+            "interpretation": "아버지를 바탕으로 임금을 섬기니",
+            "char_ids": [
+                241,
+                242,
+                243,
+                244
+            ]
+        },
+        {
+            "id": 62,
+            "phrase": "曰嚴與敬",
+            "interpretation": "엄숙함과 공경함이다",
+            "char_ids": [
+                245,
+                246,
+                247,
+                248
+            ]
+        },
+        {
+            "id": 63,
+            "phrase": "孝當竭力",
+            "interpretation": "효도는 마땅히 힘을 다해야 한다",
+            "char_ids": [
+                249,
+                250,
+                251,
+                252
+            ]
+        },
+        {
+            "id": 64,
+            "phrase": "忠則盡命",
+            "interpretation": "충성하면 곧 목숨을 다한다",
+            "char_ids": [
+                253,
+                254,
+                255,
+                256
+            ]
+        },
+        {
+            "id": 65,
+            "phrase": "臨深履薄",
+            "interpretation": "깊은 곳에 임하듯 얇은 얼음을 밟듯 조심하라",
+            "char_ids": [
+                257,
+                258,
+                259,
+                260
+            ]
+        },
+        {
+            "id": 66,
+            "phrase": "夙興溫凊",
+            "interpretation": "일찍 일어나서 부모를 따뜻하고 시원하게 해드려라",
+            "char_ids": [
+                261,
+                262,
+                263,
+                264
+            ]
+        },
+        {
+            "id": 67,
+            "phrase": "似蘭斯馨",
+            "interpretation": "난초의 향기와 같이 아름다워라",
+            "char_ids": [
+                265,
+                266,
+                267,
+                268
+            ]
+        },
+        {
+            "id": 68,
+            "phrase": "如松之盛",
+            "interpretation": "소나무의 무성함과 같이 변치 마라",
+            "char_ids": [
+                269,
+                270,
+                271,
+                272
+            ]
+        },
+        {
+            "id": 69,
+            "phrase": "川流不息",
+            "interpretation": "시냇물이 흘러 쉬지 않는 것과 같다",
+            "char_ids": [
+                273,
+                274,
+                275,
+                276
+            ]
+        },
+        {
+            "id": 70,
+            "phrase": "淵澄取映",
+            "interpretation": "못이 맑으면 빛을 취하여 비친다",
+            "char_ids": [
+                277,
+                278,
+                279,
+                280
+            ]
+        },
+        {
+            "id": 71,
+            "phrase": "容止若思",
+            "interpretation": "몸가짐은 생각하는 듯 단정히 하라",
+            "char_ids": [
+                281,
+                282,
+                283,
+                284
+            ]
+        },
+        {
+            "id": 72,
+            "phrase": "言辭安定",
+            "interpretation": "말씨는 안정되고 정중하게 하라",
+            "char_ids": [
+                285,
+                286,
+                287,
+                288
+            ]
+        },
+        {
+            "id": 73,
+            "phrase": "篤初誠美",
+            "interpretation": "처음에 정성을 다하는 것이 참으로 아름답다",
+            "char_ids": [
+                289,
+                290,
+                291,
+                292
+            ]
+        },
+        {
+            "id": 74,
+            "phrase": "愼終宜令",
+            "interpretation": "끝을 삼가면 마땅히 좋게 끝날 것이다",
+            "char_ids": [
+                293,
+                294,
+                295,
+                296
+            ]
+        },
+        {
+            "id": 75,
+            "phrase": "榮業所基",
+            "interpretation": "영화로운 업의 터전이 된다",
+            "char_ids": [
+                297,
+                298,
+                299,
+                300
+            ]
+        },
+        {
+            "id": 76,
+            "phrase": "籍甚無竟",
+            "interpretation": "명성이 자자하여 끝이 없다",
+            "char_ids": [
+                301,
+                302,
+                303,
+                304
+            ]
+        },
+        {
+            "id": 77,
+            "phrase": "學優登仕",
+            "interpretation": "학문이 넉넉하면 벼슬에 나아가라",
+            "char_ids": [
+                305,
+                306,
+                307,
+                308
+            ]
+        },
+        {
+            "id": 78,
+            "phrase": "攝職從政",
+            "interpretation": "직분을 맡아 정사에 종사하라",
+            "char_ids": [
+                309,
+                310,
+                311,
+                312
+            ]
+        },
+        {
+            "id": 79,
+            "phrase": "存以甘棠",
+            "interpretation": "감당나무 아래서 그 은혜를 생각한다",
+            "char_ids": [
+                313,
+                314,
+                315,
+                316
+            ]
+        },
+        {
+            "id": 80,
+            "phrase": "去而益詠",
+            "interpretation": "떠난 뒤에도 더욱 칭송을 받는다",
+            "char_ids": [
+                317,
+                318,
+                319,
+                320
+            ]
+        },
+        {
+            "id": 81,
+            "phrase": "樂殊貴賤",
+            "interpretation": "풍류는 귀천에 따라 다르다",
+            "char_ids": [
+                321,
+                322,
+                323,
+                324
+            ]
+        },
+        {
+            "id": 82,
+            "phrase": "禮別尊卑",
+            "interpretation": "예법은 높고 낮음을 분별한다",
+            "char_ids": [
+                325,
+                326,
+                327,
+                328
+            ]
+        },
+        {
+            "id": 83,
+            "phrase": "上和下睦",
+            "interpretation": "위에서 화합하고 아래서 화목하라",
+            "char_ids": [
+                329,
+                330,
+                331,
+                332
+            ]
+        },
+        {
+            "id": 84,
+            "phrase": "夫唱婦隨",
+            "interpretation": "남편이 부르면 아내가 따른다",
+            "char_ids": [
+                333,
+                334,
+                335,
+                336
+            ]
+        },
+        {
+            "id": 85,
+            "phrase": "外受傅訓",
+            "interpretation": "밖에서는 스승의 가르침을 받고",
+            "char_ids": [
+                337,
+                338,
+                339,
+                340
+            ]
+        },
+        {
+            "id": 86,
+            "phrase": "入奉母儀",
+            "interpretation": "들어와서는 어머니의 거동을 받든다",
+            "char_ids": [
+                341,
+                342,
+                343,
+                344
+            ]
+        },
+        {
+            "id": 87,
+            "phrase": "諸姑伯叔",
+            "interpretation": "모든 고모와 백부 숙부들은",
+            "char_ids": [
+                345,
+                346,
+                347,
+                348
+            ]
+        },
+        {
+            "id": 88,
+            "phrase": "猶子比兒",
+            "interpretation": "조카를 아들과 같이 여기라",
+            "char_ids": [
+                349,
+                350,
+                351,
+                352
+            ]
+        },
+        {
+            "id": 89,
+            "phrase": "孔懷兄弟",
+            "interpretation": "형제를 매우 생각하라",
+            "char_ids": [
+                353,
+                354,
+                355,
+                356
+            ]
+        },
+        {
+            "id": 90,
+            "phrase": "同氣連枝",
+            "interpretation": "같은 기운을 이어받은 가지와 같다",
+            "char_ids": [
+                357,
+                358,
+                359,
+                360
+            ]
+        },
+        {
+            "id": 91,
+            "phrase": "交友投分",
+            "interpretation": "친구를 사귐에 우정을 나눈다",
+            "char_ids": [
+                361,
+                362,
+                363,
+                364
+            ]
+        },
+        {
+            "id": 92,
+            "phrase": "切磨箴規",
+            "interpretation": "갈고 닦으며 경계하고 법도로 삼으라",
+            "char_ids": [
+                365,
+                366,
+                367,
+                368
+            ]
+        },
+        {
+            "id": 93,
+            "phrase": "仁慈隱惻",
+            "interpretation": "어질고 사랑하며 가엽게 여기라",
+            "char_ids": [
+                369,
+                370,
+                371,
+                372
+            ]
+        },
+        {
+            "id": 94,
+            "phrase": "造次弗離",
+            "interpretation": "잠시라도 이를 떠나지 마라",
+            "char_ids": [
+                373,
+                374,
+                375,
+                376
+            ]
+        },
+        {
+            "id": 95,
+            "phrase": "節義廉退",
+            "interpretation": "절의와 염치를 지켜 물러가라",
+            "char_ids": [
+                377,
+                378,
+                379,
+                380
+            ]
+        },
+        {
+            "id": 96,
+            "phrase": "顛沛匪虧",
+            "interpretation": "엎드러지고 자빠져도 이지러지지 마라",
+            "char_ids": [
+                381,
+                382,
+                383,
+                384
+            ]
+        },
+        {
+            "id": 97,
+            "phrase": "性靜情逸",
+            "interpretation": "성품이 고요하면 뜻이 편안하다",
+            "char_ids": [
+                385,
+                386,
+                387,
+                388
+            ]
+        },
+        {
+            "id": 98,
+            "phrase": "心動神疲",
+            "interpretation": "마음이 움직이면 정신이 피로하다",
+            "char_ids": [
+                389,
+                390,
+                391,
+                392
+            ]
+        },
+        {
+            "id": 99,
+            "phrase": "守真志滿",
+            "interpretation": "참됨을 지키면 뜻이 가득하다",
+            "char_ids": [
+                393,
+                394,
+                395,
+                396
+            ]
+        },
+        {
+            "id": 100,
+            "phrase": "逐物意移",
+            "interpretation": "만물을 쫓으면 뜻이 옮겨간다",
+            "char_ids": [
+                397,
+                398,
+                399,
+                400
+            ]
+        },
+        {
+            "id": 101,
+            "phrase": "堅持雅操",
+            "interpretation": "우아한 지조를 굳게 지키라",
+            "char_ids": [
+                401,
+                402,
+                403,
+                404
+            ]
+        },
+        {
+            "id": 102,
+            "phrase": "好爵自縻",
+            "interpretation": "좋은 벼슬이 저절로 따를 것이다",
+            "char_ids": [
+                405,
+                406,
+                407,
+                408
+            ]
+        },
+        {
+            "id": 103,
+            "phrase": "都邑華夏",
+            "interpretation": "도읍은 번화한 나라의 중심이다",
+            "char_ids": [
+                409,
+                410,
+                411,
+                412
+            ]
+        },
+        {
+            "id": 104,
+            "phrase": "東西二京",
+            "interpretation": "동서에 두 서울이 있다",
+            "char_ids": [
+                413,
+                414,
+                415,
+                416
+            ]
+        },
+        {
+            "id": 105,
+            "phrase": "背邙面洛",
+            "interpretation": "북쪽으로는 북망산을 등지고 남쪽으로는 낙수를 향한다",
+            "char_ids": [
+                417,
+                418,
+                419,
+                420
+            ]
+        },
+        {
+            "id": 106,
+            "phrase": "浮渭據涇",
+            "interpretation": "위수에 떠 있고 경수에 근거한다",
+            "char_ids": [
+                421,
+                422,
+                423,
+                424
+            ]
+        },
+        {
+            "id": 107,
+            "phrase": "宮殿盤郁",
+            "interpretation": "궁전은 크고 울창하다",
+            "char_ids": [
+                425,
+                426,
+                427,
+                428
+            ]
+        },
+        {
+            "id": 108,
+            "phrase": "樓觀飛驚",
+            "interpretation": "누각은 날아갈 듯 높다",
+            "char_ids": [
+                429,
+                430,
+                431,
+                432
+            ]
+        },
+        {
+            "id": 109,
+            "phrase": "圖寫禽獸",
+            "interpretation": "새와 짐승을 그렸다",
+            "char_ids": [
+                433,
+                434,
+                435,
+                436
+            ]
+        },
+        {
+            "id": 110,
+            "phrase": "畫彩仙靈",
+            "interpretation": "신선과 영묘함을 채색했다",
+            "char_ids": [
+                437,
+                438,
+                439,
+                440
+            ]
+        },
+        {
+            "id": 111,
+            "phrase": "丙舍傍啟",
+            "interpretation": "곁에 부속 건물을 열었다",
+            "char_ids": [
+                441,
+                442,
+                443,
+                444
+            ]
+        },
+        {
+            "id": 112,
+            "phrase": "甲帳對楹",
+            "interpretation": "화려한 휘장이 기둥에 마주 본다",
+            "char_ids": [
+                445,
+                446,
+                447,
+                448
+            ]
+        },
+        {
+            "id": 113,
+            "phrase": "肆筵設席",
+            "interpretation": "자리를 펴고 멍석을 깔았다",
+            "char_ids": [
+                449,
+                450,
+                451,
+                452
+            ]
+        },
+        {
+            "id": 114,
+            "phrase": "鼓瑟吹笙",
+            "interpretation": "비파를 타고 생황을 분다",
+            "char_ids": [
+                453,
+                454,
+                455,
+                456
+            ]
+        },
+        {
+            "id": 115,
+            "phrase": "升階納陛",
+            "interpretation": "계단을 올라 대궐 뜰에 들어간다",
+            "char_ids": [
+                457,
+                458,
+                459,
+                460
+            ]
+        },
+        {
+            "id": 116,
+            "phrase": "弁轉疑星",
+            "interpretation": "고깔이 돌아가니 별이 빛나는 듯하다",
+            "char_ids": [
+                461,
+                462,
+                463,
+                464
+            ]
+        },
+        {
+            "id": 117,
+            "phrase": "右通廣內",
+            "interpretation": "오른쪽으로 광내전과 통하고",
+            "char_ids": [
+                465,
+                466,
+                467,
+                468
+            ]
+        },
+        {
+            "id": 118,
+            "phrase": "左達承明",
+            "interpretation": "왼쪽으로 승명전과 통한다",
+            "char_ids": [
+                469,
+                470,
+                471,
+                472
+            ]
+        },
+        {
+            "id": 119,
+            "phrase": "既集墳典",
+            "interpretation": "이미 고대의 경전들을 모으고",
+            "char_ids": [
+                473,
+                474,
+                475,
+                476
+            ]
+        },
+        {
+            "id": 120,
+            "phrase": "亦聚群英",
+            "interpretation": "또한 많은 영재들을 모았다",
+            "char_ids": [
+                477,
+                478,
+                479,
+                480
+            ]
+        },
+        {
+            "id": 121,
+            "phrase": "杜稿鍾隸",
+            "interpretation": "두조의 초서와 종요의 예서가 있고",
+            "char_ids": [
+                481,
+                482,
+                483,
+                484
+            ]
+        },
+        {
+            "id": 122,
+            "phrase": "漆書壁經",
+            "interpretation": "옻칠로 쓴 글씨와 벽 속에서 나온 경서가 있다",
+            "char_ids": [
+                485,
+                486,
+                487,
+                488
+            ]
+        },
+        {
+            "id": 123,
+            "phrase": "府羅將相",
+            "interpretation": "관청에는 장수와 정승이 벌려 서 있다",
+            "char_ids": [
+                489,
+                490,
+                491,
+                492
+            ]
+        },
+        {
+            "id": 124,
+            "phrase": "路俠槐卿",
+            "interpretation": "길에는 높은 벼슬아치들이 다닌다",
+            "char_ids": [
+                493,
+                494,
+                495,
+                496
+            ]
+        },
+        {
+            "id": 125,
+            "phrase": "戶封八縣",
+            "interpretation": "여덟 고을의 가구를 봉해준다",
+            "char_ids": [
+                497,
+                498,
+                499,
+                500
+            ]
+        }
+    ]
+}

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>천자문 마스터</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1A1A1A">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+</head>
+
+<body>
+    <header class="app-header">
+        <button class="icon-btn" aria-label="메뉴">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+        <h1 class="target-title" style="cursor: pointer;">천자문 마스터</h1>
+        <button class="icon-btn" aria-label="설정">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                </path>
+            </svg>
+        </button>
+    </header>
+
+    <!-- Settings Menu (Initially Hidden) -->
+    <div id="settings-overlay" class="settings-overlay" onclick="toggleSettings()">
+        <div class="settings-menu" onclick="event.stopPropagation()">
+            <button class="settings-item" onclick="toggleTheme()">
+                <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Sun or Moon Icon depending on state -->
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <span id="theme-text">라이트 모드</span>
+            </button>
+        </div>
+    </div>
+
+    <main class="content-area">
+        <div id="dashboard-grid" class="dashboard-grid">
+            <!-- 1. Dictionary -->
+            <button class="menu-card" data-target="dictionary">
+                <div class="icon-wrapper">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                </div>
+                <span class="menu-title">사전</span>
+            </button>
+
+            <!-- 2. Word Games (Yellow Dot) -->
+            <button class="menu-card" data-target="word-games">
+                <div class="notification-dot"></div>
+                <div class="icon-wrapper">
+                    <!-- Hand holding smartphone roughly -->
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="7" y="4" width="10" height="16" rx="2"></rect>
+                        <path d="M12 17h.01"></path>
+                        <path d="M19 14l2 2"></path>
+                        <path d="M5 14l-2 2"></path>
+                    </svg>
+                </div>
+                <span class="menu-title">단어 게임</span>
+            </button>
+
+            <!-- 3. Sentences -->
+            <button class="menu-card" data-target="sentences">
+                <div class="icon-wrapper">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                </div>
+                <span class="menu-title">문장</span>
+            </button>
+
+            <!-- 4. Sentence Games (Yellow Dot) -->
+            <button class="menu-card" data-target="sentence-games">
+                <div class="notification-dot"></div>
+                <div class="icon-wrapper">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                        <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                    </svg>
+                </div>
+                <span class="menu-title">문장 게임</span>
+            </button>
+
+            <!-- 5. Flashcards -->
+            <button class="menu-card" data-target="flashcards">
+                <div class="icon-wrapper">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                        <path d="M2 7l10-4 10 4"></path>
+                    </svg>
+                </div>
+                <span class="menu-title">플래시카드</span>
+            </button>
+
+            <!-- 6. My Account -->
+            <button class="menu-card" data-target="account">
+                <div class="icon-wrapper">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                        <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                        <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                    </svg>
+                </div>
+                <span class="menu-title">내 계정</span>
+            </button>
+        </div>
+
+        <!-- Dictionary View (Initially Hidden) -->
+        <div id="dictionary-view" style="display: none;">
+            <div class="search-container">
+                <input type="text" id="hanja-search" placeholder="한자, 뜻, 음 검색">
+                <button class="search-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">전체</button>
+                <button class="filter-tab" data-filter="unlearned">오답/미학습</button>
+                <button class="filter-tab" data-filter="completed">학습 완료</button>
+            </div>
+
+            <div id="hanja-list" class="hanja-list-container">
+                <!-- Hanja Cards will be rendered here -->
+            </div>
+
+        </div>
+
+        <!-- Word Games View (Initially Hidden) -->
+        <div id="word-game-view" style="display: none;">
+            <div class="dashboard-grid">
+                <!-- Free 1 -->
+                <button class="menu-card game-card" data-game-id="word-multi"
+                    onclick="handleGameClick('word-multi', false)">
+                    <div class="icon-wrapper">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                            <circle cx="8.5" cy="15.5" r="1.5"></circle>
+                        </svg>
+                    </div>
+                    <span class="menu-title">객관식 퀴즈</span>
+                </button>
+                <!-- Free 2 -->
+                <button class="menu-card game-card" data-game-id="word-hanzi"
+                    onclick="handleGameClick('word-hanzi', false)">
+                    <div class="icon-wrapper">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                            </path>
+                        </svg>
+                    </div>
+                    <span class="menu-title">한자 고르기</span>
+                </button>
+
+                <!-- PRO Games -->
+                <button class="menu-card game-card pro-locked" data-game-id="word-board"
+                    onclick="handleGameClick('word-board', true)">
+                    <span class="pro-label">PRO</span>
+                    <div class="lock-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg></div>
+                    <div class="icon-wrapper">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <span class="menu-title">보드 게임</span>
+                </button>
+                <button class="menu-card game-card pro-locked" data-game-id="word-stroke"
+                    onclick="handleGameClick('word-stroke', true)">
+                    <span class="pro-label">PRO</span>
+                    <div class="lock-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg></div>
+                    <div class="icon-wrapper">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="4 7 4 4 20 4 20 7"></polyline>
+                            <line x1="9" y1="20" x2="15" y2="20"></line>
+                            <line x1="12" y1="4" x2="12" y2="20"></line>
+                        </svg>
+                    </div>
+                    <span class="menu-title">획수 맞추기</span>
+                </button>
+                <button class="menu-card game-card pro-locked" data-game-id="word-tone"
+                    onclick="handleGameClick('word-tone', true)">
+                    <span class="pro-label">PRO</span>
+                    <div class="lock-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg></div>
+                    <div class="icon-wrapper">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18V5l12-2v13"></path>
+                            <circle cx="6" cy="18" r="3"></circle>
+                            <circle cx="18" cy="16" r="3"></circle>
+                        </svg>
+                    </div>
+                    <span class="menu-title">성조 고르기</span>
+                </button>
+                <button class="menu-card game-card pro-locked" data-game-id="word-pinyin"
+                    onclick="handleGameClick('word-pinyin', true)">
+                    <span class="pro-label">PRO</span>
+                    <div class="lock-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg></div>
+                    <div class="icon-wrapper">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                            <path d="M2 2l7.586 7.586"></path>
+                            <circle cx="11" cy="11" r="2"></circle>
+                        </svg>
+                    </div>
+                    <span class="menu-title">병음 쓰기</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Active Game View (Initially Hidden) -->
+        <div id="active-game-view" style="display: none;">
+            <!-- Quiz content will be injected here -->
+        </div>
+
+        <!-- Sentence Games View (Initially Hidden) -->
+        <div id="sentence-game-view" style="display: none;">
+            <div class="dashboard-grid">
+                <!-- Free 1 -->
+                <button class="menu-card game-card" data-game-id="sent-blank"
+                    onclick="handleGameClick('sent-blank', false)">
+                    <div class="icon-wrapper">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <span class="menu-title">빈칸 채우기</span>
+                </button>
+
+                <!-- PRO Games -->
+                <button class="menu-card game-card pro-locked" data-game-id="sent-match"
+                    onclick="handleGameClick('sent-match', true)">
+                    <span class="pro-label">PRO</span>
+                    <div class="lock-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg></div>
+                    <div class="icon-wrapper">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 11 12 14 22 4"></polyline>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
+                    </div>
+                    <span class="menu-title">의미 맞추기</span>
+                </button>
+                <button class="menu-card game-card pro-locked" data-game-id="sent-structure"
+                    onclick="handleGameClick('sent-structure', true)">
+                    <span class="pro-label">PRO</span>
+                    <div class="lock-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg></div>
+                    <div class="icon-wrapper">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="8" y1="6" x2="21" y2="6"></line>
+                            <line x1="8" y1="12" x2="21" y2="12"></line>
+                            <line x1="8" y1="18" x2="21" y2="18"></line>
+                            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <span class="menu-title">문장 구조</span>
+                </button>
+                <button class="menu-card game-card pro-locked" data-game-id="sent-pron"
+                    onclick="handleGameClick('sent-pron', true)">
+                    <span class="pro-label">PRO</span>
+                    <div class="lock-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg></div>
+                    <div class="icon-wrapper">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                            <line x1="12" y1="19" x2="12" y2="23"></line>
+                            <line x1="8" y1="23" x2="16" y2="23"></line>
+                        </svg>
+                    </div>
+                    <span class="menu-title">발음 연습</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- PRO Modal -->
+        <div id="pro-modal" class="modal-overlay" style="display: none;">
+            <div class="modal-content pro-modal-content">
+                <button class="modal-close-btn" onclick="closeProModal()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="pro-image-wrapper">
+                    <!-- Placeholder Character Image since generation failed -->
+                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+                        <circle cx="60" cy="60" r="50" fill="#252525" stroke="#E31E24" stroke-width="4" />
+                        <circle cx="45" cy="50" r="5" fill="#FFF" />
+                        <circle cx="75" cy="50" r="5" fill="#FFF" />
+                        <path d="M45 75 Q60 85 75 75" stroke="#FFF" stroke-width="4" stroke-linecap="round" />
+                        <text x="60" y="115" text-anchor="middle" fill="#E31E24" font-size="12">Mongle</text>
+                    </svg>
+                </div>
+                <h2 class="pro-title">더 공부하고 싶다면?</h2>
+                <p class="pro-desc">프리미엄 구독으로 모든 게임과 학습 기능을\n무제한으로 이용해보세요!</p>
+                <button class="pro-subscribe-btn">구독하기</button>
+            </div>
+        </div>
+
+        <!-- Stroke Order Modal -->
+        <div id="stroke-modal" class="modal-overlay" style="display: none;">
+            <div class="modal-content">
+                <button class="modal-close-btn" onclick="closeStrokeModal()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <h2 id="modal-hanja-title" class="hanja-text"></h2>
+                <div id="stroke-target"></div>
+
+                <div class="modal-controls">
+                    <button class="control-btn" onclick="writer.animateCharacter()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                        </svg>
+                        재생
+                    </button>
+                    <button class="control-btn" onclick="writer.quiz()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                            <path d="M2 2l7.586 7.586"></path>
+                            <circle cx="11" cy="11" r="2"></circle>
+                        </svg>
+                        연습
+                    </button>
+                </div>
+                <div class="speed-control">
+                    <label for="anim-speed">속도</label>
+                    <input type="range" id="anim-speed" min="0.5" max="2" step="0.1" value="1">
+                </div>
+            </div>
+        </div>
+
+        <!-- Account View (Initially Hidden) -->
+        <div id="account-view" style="display: none;">
+            <!-- Login Section -->
+            <div id="login-section" class="account-container">
+                <div class="login-header">
+                    <div class="login-pattern"></div>
+                    <div class="mongle-wrapper">
+                        <div class="speech-bubble">어서 오게, 학도여!</div>
+                        <img src="mongle_scholar_login.png" alt="Scholar Mongle" class="mongle-img">
+                    </div>
+                </div>
+                <div class="login-body">
+                    <h2 class="login-title">천자문 마스터 시작하기</h2>
+                    <p class="login-desc">로그인하여 학습 기록을 동기화하세요.</p>
+
+                    <button class="login-btn google-btn" onclick="handleLogin('google')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-6.5 6.91-4.09.51-6.74-2.47-7.57-5.48-.34-1.23-.34-2.43 0-3.66C5.58 6.01 9.99 3.06 14.12 5.3c1.55.53 2.76 1.48 3.59 2.1l2.2-2.33c-2.4-2.14-5.2-3.32-8.72-3.08C4.55 2.16.89 7.6.89 13.06c.03 5.44 3.79 9.95 9.07 10.93 5.37.98 10.15-2.07 11.69-5.91 1.05-2.61.81-6.37-.3-6.98z" />
+                        </svg>
+                        Google로 계속하기
+                    </button>
+                    <button class="login-btn apple-btn" onclick="handleLogin('apple')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.05 20.28c-.98.95-2.05.8-2.9.36-.98-.48-2.07-.46-3.04.41-.75.64-1.93.92-2.92-.31-3.63-4.59-2.01-10.97 4.09-11.23 1.25-.05 2.2.82 2.89.82.64 0 1.95-1.07 3.32-.82 1.09.18 1.95.82 2.41 1.61-3.14 2.11-1.77 8.04 1.15 9.17zM12.03 7.25c-.14-2.25 1.77-4.14 4.07-4.25.18 2.36-2.07 4.61-4.07 4.25z" />
+                        </svg>
+                        Apple로 계속하기
+                    </button>
+                    <button class="login-btn email-btn" onclick="handleLogin('email')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        이메일로 계속하기
+                    </button>
+
+                    <div class="login-footer-links">
+                        <a href="#">이용약관</a> | <a href="#">개인정보 처리방침</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Section (Hidden until logged in) -->
+            <div id="profile-section" class="account-container" style="display: none;">
+                <div class="profile-header">
+                    <div class="profile-info">
+                        <div class="profile-avatar">
+                            <img src="mongle_scholar_login.png" alt="User Avatar"
+                                style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div class="profile-text">
+                            <h2 class="user-name">학도 몽글이</h2>
+                            <p class="user-rank">Lv.1 입문자</p>
+                        </div>
+                    </div>
+                    <button class="logout-btn" onclick="handleLogout()">로그아웃</button>
+                </div>
+
+                <div class="profile-content">
+                    <!-- Progress -->
+                    <div class="stat-card">
+                        <h3>천자문 정복률</h3>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" style="width: 5%;"></div>
+                        </div>
+                        <p class="progress-text">50 / 1000 자 (5%)</p>
+                    </div>
+
+                    <!-- Shortcuts -->
+                    <div class="shortcut-grid">
+                        <button class="shortcut-btn" onclick="goToFavorites()">
+                            <div class="shortcut-icon" style="background:#FFF0F0; color:var(--point-color);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <span>즐겨찾기</span>
+                        </button>
+                        <button class="shortcut-btn">
+                            <div class="shortcut-icon" style="background:#FFF8E1; color:#FFA000;">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path
+                                        d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                                    </path>
+                                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                </svg>
+                            </div>
+                            <span>오답 노트</span>
+                        </button>
+                    </div>
+
+                    <!-- Attendance -->
+                    <div class="stat-card">
+                        <h3>출석 도장</h3>
+                        <div class="attendance-calendar">
+                            <!-- JS will populate stamps -->
+                            <div class="stamp active">1</div>
+                            <div class="stamp">2</div>
+                            <div class="stamp">3</div>
+                            <div class="stamp">4</div>
+                            <div class="stamp">5</div>
+                            <div class="stamp">6</div>
+                            <div class="stamp">7</div>
+                        </div>
+                        <p class="attendance-msg">매일 접속하여 도장을 받으세요!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sentences View (Initially Hidden) -->
+        <div id="sentences-view" style="display: none;">
+            <div class="search-container">
+                <input type="text" id="sentence-search" placeholder="한자 문장, 해석 검색">
+                <button class="search-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
+            <div id="sentence-list">
+                <!-- Sentences will be rendered here -->
+            </div>
+        </div>
+    </main>
+
+    <div class="ad-banner-placeholder">
+        AD 영역
+    </div>
+
+    <!-- Hanzi Writer Library -->
+    <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
