@@ -30,10 +30,14 @@ export default function DictationQuiz() {
     const [startTime, setStartTime] = useState(null);
     const [elapsedTime, setElapsedTime] = useState(0);
     const timerRef = useRef(null);
+    const lastSpokenId = useRef(null);
 
     useEffect(() => {
         startNewQuiz();
-        return () => clearInterval(timerRef.current);
+        return () => {
+            clearInterval(timerRef.current);
+            window.speechSynthesis.cancel();
+        };
     }, []);
 
     const startNewQuiz = () => {
@@ -43,6 +47,8 @@ export default function DictationQuiz() {
             ...item,
             options: shuffle([item, ...pool.filter(d => d.id !== item.id).slice(0, 3)])
         }));
+
+        lastSpokenId.current = null; // Reset for new quiz
         setQuestions(quizItems);
         setCurrentIndex(0);
         setScore(0);
@@ -57,8 +63,20 @@ export default function DictationQuiz() {
     // Auto-play TTS when question changes
     useEffect(() => {
         if (questions.length === 0 || isFinished) return;
+
         const q = questions[currentIndex];
-        if (q && ttsEnabled) speakText(`${q.meaning} ${q.sound}`);
+        if (q && ttsEnabled && lastSpokenId.current !== q.id) {
+            // Cancel any pending speech from previous state/page
+            window.speechSynthesis.cancel();
+
+            // Add a tiny delay to ensure state and shuffle are fully applied in DOM if needed
+            const timer = setTimeout(() => {
+                speakText(`${q.meaning} ${q.sound}`);
+                lastSpokenId.current = q.id;
+            }, 50);
+
+            return () => clearTimeout(timer);
+        }
     }, [currentIndex, questions, isFinished, ttsEnabled]);
 
     // Timer Logic
