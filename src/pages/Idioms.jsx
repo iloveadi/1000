@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Check, Search } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
@@ -9,6 +9,21 @@ export default function Idioms() {
     const navigate = useNavigate();
     const [mode, setMode] = useState('all');
     const [searchTerm, setSearchTerm] = useState('');
+    const listRef = useRef(null);
+    const itemRefs = useRef({});
+
+    // Generate index marks (every 10 groups, plus the last one)
+    const indexMarks = useMemo(() => {
+        const marks = [];
+        const totalGroups = Math.ceil(chunjamunData.length / 4);
+        for (let i = 1; i <= totalGroups; i += 10) {
+            marks.push(i);
+        }
+        if (marks[marks.length - 1] !== totalGroups) {
+            marks.push(totalGroups);
+        }
+        return marks;
+    }, []);
 
     // Chunking logic for 4-character idioms
     const groupedData = useMemo(() => {
@@ -43,6 +58,23 @@ export default function Idioms() {
         // but for now we'll use a specific idiom study view or parameters
         setCurrentHanjaId(group[0].id);
         navigate('/idiom-study');
+    };
+
+    const scrollToGroup = (indexMark) => {
+        // indexMark is 1-based group index (e.g., 1, 11, 21...)
+        // We find the DOM node mapped to this group index
+        const node = itemRefs.current[indexMark];
+        if (node && listRef.current) {
+            // Scroll the element into view inside the list container with some top padding
+            const containerTop = listRef.current.getBoundingClientRect().top;
+            const elementTop = node.getBoundingClientRect().top;
+            const currentScroll = listRef.current.scrollTop;
+
+            listRef.current.scrollTo({
+                top: currentScroll + (elementTop - containerTop) - 20,
+                behavior: 'smooth'
+            });
+        }
     };
 
     return (
@@ -88,7 +120,22 @@ export default function Idioms() {
                 </div>
             </header>
 
-            <div className="flex-1 overflow-y-auto px-6 pb-24 hide-scrollbar flex flex-col gap-4" style={{ scrollbarGutter: 'stable' }}>
+            <div ref={listRef} className="flex-1 overflow-y-auto px-6 pb-24 hide-scrollbar flex flex-col gap-4 relative" style={{ scrollbarGutter: 'stable' }}>
+                {/* Vertical Quick Index Navigation */}
+                {mode === 'all' && !searchTerm && (
+                    <div className="fixed right-2 top-1/2 -translate-y-1/2 z-10 flex flex-col items-center justify-center py-2 px-1 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-full shadow-sm border border-slate-100 dark:border-slate-700">
+                        {indexMarks.map(mark => (
+                            <button
+                                key={mark}
+                                onClick={() => scrollToGroup(mark)}
+                                className="w-6 h-6 my-0.5 rounded-full flex items-center justify-center text-[9px] font-bold text-slate-500 dark:text-slate-400 hover:bg-primary-100 dark:hover:bg-primary-900/50 hover:text-primary-600 dark:hover:text-primary-400 transition-colors active:scale-90"
+                            >
+                                {mark}
+                            </button>
+                        ))}
+                    </div>
+                )}
+
                 {groupedData.length === 0 && (
                     <div className="py-12 text-center text-slate-400 dark:text-slate-500">
                         해당하는 문장이 없습니다.
@@ -101,6 +148,15 @@ export default function Idioms() {
                     return (
                         <div
                             key={group[0].id}
+                            ref={(el) => {
+                                // Save ref for every 10th item (1, 11, 21...) or the last item
+                                if (mode === 'all' && !searchTerm) {
+                                    const groupNum = displayIndex + 1;
+                                    if ((groupNum - 1) % 10 === 0 || groupNum === Math.ceil(chunjamunData.length / 4)) {
+                                        itemRefs.current[groupNum] = el;
+                                    }
+                                }
+                            }}
                             onClick={() => handleGroupClick(group)}
                             className={`
                                 w-full rounded-2xl p-5 pt-8 cursor-pointer transition-all active:scale-[0.98] relative shadow-sm border

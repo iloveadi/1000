@@ -61,7 +61,7 @@ export default function Study() {
     };
 
     return (
-        <div className="flex flex-col h-full bg-slate-50 dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden px-6 pt-12 pb-6">
+        <div className="flex flex-col h-full bg-slate-50 dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden px-6 pt-4 pb-20">
             {/* Header */}
             <div className="flex justify-between items-center mb-8">
                 <div className="flex items-center gap-3">
@@ -156,11 +156,11 @@ export default function Study() {
             <AnimatePresence>
                 {!showCanvas && (
                     <motion.button
-                        initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}
+                        initial={{ scale: 0, x: '-50%' }} animate={{ scale: 1, x: '-50%' }} exit={{ scale: 0, x: '-50%' }}
                         onClick={() => setShowCanvas(true)}
-                        className="absolute right-6 bottom-24 bg-primary-900 dark:bg-primary-600 text-white p-4 rounded-full shadow-lg hover:scale-105 transition-transform z-10 focus:outline-none"
+                        className="absolute left-1/2 bottom-28 bg-primary-900 dark:bg-primary-600 text-white p-4 rounded-full shadow-lg hover:scale-105 transition-transform z-10 focus:outline-none flex items-center gap-2 pr-6"
                     >
-                        <Edit3 size={24} />
+                        <Edit3 size={24} /> <span className="font-bold">직접 써보기</span>
                     </motion.button>
                 )}
             </AnimatePresence>
@@ -174,6 +174,7 @@ export default function Study() {
                 >
                     <ChevronLeft size={28} />
                 </button>
+                <div className="flex-1"></div> {/* Spacer for center button */}
                 <button
                     onClick={handleNext}
                     disabled={currentIndex === chunjamunData.length - 1 || showCanvas}
