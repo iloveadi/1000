@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, CheckCircle2, XCircle, RotateCcw, BrainCircuit, Award, Home, Timer } from 'lucide-react';
+import { ChevronLeft, CheckCircle2, XCircle, RotateCcw, BrainCircuit, Award, Home, Timer } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import useAppStore from '../store/useAppStore';
 import chunjamunData from '../data/chunjamun.json';
@@ -151,6 +151,7 @@ export default function IdiomQuiz() {
     if (questions.length === 0) return null;
 
     if (gameState === 'finished') {
+        const pct = Math.round((score / QUESTIONS_PER_SESSION) * 100);
         return (
             <div className="min-h-screen bg-slate-50 dark:bg-slate-900 px-6 flex flex-col items-center justify-center">
                 <motion.div
@@ -158,37 +159,39 @@ export default function IdiomQuiz() {
                     animate={{ scale: 1, opacity: 1 }}
                     className="w-full max-w-sm bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl text-center border border-slate-100 dark:border-slate-700"
                 >
-                    <div className="w-20 h-20 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <Award className="text-primary-600 dark:text-primary-400" size={40} />
+                    <div className="text-6xl mb-4">{pct >= 80 ? '🎉' : pct >= 50 ? '📖' : '💪'}</div>
+                    <h2 className="text-2xl font-black text-slate-800 dark:text-slate-100 mb-2">퀴즈 완료!</h2>
+                    <p className="text-slate-500 dark:text-slate-400 mb-6 text-sm">사자성어 정확도</p>
+
+                    <div className="text-5xl font-black text-primary-600 dark:text-primary-400 mb-1">
+                        {score} <span className="text-2xl text-slate-400">/ {QUESTIONS_PER_SESSION}</span>
                     </div>
-                    <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-2">테스트 결과</h2>
-                    <div className="text-5xl font-black text-primary-600 dark:text-primary-400 mb-2">
-                        {score} / {QUESTIONS_PER_SESSION}
-                    </div>
-                    <div className="flex justify-center space-x-4 mb-6 text-sm font-bold">
+
+                    <div className="flex justify-center space-x-4 mb-6 text-sm font-bold mt-2">
                         <span className="text-slate-400">⏱ {elapsedTime}초</span>
                         <span className="text-amber-500">✨ +{score * 10}P</span>
                     </div>
-                    <p className="text-slate-500 dark:text-slate-400 mb-8">
+
+                    <p className="text-slate-500 dark:text-slate-400 mb-8 text-sm px-2">
                         {score === QUESTIONS_PER_SESSION ? "완벽해요! 대단한 실력입니다 👏" :
                             score >= 7 ? "훌륭합니다! 조금만 더 하면 완벽해요 👍" :
                                 "괜찮아요! 다시 한번 도전해보세요 🌱"}
                     </p>
 
-                    <div className="space-y-3">
+                    <div className="flex gap-3">
                         <button
                             onClick={startNewQuiz}
-                            className="w-full bg-primary-600 dark:bg-primary-500 text-white py-4 rounded-2xl font-bold flex items-center justify-center space-x-2 hover:bg-primary-700 transition-colors"
+                            className="flex-1 flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white py-3 rounded-2xl font-bold transition"
                         >
-                            <RotateCcw size={20} />
-                            <span>다시 도전하기</span>
+                            <RotateCcw size={18} />
+                            <span>다시 하기</span>
                         </button>
                         <button
                             onClick={() => navigate('/')}
-                            className="w-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 py-4 rounded-2xl font-bold flex items-center justify-center space-x-2 hover:bg-slate-200 transition-colors"
+                            className="flex-1 flex items-center justify-center gap-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 py-3 rounded-2xl font-bold transition"
                         >
-                            <Home size={20} />
-                            <span>홈으로 가기</span>
+                            <Home size={18} />
+                            <span>홈</span>
                         </button>
                     </div>
                 </motion.div>
@@ -199,28 +202,19 @@ export default function IdiomQuiz() {
     const currentPattern = questions[currentIndex];
 
     return (
-        <div className="flex flex-col h-full bg-slate-50 dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden px-6 pt-6 pb-6">
+        <div className="flex flex-col h-full bg-slate-50 dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden px-6 pt-12 pb-6">
             {/* Header */}
-            <div className="flex flex-col mb-4 gap-4">
-                <div className="flex justify-between items-center">
-                    <button
-                        onClick={() => navigate(-1)}
-                        className="p-2 -ml-2 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition"
-                    >
-                        <ArrowLeft size={24} />
-                    </button>
-                    <div className="flex-1 text-center">
-                        <span className="text-sm font-bold text-slate-400 dark:text-slate-500 tracking-widest uppercase">
-                            Question {currentIndex + 1} / {QUESTIONS_PER_SESSION}
-                        </span>
-                        <div className="w-32 h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full mx-auto mt-2 overflow-hidden">
-                            <motion.div
-                                className="h-full bg-primary-500"
-                                initial={{ width: 0 }}
-                                animate={{ width: `${((currentIndex + 1) / QUESTIONS_PER_SESSION) * 100}%` }}
-                            />
-                        </div>
-                    </div>
+            <div className="flex justify-between items-center mb-6">
+                <button
+                    onClick={() => navigate(-1)}
+                    className="p-2 -ml-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition"
+                >
+                    <ChevronLeft size={24} />
+                </button>
+                <span className="text-slate-500 dark:text-slate-400 font-medium text-sm">
+                    사자성어 {currentIndex + 1} / {QUESTIONS_PER_SESSION}
+                </span>
+                <div className="flex items-center gap-3">
                     <div className="flex items-center gap-1 bg-white dark:bg-slate-800 px-2.5 py-1 rounded-full shadow-sm border border-slate-100 dark:border-slate-700 justify-center shrink-0 min-w-[64px]">
                         <Timer size={14} className={timeLeft <= 2 ? "text-red-500" : "text-slate-400"} />
                         <div className={`text-sm font-bold flex items-center ${timeLeft <= 2 ? "text-red-500" : "text-slate-700 dark:text-slate-200"}`}>
@@ -228,66 +222,77 @@ export default function IdiomQuiz() {
                             <span>초</span>
                         </div>
                     </div>
+                    <span className="text-primary-600 dark:text-primary-400 font-bold hidden sm:inline">{score * 10}점</span>
                 </div>
+            </div>
+
+            {/* Progress bar */}
+            <div className="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full mb-8">
+                <motion.div
+                    className="h-1.5 bg-primary-500 rounded-full"
+                    animate={{ width: `${((currentIndex) / QUESTIONS_PER_SESSION) * 100}%` }}
+                    transition={{ duration: 0.4 }}
+                />
             </div>
 
             {/* Quiz Area */}
             <div className="flex-1 flex flex-col justify-center max-w-md mx-auto w-full">
 
-                {/* Question Info */}
-                <motion.div
-                    key={`q-${currentIndex}`}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="mb-6 text-center"
-                >
-                    <div className="inline-flex items-center gap-2 bg-primary-50 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 px-3 py-1 rounded-full text-xs font-bold mb-3 border border-primary-200 dark:border-primary-800">
-                        <BrainCircuit size={14} /> 사자성어 빈칸 채우기
-                    </div>
-                    <p className="text-slate-600 dark:text-slate-300 font-medium text-lg leading-relaxed px-4">
-                        다음 뜻을 가진 구절을 완성해 보세요.
-                    </p>
-                    <p className="text-primary-600 dark:text-primary-400 font-bold mt-2 bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
-                        "{currentPattern.interpretation}"
-                    </p>
-                </motion.div>
+                {/* Question Card */}
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={`q-${currentIndex}`}
+                        initial={{ x: 60, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        exit={{ x: -60, opacity: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 p-8 mb-6 text-center"
+                    >
+                        <p className="text-slate-400 dark:text-slate-500 text-xs font-medium uppercase tracking-widest mb-4">뜻을 보고 빈칸에 알맞은 한자를 골라보세요</p>
+                        <div className="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-8 leading-tight">
+                            "{currentPattern.interpretation}"
+                        </div>
 
-                {/* Idiom Display */}
-                <div className="grid grid-cols-4 gap-3 mb-8">
-                    <AnimatePresence mode="popLayout">
-                        {currentPattern.group.map((char, index) => {
-                            const isHidden = index === currentPattern.hiddenIndex;
-                            const showAnswer = isHidden && gameState === 'answered';
+                        {/* Idiom Display inside Card */}
+                        <div className="grid grid-cols-4 gap-2 px-2">
+                            <AnimatePresence mode="popLayout">
+                                {currentPattern.group.map((char, index) => {
+                                    const isHidden = index === currentPattern.hiddenIndex;
+                                    const showAnswer = isHidden && gameState === 'answered';
 
-                            return (
-                                <motion.div
-                                    key={`pos-${index}-${showAnswer ? 'ans' : 'q'}`}
-                                    initial={{ scale: 0.8, opacity: 0 }}
-                                    animate={{ scale: 1, opacity: 1 }}
-                                    className={`
-                                        aspect-square rounded-2xl flex flex-col items-center justify-center relative
-                                        ${isHidden && !showAnswer ? 'bg-slate-200 dark:bg-slate-800 border-2 border-dashed border-slate-300 dark:border-slate-600' : 'bg-white dark:bg-slate-800 shadow-md border border-slate-100 dark:border-slate-700'}
-                                        ${showAnswer && isCorrect ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : ''}
-                                        ${showAnswer && !isCorrect ? 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800' : ''}
-                                    `}
-                                >
-                                    {(!isHidden || showAnswer) ? (
-                                        <>
-                                            <span className={`text-4xl font-hanja mb-1 ${showAnswer ? (isCorrect ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400') : 'text-slate-800 dark:text-slate-100'}`}>
-                                                {char.hanja}
-                                            </span>
-                                            {(showAnswer || gameState === 'answered') && (
-                                                <span className="text-[10px] font-medium text-slate-500">{char.sound}</span>
+                                    return (
+                                        <motion.div
+                                            key={`pos-${index}-${showAnswer ? 'ans' : 'q'}`}
+                                            initial={{ scale: 0.8, opacity: 0 }}
+                                            animate={{ scale: 1, opacity: 1 }}
+                                            className={`
+                                                aspect-square rounded-xl flex flex-col items-center justify-center relative border transition-colors
+                                                ${isHidden && !showAnswer ?
+                                                    'bg-slate-50 dark:bg-slate-900 border-dashed border-slate-300 dark:border-slate-700' :
+                                                    'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 shadow-sm'}
+                                                ${showAnswer && isCorrect ? 'bg-green-50 dark:bg-green-900/20 border-green-200' : ''}
+                                                ${showAnswer && !isCorrect ? 'bg-red-50 dark:bg-red-900/20 border-red-200' : ''}
+                                            `}
+                                        >
+                                            {(!isHidden || showAnswer) ? (
+                                                <>
+                                                    <span className={`text-4xl font-hanja ${showAnswer ? (isCorrect ? 'text-green-600' : 'text-red-600') : 'text-slate-800 dark:text-slate-100'}`}>
+                                                        {char.hanja}
+                                                    </span>
+                                                    {(showAnswer || gameState === 'answered') && (
+                                                        <span className="text-[9px] font-medium text-slate-400 -mt-1">{char.sound}</span>
+                                                    )}
+                                                </>
+                                            ) : (
+                                                <span className="text-2xl text-slate-300 font-bold opacity-50">?</span>
                                             )}
-                                        </>
-                                    ) : (
-                                        <span className="text-3xl text-slate-400 font-bold opacity-50">?</span>
-                                    )}
-                                </motion.div>
-                            );
-                        })}
-                    </AnimatePresence>
-                </div>
+                                        </motion.div>
+                                    );
+                                })}
+                            </AnimatePresence>
+                        </div>
+                    </motion.div>
+                </AnimatePresence>
 
                 {/* Options Grid */}
                 <div className="grid grid-cols-2 gap-4">
@@ -314,7 +319,7 @@ export default function IdiomQuiz() {
                                 whileTap={gameState === 'playing' ? { scale: 0.95 } : {}}
                                 onClick={() => handleOptionSelect(option)}
                                 className={`
-                                    relative p-4 rounded-2xl border-2 transition-all duration-300 flex flex-col items-center justify-center min-h-[100px]
+                                    relative p-4 rounded-2xl border-2 transition-all duration-300 flex flex-col items-center justify-center min-h-[110px]
                                     ${btnStyle}
                                 `}
                             >
@@ -326,8 +331,8 @@ export default function IdiomQuiz() {
                                 {gameState === 'answered' && isSelected && (
                                     <div className="absolute -top-3 -right-3">
                                         {isCorrect ?
-                                            <div className="bg-white rounded-full"><CheckCircle2 className="text-green-500" size={28} /></div> :
-                                            <div className="bg-white rounded-full"><XCircle className="text-red-500" size={28} /></div>
+                                            <div className="bg-white rounded-full p-0.5 shadow-sm overflow-hidden"><CheckCircle2 className="text-green-500" size={28} /></div> :
+                                            <div className="bg-white rounded-full p-0.5 shadow-sm overflow-hidden"><XCircle className="text-red-500" size={28} /></div>
                                         }
                                     </div>
                                 )}
