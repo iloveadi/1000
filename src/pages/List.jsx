@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, Check } from 'lucide-react';
+import { Search } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
 import chunjamunData from '../data/chunjamun.json';
 
@@ -149,11 +149,7 @@ export default function List() {
                                     }
                             `}
                             >
-                                {isLearned && (
-                                    <div className="absolute top-1 right-1 w-4 h-4 bg-white rounded border border-primary-400 dark:border-primary-500 flex items-center justify-center">
-                                        <Check size={9} className="text-primary-600 dark:text-primary-300" strokeWidth={3.5} />
-                                    </div>
-                                )}
+
 
                                 {/* Sequence Number */}
                                 <div className="absolute top-1.5 left-1.5 text-[8px] font-bold text-slate-400 dark:text-slate-500 tracking-tighter">

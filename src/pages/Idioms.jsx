@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Check, Search } from 'lucide-react';
+import { Search } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
 import chunjamunData from '../data/chunjamun.json';
 
@@ -170,11 +170,7 @@ export default function Idioms() {
                                 {String(displayIndex + 1).padStart(3, '0')}
                             </div>
 
-                            {allLearned && (
-                                <div className="absolute top-3 right-3 w-5 h-5 bg-white rounded border-2 border-primary-500 dark:border-primary-400 flex items-center justify-center shadow-sm">
-                                    <Check size={11} className="text-primary-600 dark:text-primary-300" strokeWidth={3} />
-                                </div>
-                            )}
+
 
 
                             <div className="grid grid-cols-4 gap-2 text-center items-end h-full">
