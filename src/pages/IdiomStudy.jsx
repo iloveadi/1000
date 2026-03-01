@@ -76,11 +76,6 @@ export default function IdiomStudy() {
                         {Math.floor(groupStartIndex / 4) + 1} / {Math.ceil(chunjamunData.length / 4)}
                     </span>
                 </div>
-                {isGroupLearned && (
-                    <span className="text-primary-600 dark:text-primary-400 font-bold bg-primary-50 dark:bg-primary-900/40 px-3 py-1 rounded-full text-xs flex items-center gap-1">
-                        <CheckCircle2 size={14} /> 학습 완료
-                    </span>
-                )}
             </div>
 
             {/* Idiom Card */}
@@ -115,6 +110,11 @@ export default function IdiomStudy() {
                                     ))}
                                 </div>
                                 <div className="mt-8 text-slate-400 text-sm font-medium animate-pulse">탭하여 해석 보기</div>
+                                {isGroupLearned && (
+                                    <div className="absolute top-4 right-4 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-md">
+                                        <CheckCircle2 size={18} className="text-white" strokeWidth={2.5} />
+                                    </div>
+                                )}
                             </div>
 
                             {/* Back Side */}

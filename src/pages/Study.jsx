@@ -76,11 +76,6 @@ export default function Study() {
                         <Star size={22} className={isFavorite ? "fill-yellow-400 text-yellow-400" : "text-slate-400 dark:text-slate-500"} />
                     </button>
                 </div>
-                {isLearned && (
-                    <span className="text-primary-600 dark:text-primary-400 font-bold bg-primary-50 dark:bg-primary-900/40 px-3 py-1 rounded-full text-xs flex items-center gap-1 transition-colors whitespace-nowrap">
-                        <CheckCircle2 size={14} /> 학습 완료
-                    </span>
-                )}
             </div>
 
             {/* Concept Card */}
@@ -111,6 +106,11 @@ export default function Study() {
                             <div className="absolute w-full h-full bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 flex items-center justify-center backface-hidden no-select transition-colors">
                                 <h1 className="text-[140px] font-bold text-slate-800 dark:text-slate-100 leading-none font-hanja">{hanja.hanja}</h1>
                                 <div className="absolute bottom-6 text-slate-400 dark:text-slate-500 text-sm font-medium animate-pulse">탭하여 뒤집기</div>
+                                {isLearned && (
+                                    <div className="absolute top-4 right-4 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-md">
+                                        <CheckCircle2 size={18} className="text-white" strokeWidth={2.5} />
+                                    </div>
+                                )}
                             </div>
 
                             {/* Back Side */}
