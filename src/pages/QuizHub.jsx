@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { BrainCircuit, Mic, ChevronRight, Puzzle } from 'lucide-react';
+import { BrainCircuit, Eye, ChevronRight, Puzzle } from 'lucide-react';
 
 const quizTypes = [
     {
@@ -18,12 +18,12 @@ const quizTypes = [
     {
         id: 'dictation',
         path: '/dictation-quiz',
-        icon: Mic,
+        icon: Eye,
         iconBg: 'bg-primary-50 dark:bg-primary-900/20',
         iconColor: 'text-primary-600 dark:text-primary-400',
-        title: '받아쓰기',
-        desc: '뜻·음을 듣고 한자를 골라보세요',
-        badge: '듣기 퀴즈',
+        title: '뜻·음 맞추기',
+        desc: '뜻과 음을 보고 알맞은 한자를 고르세요',
+        badge: '객관식 퀴즈',
         badgeColor: 'bg-primary-100 dark:bg-primary-900/40 text-primary-600 dark:text-primary-400',
     },
     {

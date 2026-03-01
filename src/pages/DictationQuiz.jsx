@@ -160,7 +160,7 @@ export default function DictationQuiz() {
                     <ChevronLeft size={24} />
                 </button>
                 <span className="text-slate-500 dark:text-slate-400 font-medium text-sm">
-                    받아쓰기 {currentIndex + 1} / {QUESTIONS_PER_SESSION}
+                    뜻·음 맞추기 {currentIndex + 1} / {QUESTIONS_PER_SESSION}
                 </span>
                 <div className="flex items-center gap-3">
                     <div className="flex items-center gap-1 bg-white dark:bg-slate-800 px-2.5 py-1 rounded-full shadow-sm border border-slate-100 dark:border-slate-700 justify-center shrink-0 min-w-[64px]">
