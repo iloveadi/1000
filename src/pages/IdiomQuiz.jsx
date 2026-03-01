@@ -221,11 +221,12 @@ export default function IdiomQuiz() {
                             />
                         </div>
                     </div>
-                    <div className="flex items-center gap-1.5 bg-white dark:bg-slate-800 px-3 py-1.5 rounded-full shadow-sm border border-slate-100 dark:border-slate-700 w-[76px] justify-center shrink-0">
-                        <Timer size={16} className={timeLeft <= 2 ? "text-red-500" : "text-slate-400"} />
-                        <span className={`font-bold tabular-nums w-[2ch] text-right ${timeLeft <= 2 ? "text-red-500" : "text-slate-700 dark:text-slate-200"}`}>
-                            {timeLeft}초
-                        </span>
+                    <div className="flex items-center gap-1 bg-white dark:bg-slate-800 px-2.5 py-1 rounded-full shadow-sm border border-slate-100 dark:border-slate-700 justify-center shrink-0 min-w-[64px]">
+                        <Timer size={14} className={timeLeft <= 2 ? "text-red-500" : "text-slate-400"} />
+                        <div className={`text-sm font-bold flex items-center ${timeLeft <= 2 ? "text-red-500" : "text-slate-700 dark:text-slate-200"}`}>
+                            <span className="tabular-nums w-[18px] text-right inline-block">{timeLeft}</span>
+                            <span>초</span>
+                        </div>
                     </div>
                 </div>
             </div>
