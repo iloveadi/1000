@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import useAppStore from '../store/useAppStore';
 import chunjamunData from '../data/chunjamun.json';
-import { BookOpen, Flame, BrainCircuit, BarChart3, Calendar, Award, Target, Fingerprint } from 'lucide-react';
+import { BookOpen, Flame, BrainCircuit, BarChart3, Calendar, Award, Target, Fingerprint, Sparkles } from 'lucide-react';
+import groupInterpretations from '../data/groupInterpretations';
 
 export default function Home() {
     const navigate = useNavigate();
-    const { learnedHanjaIds, streak, quizScores, dailyActivity } = useAppStore();
+    const { learnedHanjaIds, streak, quizScores, dailyActivity, setCurrentHanjaId } = useAppStore();
 
     const totalCount = chunjamunData.length;
     const learnedCount = learnedHanjaIds.length;
@@ -19,6 +20,23 @@ export default function Home() {
         return d.toISOString().split('T')[0];
     });
     const maxActivity = Math.max(...Object.values(dailyActivity), 5);
+
+    // Today's Idiom Logic
+    const getTodayIdiom = () => {
+        const today = new Date();
+        const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+
+        // Use seed to get a stable index (250 groups of 4)
+        const groupIndex = (seed % 250);
+        const startId = groupIndex * 4 + 1;
+
+        const idiomHanjas = chunjamunData.slice(groupIndex * 4, groupIndex * 4 + 4);
+        const interpretation = groupInterpretations[startId] || "오늘의 가르침을 깊이 새겨보세요.";
+
+        return { hanjas: idiomHanjas, interpretation, startId };
+    };
+
+    const todayIdiom = getTodayIdiom();
 
     return (
         <div className="px-6 pt-12 pb-24 h-full flex flex-col transition-colors duration-300 bg-slate-50 dark:bg-slate-900 overflow-y-auto hide-scrollbar">
@@ -106,6 +124,48 @@ export default function Home() {
                     })}
                 </div>
             </div>
+
+            {/* Daily Idiom Card */}
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex-shrink-0 bg-gradient-to-br from-primary-600 to-primary-700 dark:from-primary-700 dark:to-primary-900 rounded-3xl shadow-lg p-6 mb-6 text-white relative overflow-hidden"
+            >
+                <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
+                    <Sparkles size={120} />
+                </div>
+
+                <div className="flex items-center space-x-2 mb-4">
+                    <Sparkles size={18} className="text-primary-200" />
+                    <h2 className="text-sm font-bold text-primary-100 uppercase tracking-widest">오늘의 천자문</h2>
+                </div>
+
+                <div className="flex justify-between items-center mb-5">
+                    <div className="flex gap-2 pl-2">
+                        {todayIdiom.hanjas.map((h) => (
+                            <div key={h.id} className="flex flex-col items-center">
+                                <span className="text-4xl font-hanja font-bold mb-1">{h.hanja}</span>
+                                <span className="text-[10px] font-medium text-primary-200">{h.sound}</span>
+                            </div>
+                        ))}
+                    </div>
+                    <button
+                        onClick={() => {
+                            setCurrentHanjaId(todayIdiom.startId);
+                            navigate('/study');
+                        }}
+                        className="bg-white/20 hover:bg-white/30 p-3 rounded-2xl transition"
+                    >
+                        <BookOpen size={20} />
+                    </button>
+                </div>
+
+                <div className="bg-white/10 rounded-2xl p-4 border border-white/10">
+                    <p className="text-sm leading-relaxed font-medium text-primary-50">
+                        {todayIdiom.interpretation}
+                    </p>
+                </div>
+            </motion.div>
 
             {/* Sub Menu */}
             <div className="space-y-3 mb-6">

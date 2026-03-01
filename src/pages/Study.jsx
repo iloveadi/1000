@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, CheckCircle2, Edit3, X, Play, PenTool } from 'lucide-react';
+import { ChevronLeft, ChevronRight, CheckCircle2, Edit3, X, Play, PenTool, Star } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
 import chunjamunData from '../data/chunjamun.json';
 import HanjaCanvas from '../components/HanjaCanvas';
@@ -8,7 +8,17 @@ import { playSound } from '../utils/audio';
 import { speakText } from '../utils/tts';
 
 export default function Study() {
-    const { currentHanjaId, setCurrentHanjaId, markLearned, unmarkLearned, learnedHanjaIds, soundEnabled, ttsEnabled } = useAppStore();
+    const {
+        currentHanjaId,
+        setCurrentHanjaId,
+        markLearned,
+        unmarkLearned,
+        learnedHanjaIds,
+        soundEnabled,
+        ttsEnabled,
+        favoriteHanjaIds,
+        toggleFavorite
+    } = useAppStore();
     const [isFlipped, setIsFlipped] = useState(false);
     const [direction, setDirection] = useState(0);
     const [showCanvas, setShowCanvas] = useState(false);
@@ -20,6 +30,7 @@ export default function Study() {
 
     const hanja = chunjamunData[currentIndex];
     const isLearned = learnedHanjaIds.includes(hanja.id);
+    const isFavorite = favoriteHanjaIds.includes(hanja.id);
 
     const handleNext = () => {
         if (currentIndex < chunjamunData.length - 1) {
@@ -105,6 +116,19 @@ export default function Study() {
                                 <div className="absolute top-6 left-6 text-slate-300 dark:text-slate-500 font-bold text-xl tracking-wider select-none">
                                     {String(hanja.id).padStart(4, '0')}
                                 </div>
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        if (soundEnabled) playSound('btn');
+                                        toggleFavorite(hanja.id);
+                                    }}
+                                    className="absolute top-6 right-6 p-2 rounded-full hover:bg-slate-50 dark:hover:bg-slate-700 transition"
+                                >
+                                    <Star
+                                        size={24}
+                                        className={isFavorite ? "text-amber-400 fill-amber-400" : "text-slate-200 dark:text-slate-600"}
+                                    />
+                                </button>
                                 <h1 className="text-[140px] font-bold text-slate-800 dark:text-slate-100 leading-none font-hanja">{hanja.hanja}</h1>
                                 <div className="absolute bottom-6 text-slate-400 dark:text-slate-500 text-sm font-medium animate-pulse">탭하여 뒤집기</div>
                             </div>
@@ -114,6 +138,19 @@ export default function Study() {
                                 <div className="absolute top-6 left-6 text-primary-200/50 dark:text-primary-300/40 font-bold text-xl tracking-wider select-none">
                                     {String(hanja.id).padStart(4, '0')}
                                 </div>
+                                <button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        if (soundEnabled) playSound('btn');
+                                        toggleFavorite(hanja.id);
+                                    }}
+                                    className="absolute top-6 right-6 p-2 rounded-full hover:bg-white/10 transition"
+                                >
+                                    <Star
+                                        size={24}
+                                        className={isFavorite ? "text-amber-300 fill-amber-300" : "text-primary-300/40"}
+                                    />
+                                </button>
                                 <div className="text-primary-100 text-3xl font-medium mb-4">{hanja.meaning}</div>
                                 <div className="text-white text-7xl font-bold mb-12">{hanja.sound}</div>
 

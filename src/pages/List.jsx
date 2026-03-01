@@ -1,14 +1,14 @@
 import React, { useState, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search } from 'lucide-react';
+import { Search, Star } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
 import chunjamunData from '../data/chunjamun.json';
 
 export default function List() {
-    const { learnedHanjaIds, setCurrentHanjaId } = useAppStore();
+    const { learnedHanjaIds, favoriteHanjaIds, setCurrentHanjaId } = useAppStore();
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
-    const [mode, setMode] = useState('all'); // 'all', 'learned', 'unlearned'
+    const [mode, setMode] = useState('all'); // 'all', 'learned', 'unlearned', 'favorites'
     const listRef = useRef(null);
     const itemRefs = useRef({});
 
@@ -37,14 +37,16 @@ export default function List() {
             if (!matchesSearch) return false;
 
             const isLearned = learnedHanjaIds.includes(item.id);
+            const isFavorite = favoriteHanjaIds.includes(item.id);
 
             switch (mode) {
                 case 'learned': return isLearned;
                 case 'unlearned': return !isLearned;
+                case 'favorites': return isFavorite;
                 default: return true;
             }
         });
-    }, [searchTerm, mode, learnedHanjaIds]);
+    }, [searchTerm, mode, learnedHanjaIds, favoriteHanjaIds]);
 
     const scrollToItem = (indexMark) => {
         const node = itemRefs.current[indexMark];
@@ -64,6 +66,7 @@ export default function List() {
         { id: 'all', label: '전체보기' },
         { id: 'learned', label: '학습 완료' },
         { id: 'unlearned', label: '미학습' },
+        { id: 'favorites', label: '즐겨찾기' },
     ];
 
     return (
@@ -133,7 +136,7 @@ export default function List() {
                             <div
                                 key={item.id}
                                 ref={(el) => {
-                                    if (mode === 'all' && !searchTerm) {
+                                    if ((mode === 'all' || mode === 'favorites') && !searchTerm) {
                                         if ((item.id - 1) % 100 === 0 || item.id === chunjamunData.length) {
                                             itemRefs.current[item.id] = el;
                                         }
@@ -149,6 +152,11 @@ export default function List() {
                                     }
                             `}
                             >
+                                {favoriteHanjaIds.includes(item.id) && (
+                                    <div className="absolute top-1 right-1 text-amber-400">
+                                        <Star size={12} fill="currentColor" />
+                                    </div>
+                                )}
 
 
                                 {/* Sequence Number */}

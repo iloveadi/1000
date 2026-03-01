@@ -8,6 +8,7 @@ const useAppStore = create(
             studyMode: 'single', // 'single' | 'group'
             learnedHanjaIds: [],
             learnedHanjaTimestamps: {}, // SRS tracking: { [id]: timestamp }
+            favoriteHanjaIds: [],
             darkMode: false,
             theme: 'light', // 'light' | 'dark' | 'naver'
             soundEnabled: true,
@@ -120,11 +121,21 @@ const useAppStore = create(
                     ttsEnabled: !state.ttsEnabled,
                 })),
 
+            toggleFavorite: (id) =>
+                set((state) => {
+                    const isFavorite = state.favoriteHanjaIds.includes(id);
+                    return {
+                        favoriteHanjaIds: isFavorite
+                            ? state.favoriteHanjaIds.filter((favId) => favId !== id)
+                            : [...state.favoriteHanjaIds, id],
+                    };
+                }),
+
             setCurrentHanjaId: (id) => set({ currentHanjaId: id }),
 
             setStudyMode: (mode) => set({ studyMode: mode }),
 
-            resetProgress: () => set({ learnedHanjaIds: [], learnedHanjaTimestamps: {}, favorites: [], currentHanjaId: 1 }),
+            resetProgress: () => set({ learnedHanjaIds: [], learnedHanjaTimestamps: {}, favoriteHanjaIds: [], currentHanjaId: 1 }),
         }),
         {
             name: 'chunjamun-storage', // unique name for localStorage key
