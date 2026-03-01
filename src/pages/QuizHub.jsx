@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { BrainCircuit, Mic, ChevronRight } from 'lucide-react';
+import { BrainCircuit, Mic, ChevronRight, Puzzle } from 'lucide-react';
 
 const quizTypes = [
     {
@@ -24,6 +24,17 @@ const quizTypes = [
         title: '받아쓰기',
         desc: '뜻·음을 듣고 한자를 골라보세요',
         badge: '듣기 퀴즈',
+        badgeColor: 'bg-primary-100 dark:bg-primary-900/40 text-primary-600 dark:text-primary-400',
+    },
+    {
+        id: 'idiom',
+        path: '/idiom-quiz',
+        icon: Puzzle,
+        iconBg: 'bg-primary-50 dark:bg-primary-900/20',
+        iconColor: 'text-primary-600 dark:text-primary-400',
+        title: '사자성어 채우기',
+        desc: '구절의 의미를 보고 빈칸의 한자를 맞혀보세요',
+        badge: '빈칸 퀴즈',
         badgeColor: 'bg-primary-100 dark:bg-primary-900/40 text-primary-600 dark:text-primary-400',
     },
 ];

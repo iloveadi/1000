@@ -12,6 +12,7 @@ import Radicals from './pages/Radicals';
 import Settings from './pages/Settings';
 import DictationQuiz from './pages/DictationQuiz';
 import QuizHub from './pages/QuizHub';
+import IdiomQuiz from './pages/IdiomQuiz';
 import useAppStore from './store/useAppStore';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           <Route path="radicals" element={<Radicals />} />
           <Route path="settings" element={<Settings />} />
           <Route path="dictation-quiz" element={<DictationQuiz />} />
+          <Route path="idiom-quiz" element={<IdiomQuiz />} />
           <Route path="quiz-hub" element={<QuizHub />} />
         </Route>
       </Routes>
