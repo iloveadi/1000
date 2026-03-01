@@ -29,6 +29,22 @@ export default function Settings() {
                 <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100 naver:text-green-900 tracking-tight">설정</h1>
             </header>
 
+            {/* Program Intro */}
+            <div className="bg-white dark:bg-slate-800 naver:bg-white p-6 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 naver:border-green-200 mb-6 relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+                    <Info size={100} />
+                </div>
+                <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 naver:text-green-900 mb-2">천자문 학습 v1.0 은?</h2>
+                <div className="space-y-3 text-sm text-slate-600 dark:text-slate-400 naver:text-green-800 leading-relaxed">
+                    <p>
+                        천년의 지혜가 담긴 천자문을 현대적인 감각으로 익힐 수 있도록 제작된 학습 도우미입니다.
+                    </p>
+                    <p>
+                        직접 써보는 경험과 과학적인 복습 알고리즘(SRS)을 통해 한자를 더 깊고 오래 기억할 수 있게 도와드립니다.
+                    </p>
+                </div>
+            </div>
+
             <div className="space-y-4">
 
 
