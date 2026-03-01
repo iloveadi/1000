@@ -1,22 +1,33 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, CheckCircle2, XCircle, RotateCcw, BrainCircuit } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, XCircle, RotateCcw, BrainCircuit, Award, Home, Timer } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import useAppStore from '../store/useAppStore';
 import chunjamunData from '../data/chunjamun.json';
 import groupInterpretations from '../data/groupInterpretations';
 import { playSound } from '../utils/audio';
 
+const QUESTIONS_PER_SESSION = 10;
+const SECONDS_PER_QUESTION = 5;
+
 export default function IdiomQuiz() {
     const navigate = useNavigate();
-    const { soundEnabled } = useAppStore();
+    const { soundEnabled, updateQuizScore } = useAppStore();
 
-    const [currentPattern, setCurrentPattern] = useState(null);
+    const [questions, setQuestions] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [options, setOptions] = useState([]);
+
     const [selectedId, setSelectedId] = useState(null);
     const [isCorrect, setIsCorrect] = useState(null);
-    const [score, setScore] = useState({ correct: 0, total: 0 });
+    const [score, setScore] = useState(0);
     const [gameState, setGameState] = useState('playing'); // playing, answered, finished
+
+    // Timer & Session state
+    const [timeLeft, setTimeLeft] = useState(SECONDS_PER_QUESTION);
+    const [startTime, setStartTime] = useState(null);
+    const [elapsedTime, setElapsedTime] = useState(0);
+    const timerRef = useRef(null);
 
     // Prepare idiom groups (arrays of 4 characters)
     const idiomGroups = useMemo(() => {
@@ -29,67 +40,168 @@ export default function IdiomQuiz() {
         return groups;
     }, []);
 
-    const generateQuestion = () => {
-        // Pick a random group
-        const groupIndex = Math.floor(Math.random() * idiomGroups.length);
-        const group = idiomGroups[groupIndex];
+    const startNewQuiz = () => {
+        // Select 10 random groups
+        const shuffledGroups = [...idiomGroups].sort(() => 0.5 - Math.random());
+        const selectedGroups = shuffledGroups.slice(0, QUESTIONS_PER_SESSION);
 
-        // Pick which of the 4 characters to hide
-        const hiddenIndex = Math.floor(Math.random() * 4);
-        const targetCharacter = group[hiddenIndex];
+        const generatedQuestions = selectedGroups.map(group => {
+            const hiddenIndex = Math.floor(Math.random() * 4);
+            const targetCharacter = group[hiddenIndex];
 
-        // Generate options (1 correct, 3 wrong)
-        const newOptions = [targetCharacter];
-        while (newOptions.length < 4) {
-            const randomChar = chunjamunData[Math.floor(Math.random() * chunjamunData.length)];
-            if (!newOptions.find(o => o.id === randomChar.id) && !group.find(g => g.id === randomChar.id)) {
-                newOptions.push(randomChar);
+            // Generate options (1 correct, 3 wrong)
+            const newOptions = [targetCharacter];
+            while (newOptions.length < 4) {
+                const randomChar = chunjamunData[Math.floor(Math.random() * chunjamunData.length)];
+                if (!newOptions.find(o => o.id === randomChar.id) && !group.find(g => g.id === randomChar.id)) {
+                    newOptions.push(randomChar);
+                }
             }
-        }
+            newOptions.sort(() => Math.random() - 0.5);
 
-        // Shuffle options
-        newOptions.sort(() => Math.random() - 0.5);
-
-        setCurrentPattern({
-            group,
-            hiddenIndex,
-            targetCharacter,
-            interpretation: groupInterpretations[group[0].id] || "해석이 등록되지 않은 구절입니다.",
+            return {
+                group,
+                hiddenIndex,
+                targetCharacter,
+                options: newOptions,
+                interpretation: groupInterpretations[group[0].id] || "해석이 등록되지 않은 구절입니다.",
+            };
         });
-        setOptions(newOptions);
+
+        setQuestions(generatedQuestions);
+        setCurrentIndex(0);
+        setScore(0);
+        setGameState('playing');
+        setStartTime(Date.now());
+        setElapsedTime(0);
+        setupQuestion(generatedQuestions[0]);
+    };
+
+    const setupQuestion = (question) => {
+        setOptions(question.options);
         setSelectedId(null);
         setIsCorrect(null);
+        setTimeLeft(SECONDS_PER_QUESTION);
         setGameState('playing');
     };
 
     useEffect(() => {
-        generateQuestion();
+        startNewQuiz();
+        return () => clearInterval(timerRef.current);
     }, []);
+
+    // Timer Logic
+    useEffect(() => {
+        if (gameState === 'playing' && timeLeft > 0) {
+            timerRef.current = setInterval(() => {
+                setTimeLeft(prev => prev - 1);
+            }, 1000);
+        } else if (gameState === 'playing' && timeLeft === 0) {
+            handleTimeout();
+        }
+
+        return () => clearInterval(timerRef.current);
+    }, [gameState, timeLeft]);
+
+    const handleTimeout = () => {
+        setSelectedId(null);
+        setIsCorrect(false);
+        setGameState('answered');
+        if (soundEnabled) playSound('error');
+        scheduleNext();
+    };
+
 
     const handleOptionSelect = (option) => {
         if (gameState !== 'playing') return;
 
+        clearInterval(timerRef.current);
+        const question = questions[currentIndex];
+
         setSelectedId(option.id);
-        const correct = option.id === currentPattern.targetCharacter.id;
+        const correct = option.id === question.targetCharacter.id;
         setIsCorrect(correct);
         setGameState('answered');
 
-        setScore(prev => ({
-            correct: prev.correct + (correct ? 1 : 0),
-            total: prev.total + 1
-        }));
+        if (correct) {
+            setScore(s => s + 1);
+        }
 
         if (soundEnabled) {
             playSound(correct ? 'success' : 'error');
         }
+
+        scheduleNext();
     };
 
-    if (!currentPattern) return null;
+    const scheduleNext = () => {
+        setTimeout(() => {
+            if (currentIndex < QUESTIONS_PER_SESSION - 1) {
+                setCurrentIndex(i => i + 1);
+                setupQuestion(questions[currentIndex + 1]);
+            } else {
+                const finalTime = Math.round((Date.now() - startTime) / 1000);
+                setElapsedTime(finalTime);
+                setGameState('finished');
+                updateQuizScore(score + (isCorrect ? 1 : 0), finalTime);
+            }
+        }, 1200);
+    };
+
+    if (questions.length === 0) return null;
+
+    if (gameState === 'finished') {
+        return (
+            <div className="min-h-screen bg-slate-50 dark:bg-slate-900 px-6 flex flex-col items-center justify-center">
+                <motion.div
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    className="w-full max-w-sm bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl text-center border border-slate-100 dark:border-slate-700"
+                >
+                    <div className="w-20 h-20 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <Award className="text-primary-600 dark:text-primary-400" size={40} />
+                    </div>
+                    <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-2">테스트 결과</h2>
+                    <div className="text-5xl font-black text-primary-600 dark:text-primary-400 mb-2">
+                        {score} / {QUESTIONS_PER_SESSION}
+                    </div>
+                    <div className="flex justify-center space-x-4 mb-6 text-sm font-bold">
+                        <span className="text-slate-400">⏱ {elapsedTime}초</span>
+                        <span className="text-amber-500">✨ +{score * 10}P</span>
+                    </div>
+                    <p className="text-slate-500 dark:text-slate-400 mb-8">
+                        {score === QUESTIONS_PER_SESSION ? "완벽해요! 대단한 실력입니다 👏" :
+                            score >= 7 ? "훌륭합니다! 조금만 더 하면 완벽해요 👍" :
+                                "괜찮아요! 다시 한번 도전해보세요 🌱"}
+                    </p>
+
+                    <div className="space-y-3">
+                        <button
+                            onClick={startNewQuiz}
+                            className="w-full bg-primary-600 dark:bg-primary-500 text-white py-4 rounded-2xl font-bold flex items-center justify-center space-x-2 hover:bg-primary-700 transition-colors"
+                        >
+                            <RotateCcw size={20} />
+                            <span>다시 도전하기</span>
+                        </button>
+                        <button
+                            onClick={() => navigate('/')}
+                            className="w-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 py-4 rounded-2xl font-bold flex items-center justify-center space-x-2 hover:bg-slate-200 transition-colors"
+                        >
+                            <Home size={20} />
+                            <span>홈으로 가기</span>
+                        </button>
+                    </div>
+                </motion.div>
+            </div>
+        );
+    }
+
+    const currentPattern = questions[currentIndex];
 
     return (
-        <div className="flex flex-col h-full bg-slate-50 dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden px-6 pt-12 pb-6">
+        <div className="flex flex-col h-full bg-slate-50 dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden px-6 pt-6 pb-6">
             {/* Header */}
-            <div className="flex flex-col mb-8 gap-4">
+            <div className="flex flex-col mb-4 gap-4">
                 <div className="flex justify-between items-center">
                     <button
                         onClick={() => navigate(-1)}
@@ -97,10 +209,22 @@ export default function IdiomQuiz() {
                     >
                         <ArrowLeft size={24} />
                     </button>
-                    <div className="flex items-center gap-2 bg-white dark:bg-slate-800 px-4 py-1.5 rounded-full shadow-sm border border-slate-100 dark:border-slate-700">
-                        <span className="text-slate-500 dark:text-slate-400 font-semibold text-sm">점수</span>
-                        <span className="font-bold text-primary-600 dark:text-primary-400 text-lg">
-                            {score.correct} <span className="text-slate-300 dark:text-slate-600 font-normal">/ {score.total}</span>
+                    <div className="flex-1 text-center">
+                        <span className="text-sm font-bold text-slate-400 dark:text-slate-500 tracking-widest uppercase">
+                            Question {currentIndex + 1} / {QUESTIONS_PER_SESSION}
+                        </span>
+                        <div className="w-32 h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full mx-auto mt-2 overflow-hidden">
+                            <motion.div
+                                className="h-full bg-primary-500"
+                                initial={{ width: 0 }}
+                                animate={{ width: `${((currentIndex + 1) / QUESTIONS_PER_SESSION) * 100}%` }}
+                            />
+                        </div>
+                    </div>
+                    <div className="flex items-center gap-1.5 bg-white dark:bg-slate-800 px-3 py-1.5 rounded-full shadow-sm border border-slate-100 dark:border-slate-700 w-[72px] justify-center">
+                        <Timer size={16} className={timeLeft <= 2 ? "text-red-500" : "text-slate-400"} />
+                        <span className={`font-bold ${timeLeft <= 2 ? "text-red-500" : "text-slate-700 dark:text-slate-200"}`}>
+                            {timeLeft}초
                         </span>
                     </div>
                 </div>
@@ -111,12 +235,12 @@ export default function IdiomQuiz() {
 
                 {/* Question Info */}
                 <motion.div
-                    key={`q-${score.total}`}
-                    initial={{ opacity: 0, y: 20 }}
+                    key={`q-${currentIndex}`}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mb-8 text-center"
+                    className="mb-6 text-center"
                 >
-                    <div className="inline-flex items-center gap-2 bg-primary-50 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 px-3 py-1 rounded-full text-xs font-bold mb-4 border border-primary-200 dark:border-primary-800">
+                    <div className="inline-flex items-center gap-2 bg-primary-50 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 px-3 py-1 rounded-full text-xs font-bold mb-3 border border-primary-200 dark:border-primary-800">
                         <BrainCircuit size={14} /> 사자성어 빈칸 채우기
                     </div>
                     <p className="text-slate-600 dark:text-slate-300 font-medium text-lg leading-relaxed px-4">
@@ -128,7 +252,7 @@ export default function IdiomQuiz() {
                 </motion.div>
 
                 {/* Idiom Display */}
-                <div className="grid grid-cols-4 gap-3 mb-10">
+                <div className="grid grid-cols-4 gap-3 mb-8">
                     <AnimatePresence mode="popLayout">
                         {currentPattern.group.map((char, index) => {
                             const isHidden = index === currentPattern.hiddenIndex;
@@ -210,25 +334,6 @@ export default function IdiomQuiz() {
                         );
                     })}
                 </div>
-
-                {/* Floating Next Button */}
-                <AnimatePresence>
-                    {gameState === 'answered' && (
-                        <motion.div
-                            initial={{ opacity: 0, y: 100 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 100 }}
-                            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex justify-center w-full px-6"
-                        >
-                            <button
-                                onClick={generateQuestion}
-                                className="flex items-center gap-2 bg-slate-800 dark:bg-white text-white dark:text-slate-900 px-8 py-4 rounded-full font-bold shadow-2xl hover:scale-105 transition-transform"
-                            >
-                                다음 문제 풀기 <RotateCcw size={18} />
-                            </button>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
             </div>
         </div>
     );
