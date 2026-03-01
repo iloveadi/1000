@@ -1,15 +1,17 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, RotateCcw, Home, CheckCircle2, XCircle } from 'lucide-react';
+import { ChevronLeft, RotateCcw, Home, CheckCircle2, XCircle, Timer, Award } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
 import chunjamunData from '../data/chunjamun.json';
+import { playSound } from '../utils/audio';
 
 const QUESTIONS_PER_SESSION = 10;
+const SECONDS_PER_QUESTION = 5;
 
 export default function Quiz() {
     const navigate = useNavigate();
-    const { updateQuizScore } = useAppStore();
+    const { soundEnabled, updateQuizScore } = useAppStore();
 
     const [questions, setQuestions] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -17,12 +19,17 @@ export default function Quiz() {
     const [selectedId, setSelectedId] = useState(null);
     const [isFinished, setIsFinished] = useState(false);
     const [answered, setAnswered] = useState(false);
+
+    // Timer state
+    const [timeLeft, setTimeLeft] = useState(SECONDS_PER_QUESTION);
     const [startTime, setStartTime] = useState(null);
     const [elapsedTime, setElapsedTime] = useState(0);
+    const timerRef = useRef(null);
 
     // Initialize Quiz
     useEffect(() => {
         startNewQuiz();
+        return () => clearInterval(timerRef.current);
     }, []);
 
     const startNewQuiz = () => {
@@ -51,11 +58,26 @@ export default function Quiz() {
         setAnswered(false);
         setStartTime(Date.now());
         setElapsedTime(0);
+        setTimeLeft(SECONDS_PER_QUESTION);
     };
 
-    const handleAnswer = (optionId) => {
-        if (answered) return;
+    // Timer Logic
+    useEffect(() => {
+        if (!isFinished && !answered && timeLeft > 0) {
+            timerRef.current = setInterval(() => {
+                setTimeLeft(prev => prev - 1);
+            }, 1000);
+        } else if (timeLeft === 0 && !answered) {
+            handleAnswer(null); // Timeout as incorrect
+        }
 
+        return () => clearInterval(timerRef.current);
+    }, [isFinished, answered, timeLeft]);
+
+    const handleAnswer = (optionId) => {
+        if (answered || isFinished) return;
+
+        clearInterval(timerRef.current);
         const isCorrect = optionId === questions[currentIndex].id;
         setSelectedId(optionId);
         setAnswered(true);
@@ -64,11 +86,16 @@ export default function Quiz() {
             setScore(s => s + 1);
         }
 
+        if (soundEnabled) {
+            playSound(isCorrect ? 'success' : 'error');
+        }
+
         setTimeout(() => {
             if (currentIndex < QUESTIONS_PER_SESSION - 1) {
                 setCurrentIndex(i => i + 1);
                 setSelectedId(null);
                 setAnswered(false);
+                setTimeLeft(SECONDS_PER_QUESTION);
             } else {
                 const finalTime = Math.round((Date.now() - startTime) / 1000);
                 setElapsedTime(finalTime);
@@ -81,6 +108,7 @@ export default function Quiz() {
     if (questions.length === 0) return null;
 
     if (isFinished) {
+        const pct = Math.round((score / QUESTIONS_PER_SESSION) * 100);
         return (
             <div className="min-h-screen bg-slate-50 dark:bg-slate-900 px-6 flex flex-col items-center justify-center">
                 <motion.div
@@ -88,37 +116,39 @@ export default function Quiz() {
                     animate={{ scale: 1, opacity: 1 }}
                     className="w-full max-w-sm bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl text-center border border-slate-100 dark:border-slate-700"
                 >
-                    <div className="w-20 h-20 bg-primary-100 dark:bg-primary-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <Award className="text-primary-600 dark:text-primary-400" size={40} />
+                    <div className="text-6xl mb-4">{pct >= 80 ? '🎉' : pct >= 50 ? '📖' : '💪'}</div>
+                    <h2 className="text-2xl font-black text-slate-800 dark:text-slate-100 mb-2">테스트 완료!</h2>
+                    <p className="text-slate-500 dark:text-slate-400 mb-6 text-sm">한자 테스트 정확도</p>
+
+                    <div className="text-5xl font-black text-primary-600 dark:text-primary-400 mb-1">
+                        {score} <span className="text-2xl text-slate-400">/ {QUESTIONS_PER_SESSION}</span>
                     </div>
-                    <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-2">테스트 결과</h2>
-                    <div className="text-5xl font-black text-primary-600 dark:text-primary-400 mb-2">
-                        {score} / {QUESTIONS_PER_SESSION}
-                    </div>
-                    <div className="flex justify-center space-x-4 mb-6 text-sm font-bold">
+
+                    <div className="flex justify-center space-x-4 mb-6 text-sm font-bold mt-2">
                         <span className="text-slate-400">⏱ {elapsedTime}초</span>
                         <span className="text-amber-500">✨ +{score * 10}P</span>
                     </div>
-                    <p className="text-slate-500 dark:text-slate-400 mb-8">
+
+                    <p className="text-slate-500 dark:text-slate-400 mb-8 text-sm px-2">
                         {score === QUESTIONS_PER_SESSION ? "완벽해요! 대단한 실력입니다 👏" :
                             score >= 7 ? "훌륭합니다! 조금만 더 하면 완벽해요 👍" :
                                 "괜찮아요! 다시 한번 도전해보세요 🌱"}
                     </p>
 
-                    <div className="space-y-3">
+                    <div className="flex gap-3">
                         <button
                             onClick={startNewQuiz}
-                            className="w-full bg-primary-600 dark:bg-primary-500 text-white py-4 rounded-2xl font-bold flex items-center justify-center space-x-2 hover:bg-primary-700 transition-colors"
+                            className="flex-1 flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700 text-white py-3 rounded-2xl font-bold transition"
                         >
-                            <RotateCcw size={20} />
-                            <span>다시 도전하기</span>
+                            <RotateCcw size={18} />
+                            <span>다시 하기</span>
                         </button>
                         <button
                             onClick={() => navigate('/')}
-                            className="w-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 py-4 rounded-2xl font-bold flex items-center justify-center space-x-2 hover:bg-slate-200 transition-colors"
+                            className="flex-1 flex items-center justify-center gap-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 py-3 rounded-2xl font-bold transition"
                         >
-                            <Home size={20} />
-                            <span>홈으로 가기</span>
+                            <Home size={18} />
+                            <span>홈</span>
                         </button>
                     </div>
                 </motion.div>
@@ -129,25 +159,38 @@ export default function Quiz() {
     const currentItem = questions[currentIndex];
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-900 px-6 pt-12 pb-24 flex flex-col">
-            <header className="flex items-center justify-between mb-8">
-                <button onClick={() => navigate(-1)} className="p-2 -ml-2 text-slate-500 dark:text-slate-400">
+        <div className="flex flex-col h-full bg-slate-50 dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden px-6 pt-8 pb-6">
+            {/* Header */}
+            <div className="flex justify-between items-center mb-4">
+                <button
+                    onClick={() => navigate(-1)}
+                    className="p-2 -ml-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition"
+                >
                     <ChevronLeft size={24} />
                 </button>
-                <div className="flex-1 text-center">
-                    <span className="text-sm font-bold text-slate-400 dark:text-slate-500 tracking-widest uppercase">
-                        Question {currentIndex + 1} / {QUESTIONS_PER_SESSION}
-                    </span>
-                    <div className="w-32 h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full mx-auto mt-2 overflow-hidden">
-                        <motion.div
-                            className="h-full bg-primary-500"
-                            initial={{ width: 0 }}
-                            animate={{ width: `${((currentIndex + 1) / QUESTIONS_PER_SESSION) * 100}%` }}
-                        />
+                <span className="text-slate-500 dark:text-slate-400 font-medium text-sm">
+                    한자 테스트 {currentIndex + 1} / {QUESTIONS_PER_SESSION}
+                </span>
+                <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-1 bg-white dark:bg-slate-800 px-2.5 py-1 rounded-full shadow-sm border border-slate-100 dark:border-slate-700 justify-center shrink-0 min-w-[64px]">
+                        <Timer size={14} className={timeLeft <= 2 ? "text-red-500" : "text-slate-400"} />
+                        <div className={`text-sm font-bold flex items-center ${timeLeft <= 2 ? "text-red-500" : "text-slate-700 dark:text-slate-200"}`}>
+                            <span className="tabular-nums w-[18px] text-right inline-block">{timeLeft}</span>
+                            <span>초</span>
+                        </div>
                     </div>
+                    <span className="text-primary-600 dark:text-primary-400 font-bold hidden sm:inline">{score * 10}점</span>
                 </div>
-                <div className="w-10" />
-            </header>
+            </div>
+
+            {/* Progress bar */}
+            <div className="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full mb-4">
+                <motion.div
+                    className="h-1.5 bg-primary-500 rounded-full"
+                    animate={{ width: `${((currentIndex) / QUESTIONS_PER_SESSION) * 100}%` }}
+                    transition={{ duration: 0.4 }}
+                />
+            </div>
 
             <AnimatePresence mode="wait">
                 <motion.div
@@ -155,41 +198,44 @@ export default function Quiz() {
                     initial={{ x: 20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     exit={{ x: -20, opacity: 0 }}
-                    className="flex-1 flex flex-col items-center justify-center"
+                    className="flex-1 flex flex-col items-center justify-center max-w-md mx-auto w-full"
                 >
-                    <div className="mb-12">
-                        <h1 className="text-[120px] font-hanja font-bold text-slate-800 dark:text-slate-100 leading-none">
+                    <div className="mb-10 text-center">
+                        <p className="text-slate-400 dark:text-slate-500 text-xs font-medium uppercase tracking-widest mb-4">주어진 한자의 뜻과 음을 고르세요</p>
+                        <h1 className="text-[100px] font-hanja font-bold text-slate-800 dark:text-slate-100 leading-none">
                             {currentItem.hanja}
                         </h1>
                     </div>
 
-                    <div className="grid grid-cols-1 gap-4 w-full">
-                        {currentItem.options.map(option => {
+                    <div className="grid grid-cols-1 gap-3.5 w-full">
+                        {currentItem.options.map((option, idx) => {
                             const isCorrect = option.id === currentItem.id;
                             const isSelected = selectedId === option.id;
 
-                            let bgColor = "bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-700";
-                            let textColor = "text-slate-700 dark:text-slate-200";
+                            let btnStyle = "bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-primary-400 hover:bg-primary-50 dark:hover:bg-slate-800";
 
                             if (answered) {
                                 if (isCorrect) {
-                                    bgColor = "bg-green-500 border-green-500";
-                                    textColor = "text-white";
+                                    btnStyle = "bg-green-500 border-green-500 text-white shadow-lg shadow-green-500/20 scale-102 z-10";
                                 } else if (isSelected) {
-                                    bgColor = "bg-red-500 border-red-500";
-                                    textColor = "text-white";
+                                    btnStyle = "bg-red-500 border-red-500 text-white opacity-90";
+                                } else {
+                                    btnStyle = "bg-slate-50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-800 text-slate-400 opacity-50";
                                 }
                             }
 
                             return (
                                 <motion.button
                                     key={option.id}
-                                    whileTap={{ scale: 0.98 }}
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: idx * 0.05 }}
+                                    whileTap={!answered ? { scale: 0.98 } : {}}
                                     onClick={() => handleAnswer(option.id)}
                                     disabled={answered}
                                     className={`
                                         w-full p-5 rounded-2xl border-2 text-lg font-bold transition-all shadow-sm flex items-center justify-between
-                                        ${bgColor} ${textColor}
+                                        ${btnStyle}
                                     `}
                                 >
                                     <span>{option.meaning} {option.sound}</span>
@@ -205,22 +251,4 @@ export default function Quiz() {
     );
 }
 
-function Award({ className, size }) {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width={size}
-            height={size}
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className={className}
-        >
-            <circle cx="12" cy="8" r="7" />
-            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
-        </svg>
-    );
-}
+// Award helper if needed for custom icon, but we used lucide
