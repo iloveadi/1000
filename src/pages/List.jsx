@@ -16,7 +16,7 @@ export default function List() {
     const indexMarks = useMemo(() => {
         const marks = [];
         const totalItems = chunjamunData.length;
-        for (let i = 1; i <= totalItems; i += 25) {
+        for (let i = 1; i <= totalItems; i += 100) {
             marks.push(i);
         }
         if (marks[marks.length - 1] !== totalItems) {
@@ -134,7 +134,7 @@ export default function List() {
                                 key={item.id}
                                 ref={(el) => {
                                     if (mode === 'all' && !searchTerm) {
-                                        if ((item.id - 1) % 25 === 0 || item.id === chunjamunData.length) {
+                                        if ((item.id - 1) % 100 === 0 || item.id === chunjamunData.length) {
                                             itemRefs.current[item.id] = el;
                                         }
                                     }

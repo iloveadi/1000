@@ -16,7 +16,7 @@ export default function Idioms() {
     const indexMarks = useMemo(() => {
         const marks = [];
         const totalGroups = Math.ceil(chunjamunData.length / 4);
-        for (let i = 1; i <= totalGroups; i += 10) {
+        for (let i = 1; i <= totalGroups; i += 25) {
             marks.push(i);
         }
         if (marks[marks.length - 1] !== totalGroups) {
@@ -152,7 +152,7 @@ export default function Idioms() {
                                 // Save ref for every 10th item (1, 11, 21...) or the last item
                                 if (mode === 'all' && !searchTerm) {
                                     const groupNum = displayIndex + 1;
-                                    if ((groupNum - 1) % 10 === 0 || groupNum === Math.ceil(chunjamunData.length / 4)) {
+                                    if ((groupNum - 1) % 25 === 0 || groupNum === Math.ceil(chunjamunData.length / 4)) {
                                         itemRefs.current[groupNum] = el;
                                     }
                                 }
