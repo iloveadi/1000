@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CheckCircle2, Star } from 'lucide-react';
+import { Check, Star } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
 import chunjamunData from '../data/chunjamun.json';
 
@@ -52,8 +52,8 @@ export default function Idioms() {
                             `}
                         >
                             {allLearned && (
-                                <div className="absolute top-4 right-4 text-primary-500 dark:text-primary-400">
-                                    <CheckCircle2 size={18} fill="currentColor" className="text-white dark:text-slate-900" />
+                                <div className="absolute top-3 right-3 w-5 h-5 bg-white rounded border-2 border-primary-500 dark:border-primary-400 flex items-center justify-center shadow-sm">
+                                    <Check size={11} className="text-primary-600 dark:text-primary-300" strokeWidth={3} />
                                 </div>
                             )}
                             {anyFavorite && !allLearned && (

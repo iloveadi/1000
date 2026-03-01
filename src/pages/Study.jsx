@@ -111,11 +111,6 @@ export default function Study() {
                             <div className="absolute w-full h-full bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 flex items-center justify-center backface-hidden no-select transition-colors">
                                 <h1 className="text-[140px] font-bold text-slate-800 dark:text-slate-100 leading-none font-hanja">{hanja.hanja}</h1>
                                 <div className="absolute bottom-6 text-slate-400 dark:text-slate-500 text-sm font-medium animate-pulse">탭하여 뒤집기</div>
-                                {isLearned && (
-                                    <div className="absolute top-4 right-4 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center shadow-md">
-                                        <CheckCircle2 size={18} className="text-white" strokeWidth={2.5} />
-                                    </div>
-                                )}
                             </div>
 
                             {/* Back Side */}

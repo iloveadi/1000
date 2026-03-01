@@ -1,8 +1,8 @@
-import { RefreshCcw, Info, Volume2, VolumeX, Megaphone, MicOff, Bell, BellOff, Palette } from 'lucide-react';
+import { RefreshCcw, Info, Volume2, VolumeX, Megaphone, MicOff, Bell, BellOff, Palette, Clock } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
 
 export default function Settings() {
-    const { theme, setTheme, resetProgress, learnedHanjaIds, soundEnabled, toggleSound, ttsEnabled, toggleTts, notificationsEnabled, toggleNotifications } = useAppStore();
+    const { theme, setTheme, resetProgress, learnedHanjaIds, soundEnabled, toggleSound, ttsEnabled, toggleTts, notificationsEnabled, toggleNotifications, notificationTime, setNotificationTime } = useAppStore();
 
     const handleReset = () => {
         if (window.confirm("정말 모든 학습 기록을 초기화하시겠습니까? (이 작업은 되돌릴 수 없습니다.)")) {
@@ -126,6 +126,23 @@ export default function Settings() {
                             <div className={`absolute top-1 left-1 w-4 h-4 rounded-full bg-white transition-transform ${notificationsEnabled ? 'translate-x-6' : ''}`} />
                         </div>
                     </button>
+
+                    {notificationsEnabled && (
+                        <div className="flex items-center justify-between p-4 border-t border-slate-100 dark:border-slate-700">
+                            <div className="flex items-center gap-3">
+                                <div className="bg-slate-50 dark:bg-slate-700 p-2 rounded-xl">
+                                    <Clock size={20} className="text-slate-600 dark:text-slate-300" />
+                                </div>
+                                <span className="text-slate-700 dark:text-slate-200 font-medium">알림 시간</span>
+                            </div>
+                            <input
+                                type="time"
+                                value={notificationTime}
+                                onChange={e => setNotificationTime(e.target.value)}
+                                className="bg-slate-100 dark:bg-slate-700 text-primary-600 dark:text-primary-400 font-semibold rounded-xl px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary-400 transition"
+                            />
+                        </div>
+                    )}
 
                     <button
                         onClick={handleReset}

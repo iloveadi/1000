@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CheckCircle2, Search, Star } from 'lucide-react';
+import { Check, Search, Star } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
 import chunjamunData from '../data/chunjamun.json';
 
@@ -96,8 +96,8 @@ export default function List() {
                             `}
                         >
                             {isLearned && (
-                                <div className="absolute top-1 right-1 text-primary-500 dark:text-primary-400">
-                                    <CheckCircle2 size={12} fill="currentColor" className="text-white dark:text-slate-900" />
+                                <div className="absolute top-1 right-1 w-4 h-4 bg-white rounded border border-primary-400 dark:border-primary-500 flex items-center justify-center">
+                                    <Check size={9} className="text-primary-600 dark:text-primary-300" strokeWidth={3.5} />
                                 </div>
                             )}
                             {isFavorite && !isLearned && (

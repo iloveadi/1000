@@ -27,12 +27,15 @@ const useAppStore = create(
                 lastActivityDate: null // "YYYY-MM-DD"
             },
             notificationsEnabled: true,
+            notificationTime: '09:00', // HH:MM format
 
             // Actions
             toggleNotifications: () =>
                 set((state) => ({
                     notificationsEnabled: !state.notificationsEnabled,
                 })),
+
+            setNotificationTime: (time) => set({ notificationTime: time }),
 
             markLearned: (id) =>
                 set((state) => {
