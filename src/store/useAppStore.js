@@ -11,6 +11,7 @@ const useAppStore = create(
             learnedHanjaTimestamps: {}, // SRS tracking: { [id]: timestamp }
             favoriteHanjaIds: [],
             unlockedBadgeIds: [],
+            reviewLevels: {}, // SRS: { [id]: level }
             darkMode: false,
             theme: 'light', // 'light' | 'dark' | 'naver'
             soundEnabled: true,
@@ -68,6 +69,10 @@ const useAppStore = create(
                         streak: {
                             count: newStreakCount,
                             lastActivityDate: today
+                        },
+                        reviewLevels: {
+                            ...state.reviewLevels,
+                            [id]: 1
                         }
                     };
                     // Trigger achievement check
@@ -161,7 +166,48 @@ const useAppStore = create(
 
             setStudyMode: (mode) => set({ studyMode: mode }),
 
-            resetProgress: () => set({ learnedHanjaIds: [], learnedHanjaTimestamps: {}, favoriteHanjaIds: [], currentHanjaId: 1 }),
+            markReviewed: (id) =>
+                set((state) => {
+                    const currentLevel = state.reviewLevels[id] || 1;
+                    return {
+                        reviewLevels: {
+                            ...state.reviewLevels,
+                            [id]: Math.min(currentLevel + 1, 5) // Max level 5
+                        },
+                        learnedHanjaTimestamps: {
+                            ...state.learnedHanjaTimestamps,
+                            [id]: Date.now()
+                        }
+                    };
+                }),
+
+            getDueHanjaIds: () => {
+                const state = get();
+                const now = Date.now();
+                const intervals = [0, 1, 3, 7, 14, 30]; // level -> days
+
+                return state.learnedHanjaIds.filter(id => {
+                    const level = state.reviewLevels[id] || 0;
+                    if (level === 0) return false;
+
+                    const lastTimestamp = state.learnedHanjaTimestamps[id];
+                    if (!lastTimestamp) return true;
+
+                    const intervalDays = intervals[level] || 30;
+                    const nextDueTime = lastTimestamp + (intervalDays * 24 * 60 * 60 * 1000);
+
+                    return now >= nextDueTime;
+                });
+            },
+
+            resetProgress: () => set({
+                learnedHanjaIds: [],
+                learnedHanjaTimestamps: {},
+                favoriteHanjaIds: [],
+                unlockedBadgeIds: [],
+                reviewLevels: {},
+                currentHanjaId: 1
+            }),
         }),
         {
             name: 'chunjamun-storage', // unique name for localStorage key

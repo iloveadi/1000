@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, CheckCircle2, Edit3, X, Play, PenTool, Star } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
@@ -17,20 +17,27 @@ export default function Study() {
         soundEnabled,
         ttsEnabled,
         favoriteHanjaIds,
-        toggleFavorite
+        toggleFavorite,
+        getDueHanjaIds,
+        markReviewed
     } = useAppStore();
+
     const [isFlipped, setIsFlipped] = useState(false);
     const [direction, setDirection] = useState(0);
     const [showCanvas, setShowCanvas] = useState(false);
     const canvasRef = useRef(null);
 
-    const currentIndex = chunjamunData.findIndex(d => d.id === currentHanjaId) !== -1
-        ? chunjamunData.findIndex(d => d.id === currentHanjaId)
-        : 0;
+    const currentIndex = useMemo(() => {
+        const index = chunjamunData.findIndex(d => d.id === currentHanjaId);
+        return index !== -1 ? index : 0;
+    }, [currentHanjaId]);
 
     const hanja = chunjamunData[currentIndex];
     const isLearned = learnedHanjaIds.includes(hanja.id);
     const isFavorite = favoriteHanjaIds.includes(hanja.id);
+
+    const dueHanjaIds = useMemo(() => getDueHanjaIds(), [getDueHanjaIds]);
+    const isDue = dueHanjaIds.includes(hanja.id);
 
     const handleNext = () => {
         if (currentIndex < chunjamunData.length - 1) {
@@ -158,19 +165,22 @@ export default function Study() {
                                     <button
                                         onClick={(e) => {
                                             e.stopPropagation();
-                                            if (!isLearned) {
+                                            if (isDue) {
+                                                if (soundEnabled) playSound('success');
+                                                markReviewed(hanja.id);
+                                            } else if (!isLearned) {
                                                 if (soundEnabled) playSound('success');
                                                 markLearned(hanja.id);
                                             }
                                         }}
-                                        className={`px-6 py-3 rounded-full font-bold shadow-md transition ${isLearned
+                                        className={`px-6 py-3 rounded-full font-bold shadow-md transition ${isLearned && !isDue
                                             ? 'bg-white/30 text-white cursor-default'
                                             : 'bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 hover:bg-slate-50'
                                             }`}
                                     >
-                                        {isLearned ? '✓ 학습 완료' : '학습 완료 표시'}
+                                        {isDue ? '✓ 복습 완료' : (isLearned ? '✓ 학습 완료' : '학습 완료 표시')}
                                     </button>
-                                    {isLearned && (
+                                    {isLearned && !isDue && (
                                         <button
                                             onClick={(e) => {
                                                 e.stopPropagation();

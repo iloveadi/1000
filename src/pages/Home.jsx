@@ -5,6 +5,7 @@ import useAppStore from '../store/useAppStore';
 import chunjamunData from '../data/chunjamun.json';
 import { BookOpen, Flame, BrainCircuit, BarChart3, Calendar, Award, Target, Fingerprint, Sparkles } from 'lucide-react';
 import groupInterpretations from '../data/groupInterpretations';
+import ReviewCard from '../components/ReviewCard';
 
 export default function Home() {
     const navigate = useNavigate();
@@ -56,6 +57,8 @@ export default function Home() {
                     </motion.div>
                 )}
             </header>
+
+            <ReviewCard />
 
             {/* Progress Card */}
             <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 p-6 mb-4">
