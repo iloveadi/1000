@@ -80,7 +80,10 @@ export default function Home() {
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-3 gap-3 mb-4">
+            <div
+                onClick={() => navigate('/stats')}
+                className="grid grid-cols-3 gap-3 mb-4 cursor-pointer"
+            >
                 {[
                     { icon: Flame, bg: 'bg-orange-100 dark:bg-orange-900/30', color: 'text-orange-600 dark:text-orange-400', label: '연속', value: `${streak.count}일`, filled: true },
                     { icon: Target, bg: 'bg-blue-100 dark:bg-blue-900/30', color: 'text-blue-600 dark:text-blue-400', label: '최고점', value: `${quizScores.highScore}점` },
@@ -97,7 +100,10 @@ export default function Home() {
             </div>
 
             {/* Activity Chart */}
-            <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 mb-4">
+            <div
+                onClick={() => navigate('/stats')}
+                className="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 mb-4 cursor-pointer active:scale-[0.98] transition-transform"
+            >
                 <div className="flex items-center space-x-2 mb-5">
                     <Calendar size={18} className="text-primary-500" />
                     <h2 className="text-sm font-bold text-slate-800 dark:text-slate-100">최근 학습 활동</h2>
