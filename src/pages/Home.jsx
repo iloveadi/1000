@@ -127,10 +127,6 @@ export default function Home() {
 
             <div className="flex-1" />
 
-            <p className="text-center text-xs text-slate-400 dark:text-slate-600 mb-3">
-                사랑하는 내 딸 <strong className="font-bold text-pink-500">YJ</strong>를 위해 만듦
-            </p>
-
             {/* CTA Button */}
             <button
                 onClick={() => navigate('/study')}
