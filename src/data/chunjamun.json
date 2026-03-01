@@ -190,5 +190,413 @@
         "hanja": "陽",
         "meaning": "볕",
         "sound": "양"
+    },
+    {
+        "id": 33,
+        "hanja": "雲",
+        "meaning": "구름",
+        "sound": "운"
+    },
+    {
+        "id": 34,
+        "hanja": "騰",
+        "meaning": "오를",
+        "sound": "등"
+    },
+    {
+        "id": 35,
+        "hanja": "致",
+        "meaning": "이룰",
+        "sound": "치"
+    },
+    {
+        "id": 36,
+        "hanja": "雨",
+        "meaning": "비",
+        "sound": "우"
+    },
+    {
+        "id": 37,
+        "hanja": "露",
+        "meaning": "이슬",
+        "sound": "로"
+    },
+    {
+        "id": 38,
+        "hanja": "結",
+        "meaning": "맺을",
+        "sound": "결"
+    },
+    {
+        "id": 39,
+        "hanja": "爲",
+        "meaning": "할",
+        "sound": "위"
+    },
+    {
+        "id": 40,
+        "hanja": "霜",
+        "meaning": "서리",
+        "sound": "상"
+    },
+    {
+        "id": 41,
+        "hanja": "金",
+        "meaning": "쇠",
+        "sound": "금"
+    },
+    {
+        "id": 42,
+        "hanja": "生",
+        "meaning": "날",
+        "sound": "생"
+    },
+    {
+        "id": 43,
+        "hanja": "麗",
+        "meaning": "고울",
+        "sound": "려"
+    },
+    {
+        "id": 44,
+        "hanja": "水",
+        "meaning": "물",
+        "sound": "수"
+    },
+    {
+        "id": 45,
+        "hanja": "玉",
+        "meaning": "구슬",
+        "sound": "옥"
+    },
+    {
+        "id": 46,
+        "hanja": "出",
+        "meaning": "날",
+        "sound": "출"
+    },
+    {
+        "id": 47,
+        "hanja": "崑",
+        "meaning": "뫼",
+        "sound": "곤"
+    },
+    {
+        "id": 48,
+        "hanja": "岡",
+        "meaning": "메",
+        "sound": "강"
+    },
+    {
+        "id": 49,
+        "hanja": "劍",
+        "meaning": "칼",
+        "sound": "검"
+    },
+    {
+        "id": 50,
+        "hanja": "號",
+        "meaning": "이름",
+        "sound": "호"
+    },
+    {
+        "id": 51,
+        "hanja": "巨",
+        "meaning": "클",
+        "sound": "거"
+    },
+    {
+        "id": 52,
+        "hanja": "闕",
+        "meaning": "대궐",
+        "sound": "궐"
+    },
+    {
+        "id": 53,
+        "hanja": "珠",
+        "meaning": "구슬",
+        "sound": "주"
+    },
+    {
+        "id": 54,
+        "hanja": "稱",
+        "meaning": "일컬을",
+        "sound": "칭"
+    },
+    {
+        "id": 55,
+        "hanja": "夜",
+        "meaning": "밤",
+        "sound": "야"
+    },
+    {
+        "id": 56,
+        "hanja": "光",
+        "meaning": "빛",
+        "sound": "광"
+    },
+    {
+        "id": 57,
+        "hanja": "果",
+        "meaning": "과실",
+        "sound": "과"
+    },
+    {
+        "id": 58,
+        "hanja": "珍",
+        "meaning": "보배",
+        "sound": "진"
+    },
+    {
+        "id": 59,
+        "hanja": "李",
+        "meaning": "오얏",
+        "sound": "리"
+    },
+    {
+        "id": 60,
+        "hanja": "柰",
+        "meaning": "능금",
+        "sound": "내"
+    },
+    {
+        "id": 61,
+        "hanja": "菜",
+        "meaning": "나물",
+        "sound": "채"
+    },
+    {
+        "id": 62,
+        "hanja": "重",
+        "meaning": "무거울",
+        "sound": "중"
+    },
+    {
+        "id": 63,
+        "hanja": "芥",
+        "meaning": "겨자",
+        "sound": "개"
+    },
+    {
+        "id": 64,
+        "hanja": "薑",
+        "meaning": "생강",
+        "sound": "강"
+    },
+    {
+        "id": 65,
+        "hanja": "海",
+        "meaning": "바다",
+        "sound": "해"
+    },
+    {
+        "id": 66,
+        "hanja": "咸",
+        "meaning": "짤",
+        "sound": "함"
+    },
+    {
+        "id": 67,
+        "hanja": "河",
+        "meaning": "물",
+        "sound": "하"
+    },
+    {
+        "id": 68,
+        "hanja": "淡",
+        "meaning": "맑을",
+        "sound": "담"
+    },
+    {
+        "id": 69,
+        "hanja": "鱗",
+        "meaning": "비늘",
+        "sound": "린"
+    },
+    {
+        "id": 70,
+        "hanja": "潛",
+        "meaning": "잠길",
+        "sound": "잠"
+    },
+    {
+        "id": 71,
+        "hanja": "羽",
+        "meaning": "깃",
+        "sound": "우"
+    },
+    {
+        "id": 72,
+        "hanja": "翔",
+        "meaning": "날",
+        "sound": "상"
+    },
+    {
+        "id": 73,
+        "hanja": "龍",
+        "meaning": "용",
+        "sound": "룡"
+    },
+    {
+        "id": 74,
+        "hanja": "師",
+        "meaning": "스승",
+        "sound": "사"
+    },
+    {
+        "id": 75,
+        "hanja": "火",
+        "meaning": "불",
+        "sound": "화"
+    },
+    {
+        "id": 76,
+        "hanja": "帝",
+        "meaning": "임금",
+        "sound": "제"
+    },
+    {
+        "id": 77,
+        "hanja": "鳥",
+        "meaning": "새",
+        "sound": "조"
+    },
+    {
+        "id": 78,
+        "hanja": "官",
+        "구": "벼슬",
+        "sound": "관"
+    },
+    {
+        "id": 79,
+        "hanja": "人",
+        "meaning": "사람",
+        "sound": "인"
+    },
+    {
+        "id": 80,
+        "hanja": "皇",
+        "meaning": "임금",
+        "sound": "황"
+    },
+    {
+        "id": 81,
+        "hanja": "始",
+        "meaning": "비로소",
+        "sound": "시"
+    },
+    {
+        "id": 82,
+        "hanja": "制",
+        "meaning": "지을",
+        "sound": "제"
+    },
+    {
+        "id": 83,
+        "hanja": "文",
+        "meaning": "글월",
+        "sound": "문"
+    },
+    {
+        "id": 84,
+        "hanja": "字",
+        "meaning": "글자",
+        "sound": "자"
+    },
+    {
+        "id": 85,
+        "hanja": "乃",
+        "meaning": "이에",
+        "sound": "내"
+    },
+    {
+        "id": 86,
+        "hanja": "服",
+        "meaning": "옷",
+        "sound": "복"
+    },
+    {
+        "id": 87,
+        "hanja": "衣",
+        "meaning": "옷",
+        "sound": "의"
+    },
+    {
+        "id": 88,
+        "hanja": "裳",
+        "meaning": "치마",
+        "sound": "상"
+    },
+    {
+        "id": 89,
+        "hanja": "推",
+        "meaning": "밀",
+        "sound": "추"
+    },
+    {
+        "id": 90,
+        "hanja": "位",
+        "meaning": "자리",
+        "sound": "위"
+    },
+    {
+        "id": 91,
+        "hanja": "讓",
+        "meaning": "사양할",
+        "sound": "양"
+    },
+    {
+        "id": 92,
+        "hanja": "國",
+        "meaning": "나라",
+        "sound": "국"
+    },
+    {
+        "id": 93,
+        "hanja": "有",
+        "meaning": "있을",
+        "sound": "유"
+    },
+    {
+        "id": 94,
+        "hanja": "虞",
+        "meaning": "헤아릴",
+        "sound": "우"
+    },
+    {
+        "id": 95,
+        "hanja": "陶",
+        "meaning": "질그릇",
+        "sound": "도"
+    },
+    {
+        "id": 96,
+        "hanja": "唐",
+        "meaning": "당나라",
+        "sound": "당"
+    },
+    {
+        "id": 97,
+        "hanja": "弔",
+        "meaning": "조상할",
+        "sound": "조"
+    },
+    {
+        "id": 98,
+        "hanja": "民",
+        "meaning": "백성",
+        "sound": "민"
+    },
+    {
+        "id": 99,
+        "hanja": "伐",
+        "meaning": "칠",
+        "sound": "벌"
+    },
+    {
+        "id": 100,
+        "hanja": "罪",
+        "meaning": "허물",
+        "sound": "죄"
     }
 ]

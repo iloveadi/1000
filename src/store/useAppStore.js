@@ -8,7 +8,6 @@ const useAppStore = create(
             studyMode: 'single', // 'single' | 'group'
             learnedHanjaIds: [],
             learnedHanjaTimestamps: {}, // SRS tracking: { [id]: timestamp }
-            favorites: [], // Bookmarked hanja IDs
             darkMode: false,
             theme: 'light', // 'light' | 'dark' | 'naver'
             soundEnabled: true,
@@ -102,13 +101,6 @@ const useAppStore = create(
                         learnedHanjaTimestamps: newTimestamps,
                     };
                 }),
-
-            toggleFavorite: (id) =>
-                set((state) => ({
-                    favorites: state.favorites.includes(id)
-                        ? state.favorites.filter((favId) => favId !== id)
-                        : [...state.favorites, id],
-                })),
 
             toggleDarkMode: () =>
                 set((state) => {

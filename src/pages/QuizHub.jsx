@@ -19,12 +19,12 @@ const quizTypes = [
         id: 'dictation',
         path: '/dictation-quiz',
         icon: Mic,
-        iconBg: 'bg-rose-50 dark:bg-rose-900/20',
-        iconColor: 'text-rose-500 dark:text-rose-400',
+        iconBg: 'bg-primary-50 dark:bg-primary-900/20',
+        iconColor: 'text-primary-600 dark:text-primary-400',
         title: '받아쓰기',
         desc: '뜻·음을 듣고 한자를 골라보세요',
         badge: '듣기 퀴즈',
-        badgeColor: 'bg-rose-100 dark:bg-rose-900/40 text-rose-600 dark:text-rose-400',
+        badgeColor: 'bg-primary-100 dark:bg-primary-900/40 text-primary-600 dark:text-primary-400',
     },
 ];
 

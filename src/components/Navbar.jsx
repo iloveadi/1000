@@ -26,8 +26,8 @@ export default function Navbar() {
                                 }`
                             }
                         >
-                            <Icon size={21} strokeWidth={2} />
-                            <span className="text-[9px] font-medium">{item.label}</span>
+                            <Icon size={23} strokeWidth={2} />
+                            <span className="text-[10px] font-medium">{item.label}</span>
                         </NavLink>
                     );
                 })}

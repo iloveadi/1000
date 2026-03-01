@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Check, Search, Star } from 'lucide-react';
+import { Search, Check } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
 import chunjamunData from '../data/chunjamun.json';
 
 export default function List() {
-    const { learnedHanjaIds, setCurrentHanjaId, favorites } = useAppStore();
+    const { learnedHanjaIds, setCurrentHanjaId } = useAppStore();
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
-    const [filterMode, setFilterMode] = useState('all'); // 'all', 'learned', 'unlearned', 'favorite'
+    const [mode, setMode] = useState('all'); // 'all', 'learned', 'unlearned'
 
     const handleCardClick = (id) => {
         setCurrentHanjaId(id);
@@ -16,20 +16,26 @@ export default function List() {
     };
 
     // Filtering logic
-    const filteredData = chunjamunData.filter((item) => {
-        const matchesSearch = item.hanja.includes(searchTerm) || item.meaning.includes(searchTerm) || item.sound.includes(searchTerm);
-        if (!matchesSearch) return false;
+    const filteredData = useMemo(() => {
+        return chunjamunData.filter((item) => {
+            const matchesSearch = item.hanja.includes(searchTerm) || item.meaning.includes(searchTerm) || item.sound.includes(searchTerm);
+            if (!matchesSearch) return false;
 
-        const isLearned = learnedHanjaIds.includes(item.id);
-        const isFavorite = favorites.includes(item.id);
+            const isLearned = learnedHanjaIds.includes(item.id);
 
-        switch (filterMode) {
-            case 'learned': return isLearned;
-            case 'unlearned': return !isLearned;
-            case 'favorite': return isFavorite;
-            default: return true;
-        }
-    });
+            switch (mode) {
+                case 'learned': return isLearned;
+                case 'unlearned': return !isLearned;
+                default: return true;
+            }
+        });
+    }, [searchTerm, mode, learnedHanjaIds]);
+
+    const filterTabs = [
+        { id: 'all', label: '전체보기' },
+        { id: 'learned', label: '학습 완료' },
+        { id: 'unlearned', label: '미학습' },
+    ];
 
     return (
         <div className="px-6 pt-12 pb-6 h-full transition-colors duration-300 bg-slate-50 dark:bg-slate-900 flex flex-col">
@@ -55,33 +61,29 @@ export default function List() {
 
                 {/* Filters */}
                 <div className="flex gap-2 overflow-x-auto hide-scrollbar pb-1">
-                    {['all', 'learned', 'unlearned', 'favorite'].map(mode => (
+                    {filterTabs.map(tab => (
                         <button
-                            key={mode}
-                            onClick={() => setFilterMode(mode)}
-                            className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-colors ${filterMode === mode
-                                ? 'bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-800'
-                                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700'
+                            key={tab.id}
+                            onClick={() => setMode(tab.id)}
+                            className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-colors ${mode === tab.id
+                                    ? 'bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-800'
+                                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700'
                                 }`}
                         >
-                            {mode === 'all' && '전체보기'}
-                            {mode === 'learned' && '학습 완료'}
-                            {mode === 'unlearned' && '미학습'}
-                            {mode === 'favorite' && '✨ 즐겨찾기'}
+                            {tab.label}
                         </button>
                     ))}
                 </div>
             </header>
 
             {/* List Content */}
-            <div className="grid grid-cols-4 gap-3 overflow-y-auto pb-4 hide-scrollbar" style={{ scrollbarGutter: 'stable' }}>
+            <div className="grid grid-cols-4 gap-3 overflow-y-auto pb-24 hide-scrollbar" style={{ scrollbarGutter: 'stable' }}>
                 {filteredData.length === 0 ? (
                     <div className="col-span-4 py-12 text-center text-slate-400 dark:text-slate-500">
                         검색 결과가 없습니다.
                     </div>
                 ) : filteredData.map((item) => {
                     const isLearned = learnedHanjaIds.includes(item.id);
-                    const isFavorite = favorites.includes(item.id);
                     return (
                         <div
                             key={item.id}
@@ -100,16 +102,12 @@ export default function List() {
                                     <Check size={9} className="text-primary-600 dark:text-primary-300" strokeWidth={3.5} />
                                 </div>
                             )}
-                            {isFavorite && !isLearned && (
-                                <div className="absolute top-1 right-1 text-yellow-400">
-                                    <Star size={12} fill="currentColor" />
-                                </div>
-                            )}
-                            {isFavorite && isLearned && (
-                                <div className="absolute top-1 left-1 text-yellow-400">
-                                    <Star size={12} fill="currentColor" />
-                                </div>
-                            )}
+
+                            {/* Sequence Number */}
+                            <div className="absolute top-1.5 left-1.5 text-[8px] font-bold text-slate-400 dark:text-slate-500 tracking-tighter">
+                                {String(item.id).padStart(4, '0')}
+                            </div>
+
                             <span className="text-3xl font-hanja mb-1">{item.hanja}</span>
                             <span className="text-[10px] font-medium opacity-80">{item.sound}</span>
                         </div>

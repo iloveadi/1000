@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, CheckCircle2, Edit3, X, Play, PenTool, Star } from 'lucide-react';
+import { ChevronLeft, ChevronRight, CheckCircle2, Edit3, X, Play, PenTool } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
 import chunjamunData from '../data/chunjamun.json';
 import HanjaCanvas from '../components/HanjaCanvas';
@@ -8,7 +8,7 @@ import { playSound } from '../utils/audio';
 import { speakText } from '../utils/tts';
 
 export default function Study() {
-    const { currentHanjaId, setCurrentHanjaId, markLearned, unmarkLearned, learnedHanjaIds, soundEnabled, ttsEnabled, favorites, toggleFavorite } = useAppStore();
+    const { currentHanjaId, setCurrentHanjaId, markLearned, unmarkLearned, learnedHanjaIds, soundEnabled, ttsEnabled } = useAppStore();
     const [isFlipped, setIsFlipped] = useState(false);
     const [direction, setDirection] = useState(0);
     const [showCanvas, setShowCanvas] = useState(false);
@@ -20,7 +20,6 @@ export default function Study() {
 
     const hanja = chunjamunData[currentIndex];
     const isLearned = learnedHanjaIds.includes(hanja.id);
-    const isFavorite = favorites.includes(hanja.id);
 
     const handleNext = () => {
         if (currentIndex < chunjamunData.length - 1) {
@@ -66,15 +65,9 @@ export default function Study() {
             {/* Header */}
             <div className="flex justify-between items-center mb-8">
                 <div className="flex items-center gap-3">
-                    <span className="text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap">
-                        {currentIndex + 1} / {chunjamunData.length}
+                    <span className="text-slate-500 dark:text-slate-400 font-bold text-lg tracking-wider opacity-0">
+                        {/* Empty spacer to keep layout balanced */}
                     </span>
-                    <button
-                        onClick={() => toggleFavorite(hanja.id)}
-                        className="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition active:scale-90"
-                    >
-                        <Star size={22} className={isFavorite ? "fill-yellow-400 text-yellow-400" : "text-slate-400 dark:text-slate-500"} />
-                    </button>
                 </div>
                 {isLearned && (
                     <span className="bg-green-100 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs flex items-center gap-1 font-semibold whitespace-nowrap">
@@ -108,13 +101,19 @@ export default function Study() {
                             transition={{ duration: 0.6, type: 'spring', stiffness: 260, damping: 20 }}
                         >
                             {/* Front Side */}
-                            <div className="absolute w-full h-full bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 flex items-center justify-center backface-hidden no-select transition-colors">
+                            <div className="absolute w-full h-full bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 flex flex-col items-center justify-center backface-hidden no-select transition-colors">
+                                <div className="absolute top-6 left-6 text-slate-300 dark:text-slate-500 font-bold text-xl tracking-wider select-none">
+                                    {String(hanja.id).padStart(4, '0')}
+                                </div>
                                 <h1 className="text-[140px] font-bold text-slate-800 dark:text-slate-100 leading-none font-hanja">{hanja.hanja}</h1>
                                 <div className="absolute bottom-6 text-slate-400 dark:text-slate-500 text-sm font-medium animate-pulse">탭하여 뒤집기</div>
                             </div>
 
                             {/* Back Side */}
                             <div className="absolute w-full h-full bg-primary-600 dark:bg-primary-700 rounded-3xl shadow-xl flex flex-col items-center justify-center backface-hidden no-select rotate-y-180 transition-colors">
+                                <div className="absolute top-6 left-6 text-primary-200/50 dark:text-primary-300/40 font-bold text-xl tracking-wider select-none">
+                                    {String(hanja.id).padStart(4, '0')}
+                                </div>
                                 <div className="text-primary-100 text-3xl font-medium mb-4">{hanja.meaning}</div>
                                 <div className="text-white text-7xl font-bold mb-12">{hanja.sound}</div>
 

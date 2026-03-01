@@ -15,7 +15,7 @@ import QuizHub from './pages/QuizHub';
 import useAppStore from './store/useAppStore';
 
 function App() {
-  const { theme, notificationsEnabled, notificationTime } = useAppStore();
+  const { theme } = useAppStore();
 
   useEffect(() => {
     const el = document.documentElement;
@@ -25,31 +25,6 @@ function App() {
     if (theme === 'pink') el.classList.add('pink');
   }, [theme]);
 
-  useEffect(() => {
-    if (!notificationsEnabled || !('Notification' in window) || Notification.permission !== 'granted') return;
-
-    const scheduleNotification = () => {
-      const [h, m] = notificationTime.split(':').map(Number);
-      const now = new Date();
-      const next = new Date();
-      next.setHours(h, m, 0, 0);
-      if (next <= now) next.setDate(next.getDate() + 1); // if time already passed today, schedule tomorrow
-      const msUntil = next - now;
-
-      const timer = setTimeout(() => {
-        new Notification('천자문 학습 시간이에요! 📖', {
-          body: '오늘의 한자 학습을 시작해볼까요?',
-          icon: '/pwa-192x192.png',
-        });
-        scheduleNotification(); // reschedule for next day
-      }, msUntil);
-
-      return timer;
-    };
-
-    const timer = scheduleNotification();
-    return () => clearTimeout(timer);
-  }, [notificationsEnabled, notificationTime]);
 
   return (
     <BrowserRouter>

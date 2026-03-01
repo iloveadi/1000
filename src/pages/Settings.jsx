@@ -100,37 +100,6 @@ export default function Settings() {
                         </div>
                     </button>
 
-                    <button
-                        onClick={handleNotificationToggle}
-                        className="w-full flex items-center justify-between p-4 active:bg-slate-50 dark:active:bg-slate-700 transition-colors"
-                    >
-                        <div className="flex items-center gap-3">
-                            <div className="bg-slate-50 dark:bg-slate-700 p-2 rounded-xl transition-colors">
-                                {notificationsEnabled ? <Bell className="text-slate-600 dark:text-slate-300" size={20} /> : <BellOff className="text-slate-600 dark:text-slate-300" size={20} />}
-                            </div>
-                            <span className="text-slate-700 dark:text-slate-200 naver:text-green-900 font-medium">학습 알림</span>
-                        </div>
-                        <div className={`w-12 h-6 rounded-full transition-colors relative ${notificationsEnabled ? 'bg-primary-500' : 'bg-slate-200 dark:bg-slate-600'}`}>
-                            <div className={`absolute top-1 left-1 w-4 h-4 rounded-full bg-white transition-transform ${notificationsEnabled ? 'translate-x-6' : ''}`} />
-                        </div>
-                    </button>
-
-                    {notificationsEnabled && (
-                        <div className="flex items-center justify-between p-4 border-t border-slate-100 dark:border-slate-700">
-                            <div className="flex items-center gap-3">
-                                <div className="bg-slate-50 dark:bg-slate-700 p-2 rounded-xl">
-                                    <Clock size={20} className="text-slate-600 dark:text-slate-300" />
-                                </div>
-                                <span className="text-slate-700 dark:text-slate-200 font-medium">알림 시간</span>
-                            </div>
-                            <input
-                                type="time"
-                                value={notificationTime}
-                                onChange={e => setNotificationTime(e.target.value)}
-                                className="bg-slate-100 dark:bg-slate-700 text-primary-600 dark:text-primary-400 font-semibold rounded-xl px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary-400 transition"
-                            />
-                        </div>
-                    )}
 
                     <button
                         onClick={handleReset}
