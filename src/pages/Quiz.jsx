@@ -238,7 +238,7 @@ export default function Quiz() {
                                 onClick={() => handleAnswer(option.id)}
                                 disabled={answered}
                                 className={`
-                                    w-full p-5 rounded-2xl border-2 text-lg font-bold transition-all shadow-sm flex items-center justify-between
+                                    w-full p-4 rounded-2xl border-2 text-lg font-bold transition-all shadow-sm flex items-center justify-between
                                     ${btnStyle}
                                 `}
                             >
