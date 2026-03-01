@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-hanja: "Noto Serif KR", serif;
+  --color-primary-50: #fdf8f6;
+  --color-primary-100: #f2e8e5;
+  --color-primary-200: #e5d1cb;
+  --color-primary-300: #d8bab1;
+  --color-primary-400: #bc9687;
+  --color-primary-500: #8a7369;
+  --color-primary-600: #6b5850;
+  --color-primary-700: #54443e;
+  --color-primary-800: #3d312d;
+  --color-primary-900: #2d2420;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden transition-colors duration-300;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+    scrollbar-gutter: stable;
+  }
+}
+
+/* User Selection Prevention for App-like feel */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Hide scrollbar for clean UI */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
