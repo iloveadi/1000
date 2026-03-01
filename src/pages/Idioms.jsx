@@ -166,7 +166,7 @@ export default function Idioms() {
                                 }
                             `}
                         >
-                            <div className="absolute top-3 left-4 text-[10px] font-bold text-slate-400 dark:text-slate-500 tracking-wider">
+                            <div className="absolute top-1 left-4 text-[10px] font-bold text-slate-400 dark:text-slate-500 tracking-wider">
                                 {String(displayIndex + 1).padStart(3, '0')}
                             </div>
 

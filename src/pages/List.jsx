@@ -152,7 +152,7 @@ export default function List() {
 
 
                                 {/* Sequence Number */}
-                                <div className="absolute top-1.5 left-1.5 text-[8px] font-bold text-slate-400 dark:text-slate-500 tracking-tighter">
+                                <div className="absolute top-0.5 left-1.5 text-[8px] font-bold text-slate-400 dark:text-slate-500 tracking-tighter">
                                     {String(item.id).padStart(4, '0')}
                                 </div>
 
