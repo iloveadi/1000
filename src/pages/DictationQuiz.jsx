@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Volume2, RotateCcw, Home, ChevronLeft, Timer, CheckCircle2, XCircle } from 'lucide-react';
+import { RotateCcw, Home, ChevronLeft, Timer, CheckCircle2, XCircle } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
 import chunjamunData from '../data/chunjamun.json';
-import { speakText } from '../utils/tts';
 import { playSound } from '../utils/audio';
 
 const QUESTIONS_PER_SESSION = 10;
@@ -16,7 +15,7 @@ function shuffle(arr) {
 
 export default function DictationQuiz() {
     const navigate = useNavigate();
-    const { ttsEnabled, soundEnabled, updateQuizScore } = useAppStore();
+    const { soundEnabled, updateQuizScore } = useAppStore();
 
     const [questions, setQuestions] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -30,14 +29,10 @@ export default function DictationQuiz() {
     const [startTime, setStartTime] = useState(null);
     const [elapsedTime, setElapsedTime] = useState(0);
     const timerRef = useRef(null);
-    const lastSpokenId = useRef(null);
 
     useEffect(() => {
         startNewQuiz();
-        return () => {
-            clearInterval(timerRef.current);
-            window.speechSynthesis.cancel();
-        };
+        return () => clearInterval(timerRef.current);
     }, []);
 
     const startNewQuiz = () => {
@@ -48,7 +43,6 @@ export default function DictationQuiz() {
             options: shuffle([item, ...pool.filter(d => d.id !== item.id).slice(0, 3)])
         }));
 
-        lastSpokenId.current = null; // Reset for new quiz
         setQuestions(quizItems);
         setCurrentIndex(0);
         setScore(0);
@@ -59,25 +53,6 @@ export default function DictationQuiz() {
         setElapsedTime(0);
         setTimeLeft(SECONDS_PER_QUESTION);
     };
-
-    // Auto-play TTS when question changes
-    useEffect(() => {
-        if (questions.length === 0 || isFinished) return;
-
-        const q = questions[currentIndex];
-        if (q && ttsEnabled && lastSpokenId.current !== q.id) {
-            // Cancel any pending speech from previous state/page
-            window.speechSynthesis.cancel();
-
-            // Add a tiny delay to ensure state and shuffle are fully applied in DOM if needed
-            const timer = setTimeout(() => {
-                speakText(`${q.meaning} ${q.sound}`);
-                lastSpokenId.current = q.id;
-            }, 50);
-
-            return () => clearTimeout(timer);
-        }
-    }, [currentIndex, questions, isFinished, ttsEnabled]);
 
     // Timer Logic
     useEffect(() => {
@@ -120,11 +95,6 @@ export default function DictationQuiz() {
                 setTimeLeft(SECONDS_PER_QUESTION);
             }
         }, 1200);
-    };
-
-    const playTTS = () => {
-        const q = questions[currentIndex];
-        if (q) speakText(`${q.meaning} ${q.sound}`);
     };
 
     if (questions.length === 0) return null;
@@ -224,15 +194,9 @@ export default function DictationQuiz() {
                         transition={{ duration: 0.25 }}
                         className="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 p-8 mb-6 text-center"
                     >
-                        <p className="text-slate-400 dark:text-slate-500 text-xs font-medium uppercase tracking-widest mb-3">뜻과 음을 듣고 한자를 선택하세요</p>
+                        <p className="text-slate-400 dark:text-slate-500 text-xs font-medium uppercase tracking-widest mb-3">뜻과 음에 맞는 한자를 선택하세요</p>
                         <div className="text-4xl font-black text-slate-800 dark:text-slate-100 mb-1">{q.meaning}</div>
                         <div className="text-2xl font-bold text-primary-500 mb-6">{q.sound}</div>
-                        <button
-                            onClick={playTTS}
-                            className="inline-flex items-center gap-2 bg-primary-50 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400 px-4 py-2 rounded-full text-sm font-semibold transition hover:bg-primary-100 dark:hover:bg-primary-900/50"
-                        >
-                            <Volume2 size={16} /> 다시 듣기
-                        </button>
                     </motion.div>
                 </AnimatePresence>
 
