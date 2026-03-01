@@ -115,11 +115,29 @@ export default function Settings() {
 
                 </div>
 
+                {/* Information Options */}
+                <div className="bg-white dark:bg-slate-800 naver:bg-white rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 naver:border-green-200 overflow-hidden divide-y divide-slate-100 dark:divide-slate-700 transition-colors mt-6">
+                    <a
+                        href="/privacy-policy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full flex items-center justify-between p-4 active:bg-slate-50 dark:active:bg-slate-700 transition-colors"
+                    >
+                        <div className="flex items-center gap-3">
+                            <div className="bg-slate-50 dark:bg-slate-700 p-2 rounded-xl transition-colors">
+                                <Info className="text-slate-600 dark:text-slate-300" size={20} />
+                            </div>
+                            <span className="text-slate-700 dark:text-slate-200 naver:text-green-900 font-medium">개인정보처리방침</span>
+                        </div>
+                    </a>
+                </div>
+
             </div>
 
             <div className="mt-12 text-center text-xs text-slate-400">
                 <p>천자문 PWA v1.0</p>
                 <p className="mt-1">오프라인에서도 언제든 학습할 수 있습니다.</p>
+                <p className="mt-4 font-medium text-slate-300 dark:text-slate-500">&copy; 2026 Bear Dev.</p>
             </div>
 
         </div >
