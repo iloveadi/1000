@@ -176,16 +176,18 @@ export default function Intro({ onDone }) {
                 )}
             </AnimatePresence>
 
-            {/* Bottom credit */}
-            <motion.p
+            {/* Bottom credits */}
+            <motion.div
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.3 }}
+                animate={{ opacity: 1 }}
                 transition={{ delay: 1.2, duration: 0.6 }}
                 className="absolute bottom-8 w-full text-center"
-                style={{ color: 'rgba(200,160,60,0.6)', fontSize: '10px', letterSpacing: '0.35em' }}
             >
-                BEAR DEV.
-            </motion.p>
+                <p style={{ color: 'rgba(200,160,60,0.6)', fontSize: '10px', letterSpacing: '0.35em' }}>BEAR DEV.</p>
+                <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '10px', marginTop: '6px' }}>
+                    사랑하는 내 딸 <strong style={{ color: '#f472b6', fontWeight: 700 }}>YJ</strong>를 위해 만듦
+                </p>
+            </motion.div>
 
             {/* Exit wipe overlay */}
             <AnimatePresence>
