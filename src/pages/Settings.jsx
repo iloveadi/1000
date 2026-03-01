@@ -1,8 +1,11 @@
-import { RefreshCcw, Info, Volume2, VolumeX, Megaphone, MicOff, Bell, BellOff, Palette, Clock } from 'lucide-react';
+import React, { useState } from 'react';
+import { RefreshCcw, Info, Volume2, VolumeX, Megaphone, MicOff, Palette, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import useAppStore from '../store/useAppStore';
 
 export default function Settings() {
-    const { theme, setTheme, resetProgress, learnedHanjaIds, soundEnabled, toggleSound, ttsEnabled, toggleTts, notificationsEnabled, toggleNotifications, notificationTime, setNotificationTime } = useAppStore();
+    const { theme, setTheme, resetProgress, soundEnabled, toggleSound, ttsEnabled, toggleTts } = useAppStore();
+    const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
 
     const handleReset = () => {
         if (window.confirm("정말 모든 학습 기록을 초기화하시겠습니까? (이 작업은 되돌릴 수 없습니다.)")) {
@@ -11,19 +14,7 @@ export default function Settings() {
         }
     };
 
-    const handleNotificationToggle = () => {
-        if (!notificationsEnabled && 'Notification' in window) {
-            Notification.requestPermission().then(permission => {
-                if (permission === 'granted') {
-                    toggleNotifications();
-                } else {
-                    alert('알림 권한이 거부되었습니다. 브라우저 설정에서 권한을 허용해 주세요.');
-                }
-            });
-        } else {
-            toggleNotifications();
-        }
-    };
+
 
     const themes = [
         { id: 'light', label: '라이트', bg: 'bg-slate-100', accent: 'bg-amber-800', ring: 'ring-slate-300' },
@@ -117,10 +108,8 @@ export default function Settings() {
 
                 {/* Information Options */}
                 <div className="bg-white dark:bg-slate-800 naver:bg-white rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 naver:border-green-200 overflow-hidden divide-y divide-slate-100 dark:divide-slate-700 transition-colors mt-6">
-                    <a
-                        href="/privacy-policy"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
+                        onClick={() => setShowPrivacyPolicy(true)}
                         className="w-full flex items-center justify-between p-4 active:bg-slate-50 dark:active:bg-slate-700 transition-colors"
                     >
                         <div className="flex items-center gap-3">
@@ -129,7 +118,7 @@ export default function Settings() {
                             </div>
                             <span className="text-slate-700 dark:text-slate-200 naver:text-green-900 font-medium">개인정보처리방침</span>
                         </div>
-                    </a>
+                    </button>
                 </div>
 
             </div>
@@ -139,6 +128,66 @@ export default function Settings() {
                 <p className="mt-1">오프라인에서도 언제든 학습할 수 있습니다.</p>
                 <p className="mt-4 font-medium text-slate-300 dark:text-slate-500">&copy; 2026 Bear Dev.</p>
             </div>
+
+            {/* Privacy Policy Modal */}
+            <AnimatePresence>
+                {showPrivacyPolicy && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setShowPrivacyPolicy(false)}
+                            className="absolute inset-0 bg-slate-900/40 dark:bg-black/60 backdrop-blur-sm"
+                        />
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                            className="relative bg-white dark:bg-slate-800 naver:bg-white rounded-3xl shadow-2xl p-6 md:p-8 max-w-md w-full max-h-[85vh] overflow-y-auto z-10 border border-slate-100 dark:border-slate-700 naver:border-green-200"
+                        >
+                            <div className="flex justify-between items-center mb-6">
+                                <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 naver:text-green-900">개인정보처리방침</h2>
+                                <button
+                                    onClick={() => setShowPrivacyPolicy(false)}
+                                    className="p-2 -mr-2 text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-full transition"
+                                >
+                                    <X size={20} />
+                                </button>
+                            </div>
+
+                            <div className="space-y-4 text-sm text-slate-600 dark:text-slate-300 naver:text-green-800 leading-relaxed">
+                                <p>
+                                    <strong>천자문 PWA</strong> (이하 "본 애플리케이션")은 사용자의 사생활 및 개인정보 보호를 매우 중요하게 생각합니다.
+                                </p>
+                                <p>
+                                    <strong>1. 개인정보 수집 및 이용</strong><br />
+                                    본 애플리케이션은 회원가입, 로그인 등 사용자를 식별할 수 있는 어떠한 개인정보(이름, 이메일, 전화번호, 위치 정보 등)도 <strong>수집, 저장, 가공, 또는 외부 서버로 전송하지 않습니다.</strong>
+                                </p>
+                                <p>
+                                    <strong>2. 데이터 보관 (로컬 스토리지)</strong><br />
+                                    학습 진도, 통계, 앱 설정(테마, 사운드 등)과 같은 모든 데이터는 전적으로 사용자의 스마트폰 또는 브라우저 내부(Local Storage)에만 안전하게 보관됩니다. 앱을 삭제하거나 브라우저 캐시를 지우면 해당 데이터는 영구적으로 삭제됩니다.
+                                </p>
+                                <p>
+                                    <strong>3. 제3자 제공 및 위탁</strong><br />
+                                    수집하는 개인정보가 없으므로 제3자에게 제공하거나 처리를 위탁하는 일도 발생하지 않습니다.
+                                </p>
+                                <p>
+                                    <strong>4. 문의사항</strong><br />
+                                    개인정보처리방침과 관련된 문의사항이 있으실 경우, 앱 제공자(Bear Dev.)에게 문의해 주시기 바랍니다.
+                                </p>
+                            </div>
+
+                            <button
+                                onClick={() => setShowPrivacyPolicy(false)}
+                                className="mt-8 w-full bg-slate-100 dark:bg-slate-700 naver:bg-green-100 text-slate-700 dark:text-slate-100 naver:text-green-800 font-bold py-3 rounded-2xl hover:bg-slate-200 dark:hover:bg-slate-600 transition"
+                            >
+                                확인했습니다
+                            </button>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
 
         </div >
     );
