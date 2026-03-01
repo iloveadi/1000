@@ -221,9 +221,9 @@ export default function IdiomQuiz() {
                             />
                         </div>
                     </div>
-                    <div className="flex items-center gap-1.5 bg-white dark:bg-slate-800 px-3 py-1.5 rounded-full shadow-sm border border-slate-100 dark:border-slate-700 w-[72px] justify-center">
+                    <div className="flex items-center gap-1.5 bg-white dark:bg-slate-800 px-3 py-1.5 rounded-full shadow-sm border border-slate-100 dark:border-slate-700 w-[76px] justify-center shrink-0">
                         <Timer size={16} className={timeLeft <= 2 ? "text-red-500" : "text-slate-400"} />
-                        <span className={`font-bold ${timeLeft <= 2 ? "text-red-500" : "text-slate-700 dark:text-slate-200"}`}>
+                        <span className={`font-bold tabular-nums w-[2ch] text-right ${timeLeft <= 2 ? "text-red-500" : "text-slate-700 dark:text-slate-200"}`}>
                             {timeLeft}초
                         </span>
                     </div>
