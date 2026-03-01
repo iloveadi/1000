@@ -78,7 +78,7 @@ export default function IdiomStudy() {
                     </span>
                 </div>
                 {isGroupLearned && (
-                    <span className="bg-green-100 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs flex items-center gap-1 font-semibold whitespace-nowrap">
+                    <span className="bg-primary-50 text-primary-700 border border-primary-200 px-3 py-1 rounded-full text-xs flex items-center gap-1 font-semibold whitespace-nowrap">
                         <CheckCircle2 size={13} /> 학습 완료
                     </span>
                 )}
