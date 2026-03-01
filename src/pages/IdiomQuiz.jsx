@@ -8,7 +8,7 @@ import groupInterpretations from '../data/groupInterpretations';
 import { playSound } from '../utils/audio';
 
 const QUESTIONS_PER_SESSION = 10;
-const SECONDS_PER_QUESTION = 5;
+const SECONDS_PER_QUESTION = 10;
 
 export default function IdiomQuiz() {
     const navigate = useNavigate();

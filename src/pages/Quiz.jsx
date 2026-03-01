@@ -7,7 +7,7 @@ import chunjamunData from '../data/chunjamun.json';
 import { playSound } from '../utils/audio';
 
 const QUESTIONS_PER_SESSION = 10;
-const SECONDS_PER_QUESTION = 5;
+const SECONDS_PER_QUESTION = 10;
 
 export default function Quiz() {
     const navigate = useNavigate();
@@ -238,13 +238,13 @@ export default function Quiz() {
                                 onClick={() => handleAnswer(option.id)}
                                 disabled={answered}
                                 className={`
-                                    w-full p-4 rounded-2xl border-2 text-lg font-bold transition-all shadow-sm flex items-center justify-between
+                                    w-full p-4 rounded-2xl border-2 text-lg font-bold transition-all shadow-sm flex items-center justify-center relative
                                     ${btnStyle}
                                 `}
                             >
                                 <span>{option.meaning} {option.sound}</span>
-                                {answered && isCorrect && <CheckCircle2 size={24} className="text-white" />}
-                                {answered && isSelected && !isCorrect && <XCircle size={24} className="text-white" />}
+                                {answered && isCorrect && <CheckCircle2 size={24} className="text-white absolute right-4" />}
+                                {answered && isSelected && !isCorrect && <XCircle size={24} className="text-white absolute right-4" />}
                             </motion.button>
                         );
                     })}
