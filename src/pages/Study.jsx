@@ -76,6 +76,11 @@ export default function Study() {
                         <Star size={22} className={isFavorite ? "fill-yellow-400 text-yellow-400" : "text-slate-400 dark:text-slate-500"} />
                     </button>
                 </div>
+                {isLearned && (
+                    <span className="bg-green-100 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs flex items-center gap-1 font-semibold whitespace-nowrap">
+                        <CheckCircle2 size={13} /> 학습 완료
+                    </span>
+                )}
             </div>
 
             {/* Concept Card */}
