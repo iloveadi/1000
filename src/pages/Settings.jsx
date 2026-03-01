@@ -126,10 +126,10 @@ export default function Settings() {
             <div className="mt-12 text-center text-xs text-slate-400">
                 <p>천자문 학습 v1.0</p>
                 <p className="mt-1">오프라인에서도 언제든 학습할 수 있습니다.</p>
-                <p className="mt-4 font-medium text-slate-300 dark:text-slate-500">&copy; 2026 Bear Dev.</p>
                 <p className="mt-3 text-slate-400 dark:text-slate-500">
                     사랑하는 내 딸 <strong className="font-bold text-pink-500">YJ</strong>를 위해 만듦
                 </p>
+                <p className="mt-3 font-medium text-slate-300 dark:text-slate-500">&copy; 2026 Bear Dev.</p>
             </div>
 
             {/* Privacy Policy Modal */}
