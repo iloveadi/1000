@@ -118,28 +118,35 @@ export default function Study() {
                                 <div className="text-primary-100 text-3xl font-medium mb-4">{hanja.meaning}</div>
                                 <div className="text-white text-7xl font-bold mb-12">{hanja.sound}</div>
 
-                                {!isLearned ? (
+                                <div className="absolute bottom-8 flex gap-2 items-center">
                                     <button
                                         onClick={(e) => {
                                             e.stopPropagation();
-                                            if (soundEnabled) playSound('success');
-                                            markLearned(hanja.id);
+                                            if (!isLearned) {
+                                                if (soundEnabled) playSound('success');
+                                                markLearned(hanja.id);
+                                            }
                                         }}
-                                        className="absolute bottom-8 bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 px-6 py-3 rounded-full font-bold shadow-md hover:bg-slate-50 dark:hover:bg-slate-700 transition"
+                                        className={`px-6 py-3 rounded-full font-bold shadow-md transition ${isLearned
+                                                ? 'bg-white/30 text-white cursor-default'
+                                                : 'bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 hover:bg-slate-50'
+                                            }`}
                                     >
-                                        학습 완료 표시
+                                        {isLearned ? '✓ 학습 완료' : '학습 완료 표시'}
                                     </button>
-                                ) : (
-                                    <button
-                                        onClick={(e) => {
-                                            e.stopPropagation();
-                                            unmarkLearned(hanja.id);
-                                        }}
-                                        className="absolute bottom-8 bg-white/20 dark:bg-slate-700/40 text-white/80 px-6 py-3 rounded-full font-medium hover:bg-white/30 transition text-sm"
-                                    >
-                                        ↩ 학습 취소
-                                    </button>
-                                )}
+                                    {isLearned && (
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                unmarkLearned(hanja.id);
+                                            }}
+                                            className="bg-white/20 text-white/80 px-3 py-3 rounded-full hover:bg-white/30 transition"
+                                            title="학습 취소"
+                                        >
+                                            ↩
+                                        </button>
+                                    )}
+                                </div>
                             </div>
                         </motion.div>
                     </motion.div>

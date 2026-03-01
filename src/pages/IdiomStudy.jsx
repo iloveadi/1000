@@ -126,28 +126,35 @@ export default function IdiomStudy() {
                                             <span className="text-white text-3xl font-bold">{h.sound}</span>
                                         </div>
                                     ))}
-                                    {!isGroupLearned ? (
+                                    <div className="flex gap-2 items-center mt-4">
                                         <button
                                             onClick={(e) => {
                                                 e.stopPropagation();
-                                                if (soundEnabled) playSound('success');
-                                                currentGroup.forEach(h => markLearned(h.id));
+                                                if (!isGroupLearned) {
+                                                    if (soundEnabled) playSound('success');
+                                                    currentGroup.forEach(h => markLearned(h.id));
+                                                }
                                             }}
-                                            className="mt-4 bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 px-8 py-4 rounded-full font-bold shadow-md hover:scale-105 transition"
+                                            className={`px-6 py-3 rounded-full font-bold shadow-md transition ${isGroupLearned
+                                                    ? 'bg-white/30 text-white cursor-default'
+                                                    : 'bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 hover:scale-105'
+                                                }`}
                                         >
-                                            구절 전체 학습 완료
+                                            {isGroupLearned ? '✓ 학습 완료' : '구절 전체 학습 완료'}
                                         </button>
-                                    ) : (
-                                        <button
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                currentGroup.forEach(h => unmarkLearned(h.id));
-                                            }}
-                                            className="mt-4 bg-white/20 text-white/80 px-8 py-3 rounded-full font-medium hover:bg-white/30 transition text-sm"
-                                        >
-                                            ↩ 구절 학습 취소
-                                        </button>
-                                    )}
+                                        {isGroupLearned && (
+                                            <button
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    currentGroup.forEach(h => unmarkLearned(h.id));
+                                                }}
+                                                className="bg-white/20 text-white/80 px-3 py-3 rounded-full hover:bg-white/30 transition"
+                                                title="학습 취소"
+                                            >
+                                                ↩
+                                            </button>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>
