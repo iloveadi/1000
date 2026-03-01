@@ -201,17 +201,17 @@ export default function Quiz() {
                         animate={{ x: 0, opacity: 1 }}
                         exit={{ x: -20, opacity: 0 }}
                         transition={{ duration: 0.25 }}
-                        className="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 p-8 mb-6 text-center"
+                        className="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 p-6 mb-4 text-center"
                     >
                         <p className="text-slate-400 dark:text-slate-500 text-xs font-medium uppercase tracking-widest mb-4">주어진 한자의 뜻과 음을 고르세요</p>
-                        <h1 className="text-[100px] font-hanja font-bold text-slate-800 dark:text-slate-100 leading-none">
+                        <h1 className="text-[80px] font-hanja font-bold text-slate-800 dark:text-slate-100 leading-none">
                             {currentItem.hanja}
                         </h1>
                     </motion.div>
                 </AnimatePresence>
 
                 {/* Options Grid */}
-                <div className="grid grid-cols-1 gap-3.5">
+                <div className="grid grid-cols-1 gap-2">
                     {currentItem.options.map((option, idx) => {
                         const isCorrect = option.id === currentItem.id;
                         const isSelected = selectedId === option.id;
