@@ -35,16 +35,16 @@
 
 /* Pink theme overrides */
 .pink {
-  --color-primary-50: #fff0f6;
-  --color-primary-100: #ffd6e8;
-  --color-primary-200: #ffadd2;
-  --color-primary-300: #ff85be;
-  --color-primary-400: #f764a8;
-  --color-primary-500: #EC4899;
-  --color-primary-600: #db2777;
-  --color-primary-700: #be185d;
-  --color-primary-800: #9d174d;
-  --color-primary-900: #831843;
+  --color-primary-50: #fff0f3;
+  --color-primary-100: #ffd6dc;
+  --color-primary-200: #ffadb9;
+  --color-primary-300: #ff85a0;
+  --color-primary-400: #ff6b8a;
+  --color-primary-500: #ff4d75;
+  --color-primary-600: #e8325a;
+  --color-primary-700: #c41e47;
+  --color-primary-800: #9d1439;
+  --color-primary-900: #7a0a2c;
 }
 
 @layer base {
