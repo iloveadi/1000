@@ -58,6 +58,13 @@ export default function Settings() {
                     </div>
                 </div>
 
+                {/* Dedication */}
+                <div className="bg-pink-50 dark:bg-pink-900/10 naver:bg-pink-50 rounded-2xl border border-pink-100 dark:border-pink-900/30 naver:border-pink-200 p-4 text-center">
+                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                        사랑하는 내 딸 <strong className="font-bold text-pink-500">YJ</strong>를 위해 만듦 🩷
+                    </p>
+                </div>
+
                 {/* Other Preferences */}
                 <div className="bg-white dark:bg-slate-800 naver:bg-white rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 naver:border-green-200 overflow-hidden divide-y divide-slate-100 dark:divide-slate-700 transition-colors">
 
@@ -126,9 +133,6 @@ export default function Settings() {
             <div className="mt-12 text-center text-xs text-slate-400">
                 <p>천자문 학습 v1.0</p>
                 <p className="mt-1">오프라인에서도 언제든 학습할 수 있습니다.</p>
-                <p className="mt-3 text-slate-400 dark:text-slate-500">
-                    사랑하는 내 딸 <strong className="font-bold text-pink-500">YJ</strong>를 위해 만듦
-                </p>
                 <p className="mt-3 font-medium text-slate-300 dark:text-slate-500">&copy; 2026 Bear Dev.</p>
             </div>
 
