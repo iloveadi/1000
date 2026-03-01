@@ -202,9 +202,9 @@ export default function IdiomQuiz() {
     const currentPattern = questions[currentIndex];
 
     return (
-        <div className="flex flex-col h-full bg-slate-50 dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden px-6 pt-12 pb-6">
+        <div className="flex flex-col h-full bg-slate-50 dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden px-6 pt-8 pb-6">
             {/* Header */}
-            <div className="flex justify-between items-center mb-6">
+            <div className="flex justify-between items-center mb-4">
                 <button
                     onClick={() => navigate(-1)}
                     className="p-2 -ml-2 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-full transition"
@@ -227,7 +227,7 @@ export default function IdiomQuiz() {
             </div>
 
             {/* Progress bar */}
-            <div className="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full mb-8">
+            <div className="w-full bg-slate-200 dark:bg-slate-700 h-1.5 rounded-full mb-4">
                 <motion.div
                     className="h-1.5 bg-primary-500 rounded-full"
                     animate={{ width: `${((currentIndex) / QUESTIONS_PER_SESSION) * 100}%` }}
