@@ -14,6 +14,7 @@ import DictationQuiz from './pages/DictationQuiz';
 import QuizHub from './pages/QuizHub';
 import IdiomQuiz from './pages/IdiomQuiz';
 import Intro from './pages/Intro';
+import Achievements from './pages/Achievements';
 import useAppStore from './store/useAppStore';
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
             <Route path="dictation-quiz" element={<DictationQuiz />} />
             <Route path="idiom-quiz" element={<IdiomQuiz />} />
             <Route path="quiz-hub" element={<QuizHub />} />
+            <Route path="achievements" element={<Achievements />} />
           </Route>
         </Routes>
       </BrowserRouter>

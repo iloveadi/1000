@@ -8,7 +8,7 @@ import groupInterpretations from '../data/groupInterpretations';
 
 export default function Home() {
     const navigate = useNavigate();
-    const { learnedHanjaIds, streak, quizScores, dailyActivity, setCurrentHanjaId } = useAppStore();
+    const { learnedHanjaIds, streak, quizScores, dailyActivity, setCurrentHanjaId, unlockedBadgeIds } = useAppStore();
 
     const totalCount = chunjamunData.length;
     const learnedCount = learnedHanjaIds.length;
@@ -181,6 +181,20 @@ export default function Home() {
                     <div className="text-left">
                         <p className="font-bold text-slate-800 dark:text-slate-100">부수별 묶음 보기</p>
                         <p className="text-xs text-slate-400">부수를 알면 한자가 더 쉬워집니다</p>
+                    </div>
+                </motion.button>
+
+                <motion.button
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => navigate('/achievements')}
+                    className="w-full bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-100 dark:border-slate-700 flex items-center space-x-4 shadow-sm"
+                >
+                    <div className="w-10 h-10 bg-amber-50 dark:bg-amber-900/20 rounded-xl flex items-center justify-center text-amber-600 dark:text-amber-400">
+                        <Award size={22} />
+                    </div>
+                    <div className="text-left">
+                        <p className="font-bold text-slate-800 dark:text-slate-100">나의 업적 및 뱃지</p>
+                        <p className="text-xs text-slate-400">{unlockedBadgeIds.length}개의 뱃지 획득</p>
                     </div>
                 </motion.button>
             </div>

@@ -1,14 +1,16 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
+import { achievements } from '../data/achievements';
 
 const useAppStore = create(
     persist(
-        (set) => ({
+        (set, get) => ({
             // State
             studyMode: 'single', // 'single' | 'group'
             learnedHanjaIds: [],
             learnedHanjaTimestamps: {}, // SRS tracking: { [id]: timestamp }
             favoriteHanjaIds: [],
+            unlockedBadgeIds: [],
             darkMode: false,
             theme: 'light', // 'light' | 'dark' | 'naver'
             soundEnabled: true,
@@ -53,7 +55,7 @@ const useAppStore = create(
                         newStreakCount = 1;
                     }
 
-                    return {
+                    const newState = {
                         learnedHanjaIds: [...state.learnedHanjaIds, id],
                         learnedHanjaTimestamps: {
                             ...state.learnedHanjaTimestamps,
@@ -68,12 +70,15 @@ const useAppStore = create(
                             lastActivityDate: today
                         }
                     };
+                    // Trigger achievement check
+                    setTimeout(() => useAppStore.getState().checkAchievements(), 0);
+                    return newState;
                 }),
 
             updateQuizScore: (score, timeInSeconds) =>
                 set((state) => {
                     const isNewBestTime = !state.quizScores.bestTime || (score === 10 && timeInSeconds < state.quizScores.bestTime);
-                    return {
+                    const newState = {
                         quizScores: {
                             ...state.quizScores,
                             totalAttempts: state.quizScores.totalAttempts + 1,
@@ -83,6 +88,9 @@ const useAppStore = create(
                             totalPoints: (state.quizScores.totalPoints || 0) + (score * 10) // 10 points per correct answer
                         }
                     };
+                    // Trigger achievement check
+                    setTimeout(() => useAppStore.getState().checkAchievements(), 0);
+                    return newState;
                 }),
 
             addPoints: (points) =>
@@ -124,12 +132,30 @@ const useAppStore = create(
             toggleFavorite: (id) =>
                 set((state) => {
                     const isFavorite = state.favoriteHanjaIds.includes(id);
-                    return {
+                    const newState = {
                         favoriteHanjaIds: isFavorite
                             ? state.favoriteHanjaIds.filter((favId) => favId !== id)
                             : [...state.favoriteHanjaIds, id],
                     };
+                    // Trigger achievement check
+                    setTimeout(() => useAppStore.getState().checkAchievements(), 0);
+                    return newState;
                 }),
+
+            checkAchievements: () => {
+                const state = get();
+                const newUnlockedIds = achievements
+                    .filter((badge) => !state.unlockedBadgeIds.includes(badge.id) && badge.check(state))
+                    .map((badge) => badge.id);
+
+                if (newUnlockedIds.length > 0) {
+                    set({
+                        unlockedBadgeIds: [...state.unlockedBadgeIds, ...newUnlockedIds],
+                    });
+                    return achievements.filter((b) => newUnlockedIds.includes(b.id));
+                }
+                return [];
+            },
 
             setCurrentHanjaId: (id) => set({ currentHanjaId: id }),
 
