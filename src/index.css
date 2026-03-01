@@ -2,6 +2,7 @@
 
 @custom-variant dark (&:is(.dark *));
 @custom-variant naver (&:is(.naver *));
+@custom-variant pink (&:is(.pink *));
 
 @theme {
   --font-hanja: "Noto Serif KR", serif;
@@ -30,6 +31,20 @@
   --color-primary-700: #018a3b;
   --color-primary-800: #016b2d;
   --color-primary-900: #004d1f;
+}
+
+/* Pink theme overrides */
+.pink {
+  --color-primary-50: #fff0f6;
+  --color-primary-100: #ffd6e8;
+  --color-primary-200: #ffadd2;
+  --color-primary-300: #ff85be;
+  --color-primary-400: #f764a8;
+  --color-primary-500: #EC4899;
+  --color-primary-600: #db2777;
+  --color-primary-700: #be185d;
+  --color-primary-800: #9d174d;
+  --color-primary-900: #831843;
 }
 
 @layer base {

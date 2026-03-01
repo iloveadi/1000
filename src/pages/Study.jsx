@@ -118,7 +118,7 @@ export default function Study() {
                                 <div className="text-primary-100 text-3xl font-medium mb-4">{hanja.meaning}</div>
                                 <div className="text-white text-7xl font-bold mb-12">{hanja.sound}</div>
 
-                                <div className="absolute bottom-8 flex gap-2 items-center">
+                                <div className="absolute bottom-8 flex gap-2 items-center w-full justify-center">
                                     <button
                                         onClick={(e) => {
                                             e.stopPropagation();
@@ -128,8 +128,8 @@ export default function Study() {
                                             }
                                         }}
                                         className={`px-6 py-3 rounded-full font-bold shadow-md transition ${isLearned
-                                                ? 'bg-white/30 text-white cursor-default'
-                                                : 'bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 hover:bg-slate-50'
+                                            ? 'bg-white/30 text-white cursor-default'
+                                            : 'bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 hover:bg-slate-50'
                                             }`}
                                     >
                                         {isLearned ? '✓ 학습 완료' : '학습 완료 표시'}

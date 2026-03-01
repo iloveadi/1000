@@ -126,7 +126,7 @@ export default function IdiomStudy() {
                                             <span className="text-white text-3xl font-bold">{h.sound}</span>
                                         </div>
                                     ))}
-                                    <div className="flex gap-2 items-center mt-4">
+                                    <div className="flex gap-2 items-center mt-4 justify-center">
                                         <button
                                             onClick={(e) => {
                                                 e.stopPropagation();
@@ -136,8 +136,8 @@ export default function IdiomStudy() {
                                                 }
                                             }}
                                             className={`px-6 py-3 rounded-full font-bold shadow-md transition ${isGroupLearned
-                                                    ? 'bg-white/30 text-white cursor-default'
-                                                    : 'bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 hover:scale-105'
+                                                ? 'bg-white/30 text-white cursor-default'
+                                                : 'bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 hover:scale-105'
                                                 }`}
                                         >
                                             {isGroupLearned ? '✓ 학습 완료' : '구절 전체 학습 완료'}

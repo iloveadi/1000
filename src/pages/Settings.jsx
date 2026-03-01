@@ -29,6 +29,7 @@ export default function Settings() {
         { id: 'light', label: '라이트', bg: 'bg-slate-100', accent: 'bg-amber-800', ring: 'ring-slate-300' },
         { id: 'dark', label: '다크', bg: 'bg-slate-800', accent: 'bg-amber-700', ring: 'ring-slate-600' },
         { id: 'naver', label: '네이버', bg: 'bg-green-50', accent: 'bg-green-500', ring: 'ring-green-400' },
+        { id: 'pink', label: '핑크', bg: 'bg-pink-50', accent: 'bg-pink-400', ring: 'ring-pink-300' },
     ];
 
     return (
@@ -58,14 +59,14 @@ export default function Settings() {
                         <Palette size={18} className="text-slate-500 dark:text-slate-400 naver:text-green-600" />
                         <span className="text-slate-700 dark:text-slate-200 naver:text-green-900 font-medium">테마</span>
                     </div>
-                    <div className="grid grid-cols-3 gap-3">
+                    <div className="grid grid-cols-4 gap-2">
                         {themes.map(t => (
                             <button
                                 key={t.id}
                                 onClick={() => setTheme(t.id)}
                                 className={`flex flex-col items-center gap-2 p-3 rounded-xl border-2 transition-all ${theme === t.id
-                                        ? 'border-primary-500 shadow-md scale-105'
-                                        : 'border-transparent bg-slate-50 dark:bg-slate-700 naver:bg-green-50'
+                                    ? 'border-primary-500 shadow-md scale-105'
+                                    : 'border-transparent bg-slate-50 dark:bg-slate-700 naver:bg-green-50'
                                     }`}
                             >
                                 <div className={`w-10 h-10 rounded-full ${t.bg} flex items-center justify-center ring-2 ${t.ring}`}>
