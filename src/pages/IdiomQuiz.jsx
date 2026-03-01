@@ -211,18 +211,18 @@ export default function IdiomQuiz() {
                     })}
                 </div>
 
-                {/* Next Button */}
+                {/* Floating Next Button */}
                 <AnimatePresence>
                     {gameState === 'answered' && (
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 100 }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            className="mt-8 flex justify-center"
+                            exit={{ opacity: 0, y: 100 }}
+                            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-50 flex justify-center w-full px-6"
                         >
                             <button
                                 onClick={generateQuestion}
-                                className="flex items-center gap-2 bg-slate-800 dark:bg-white text-white dark:text-slate-900 px-8 py-4 rounded-full font-bold shadow-xl hover:scale-105 transition-transform"
+                                className="flex items-center gap-2 bg-slate-800 dark:bg-white text-white dark:text-slate-900 px-8 py-4 rounded-full font-bold shadow-2xl hover:scale-105 transition-transform"
                             >
                                 다음 문제 풀기 <RotateCcw size={18} />
                             </button>
