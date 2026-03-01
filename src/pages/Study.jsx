@@ -8,7 +8,7 @@ import { playSound } from '../utils/audio';
 import { speakText } from '../utils/tts';
 
 export default function Study() {
-    const { currentHanjaId, setCurrentHanjaId, markLearned, learnedHanjaIds, soundEnabled, ttsEnabled, favorites, toggleFavorite } = useAppStore();
+    const { currentHanjaId, setCurrentHanjaId, markLearned, unmarkLearned, learnedHanjaIds, soundEnabled, ttsEnabled, favorites, toggleFavorite } = useAppStore();
     const [isFlipped, setIsFlipped] = useState(false);
     const [direction, setDirection] = useState(0);
     const [showCanvas, setShowCanvas] = useState(false);
@@ -118,7 +118,7 @@ export default function Study() {
                                 <div className="text-primary-100 text-3xl font-medium mb-4">{hanja.meaning}</div>
                                 <div className="text-white text-7xl font-bold mb-12">{hanja.sound}</div>
 
-                                {!isLearned && (
+                                {!isLearned ? (
                                     <button
                                         onClick={(e) => {
                                             e.stopPropagation();
@@ -128,6 +128,16 @@ export default function Study() {
                                         className="absolute bottom-8 bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 px-6 py-3 rounded-full font-bold shadow-md hover:bg-slate-50 dark:hover:bg-slate-700 transition"
                                     >
                                         학습 완료 표시
+                                    </button>
+                                ) : (
+                                    <button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            unmarkLearned(hanja.id);
+                                        }}
+                                        className="absolute bottom-8 bg-white/20 dark:bg-slate-700/40 text-white/80 px-6 py-3 rounded-full font-medium hover:bg-white/30 transition text-sm"
+                                    >
+                                        ↩ 학습 취소
                                     </button>
                                 )}
                             </div>

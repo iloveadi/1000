@@ -8,7 +8,7 @@ import { playSound } from '../utils/audio';
 import { speakText } from '../utils/tts';
 
 export default function IdiomStudy() {
-    const { currentHanjaId, setCurrentHanjaId, markLearned, learnedHanjaIds, soundEnabled, ttsEnabled } = useAppStore();
+    const { currentHanjaId, setCurrentHanjaId, markLearned, unmarkLearned, learnedHanjaIds, soundEnabled, ttsEnabled } = useAppStore();
     const navigate = useNavigate();
     const [isFlipped, setIsFlipped] = useState(false);
     const [direction, setDirection] = useState(0);
@@ -126,7 +126,7 @@ export default function IdiomStudy() {
                                             <span className="text-white text-3xl font-bold">{h.sound}</span>
                                         </div>
                                     ))}
-                                    {!isGroupLearned && (
+                                    {!isGroupLearned ? (
                                         <button
                                             onClick={(e) => {
                                                 e.stopPropagation();
@@ -136,6 +136,16 @@ export default function IdiomStudy() {
                                             className="mt-4 bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 px-8 py-4 rounded-full font-bold shadow-md hover:scale-105 transition"
                                         >
                                             구절 전체 학습 완료
+                                        </button>
+                                    ) : (
+                                        <button
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                currentGroup.forEach(h => unmarkLearned(h.id));
+                                            }}
+                                            className="mt-4 bg-white/20 text-white/80 px-8 py-3 rounded-full font-medium hover:bg-white/30 transition text-sm"
+                                        >
+                                            ↩ 구절 학습 취소
                                         </button>
                                     )}
                                 </div>
