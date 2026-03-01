@@ -1,12 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, BookOpen, List, Settings, Quote } from 'lucide-react';
+import { Home, BookOpen, List, Settings, Quote, Gamepad2 } from 'lucide-react';
 
 const navItems = [
     { path: '/', label: '홈', icon: Home },
     { path: '/study', label: '학습', icon: BookOpen },
     { path: '/idioms', label: '문장', icon: Quote },
     { path: '/list', label: '목록', icon: List },
+    { path: '/quiz-hub', label: '퀴즈', icon: Gamepad2 },
     { path: '/settings', label: '설정', icon: Settings },
 ];
 
@@ -21,12 +22,12 @@ export default function Navbar() {
                             key={item.path}
                             to={item.path}
                             className={({ isActive }) =>
-                                `flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors ${isActive ? 'text-primary-600 dark:text-primary-400' : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300'
+                                `flex flex-col items-center justify-center w-full h-full space-y-0.5 transition-colors ${isActive ? 'text-primary-600 dark:text-primary-400' : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300'
                                 }`
                             }
                         >
-                            <Icon size={24} strokeWidth={2} />
-                            <span className="text-[10px] font-medium">{item.label}</span>
+                            <Icon size={21} strokeWidth={2} />
+                            <span className="text-[9px] font-medium">{item.label}</span>
                         </NavLink>
                     );
                 })}

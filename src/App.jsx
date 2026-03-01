@@ -10,6 +10,8 @@ import Quiz from './pages/Quiz';
 import Stats from './pages/Stats';
 import Radicals from './pages/Radicals';
 import Settings from './pages/Settings';
+import DictationQuiz from './pages/DictationQuiz';
+import QuizHub from './pages/QuizHub';
 import useAppStore from './store/useAppStore';
 
 function App() {
@@ -62,6 +64,8 @@ function App() {
           <Route path="stats" element={<Stats />} />
           <Route path="radicals" element={<Radicals />} />
           <Route path="settings" element={<Settings />} />
+          <Route path="dictation-quiz" element={<DictationQuiz />} />
+          <Route path="quiz-hub" element={<QuizHub />} />
         </Route>
       </Routes>
     </BrowserRouter>

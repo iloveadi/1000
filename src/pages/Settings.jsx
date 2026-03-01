@@ -40,18 +40,6 @@ export default function Settings() {
 
             <div className="space-y-4">
 
-                {/* Progress Info */}
-                <section className="bg-white dark:bg-slate-800 naver:bg-white p-4 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 naver:border-green-200 flex items-center justify-between transition-colors">
-                    <div className="flex items-center gap-3">
-                        <div className="bg-primary-50 dark:bg-primary-900/40 naver:bg-green-100 p-2 rounded-xl">
-                            <Info className="text-primary-600 dark:text-primary-400 naver:text-green-600" size={20} />
-                        </div>
-                        <div>
-                            <h2 className="text-slate-700 dark:text-slate-200 naver:text-green-900 font-semibold">현재 학습 현황</h2>
-                            <p className="text-xs text-slate-500 dark:text-slate-400 naver:text-green-700">{learnedHanjaIds.length}자 마스터 완료</p>
-                        </div>
-                    </div>
-                </section>
 
                 {/* Theme Selector */}
                 <div className="bg-white dark:bg-slate-800 naver:bg-white p-4 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 naver:border-green-200 transition-colors">
