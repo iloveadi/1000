@@ -1,124 +1,205 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const HANJA_CHARS = ['天', '地', '玄', '黃', '宇', '宙', '洪', '荒'];
+const FLOATING = ['天', '地', '人', '仁', '義', '禮', '智', '信'];
 
 export default function Intro({ onDone }) {
-    const [phase, setPhase] = useState('in'); // 'in' | 'out'
+    const [phase, setPhase] = useState('show');
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setPhase('out');
-            setTimeout(() => {
-                onDone();
-            }, 700);
-        }, 2600);
-        return () => clearTimeout(timer);
+        const t = setTimeout(() => {
+            setPhase('exit');
+            setTimeout(onDone, 800);
+        }, 3000);
+        return () => clearTimeout(t);
     }, [onDone]);
 
     return (
-        <AnimatePresence>
-            {phase !== 'done' && (
+        <div className="fixed inset-0 z-[100]" style={{ background: '#08090d' }}>
+            {/* Radial ambient glow */}
+            <div
+                className="absolute inset-0"
+                style={{
+                    background: 'radial-gradient(ellipse 70% 70% at 50% 50%, rgba(200,160,60,0.10) 0%, transparent 70%)',
+                }}
+            />
+
+            {/* Horizontal ink-wash lines */}
+            {[...Array(5)].map((_, i) => (
                 <motion.div
-                    key="intro"
-                    initial={{ opacity: 1 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.6, ease: 'easeInOut' }}
-                    className="fixed inset-0 z-[100] flex flex-col items-center justify-center overflow-hidden"
-                    style={{ background: 'linear-gradient(145deg, #1e293b 0%, #0f172a 60%, #1e1b4b 100%)' }}
+                    key={i}
+                    initial={{ scaleX: 0, opacity: 0 }}
+                    animate={{ scaleX: 1, opacity: 0.04 }}
+                    transition={{ duration: 1.4, delay: 0.2 + i * 0.12, ease: 'easeOut' }}
+                    className="absolute left-0 right-0"
+                    style={{
+                        top: `${15 + i * 18}%`,
+                        height: '1px',
+                        background: 'linear-gradient(to right, transparent 0%, rgba(212,180,100,1) 30%, rgba(212,180,100,1) 70%, transparent 100%)',
+                        transformOrigin: 'center',
+                    }}
+                />
+            ))}
+
+            {/* Floating background Hanja */}
+            {FLOATING.map((ch, i) => (
+                <motion.span
+                    key={ch}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.035 + (i % 3) * 0.015 }}
+                    transition={{ duration: 1.2, delay: 0.3 + i * 0.1 }}
+                    className="absolute font-hanja font-bold select-none pointer-events-none"
+                    style={{
+                        color: '#c8a03c',
+                        fontSize: `${80 + (i % 4) * 35}px`,
+                        left: `${(i * 14 + 3) % 82}%`,
+                        top: `${(i * 19 + 5) % 82}%`,
+                        letterSpacing: '-0.02em',
+                    }}
                 >
-                    {/* Floating scattered Hanja background */}
-                    <div className="absolute inset-0 overflow-hidden pointer-events-none select-none">
-                        {HANJA_CHARS.map((ch, i) => (
-                            <motion.span
-                                key={ch}
-                                initial={{ opacity: 0, scale: 0.5, y: 30 }}
-                                animate={{ opacity: 0.07, scale: 1, y: 0 }}
-                                transition={{ delay: i * 0.1, duration: 0.8, ease: 'easeOut' }}
-                                className="absolute font-hanja font-bold text-white select-none"
+                    {ch}
+                </motion.span>
+            ))}
+
+            {/* Center content */}
+            <AnimatePresence>
+                {phase === 'show' && (
+                    <motion.div
+                        key="content"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0, scale: 0.97 }}
+                        transition={{ duration: 0.7 }}
+                        className="absolute inset-0 flex flex-col items-center justify-center"
+                    >
+                        {/* Outer glow ring */}
+                        <motion.div
+                            initial={{ scale: 1.5, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ duration: 1.2, ease: [0.34, 1.1, 0.64, 1] }}
+                            className="relative flex items-center justify-center"
+                            style={{ width: 200, height: 200 }}
+                        >
+                            {/* Rotating outer ring */}
+                            <motion.div
+                                animate={{ rotate: 360 }}
+                                transition={{ repeat: Infinity, duration: 20, ease: 'linear' }}
+                                className="absolute inset-0 rounded-full"
                                 style={{
-                                    fontSize: `${90 + (i % 3) * 40}px`,
-                                    left: `${(i * 13 + 5) % 85}%`,
-                                    top: `${(i * 17 + 8) % 80}%`,
+                                    border: '1px solid rgba(200,160,60,0.25)',
+                                }}
+                            />
+                            {/* Static inner ring */}
+                            <div
+                                className="absolute rounded-full"
+                                style={{
+                                    inset: 16,
+                                    border: '1px solid rgba(200,160,60,0.15)',
+                                }}
+                            />
+                            {/* Glow blur circle */}
+                            <div
+                                className="absolute inset-0 rounded-full"
+                                style={{
+                                    background: 'radial-gradient(circle, rgba(200,160,60,0.12) 0%, transparent 70%)',
+                                    filter: 'blur(10px)',
+                                }}
+                            />
+                            {/* Main Hanja character */}
+                            <motion.span
+                                initial={{ scale: 0.4, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                transition={{ duration: 0.8, delay: 0.3, ease: [0.34, 1.56, 0.64, 1] }}
+                                className="font-hanja font-bold select-none relative z-10"
+                                style={{
+                                    fontSize: '90px',
+                                    lineHeight: 1,
+                                    color: '#e8c870',
+                                    textShadow: '0 0 40px rgba(200,160,60,0.7), 0 0 80px rgba(200,160,60,0.3)',
                                 }}
                             >
-                                {ch}
+                                天
                             </motion.span>
-                        ))}
-                    </div>
+                        </motion.div>
 
-                    {/* Main Content */}
-                    <div className="relative flex flex-col items-center gap-6 px-8">
-                        {/* Central hanja */}
+                        {/* Diamond divider */}
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.5, rotateY: -90 }}
-                            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                            transition={{ duration: 0.7, ease: [0.34, 1.56, 0.64, 1] }}
-                            className="font-hanja font-bold text-white leading-none select-none"
-                            style={{ fontSize: '120px', textShadow: '0 0 60px rgba(139, 92, 246, 0.6)' }}
+                            initial={{ opacity: 0, scaleX: 0 }}
+                            animate={{ opacity: 1, scaleX: 1 }}
+                            transition={{ duration: 0.6, delay: 0.7 }}
+                            className="flex items-center gap-3 mt-6"
                         >
-                            天
+                            <div style={{ width: 48, height: 1, background: 'linear-gradient(to right, transparent, rgba(200,160,60,0.6))' }} />
+                            <div style={{ width: 5, height: 5, background: '#c8a03c', transform: 'rotate(45deg)', opacity: 0.8 }} />
+                            <div style={{ width: 48, height: 1, background: 'linear-gradient(to left, transparent, rgba(200,160,60,0.6))' }} />
                         </motion.div>
 
                         {/* App name */}
                         <motion.div
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 14 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.5, duration: 0.5, ease: 'easeOut' }}
-                            className="text-center"
+                            transition={{ duration: 0.6, delay: 0.85 }}
+                            className="text-center mt-5"
                         >
-                            <h1 className="text-3xl font-black text-white tracking-tight">
+                            <h1
+                                className="font-bold tracking-[0.25em]"
+                                style={{ fontSize: '22px', color: '#f0e0a0', letterSpacing: '0.25em' }}
+                            >
                                 천자문 학습
                             </h1>
-                            <p className="text-indigo-300 text-sm font-medium mt-1 tracking-widest uppercase">
-                                1,000 Hanja Characters
-                            </p>
+                            <motion.p
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 1.1, duration: 0.5 }}
+                                style={{ color: 'rgba(200,160,60,0.55)', fontSize: '11px', letterSpacing: '0.3em', marginTop: '6px' }}
+                            >
+                                千字文 · 1,000 CHARACTERS
+                            </motion.p>
                         </motion.div>
 
-                        {/* Animated dots */}
+                        {/* Animated progress bar */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 1, duration: 0.4 }}
-                            className="flex gap-2 mt-2"
+                            transition={{ delay: 1.3, duration: 0.4 }}
+                            className="mt-12 relative"
+                            style={{ width: 80, height: 2, background: 'rgba(200,160,60,0.15)', borderRadius: 1 }}
                         >
-                            {[0, 1, 2].map(i => (
-                                <motion.div
-                                    key={i}
-                                    animate={{ scale: [1, 1.5, 1], opacity: [0.4, 1, 0.4] }}
-                                    transition={{ repeat: Infinity, duration: 1.2, delay: i * 0.2 }}
-                                    className="w-1.5 h-1.5 rounded-full bg-indigo-400"
-                                />
-                            ))}
-                        </motion.div>
-                    </div>
-
-                    {/* Bottom credit */}
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 0.4 }}
-                        transition={{ delay: 1.2, duration: 0.5 }}
-                        className="absolute bottom-10 text-white text-xs text-center tracking-widest font-medium"
-                    >
-                        BEAR DEV.
-                    </motion.p>
-
-                    {/* Slide-out overlay */}
-                    <AnimatePresence>
-                        {phase === 'out' && (
                             <motion.div
-                                key="slide-out"
-                                initial={{ y: '100%' }}
-                                animate={{ y: 0 }}
-                                transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-                                className="absolute inset-0"
-                                style={{ background: 'linear-gradient(145deg, #1e293b 0%, #0f172a 100%)' }}
+                                initial={{ width: 0 }}
+                                animate={{ width: '100%' }}
+                                transition={{ delay: 1.4, duration: 1.4, ease: 'easeInOut' }}
+                                style={{ height: '100%', background: 'rgba(200,160,60,0.8)', borderRadius: 1 }}
                             />
-                        )}
-                    </AnimatePresence>
-                </motion.div>
-            )}
-        </AnimatePresence>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* Bottom credit */}
+            <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.3 }}
+                transition={{ delay: 1.2, duration: 0.6 }}
+                className="absolute bottom-8 w-full text-center"
+                style={{ color: 'rgba(200,160,60,0.6)', fontSize: '10px', letterSpacing: '0.35em' }}
+            >
+                BEAR DEV.
+            </motion.p>
+
+            {/* Exit wipe overlay */}
+            <AnimatePresence>
+                {phase === 'exit' && (
+                    <motion.div
+                        key="wipe"
+                        initial={{ y: '100%' }}
+                        animate={{ y: 0 }}
+                        transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
+                        className="absolute inset-0"
+                        style={{ background: '#08090d' }}
+                    />
+                )}
+            </AnimatePresence>
+        </div>
     );
 }
