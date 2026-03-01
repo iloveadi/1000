@@ -24,7 +24,7 @@ export default function Settings() {
     ];
 
     return (
-        <div className="px-6 pt-12 pb-24 h-full bg-slate-50 dark:bg-slate-900 naver:bg-green-50 transition-colors duration-300 overflow-y-auto">
+        <div className="px-6 pt-12 pb-24 h-full bg-slate-50 dark:bg-slate-900 naver:bg-green-50 transition-colors duration-300 overflow-y-auto hide-scrollbar">
             <header className="mb-8">
                 <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100 naver:text-green-900 tracking-tight">설정</h1>
             </header>
