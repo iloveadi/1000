@@ -10,7 +10,7 @@ export default function Intro({ onDone }) {
         const t = setTimeout(() => {
             setPhase('exit');
             setTimeout(onDone, 800);
-        }, 3000);
+        }, 5000);
         return () => clearTimeout(t);
     }, [onDone]);
 
