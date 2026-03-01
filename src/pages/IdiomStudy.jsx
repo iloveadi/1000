@@ -118,8 +118,8 @@ export default function IdiomStudy() {
                             </div>
 
                             {/* Back Side */}
-                            <div className="absolute w-full h-full bg-primary-600 dark:bg-primary-700 rounded-3xl shadow-xl flex flex-col items-center justify-center backface-hidden no-select rotate-y-180 transition-colors p-8">
-                                <div className="flex flex-col gap-8 w-full justify-center h-full pb-12">
+                            <div className="absolute w-full h-full bg-primary-600 dark:bg-primary-700 rounded-3xl shadow-xl flex flex-col items-center justify-center backface-hidden no-select rotate-y-180 transition-colors p-6 overflow-hidden">
+                                <div className="flex flex-col gap-3 w-full justify-center h-full">
                                     {currentGroup.map(h => (
                                         <div key={`back-${h.id}`} className="flex justify-between items-center px-4 border-b border-primary-500/30 pb-2 last:border-0">
                                             <span className="text-primary-100 text-2xl font-medium">{h.meaning}</span>
