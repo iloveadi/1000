@@ -13,15 +13,14 @@ import Settings from './pages/Settings';
 import useAppStore from './store/useAppStore';
 
 function App() {
-  const { darkMode } = useAppStore();
+  const { theme } = useAppStore();
 
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [darkMode]);
+    const el = document.documentElement;
+    el.classList.remove('dark', 'naver');
+    if (theme === 'dark') el.classList.add('dark');
+    if (theme === 'naver') el.classList.add('naver');
+  }, [theme]);
 
   return (
     <BrowserRouter>

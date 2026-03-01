@@ -10,6 +10,7 @@ const useAppStore = create(
             learnedHanjaTimestamps: {}, // SRS tracking: { [id]: timestamp }
             favorites: [], // Bookmarked hanja IDs
             darkMode: false,
+            theme: 'light', // 'light' | 'dark' | 'naver'
             soundEnabled: true,
             ttsEnabled: true,
             currentHanjaId: 1,
@@ -107,9 +108,12 @@ const useAppStore = create(
                 })),
 
             toggleDarkMode: () =>
-                set((state) => ({
-                    darkMode: !state.darkMode,
-                })),
+                set((state) => {
+                    const next = state.theme === 'dark' ? 'light' : 'dark';
+                    return { darkMode: next === 'dark', theme: next };
+                }),
+
+            setTheme: (theme) => set({ theme, darkMode: theme === 'dark' }),
 
             toggleSound: () =>
                 set((state) => ({

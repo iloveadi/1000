@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant naver (&:is(.naver *));
 
 @theme {
   --font-hanja: "Noto Serif KR", serif;
@@ -14,6 +15,21 @@
   --color-primary-700: #54443e;
   --color-primary-800: #3d312d;
   --color-primary-900: #2d2420;
+}
+
+/* Naver theme overrides */
+.naver {
+  /* Naver green as primary */
+  --color-primary-50: #e8faf0;
+  --color-primary-100: #c0f2d8;
+  --color-primary-200: #85e5b2;
+  --color-primary-300: #4dd690;
+  --color-primary-400: #1fca6d;
+  --color-primary-500: #03C75A;
+  --color-primary-600: #02a849;
+  --color-primary-700: #018a3b;
+  --color-primary-800: #016b2d;
+  --color-primary-900: #004d1f;
 }
 
 @layer base {
