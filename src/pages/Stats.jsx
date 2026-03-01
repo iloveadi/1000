@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ChevronLeft, Flame, Target, BarChart3, Calendar, Award } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
 import chunjamunData from '../data/chunjamun.json';
+import ActivityHeatmap from '../components/ActivityHeatmap';
 
 export default function Stats() {
     const navigate = useNavigate();
@@ -105,41 +106,16 @@ export default function Stats() {
                     </div>
                 </div>
 
-                {/* Daily Activity Chart */}
                 <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700">
-                    <div className="flex items-center space-x-2 mb-8">
-                        <Calendar size={20} className="text-primary-500" />
-                        <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">최근 학습 활동</h2>
+                    <div className="flex items-center justify-between mb-8">
+                        <div className="flex items-center space-x-2">
+                            <Calendar size={20} className="text-primary-500" />
+                            <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">학습 잔디 심기</h2>
+                        </div>
+                        <span className="text-[10px] text-slate-400 font-medium">최근 12주</span>
                     </div>
 
-                    <div className="flex items-end justify-between h-32 px-2">
-                        {last7Days.map((date, idx) => {
-                            const count = dailyActivity[date] || 0;
-                            const height = (count / maxActivity) * 100;
-                            const dayName = ['일', '월', '화', '수', '목', '금', '토'][new Date(date).getDay()];
-                            const isToday = date === new Date().toISOString().split('T')[0];
-
-                            return (
-                                <div key={date} className="flex flex-col items-center flex-1">
-                                    <div className="relative flex flex-col items-center justify-end h-24 w-full">
-                                        <motion.div
-                                            initial={{ height: 0 }}
-                                            animate={{ height: `${height}%` }}
-                                            className={`w-4 sm:w-6 rounded-t-lg transition-colors ${isToday ? 'bg-primary-500' : 'bg-slate-200 dark:bg-slate-700'}`}
-                                        />
-                                        {count > 0 && (
-                                            <span className="absolute -top-6 text-[10px] font-bold text-slate-500 dark:text-slate-400">
-                                                {count}
-                                            </span>
-                                        )}
-                                    </div>
-                                    <span className={`text-[10px] mt-2 font-medium ${isToday ? 'text-primary-600 font-bold' : 'text-slate-400'}`}>
-                                        {dayName}
-                                    </span>
-                                </div>
-                            );
-                        })}
-                    </div>
+                    <ActivityHeatmap dailyActivity={dailyActivity} />
                 </div>
 
                 {/* Quiz Summary */}
