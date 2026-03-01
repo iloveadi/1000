@@ -192,63 +192,64 @@ export default function Quiz() {
                 />
             </div>
 
-            <AnimatePresence mode="wait">
-                <motion.div
-                    key={currentIndex}
-                    initial={{ x: 20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: -20, opacity: 0 }}
-                    className="flex-1 flex flex-col items-center justify-center max-w-md mx-auto w-full"
-                >
-                    <div className="mb-10 text-center">
+            <div className="flex-1 flex flex-col justify-center max-w-md mx-auto w-full">
+                {/* Question Card Area */}
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={`q-${currentIndex}`}
+                        initial={{ x: 20, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        exit={{ x: -20, opacity: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-700 p-8 mb-6 text-center"
+                    >
                         <p className="text-slate-400 dark:text-slate-500 text-xs font-medium uppercase tracking-widest mb-4">주어진 한자의 뜻과 음을 고르세요</p>
                         <h1 className="text-[100px] font-hanja font-bold text-slate-800 dark:text-slate-100 leading-none">
                             {currentItem.hanja}
                         </h1>
-                    </div>
+                    </motion.div>
+                </AnimatePresence>
 
-                    <div className="grid grid-cols-1 gap-3.5 w-full">
-                        {currentItem.options.map((option, idx) => {
-                            const isCorrect = option.id === currentItem.id;
-                            const isSelected = selectedId === option.id;
+                {/* Options Grid */}
+                <div className="grid grid-cols-1 gap-3.5">
+                    {currentItem.options.map((option, idx) => {
+                        const isCorrect = option.id === currentItem.id;
+                        const isSelected = selectedId === option.id;
 
-                            let btnStyle = "bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-primary-400 hover:bg-primary-50 dark:hover:bg-slate-800";
+                        let btnStyle = "bg-white dark:bg-slate-800 border-slate-100 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-primary-400 hover:bg-primary-50 dark:hover:bg-slate-800";
 
-                            if (answered) {
-                                if (isCorrect) {
-                                    btnStyle = "bg-green-500 border-green-500 text-white shadow-lg shadow-green-500/20 scale-102 z-10";
-                                } else if (isSelected) {
-                                    btnStyle = "bg-red-500 border-red-500 text-white opacity-90";
-                                } else {
-                                    btnStyle = "bg-slate-50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-800 text-slate-400 opacity-50";
-                                }
+                        if (answered) {
+                            if (isCorrect) {
+                                btnStyle = "bg-green-500 border-green-500 text-white shadow-lg shadow-green-500/20 scale-102 z-10";
+                            } else if (isSelected) {
+                                btnStyle = "bg-red-500 border-red-500 text-white opacity-90";
+                            } else {
+                                btnStyle = "bg-slate-50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-800 text-slate-400 opacity-50";
                             }
+                        }
 
-                            return (
-                                <motion.button
-                                    key={option.id}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: idx * 0.05 }}
-                                    whileTap={!answered ? { scale: 0.98 } : {}}
-                                    onClick={() => handleAnswer(option.id)}
-                                    disabled={answered}
-                                    className={`
-                                        w-full p-5 rounded-2xl border-2 text-lg font-bold transition-all shadow-sm flex items-center justify-between
-                                        ${btnStyle}
-                                    `}
-                                >
-                                    <span>{option.meaning} {option.sound}</span>
-                                    {answered && isCorrect && <CheckCircle2 size={24} className="text-white" />}
-                                    {answered && isSelected && !isCorrect && <XCircle size={24} className="text-white" />}
-                                </motion.button>
-                            );
-                        })}
-                    </div>
-                </motion.div>
-            </AnimatePresence>
+                        return (
+                            <motion.button
+                                key={option.id}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: idx * 0.05 }}
+                                whileTap={!answered ? { scale: 0.98 } : {}}
+                                onClick={() => handleAnswer(option.id)}
+                                disabled={answered}
+                                className={`
+                                    w-full p-5 rounded-2xl border-2 text-lg font-bold transition-all shadow-sm flex items-center justify-between
+                                    ${btnStyle}
+                                `}
+                            >
+                                <span>{option.meaning} {option.sound}</span>
+                                {answered && isCorrect && <CheckCircle2 size={24} className="text-white" />}
+                                {answered && isSelected && !isCorrect && <XCircle size={24} className="text-white" />}
+                            </motion.button>
+                        );
+                    })}
+                </div>
+            </div>
         </div>
     );
 }
-
-// Award helper if needed for custom icon, but we used lucide
