@@ -11,8 +11,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.png', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: '천자문 학습 PWA',
-        short_name: '천자문',
+        name: '천자문 학습',
+        short_name: '천자문 학습',
         description: '하루하루 배우는 재미, 천자문 학습 애플리케이션',
         theme_color: '#ffffff',
         background_color: '#ffffff',
