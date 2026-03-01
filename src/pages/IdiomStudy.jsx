@@ -88,7 +88,7 @@ export default function IdiomStudy() {
             <div className="flex-1 flex justify-center items-center perspective-1000 w-full relative">
                 <AnimatePresence initial={false} custom={direction}>
                     <motion.div
-                        key={`idiom - ${groupStartIndex} `}
+                        key={`idiom-${groupStartIndex}`}
                         custom={direction}
                         variants={variants}
                         initial="enter"
@@ -122,7 +122,7 @@ export default function IdiomStudy() {
                             <div className="absolute w-full h-full bg-primary-600 dark:bg-primary-700 rounded-3xl shadow-xl flex flex-col items-center justify-center backface-hidden no-select rotate-y-180 transition-colors p-6 overflow-hidden">
                                 <div className="flex flex-col gap-3 w-full justify-center h-full">
                                     {currentGroup.map(h => (
-                                        <div key={`back - ${h.id} `} className="flex justify-between items-center px-4 border-b border-primary-500/30 pb-2 last:border-0">
+                                        <div key={`back-${h.id}`} className="flex justify-between items-center px-4 border-b border-primary-500/30 pb-2 last:border-0">
                                             <span className="text-primary-100 text-2xl font-medium">{h.meaning}</span>
                                             <span className="text-white text-3xl font-bold">{h.sound}</span>
                                         </div>
@@ -144,10 +144,10 @@ export default function IdiomStudy() {
                                                     currentGroup.forEach(h => markLearned(h.id));
                                                 }
                                             }}
-                                            className={`px - 6 py - 3 rounded - full font - bold shadow - md transition ${isGroupLearned
-                                                    ? 'bg-white/30 text-white cursor-default'
-                                                    : 'bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 hover:scale-105'
-                                                } `}
+                                            className={`px-6 py-3 rounded-full font-bold shadow-md transition ${isGroupLearned
+                                                ? 'bg-white/30 text-white cursor-default'
+                                                : 'bg-white dark:bg-slate-800 text-primary-600 dark:text-primary-400 hover:scale-105'
+                                                }`}
                                         >
                                             {isGroupLearned ? '✓ 학습 완료' : '구절 전체 학습 완료'}
                                         </button>
@@ -191,10 +191,10 @@ export default function IdiomStudy() {
 
             <style dangerouslySetInnerHTML={{
                 __html: `
-    .perspective - 1000 { perspective: 1000px; }
-        .preserve - 3d { transform - style: preserve - 3d; }
-        .backface - hidden { backface - visibility: hidden; }
-        .rotate - y - 180 { transform: rotateY(180deg); }
+    .perspective-1000 { perspective: 1000px; }
+        .preserve-3d { transform-style: preserve-3d; }
+        .backface-hidden { backface-visibility: hidden; }
+        .rotate-y-180 { transform: rotateY(180deg); }
 `}} />
         </div>
     );
