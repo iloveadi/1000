@@ -124,7 +124,7 @@ export default function Settings() {
             </div>
 
             <div className="mt-12 text-center text-xs text-slate-400">
-                <p>천자문 PWA v1.0</p>
+                <p>천자문 학습 v1.0</p>
                 <p className="mt-1">오프라인에서도 언제든 학습할 수 있습니다.</p>
                 <p className="mt-4 font-medium text-slate-300 dark:text-slate-500">&copy; 2026 Bear Dev.</p>
             </div>
@@ -158,7 +158,7 @@ export default function Settings() {
 
                             <div className="space-y-4 text-sm text-slate-600 dark:text-slate-300 naver:text-green-800 leading-relaxed">
                                 <p>
-                                    <strong>천자문 PWA</strong> (이하 "본 애플리케이션")은 사용자의 사생활 및 개인정보 보호를 매우 중요하게 생각합니다.
+                                    <strong>천자문 학습</strong> (이하 "본 애플리케이션")은 사용자의 사생활 및 개인정보 보호를 매우 중요하게 생각합니다.
                                 </p>
                                 <p>
                                     <strong>1. 개인정보 수집 및 이용</strong><br />
@@ -174,7 +174,8 @@ export default function Settings() {
                                 </p>
                                 <p>
                                     <strong>4. 문의사항</strong><br />
-                                    개인정보처리방침과 관련된 문의사항이 있으실 경우, 앱 제공자(Bear Dev.)에게 문의해 주시기 바랍니다.
+                                    개인정보처리방침과 관련된 문의사항이 있으실 경우, 아래 이메일로 연락해 주시기 바랍니다.<br />
+                                    <a href="mailto:iloveadi@gmail.com" className="text-primary-500 underline">iloveadi@gmail.com</a>
                                 </p>
                             </div>
 
