@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
@@ -11,6 +11,14 @@ export default function Idioms() {
     const [searchTerm, setSearchTerm] = useState('');
     const listRef = useRef(null);
     const itemRefs = useRef({});
+
+    // Performance optimization: prevent heavy render during page transition
+    const [isReady, setIsReady] = useState(false);
+    useEffect(() => {
+        // Render only viewport items (e.g. 15 groups) during the 250ms slide transition
+        const timer = setTimeout(() => setIsReady(true), 300);
+        return () => clearTimeout(timer);
+    }, []);
 
     // Generate index marks (every 10 groups, plus the last one)
     const indexMarks = useMemo(() => {
@@ -78,8 +86,8 @@ export default function Idioms() {
     };
 
     return (
-        <div className="px-6 pt-12 pb-6 h-full transition-colors duration-300 bg-slate-50 dark:bg-slate-900 flex flex-col">
-            <header className="mb-4 shrink-0">
+        <div className="pt-12 pb-6 h-full transition-colors duration-300 bg-slate-50 dark:bg-slate-900 flex flex-col">
+            <header className="px-6 mb-4 shrink-0">
                 <div className="mb-5">
                     <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100">천자문 문장</h1>
                     <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
@@ -120,10 +128,10 @@ export default function Idioms() {
                 </div>
             </header>
 
-            <div ref={listRef} className="flex-1 overflow-y-auto px-6 pb-24 hide-scrollbar flex flex-col gap-4 relative" style={{ scrollbarGutter: 'stable' }}>
+            <div ref={listRef} className="flex-1 overflow-y-auto pr-10 pl-6 pb-24 hide-scrollbar flex flex-col gap-4 relative" style={{ scrollbarGutter: 'stable' }}>
                 {/* Vertical Quick Index Navigation */}
                 {mode === 'all' && !searchTerm && (
-                    <div className="fixed right-2 top-1/2 -translate-y-1/2 z-10 flex flex-col items-center justify-center py-2 px-1 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-full shadow-sm border border-slate-100 dark:border-slate-700">
+                    <div className="fixed right-1.5 top-1/2 -translate-y-1/2 z-10 flex flex-col items-center justify-center py-2 px-0.5 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-full shadow-lg border border-slate-100 dark:border-slate-700">
                         {indexMarks.map(mark => (
                             <button
                                 key={mark}
@@ -136,12 +144,11 @@ export default function Idioms() {
                     </div>
                 )}
 
-                {groupedData.length === 0 && (
+                {groupedData.length === 0 ? (
                     <div className="py-12 text-center text-slate-400 dark:text-slate-500">
                         해당하는 문장이 없습니다.
                     </div>
-                )}
-                {groupedData.map((group, index) => {
+                ) : (isReady ? groupedData : groupedData.slice(0, 15)).map((group, index) => {
                     const allLearned = group.every(item => learnedHanjaIds.includes(item.id));
                     const displayIndex = mode === 'all' ? index : Math.floor((group[0].id - 1) / 4);
 

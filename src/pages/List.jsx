@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, Star } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
@@ -11,6 +11,14 @@ export default function List() {
     const [mode, setMode] = useState('all'); // 'all', 'learned', 'unlearned', 'favorites'
     const listRef = useRef(null);
     const itemRefs = useRef({});
+
+    // Performance optimization: prevent heavy render during page transition
+    const [isReady, setIsReady] = useState(false);
+    useEffect(() => {
+        // Render only viewport items (e.g. 48) during the 250ms slide transition
+        const timer = setTimeout(() => setIsReady(true), 300);
+        return () => clearTimeout(timer);
+    }, []);
 
     // Generate index marks (every 25 items, plus the last one)
     const indexMarks = useMemo(() => {
@@ -70,8 +78,8 @@ export default function List() {
     ];
 
     return (
-        <div className="px-6 pt-12 pb-6 h-full transition-colors duration-300 bg-slate-50 dark:bg-slate-900 flex flex-col">
-            <header className="mb-6 shrink-0">
+        <div className="pt-12 pb-6 h-full transition-colors duration-300 bg-slate-50 dark:bg-slate-900 flex flex-col">
+            <header className="px-6 mb-6 shrink-0">
                 <div className="mb-5">
                     <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100">전체 목록</h1>
                     <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
@@ -109,10 +117,10 @@ export default function List() {
             </header>
 
             {/* List Content */}
-            <div ref={listRef} className="flex-1 min-h-[50vh] overflow-y-auto pb-24 hide-scrollbar relative" style={{ scrollbarGutter: 'stable' }}>
+            <div ref={listRef} className="flex-1 min-h-[50vh] overflow-y-auto pr-10 pl-6 pb-24 hide-scrollbar relative" style={{ scrollbarGutter: 'stable' }}>
                 {/* Vertical Quick Index Navigation */}
                 {mode === 'all' && !searchTerm && (
-                    <div className="fixed right-1 top-[55%] -translate-y-1/2 z-10 flex flex-col items-center justify-center py-2 px-1 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-full shadow-sm border border-slate-100 dark:border-slate-700">
+                    <div className="fixed right-1.5 top-[55%] -translate-y-1/2 z-10 flex flex-col items-center justify-center py-2 px-0.5 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-full shadow-lg border border-slate-100 dark:border-slate-700">
                         {indexMarks.map(mark => (
                             <button
                                 key={mark}
@@ -130,7 +138,7 @@ export default function List() {
                         <div className="col-span-4 py-12 text-center text-slate-400 dark:text-slate-500">
                             검색 결과가 없습니다.
                         </div>
-                    ) : filteredData.map((item) => {
+                    ) : (isReady ? filteredData : filteredData.slice(0, 48)).map((item) => {
                         const isLearned = learnedHanjaIds.includes(item.id);
                         return (
                             <div

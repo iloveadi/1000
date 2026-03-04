@@ -81,17 +81,24 @@ export default function Study() {
     return (
         <div className="flex flex-col h-full bg-slate-50 dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden px-6 pt-4 pb-20">
             {/* Header */}
-            <div className="flex justify-between items-center mb-8">
+            <div className="flex justify-between items-center mb-8 h-8">
                 <div className="flex items-center gap-3">
-                    <span className="text-slate-500 dark:text-slate-400 font-bold text-lg tracking-wider opacity-0">
-                        {/* Empty spacer to keep layout balanced */}
+                    <span className="text-slate-400 dark:text-slate-500 font-bold text-xs tracking-widest uppercase">
+                        Hanja #{String(hanja.id).padStart(4, '0')}
                     </span>
                 </div>
-                {isLearned && (
-                    <span className="bg-primary-50 text-primary-700 border border-primary-200 px-3 py-1 rounded-full text-xs flex items-center gap-1 font-semibold whitespace-nowrap">
-                        <CheckCircle2 size={13} /> 학습 완료
-                    </span>
-                )}
+                <AnimatePresence>
+                    {isLearned && (
+                        <motion.span
+                            initial={{ opacity: 0, scale: 0.8, x: 10 }}
+                            animate={{ opacity: 1, scale: 1, x: 0 }}
+                            exit={{ opacity: 0, scale: 0.8, x: 10 }}
+                            className="bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 border border-primary-200 dark:border-primary-800 px-3 py-1 rounded-full text-xs flex items-center gap-1 font-semibold whitespace-nowrap shadow-sm"
+                        >
+                            <CheckCircle2 size={13} /> 학습 완료
+                        </motion.span>
+                    )}
+                </AnimatePresence>
             </div>
 
             {/* Concept Card */}

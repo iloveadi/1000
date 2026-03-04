@@ -10,11 +10,18 @@ const NAV_PATHS = ['/', '/study', '/idioms', '/list', '/quiz-hub', '/settings'];
 
 export default function AppLayout() {
     const location = useLocation();
-    const prevIdxRef = useRef(NAV_PATHS.indexOf(location.pathname));
+    const currentIdx = NAV_PATHS.indexOf(location.pathname) !== -1 ? NAV_PATHS.indexOf(location.pathname) : 0;
 
-    const currentIdx = NAV_PATHS.indexOf(location.pathname);
-    const dir = currentIdx >= prevIdxRef.current ? -1 : 1;
-    prevIdxRef.current = currentIdx;
+    // Compute dir synchronously during render
+    const prevIdxRef = useRef(currentIdx);
+    const dirRef = useRef(1);
+
+    if (currentIdx !== prevIdxRef.current) {
+        dirRef.current = currentIdx > prevIdxRef.current ? 1 : -1;
+        prevIdxRef.current = currentIdx;
+    }
+
+    const dir = dirRef.current;
 
     const [newBadge, setNewBadge] = React.useState(null);
 
@@ -37,28 +44,38 @@ export default function AppLayout() {
     }, []);
 
     const variants = {
-        enter: { opacity: 0, y: 6 },
-        center: { opacity: 1, y: 0 },
-        exit: { opacity: 0, y: -6 },
+        enter: (direction) => ({
+            opacity: 0,
+            x: direction > 0 ? '100%' : '-100%',
+        }),
+        center: {
+            opacity: 1,
+            x: 0,
+        },
+        exit: (direction) => ({
+            opacity: 0,
+            x: direction > 0 ? '-100%' : '100%',
+        }),
     };
 
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex justify-center transition-colors duration-300">
             <div className="w-full max-w-md bg-white dark:bg-slate-900 min-h-screen relative shadow-sm flex flex-col transition-colors duration-300">
-                <main className="flex-1 relative overflow-hidden pb-16">
-                    <AnimatePresence initial={false} mode="sync">
+                <main className="flex-1 relative w-full h-full overflow-hidden pb-16 bg-slate-50 dark:bg-slate-950">
+                    <AnimatePresence initial={false} mode="popLayout" custom={dir}>
                         <motion.div
                             key={location.pathname}
+                            custom={dir}
                             variants={variants}
                             initial="enter"
                             animate="center"
                             exit="exit"
                             transition={{
-                                duration: 0.18,
+                                duration: 0.25,
                                 ease: 'easeOut',
                             }}
-                            className="absolute inset-0 overflow-y-auto hide-scrollbar"
-                            style={{ scrollbarGutter: 'stable' }}
+                            className="absolute inset-x-0 top-0 bottom-16 overflow-y-auto hide-scrollbar bg-slate-50 dark:bg-slate-950"
+                            style={{ scrollbarGutter: 'stable', willChange: 'transform, opacity' }}
                         >
                             <Outlet />
                         </motion.div>

@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { RefreshCcw, Info, Volume2, VolumeX, Megaphone, MicOff, Palette, X } from 'lucide-react';
+import { RefreshCcw, Info, Volume2, VolumeX, Megaphone, MicOff, Palette, X, Sparkles, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import useAppStore from '../store/useAppStore';
+import ChangelogModal from '../components/ChangelogModal';
+import SrsInfoModal from '../components/SrsInfoModal';
 
 export default function Settings() {
     const { theme, setTheme, resetProgress, soundEnabled, toggleSound, ttsEnabled, toggleTts } = useAppStore();
     const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
+    const [isChangelogOpen, setIsChangelogOpen] = useState(false);
+    const [isSrsModalOpen, setIsSrsModalOpen] = useState(false);
 
     const handleReset = () => {
         if (window.confirm("정말 모든 학습 기록을 초기화하시겠습니까? (이 작업은 되돌릴 수 없습니다.)")) {
@@ -34,13 +38,24 @@ export default function Settings() {
                 <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
                     <Info size={100} />
                 </div>
-                <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 naver:text-green-900 mb-2">천자문 학습 v1.0 은?</h2>
+                <div
+                    onClick={() => setIsChangelogOpen(true)}
+                    className="flex justify-between items-center mb-4 cursor-pointer group"
+                >
+                    <h2 className="text-xl font-black text-slate-800 dark:text-slate-100 naver:text-green-900 group-hover:text-primary-600 transition-colors">
+                        <span className="font-hanja mr-1 text-2xl">千字文 學習</span>은?
+                    </h2>
+                    <div className="flex items-center space-x-1.5">
+                        <span className="bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] font-bold px-1.5 py-0.5 rounded-md border border-slate-200 dark:border-slate-700 group-hover:bg-primary-50 group-hover:text-primary-600 group-hover:border-primary-200 transition-all">v1.2.0</span>
+                        <ChevronRight size={16} className="text-slate-300 group-hover:text-primary-400 transition-colors" />
+                    </div>
+                </div>
                 <div className="space-y-3 text-sm text-slate-600 dark:text-slate-400 naver:text-green-800 leading-relaxed">
                     <p>
                         천년의 지혜가 담긴 천자문을 현대적인 감각으로 익힐 수 있도록 제작된 학습 도우미입니다.
                     </p>
                     <p>
-                        직접 써보는 경험과 과학적인 복습 알고리즘(SRS)을 통해 한자를 더 깊고 오래 기억할 수 있게 도와드립니다.
+                        직접 써보는 경험과 <button onClick={() => setIsSrsModalOpen(true)} className="text-primary-600 dark:text-primary-400 font-bold underline underline-offset-2 hover:text-primary-700 dark:hover:text-primary-300 transition-colors">과학적인 복습 알고리즘(SRS)</button>을 통해 한자를 더 깊고 오래 기억할 수 있게 도와드립니다.
                     </p>
                 </div>
             </div>
@@ -147,7 +162,12 @@ export default function Settings() {
             </div>
 
             <div className="mt-12 text-center text-xs text-slate-400">
-                <p>천자문 학습 v1.0</p>
+                <p
+                    onClick={() => setIsChangelogOpen(true)}
+                    className="cursor-pointer hover:text-slate-600 transition-colors underline underline-offset-4 decoration-slate-200"
+                >
+                    <span className="font-hanja">千字文 學習</span> v1.2.0
+                </p>
                 <p className="mt-1">오프라인에서도 언제든 학습할 수 있습니다.</p>
                 <p className="mt-3 font-medium text-slate-300 dark:text-slate-500">&copy; 2026 Bear Dev.</p>
             </div>
@@ -213,6 +233,24 @@ export default function Settings() {
                 )}
             </AnimatePresence>
 
+            <ChangelogModal
+                isOpen={isChangelogOpen}
+                onClose={() => setIsChangelogOpen(false)}
+            />
+
+            <SrsInfoModal
+                isOpen={isSrsModalOpen}
+                onClose={() => setIsSrsModalOpen(false)}
+            />
         </div >
     );
 }
+
+// Assuming the component function starts here or above, and useState is imported.
+// Example of where state would be declared:
+// function MyComponent() {
+//   const [isChangelogOpen, setIsChangelogOpen] = useState(false);
+//   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
+//   const [isSrsModalOpen, setIsSrsModalOpen] = useState(false); // Added state
+//   // ... rest of the component logic
+// }
