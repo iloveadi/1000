@@ -32,10 +32,11 @@ function App() {
 
   useEffect(() => {
     const el = document.documentElement;
-    el.classList.remove('dark', 'naver', 'pink');
+    el.classList.remove('dark', 'naver', 'pink', 'orange');
     if (theme === 'dark') el.classList.add('dark');
     if (theme === 'naver') el.classList.add('naver');
     if (theme === 'pink') el.classList.add('pink');
+    if (theme === 'orange') el.classList.add('orange');
   }, [theme]);
 
 

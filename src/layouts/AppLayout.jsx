@@ -59,9 +59,9 @@ export default function AppLayout() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex justify-center transition-colors duration-300">
-            <div className="w-full max-w-md bg-white dark:bg-slate-900 min-h-screen relative shadow-sm flex flex-col transition-colors duration-300">
-                <main className="flex-1 relative w-full h-full overflow-hidden pb-16 bg-slate-50 dark:bg-slate-950">
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 naver:bg-green-100 pink:bg-pink-100 orange:bg-orange-100 flex justify-center transition-colors duration-300">
+            <div className="w-full max-w-md bg-white dark:bg-slate-900 naver:bg-green-50 pink:bg-pink-50 orange:bg-orange-50 min-h-screen relative shadow-sm flex flex-col transition-colors duration-300">
+                <main className="flex-1 relative w-full h-full overflow-hidden pb-16 bg-slate-50 dark:bg-slate-950 naver:bg-green-50 pink:bg-pink-50 orange:bg-orange-50">
                     <AnimatePresence initial={false} mode="popLayout" custom={dir}>
                         <motion.div
                             key={location.pathname}
@@ -74,7 +74,7 @@ export default function AppLayout() {
                                 duration: 0.25,
                                 ease: 'easeOut',
                             }}
-                            className="absolute inset-x-0 top-0 bottom-16 overflow-y-auto hide-scrollbar bg-slate-50 dark:bg-slate-950"
+                            className="absolute inset-x-0 top-0 bottom-16 overflow-y-auto hide-scrollbar bg-slate-50 dark:bg-slate-950 naver:bg-green-50 pink:bg-pink-50 orange:bg-orange-50"
                             style={{ scrollbarGutter: 'stable', willChange: 'transform, opacity' }}
                         >
                             <Outlet />
