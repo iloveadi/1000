@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, RotateCcw, Home, Timer, Check, X, Award, Zap } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
-import chunjamunData from '../data/chunjamun.json';
+import chunjamunData from '../data/chunjamun';
 import { playSound } from '../utils/audio';
 
 // Speed Survival: 2 seconds per question. 
@@ -13,7 +13,7 @@ const SECONDS_PER_QUESTION = 2;
 
 export default function SurvivalQuiz() {
     const navigate = useNavigate();
-    const { soundEnabled, updateQuizScore } = useAppStore();
+    const { soundEnabled, updateQuizScore, studyRange } = useAppStore();
 
     const [question, setQuestion] = useState(null);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -45,8 +45,10 @@ export default function SurvivalQuiz() {
     }, [gameState, timeLeft, isFinished]);
 
     const generateQuestion = () => {
+        const rangeData = studyRange === 'all' ? chunjamunData :
+            (studyRange === '1-500' ? chunjamunData.slice(0, 500) : chunjamunData.slice(500, 1000));
         const isMatch = Math.random() > 0.5;
-        const target = chunjamunData[Math.floor(Math.random() * chunjamunData.length)];
+        const target = rangeData[Math.floor(Math.random() * rangeData.length)];
         let displayMeaning = target.meaning;
         let displaySound = target.sound;
 
@@ -54,7 +56,7 @@ export default function SurvivalQuiz() {
             // Find a distractor
             let distractor;
             do {
-                distractor = chunjamunData[Math.floor(Math.random() * chunjamunData.length)];
+                distractor = rangeData[Math.floor(Math.random() * rangeData.length)];
             } while (distractor.id === target.id);
             displayMeaning = distractor.meaning;
             displaySound = distractor.sound;

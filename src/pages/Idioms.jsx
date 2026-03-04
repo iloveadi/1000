@@ -2,15 +2,22 @@ import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
-import chunjamunData from '../data/chunjamun.json';
+import chunjamunData from '../data/chunjamun';
 
 export default function Idioms() {
-    const { learnedHanjaIds, setCurrentHanjaId } = useAppStore();
+    const { learnedHanjaIds, setCurrentHanjaId, studyRange } = useAppStore();
     const navigate = useNavigate();
     const [mode, setMode] = useState('all');
     const [searchTerm, setSearchTerm] = useState('');
     const listRef = useRef(null);
     const itemRefs = useRef({});
+
+    // Filtered data based on study range
+    const rangeData = useMemo(() => {
+        if (studyRange === '1-500') return chunjamunData.slice(0, 500);
+        if (studyRange === '501-1000') return chunjamunData.slice(500, 1000);
+        return chunjamunData;
+    }, [studyRange]);
 
     // Performance optimization: prevent heavy render during page transition
     const [isReady, setIsReady] = useState(false);
@@ -20,24 +27,24 @@ export default function Idioms() {
         return () => clearTimeout(timer);
     }, []);
 
-    // Generate index marks (every 10 groups, plus the last one)
+    // Generate index marks (every 25 groups, plus the last one)
     const indexMarks = useMemo(() => {
         const marks = [];
-        const totalGroups = Math.ceil(chunjamunData.length / 4);
+        const totalGroups = Math.ceil(rangeData.length / 4);
         for (let i = 1; i <= totalGroups; i += 25) {
             marks.push(i);
         }
-        if (marks[marks.length - 1] !== totalGroups) {
+        if (marks.length > 0 && marks[marks.length - 1] !== totalGroups && totalGroups > 0) {
             marks.push(totalGroups);
         }
         return marks;
-    }, []);
+    }, [rangeData]);
 
     // Chunking logic for 4-character idioms
     const groupedData = useMemo(() => {
         const groups = [];
-        for (let i = 0; i < chunjamunData.length; i += 4) {
-            groups.push(chunjamunData.slice(i, i + 4));
+        for (let i = 0; i < rangeData.length; i += 4) {
+            groups.push(rangeData.slice(i, i + 4));
         }
 
         if (mode === 'all' && !searchTerm) return groups;
@@ -59,7 +66,7 @@ export default function Idioms() {
 
             return true;
         });
-    }, [mode, learnedHanjaIds, searchTerm]);
+    }, [rangeData, mode, learnedHanjaIds, searchTerm]);
 
     const handleGroupClick = (group) => {
         // Set special mode and navigate to specialized study if needed, 

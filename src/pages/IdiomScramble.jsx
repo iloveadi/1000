@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, RotateCcw, Home, CheckCircle2, Award, ArrowRight } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
-import chunjamunData from '../data/chunjamun.json';
+import chunjamunData from '../data/chunjamun';
 import groupInterpretations from '../data/groupInterpretations';
 import { playSound } from '../utils/audio';
 
@@ -11,7 +11,7 @@ const QUESTIONS_PER_SESSION = 5;
 
 export default function IdiomScramble() {
     const navigate = useNavigate();
-    const { soundEnabled, updateQuizScore } = useAppStore();
+    const { soundEnabled, updateQuizScore, studyRange } = useAppStore();
 
     const [questions, setQuestions] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -26,14 +26,16 @@ export default function IdiomScramble() {
 
     // Prepare idiom groups
     const idiomGroups = useMemo(() => {
+        const rangeData = studyRange === 'all' ? chunjamunData :
+            (studyRange === '1-500' ? chunjamunData.slice(0, 500) : chunjamunData.slice(500, 1000));
         const groups = [];
-        for (let i = 0; i < chunjamunData.length; i += 4) {
-            if (i + 4 <= chunjamunData.length) {
-                groups.push(chunjamunData.slice(i, i + 4));
+        for (let i = 0; i < rangeData.length; i += 4) {
+            if (i + 4 <= rangeData.length) {
+                groups.push(rangeData.slice(i, i + 4));
             }
         }
         return groups;
-    }, []);
+    }, [studyRange]);
 
     useEffect(() => {
         startNewQuiz();

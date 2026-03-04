@@ -2,7 +2,7 @@ import React, { useState, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, CheckCircle2, Edit3, X, Play, PenTool, Star } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
-import chunjamunData from '../data/chunjamun.json';
+import chunjamunData from '../data/chunjamun';
 import HanjaCanvas from '../components/HanjaCanvas';
 import { playSound } from '../utils/audio';
 import { speakText } from '../utils/tts';
@@ -19,7 +19,8 @@ export default function Study() {
         favoriteHanjaIds,
         toggleFavorite,
         getDueHanjaIds,
-        markReviewed
+        markReviewed,
+        studyRange
     } = useAppStore();
 
     const [isFlipped, setIsFlipped] = useState(false);
@@ -27,12 +28,18 @@ export default function Study() {
     const [showCanvas, setShowCanvas] = useState(false);
     const canvasRef = useRef(null);
 
-    const currentIndex = useMemo(() => {
-        const index = chunjamunData.findIndex(d => d.id === currentHanjaId);
-        return index !== -1 ? index : 0;
-    }, [currentHanjaId]);
+    const rangeData = useMemo(() => {
+        if (studyRange === '1-500') return chunjamunData.slice(0, 500);
+        if (studyRange === '501-1000') return chunjamunData.slice(500, 1000);
+        return chunjamunData;
+    }, [studyRange]);
 
-    const hanja = chunjamunData[currentIndex];
+    const currentIndex = useMemo(() => {
+        const index = rangeData.findIndex(d => d.id === currentHanjaId);
+        return index !== -1 ? index : 0;
+    }, [currentHanjaId, rangeData]);
+
+    const hanja = rangeData[currentIndex];
     const isLearned = learnedHanjaIds.includes(hanja.id);
     const isFavorite = favoriteHanjaIds.includes(hanja.id);
 
@@ -40,11 +47,11 @@ export default function Study() {
     const isDue = dueHanjaIds.includes(hanja.id);
 
     const handleNext = () => {
-        if (currentIndex < chunjamunData.length - 1) {
+        if (currentIndex < rangeData.length - 1) {
             if (soundEnabled) playSound('swipe');
             setDirection(1);
             setIsFlipped(false);
-            setCurrentHanjaId(chunjamunData[currentIndex + 1].id);
+            setCurrentHanjaId(rangeData[currentIndex + 1].id);
         }
     };
 
@@ -53,7 +60,7 @@ export default function Study() {
             if (soundEnabled) playSound('swipe');
             setDirection(-1);
             setIsFlipped(false);
-            setCurrentHanjaId(chunjamunData[currentIndex - 1].id);
+            setCurrentHanjaId(rangeData[currentIndex - 1].id);
         }
     };
 
@@ -231,7 +238,7 @@ export default function Study() {
                 <div className="flex-1"></div> {/* Spacer for center button */}
                 <button
                     onClick={handleNext}
-                    disabled={currentIndex === chunjamunData.length - 1 || showCanvas}
+                    disabled={currentIndex === rangeData.length - 1 || showCanvas}
                     className="bg-white dark:bg-slate-800 p-4 rounded-full shadow-sm disabled:opacity-50 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition focus:outline-none"
                 >
                     <ChevronRight size={28} />

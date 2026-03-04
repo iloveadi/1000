@@ -31,6 +31,7 @@ const useAppStore = create(
             },
             notificationsEnabled: true,
             notificationTime: '09:00', // HH:MM format
+            studyRange: '1-500', // '1-500' | '501-1000' | 'all'
 
             // Actions
             toggleNotifications: () =>
@@ -162,7 +163,21 @@ const useAppStore = create(
                 return [];
             },
 
-            setCurrentHanjaId: (id) => set({ currentHanjaId: id }),
+            setCurrentHanjaId: (id) => set((state) => {
+                const range = state.studyRange;
+                let clampedId = id;
+                if (range === '1-500') clampedId = Math.min(Math.max(id, 1), 500);
+                else if (range === '501-1000') clampedId = Math.min(Math.max(id, 501), 1000);
+                else clampedId = Math.min(Math.max(id, 1), 1000);
+                return { currentHanjaId: clampedId };
+            }),
+
+            setStudyRange: (range) => set((state) => {
+                let newId = state.currentHanjaId;
+                if (range === '501-1000' && newId < 501) newId = 501;
+                if (range === '1-500' && newId > 500) newId = 1;
+                return { studyRange: range, currentHanjaId: newId };
+            }),
 
             setStudyMode: (mode) => set({ studyMode: mode }),
 

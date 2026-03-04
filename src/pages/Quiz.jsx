@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, RotateCcw, Home, CheckCircle2, XCircle, Timer, Award } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
-import chunjamunData from '../data/chunjamun.json';
+import chunjamunData from '../data/chunjamun';
 import { playSound } from '../utils/audio';
 
 const QUESTIONS_PER_SESSION = 10;
@@ -11,7 +11,7 @@ const SECONDS_PER_QUESTION = 10;
 
 export default function Quiz() {
     const navigate = useNavigate();
-    const { soundEnabled, updateQuizScore } = useAppStore();
+    const { soundEnabled, updateQuizScore, studyRange } = useAppStore();
 
     const [questions, setQuestions] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,7 +33,9 @@ export default function Quiz() {
     }, []);
 
     const startNewQuiz = () => {
-        const shuffled = [...chunjamunData].sort(() => 0.5 - Math.random());
+        const rangeData = studyRange === 'all' ? chunjamunData :
+            (studyRange === '1-500' ? chunjamunData.slice(0, 500) : chunjamunData.slice(500, 1000));
+        const shuffled = [...rangeData].sort(() => 0.5 - Math.random());
         const selected = shuffled.slice(0, QUESTIONS_PER_SESSION);
 
         const quizItems = selected.map(item => {

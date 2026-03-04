@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RotateCcw, Home, ChevronLeft, Timer, CheckCircle2, XCircle } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
-import chunjamunData from '../data/chunjamun.json';
+import chunjamunData from '../data/chunjamun';
 import { playSound } from '../utils/audio';
 
 const QUESTIONS_PER_SESSION = 10;
@@ -15,7 +15,7 @@ function shuffle(arr) {
 
 export default function DictationQuiz() {
     const navigate = useNavigate();
-    const { soundEnabled, updateQuizScore } = useAppStore();
+    const { soundEnabled, updateQuizScore, studyRange } = useAppStore();
 
     const [questions, setQuestions] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -36,7 +36,9 @@ export default function DictationQuiz() {
     }, []);
 
     const startNewQuiz = () => {
-        const pool = shuffle(chunjamunData);
+        const rangeData = studyRange === 'all' ? chunjamunData :
+            (studyRange === '1-500' ? chunjamunData.slice(0, 500) : chunjamunData.slice(500, 1000));
+        const pool = shuffle(rangeData);
         const selected = pool.slice(0, QUESTIONS_PER_SESSION);
         const quizItems = selected.map(item => ({
             ...item,

@@ -2,15 +2,22 @@ import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, Star } from 'lucide-react';
 import useAppStore from '../store/useAppStore';
-import chunjamunData from '../data/chunjamun.json';
+import chunjamunData from '../data/chunjamun';
 
 export default function List() {
-    const { learnedHanjaIds, favoriteHanjaIds, setCurrentHanjaId } = useAppStore();
+    const { learnedHanjaIds, favoriteHanjaIds, setCurrentHanjaId, studyRange } = useAppStore();
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
     const [mode, setMode] = useState('all'); // 'all', 'learned', 'unlearned', 'favorites'
     const listRef = useRef(null);
     const itemRefs = useRef({});
+
+    // Filtered data based on study range
+    const rangeData = useMemo(() => {
+        if (studyRange === '1-500') return chunjamunData.slice(0, 500);
+        if (studyRange === '501-1000') return chunjamunData.slice(500, 1000);
+        return chunjamunData;
+    }, [studyRange]);
 
     // Performance optimization: prevent heavy render during page transition
     const [isReady, setIsReady] = useState(false);
@@ -20,18 +27,23 @@ export default function List() {
         return () => clearTimeout(timer);
     }, []);
 
-    // Generate index marks (every 25 items, plus the last one)
+    // Generate index marks
     const indexMarks = useMemo(() => {
         const marks = [];
-        const totalItems = chunjamunData.length;
-        for (let i = 1; i <= totalItems; i += 100) {
+        const data = rangeData;
+        if (data.length === 0) return marks;
+
+        const startId = data[0].id;
+        const endId = data[data.length - 1].id;
+
+        for (let i = startId; i <= endId; i += 100) {
             marks.push(i);
         }
-        if (marks[marks.length - 1] !== totalItems) {
-            marks.push(totalItems);
+        if (marks[marks.length - 1] !== endId) {
+            marks.push(endId);
         }
         return marks;
-    }, []);
+    }, [rangeData]);
 
     const handleCardClick = (id) => {
         setCurrentHanjaId(id);
@@ -40,7 +52,7 @@ export default function List() {
 
     // Filtering logic
     const filteredData = useMemo(() => {
-        return chunjamunData.filter((item) => {
+        return rangeData.filter((item) => {
             const matchesSearch = item.hanja.includes(searchTerm) || item.meaning.includes(searchTerm) || item.sound.includes(searchTerm);
             if (!matchesSearch) return false;
 

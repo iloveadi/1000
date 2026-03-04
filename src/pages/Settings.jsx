@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { RefreshCcw, Info, Volume2, VolumeX, Megaphone, MicOff, Palette, X, Sparkles, ChevronRight } from 'lucide-react';
+import { RefreshCcw, Info, Volume2, VolumeX, Megaphone, MicOff, Palette, X, Sparkles, ChevronRight, Hash } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import useAppStore from '../store/useAppStore';
 import ChangelogModal from '../components/ChangelogModal';
 import SrsInfoModal from '../components/SrsInfoModal';
 
 export default function Settings() {
-    const { theme, setTheme, resetProgress, soundEnabled, toggleSound, ttsEnabled, toggleTts } = useAppStore();
+    const { theme, setTheme, resetProgress, soundEnabled, toggleSound, ttsEnabled, toggleTts, studyRange, setStudyRange } = useAppStore();
     const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
     const [isChangelogOpen, setIsChangelogOpen] = useState(false);
     const [isSrsModalOpen, setIsSrsModalOpen] = useState(false);
@@ -69,6 +69,42 @@ export default function Settings() {
                     <p className="text-sm text-slate-500 dark:text-slate-400">
                         사랑하는 내 딸 <strong className="font-bold text-pink-500">YJ</strong>를 위해 만듦 🩷
                     </p>
+                </div>
+
+                {/* Study Range Selection */}
+                <div className="mb-8">
+                    <div className="flex items-center gap-2 mb-4">
+                        <div className="p-1.5 bg-primary-100 dark:bg-primary-900/40 rounded-lg text-primary-600 dark:text-primary-400">
+                            <Hash size={18} />
+                        </div>
+                        <h2 className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">학습 범위 설정</h2>
+                    </div>
+                    <div className="grid grid-cols-1 gap-2 bg-white dark:bg-slate-800 naver:bg-white p-2 rounded-2xl border border-slate-100 dark:border-slate-700 naver:border-green-200 shadow-sm transition-colors">
+                        {[
+                            { id: '1-500', label: '1단계: 0001 ~ 0500번', desc: '이번 학기 수업 범위' },
+                            { id: '501-1000', label: '2단계: 0501 ~ 1000번', desc: '다음 학기 수업 범위' },
+                            { id: 'all', label: '전체: 0001 ~ 1000번', desc: '천자문 전체 학습' }
+                        ].map((r) => (
+                            <button
+                                key={r.id}
+                                onClick={() => setStudyRange(r.id)}
+                                className={`flex items-center justify-between p-4 rounded-xl transition-all ${studyRange === r.id
+                                    ? 'bg-primary-50 dark:bg-primary-900/30 ring-1 ring-primary-200 dark:ring-primary-800'
+                                    : 'hover:bg-slate-50 dark:hover:bg-slate-700/50'
+                                    }`}
+                            >
+                                <div className="text-left">
+                                    <div className={`font-bold transition-colors ${studyRange === r.id ? 'text-primary-700 dark:text-primary-300' : 'text-slate-700 dark:text-slate-200'}`}>
+                                        {r.label}
+                                    </div>
+                                    <div className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">{r.desc}</div>
+                                </div>
+                                <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${studyRange === r.id ? 'border-primary-500 bg-primary-500' : 'border-slate-200 dark:border-slate-600'}`}>
+                                    {studyRange === r.id && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
+                                </div>
+                            </button>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Theme Selector */}
