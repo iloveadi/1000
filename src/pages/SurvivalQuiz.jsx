@@ -19,15 +19,30 @@ export default function SurvivalQuiz() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [score, setScore] = useState(0);
     const [gameState, setGameState] = useState('playing'); // playing, answered, finished
+    const [isFinished, setIsFinished] = useState(false);
     const [answeredCorrectly, setAnsweredCorrectly] = useState(null);
     const [timeLeft, setTimeLeft] = useState(SECONDS_PER_QUESTION);
-    const timerRef = useRef(null);
     const [startTime] = useState(Date.now());
 
     useEffect(() => {
         generateQuestion();
-        return () => clearInterval(timerRef.current);
     }, []);
+
+    // Timer Logic
+    useEffect(() => {
+        if (gameState !== 'playing' || isFinished) return;
+
+        if (timeLeft <= 0) {
+            handleAnswer(null);
+            return;
+        }
+
+        const timer = setInterval(() => {
+            setTimeLeft(prev => Math.max(0, +(prev - 0.1).toFixed(1)));
+        }, 100);
+
+        return () => clearInterval(timer);
+    }, [gameState, timeLeft, isFinished]);
 
     const generateQuestion = () => {
         const isMatch = Math.random() > 0.5;
@@ -53,26 +68,11 @@ export default function SurvivalQuiz() {
         });
         setTimeLeft(SECONDS_PER_QUESTION);
         setGameState('playing');
-        startTimer();
-    };
-
-    const startTimer = () => {
-        clearInterval(timerRef.current);
-        timerRef.current = setInterval(() => {
-            setTimeLeft(prev => {
-                if (prev <= 0.1) {
-                    clearInterval(timerRef.current);
-                    handleAnswer(null); // Timeout = Fail
-                    return 0;
-                }
-                return +(prev - 0.1).toFixed(1);
-            });
-        }, 100);
+        setAnsweredCorrectly(null);
     };
 
     const handleAnswer = (userChoice) => {
         if (gameState !== 'playing') return;
-        clearInterval(timerRef.current);
 
         const correct = (userChoice === question.isMatch);
         setAnsweredCorrectly(correct);
@@ -89,18 +89,19 @@ export default function SurvivalQuiz() {
                     setCurrentIndex(i => i + 1);
                     generateQuestion();
                 } else {
-                    finishGame(true);
+                    finishGame();
                 }
             }, 600);
         } else {
             setTimeout(() => {
-                finishGame(false);
+                finishGame();
             }, 1000);
         }
     };
 
-    const finishGame = (perfect) => {
+    const finishGame = () => {
         setGameState('finished');
+        setIsFinished(true);
         const finalTime = Math.round((Date.now() - startTime) / 1000);
         updateQuizScore(score, finalTime);
     };
