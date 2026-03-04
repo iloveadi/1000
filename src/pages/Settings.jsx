@@ -47,7 +47,7 @@ export default function Settings() {
                         <span className="font-hanja mr-1 text-2xl">千字文 學習</span>은?
                     </h2>
                     <div className="flex items-center space-x-1.5">
-                        <span className="bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] font-bold px-1.5 py-0.5 rounded-md border border-slate-200 dark:border-slate-700 group-hover:bg-primary-50 group-hover:text-primary-600 group-hover:border-primary-200 transition-all">v1.2.1</span>
+                        <span className="bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[10px] font-bold px-1.5 py-0.5 rounded-md border border-slate-200 dark:border-slate-700 group-hover:bg-primary-50 group-hover:text-primary-600 group-hover:border-primary-200 transition-all">v1.2.2</span>
                         <ChevronRight size={16} className="text-slate-300 group-hover:text-primary-400 transition-colors" />
                     </div>
                 </div>
