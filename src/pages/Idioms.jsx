@@ -131,7 +131,7 @@ export default function Idioms() {
             <div ref={listRef} className="flex-1 overflow-y-auto pr-10 pl-6 pb-24 hide-scrollbar flex flex-col gap-4 relative" style={{ scrollbarGutter: 'stable' }}>
                 {/* Vertical Quick Index Navigation */}
                 {mode === 'all' && !searchTerm && (
-                    <div className="fixed right-1.5 top-1/2 -translate-y-1/2 z-10 flex flex-col items-center justify-center py-2 px-0.5 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-full shadow-lg border border-slate-100 dark:border-slate-700">
+                    <div className="fixed right-1.5 top-[275px] z-10 flex flex-col items-center justify-center py-2 px-0.5 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-full shadow-lg border border-slate-100 dark:border-slate-700">
                         {indexMarks.map(mark => (
                             <button
                                 key={mark}
