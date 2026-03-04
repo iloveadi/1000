@@ -9,28 +9,40 @@ import ReviewCard from '../components/ReviewCard';
 
 export default function Home() {
     const navigate = useNavigate();
-    const { learnedHanjaIds, streak, quizScores, setCurrentHanjaId, unlockedBadgeIds } = useAppStore();
+    const { learnedHanjaIds, streak, quizScores, setCurrentHanjaId, unlockedBadgeIds, studyRange } = useAppStore();
 
-    const totalCount = chunjamunData.length;
-    const learnedCount = learnedHanjaIds.length;
+    const rangeData = React.useMemo(() => {
+        if (studyRange === '1-500') return chunjamunData.slice(0, 500);
+        if (studyRange === '501-1000') return chunjamunData.slice(500, 1000);
+        return chunjamunData;
+    }, [studyRange]);
+
+    const rangeLabel = React.useMemo(() => {
+        if (studyRange === '1-500') return '1단계 (1~500)';
+        if (studyRange === '501-1000') return '2단계 (501~1000)';
+        return '전체 (1~1000)';
+    }, [studyRange]);
+
+    const totalCount = rangeData.length;
+    const rangeLearnedIds = learnedHanjaIds.filter(id => rangeData.some(d => d.id === id));
+    const learnedCount = rangeLearnedIds.length;
     const progressPercent = Math.round((learnedCount / totalCount) * 100) || 0;
 
     // Today's Idiom Logic
-    const getTodayIdiom = () => {
+    const todayIdiom = React.useMemo(() => {
         const today = new Date();
         const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
 
-        // Use seed to get a stable index (250 groups of 4)
-        const groupIndex = (seed % 250);
-        const startId = groupIndex * 4 + 1;
+        // Use seed to get a stable index within the current range
+        const totalGroupsInRange = Math.floor(rangeData.length / 4);
+        const groupIndex = totalGroupsInRange > 0 ? (seed % totalGroupsInRange) : 0;
 
-        const idiomHanjas = chunjamunData.slice(groupIndex * 4, groupIndex * 4 + 4);
+        const idiomHanjas = rangeData.slice(groupIndex * 4, groupIndex * 4 + 4);
+        const startId = idiomHanjas.length > 0 ? idiomHanjas[0].id : 1;
         const interpretation = groupInterpretations[startId] || "오늘의 가르침을 깊이 새겨보세요.";
 
         return { hanjas: idiomHanjas, interpretation, startId };
-    };
-
-    const todayIdiom = getTodayIdiom();
+    }, [rangeData]);
 
     return (
         <div className="px-6 pt-12 pb-24 h-full flex flex-col transition-colors duration-300 bg-slate-50 dark:bg-slate-900 overflow-y-auto hide-scrollbar">
@@ -104,7 +116,10 @@ export default function Home() {
                         <Award className="text-primary-500 dark:text-primary-400" size={20} />
                         <h2 className="text-base font-bold text-slate-700 dark:text-slate-200">나의 학습 진도</h2>
                     </div>
-                    <span className="text-xl font-black text-primary-600 dark:text-primary-400">{progressPercent}%</span>
+                    <div className="flex flex-col items-end">
+                        <span className="text-xl font-black text-primary-600 dark:text-primary-400">{progressPercent}%</span>
+                        <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">{rangeLabel}</span>
+                    </div>
                 </div>
                 <div className="w-full bg-slate-100 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
                     <motion.div
@@ -115,7 +130,7 @@ export default function Home() {
                     />
                 </div>
                 <p className="text-xs text-slate-400 dark:text-slate-500 mt-3 text-right">
-                    총 {totalCount}자 중 <span className="font-bold text-slate-600 dark:text-slate-300">{learnedCount}자</span> 완료
+                    범위 내 {totalCount}자 중 <span className="font-bold text-slate-600 dark:text-slate-300">{learnedCount}자</span> 완료
                 </p>
             </div>
 

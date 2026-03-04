@@ -6,16 +6,22 @@ import useAppStore from '../store/useAppStore';
 
 export default function ReviewCard() {
     const navigate = useNavigate();
-    const { getDueHanjaIds, setCurrentHanjaId } = useAppStore();
+    const { getDueHanjaIds, setCurrentHanjaId, studyRange } = useAppStore();
 
-    const dueIds = useMemo(() => getDueHanjaIds(), [getDueHanjaIds]);
-    const count = dueIds.length;
+    const rangeDueIds = useMemo(() => {
+        const dueIds = getDueHanjaIds();
+        if (studyRange === '1-500') return dueIds.filter(id => id <= 500);
+        if (studyRange === '501-1000') return dueIds.filter(id => id > 500);
+        return dueIds;
+    }, [getDueHanjaIds, studyRange]);
+
+    const count = rangeDueIds.length;
 
     if (count === 0) return null;
 
     const handleStartReview = () => {
-        // Find the first due Hanja and navigate to its study page
-        setCurrentHanjaId(dueIds[0]);
+        // Find the first due Hanja within range and navigate to its study page
+        setCurrentHanjaId(rangeDueIds[0]);
         navigate('/study');
     };
 
