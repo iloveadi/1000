@@ -64,6 +64,13 @@ export default function Settings() {
             <div className="space-y-4">
 
 
+                {/* Dedication */}
+                <div className="bg-pink-50 dark:bg-pink-900/10 naver:bg-pink-50 rounded-2xl border border-pink-100 dark:border-pink-900/30 naver:border-pink-200 p-4 text-center">
+                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                        사랑하는 내 딸 <strong className="font-bold text-pink-500">YJ</strong>를 위해 만듦 🩷
+                    </p>
+                </div>
+
                 {/* Theme Selector */}
                 <div className="bg-white dark:bg-slate-800 naver:bg-white p-4 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 naver:border-green-200 transition-colors">
                     <div className="flex items-center gap-2 mb-4">
@@ -88,13 +95,6 @@ export default function Settings() {
                             </button>
                         ))}
                     </div>
-                </div>
-
-                {/* Dedication */}
-                <div className="bg-pink-50 dark:bg-pink-900/10 naver:bg-pink-50 rounded-2xl border border-pink-100 dark:border-pink-900/30 naver:border-pink-200 p-4 text-center">
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
-                        사랑하는 내 딸 <strong className="font-bold text-pink-500">YJ</strong>를 위해 만듦 🩷
-                    </p>
                 </div>
 
                 {/* Other Preferences */}
