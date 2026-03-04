@@ -25,6 +25,7 @@ export default function Settings() {
         { id: 'dark', label: '다크', bg: 'bg-slate-800', accent: 'bg-amber-700', ring: 'ring-slate-600' },
         { id: 'naver', label: '네이버', bg: 'bg-green-50', accent: 'bg-green-500', ring: 'ring-green-400' },
         { id: 'pink', label: '핑크', bg: 'bg-pink-50', accent: 'bg-pink-400', ring: 'ring-pink-300' },
+        { id: 'orange', label: '오렌지', bg: 'bg-orange-50', accent: 'bg-orange-500', ring: 'ring-orange-400' },
     ];
 
     return (
