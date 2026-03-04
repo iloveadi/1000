@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { BrainCircuit, Eye, ChevronRight, Puzzle } from 'lucide-react';
+import { BrainCircuit, Eye, ChevronRight, Puzzle, Zap, Grid3X3 } from 'lucide-react';
 
 const quizTypes = [
     {
@@ -27,6 +27,17 @@ const quizTypes = [
         badgeColor: 'bg-primary-100 dark:bg-primary-900/40 text-primary-600 dark:text-primary-400',
     },
     {
+        id: 'survival',
+        path: '/survival-quiz',
+        icon: Zap,
+        iconBg: 'bg-amber-50 dark:bg-amber-900/20',
+        iconColor: 'text-amber-600 dark:text-amber-400',
+        title: 'O/X 스피드',
+        desc: '2초 안에 한자의 뜻과 음을 판단하세요',
+        badge: '서바이벌',
+        badgeColor: 'bg-amber-100 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400',
+    },
+    {
         id: 'idiom',
         path: '/idiom-quiz',
         icon: Puzzle,
@@ -36,6 +47,17 @@ const quizTypes = [
         desc: '구절의 의미를 보고 빈칸의 한자를 맞혀보세요',
         badge: '빈칸 퀴즈',
         badgeColor: 'bg-primary-100 dark:bg-primary-900/40 text-primary-600 dark:text-primary-400',
+    },
+    {
+        id: 'scramble',
+        path: '/idiom-scramble',
+        icon: Grid3X3,
+        iconBg: 'bg-pink-50 dark:bg-pink-900/20',
+        iconColor: 'text-pink-600 dark:text-pink-400',
+        title: '사자성어 조합',
+        desc: '흩어진 한자를 순서대로 드래그하세요',
+        badge: '조합 퍼즐',
+        badgeColor: 'bg-pink-100 dark:bg-pink-900/40 text-pink-600 dark:text-pink-400',
     },
 ];
 

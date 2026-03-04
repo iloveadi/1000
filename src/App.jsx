@@ -15,6 +15,8 @@ import QuizHub from './pages/QuizHub';
 import IdiomQuiz from './pages/IdiomQuiz';
 import Intro from './pages/Intro';
 import Achievements from './pages/Achievements';
+import SurvivalQuiz from './pages/SurvivalQuiz';
+import IdiomScramble from './pages/IdiomScramble';
 import useAppStore from './store/useAppStore';
 
 function App() {
@@ -59,6 +61,8 @@ function App() {
             <Route path="idiom-quiz" element={<IdiomQuiz />} />
             <Route path="quiz-hub" element={<QuizHub />} />
             <Route path="achievements" element={<Achievements />} />
+            <Route path="survival-quiz" element={<SurvivalQuiz />} />
+            <Route path="idiom-scramble" element={<IdiomScramble />} />
           </Route>
         </Routes>
       </BrowserRouter>
