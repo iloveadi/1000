@@ -81,9 +81,9 @@ export default function Settings() {
                     </div>
                     <div className="grid grid-cols-1 gap-2 bg-white dark:bg-slate-800 naver:bg-white p-2 rounded-2xl border border-slate-100 dark:border-slate-700 naver:border-green-200 shadow-sm transition-colors">
                         {[
-                            { id: '1-500', label: '1단계: 0001 ~ 0500번', desc: '이번 학기 수업 범위' },
-                            { id: '501-1000', label: '2단계: 0501 ~ 1000번', desc: '다음 학기 수업 범위' },
-                            { id: 'all', label: '전체: 0001 ~ 1000번', desc: '천자문 전체 학습' }
+                            { id: '1-500', label: '1단계: 0001 ~ 0500번' },
+                            { id: '501-1000', label: '2단계: 0501 ~ 1000번' },
+                            { id: 'all', label: '전체: 0001 ~ 1000번' }
                         ].map((r) => (
                             <button
                                 key={r.id}
@@ -97,7 +97,6 @@ export default function Settings() {
                                     <div className={`font-bold transition-colors ${studyRange === r.id ? 'text-primary-700 dark:text-primary-300' : 'text-slate-700 dark:text-slate-200'}`}>
                                         {r.label}
                                     </div>
-                                    <div className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">{r.desc}</div>
                                 </div>
                                 <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${studyRange === r.id ? 'border-primary-500 bg-primary-500' : 'border-slate-200 dark:border-slate-600'}`}>
                                     {studyRange === r.id && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
