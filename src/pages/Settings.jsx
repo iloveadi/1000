@@ -70,7 +70,7 @@ export default function Settings() {
                         <Palette size={18} className="text-slate-500 dark:text-slate-400 naver:text-green-600" />
                         <span className="text-slate-700 dark:text-slate-200 naver:text-green-900 font-medium">테마</span>
                     </div>
-                    <div className="grid grid-cols-4 gap-2">
+                    <div className="grid grid-cols-5 gap-2">
                         {themes.map(t => (
                             <button
                                 key={t.id}
