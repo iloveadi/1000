@@ -1136,7 +1136,7 @@
   {
     "id": 190,
     "hanja": "欲",
-    "meaning": "하고자할",
+    "meaning": "하고자 할",
     "sound": "욕"
   },
   {
@@ -1225,7 +1225,7 @@
   },
   {
     "id": 205,
-    "hanja": "剋",
+    "hanja": "克",
     "meaning": "이길",
     "sound": "극"
   },
@@ -1466,7 +1466,7 @@
   {
     "id": 245,
     "hanja": "曰",
-    "meaning": "말씀",
+    "meaning": "가로",
     "sound": "왈"
   },
   {
@@ -1580,8 +1580,8 @@
   {
     "id": 264,
     "hanja": "淸",
-    "meaning": "맑을",
-    "sound": "청"
+    "meaning": "서늘할",
+    "sound": "정"
   },
   {
     "id": 265,
@@ -1802,7 +1802,7 @@
   {
     "id": 301,
     "hanja": "籍",
-    "meaning": "글",
+    "meaning": "서적",
     "sound": "적"
   },
   {
@@ -1820,7 +1820,7 @@
   {
     "id": 304,
     "hanja": "竟",
-    "meaning": "마침",
+    "meaning": "다할",
     "sound": "경"
   },
   {
@@ -1832,7 +1832,7 @@
   {
     "id": 306,
     "hanja": "優",
-    "meaning": "나을",
+    "meaning": "넉넉할",
     "sound": "우"
   },
   {
@@ -1885,14 +1885,14 @@
   },
   {
     "id": 315,
-    "hanja": "감",
+    "hanja": "甘",
     "meaning": "달",
     "sound": "감"
   },
   {
     "id": 316,
     "hanja": "棠",
-    "meaning": "아가위",
+    "meaning": "해당화",
     "sound": "당"
   },
   {
@@ -1904,7 +1904,7 @@
   {
     "id": 318,
     "hanja": "而",
-    "meaning": "말이을",
+    "meaning": "말이을(어조사)",
     "sound": "이"
   },
   {
@@ -1988,7 +1988,7 @@
   {
     "id": 332,
     "hanja": "睦",
-    "meaning": "화목",
+    "meaning": "화목할",
     "sound": "목"
   },
   {
@@ -2006,7 +2006,7 @@
   {
     "id": 335,
     "hanja": "婦",
-    "meaning": "며느리",
+    "meaning": "아내",
     "sound": "부"
   },
   {
@@ -2066,13 +2066,13 @@
   {
     "id": 345,
     "hanja": "諸",
-    "meaning": "모든",
+    "meaning": "모두",
     "sound": "제"
   },
   {
     "id": 346,
     "hanja": "姑",
-    "meaning": "할미",
+    "meaning": "시어미",
     "sound": "고"
   },
   {
@@ -2084,7 +2084,7 @@
   {
     "id": 348,
     "hanja": "叔",
-    "meaning": "아자비",
+    "meaning": "아재비",
     "sound": "숙"
   },
   {
@@ -2150,8 +2150,8 @@
   {
     "id": 359,
     "hanja": "連",
-    "meaning": "이을",
-    "sound": "련"
+    "meaning": "이어질",
+    "sound": "연"
   },
   {
     "id": 360,
@@ -2162,19 +2162,19 @@
   {
     "id": 361,
     "hanja": "交",
-    "meaning": "사괼",
+    "meaning": "사귈",
     "sound": "교"
   },
   {
     "id": 362,
     "hanja": "友",
-    "meaning": "벋",
+    "meaning": "벗",
     "sound": "우"
   },
   {
     "id": 363,
     "hanja": "投",
-    "meaning": "더딜",
+    "meaning": "던질",
     "sound": "투"
   },
   {
@@ -2204,13 +2204,13 @@
   {
     "id": 368,
     "hanja": "規",
-    "meaning": "법식",
+    "meaning": "법",
     "sound": "규"
   },
   {
     "id": 369,
     "hanja": "仁",
-    "meaning": "클",
+    "meaning": "어질",
     "sound": "인"
   },
   {
@@ -2246,7 +2246,7 @@
   {
     "id": 375,
     "hanja": "弗",
-    "meaning": "말",
+    "meaning": "아닐",
     "sound": "불"
   },
   {
@@ -2282,7 +2282,7 @@
   {
     "id": 381,
     "hanja": "顚",
-    "meaning": "엎어질",
+    "meaning": "엎드릴",
     "sound": "전"
   },
   {
@@ -2342,7 +2342,7 @@
   {
     "id": 391,
     "hanja": "神",
-    "meaning": "신령",
+    "meaning": "귀신",
     "sound": "신"
   },
   {
@@ -2402,7 +2402,7 @@
   {
     "id": 401,
     "hanja": "堅",
-    "meaning": "구들",
+    "meaning": "굳을",
     "sound": "견"
   },
   {
@@ -2414,7 +2414,7 @@
   {
     "id": 403,
     "hanja": "雅",
-    "meaning": "바를",
+    "meaning": "우아할",
     "sound": "아"
   },
   {
@@ -2444,7 +2444,7 @@
   {
     "id": 408,
     "hanja": "縻",
-    "meaning": "얼글",
+    "meaning": "얽을",
     "sound": "미"
   },
   {
@@ -2504,20 +2504,20 @@
   {
     "id": 418,
     "hanja": "邙",
-    "meaning": "북망산",
+    "meaning": "산이름",
     "sound": "망"
   },
   {
     "id": 419,
     "hanja": "面",
-    "meaning": "낯",
+    "meaning": "얼굴",
     "sound": "면"
   },
   {
     "id": 420,
     "hanja": "洛",
-    "meaning": "낙수",
-    "sound": "낙"
+    "meaning": "강이름",
+    "sound": "락"
   },
   {
     "id": 421,
@@ -2528,19 +2528,19 @@
   {
     "id": 422,
     "hanja": "渭",
-    "meaning": "위수",
+    "meaning": "강이름",
     "sound": "위"
   },
   {
     "id": 423,
     "hanja": "據",
-    "meaning": "의지할",
+    "meaning": "의거할",
     "sound": "거"
   },
   {
     "id": 424,
     "hanja": "涇",
-    "meaning": "경수",
+    "meaning": "통할",
     "sound": "경"
   },
   {
@@ -2552,13 +2552,13 @@
   {
     "id": 426,
     "hanja": "殿",
-    "meaning": "전각",
+    "meaning": "큰집",
     "sound": "전"
   },
   {
     "id": 427,
     "hanja": "盤",
-    "meaning": "서릴",
+    "meaning": "밑받침",
     "sound": "반"
   },
   {
@@ -2571,7 +2571,7 @@
     "id": 429,
     "hanja": "樓",
     "meaning": "다락",
-    "sound": "누"
+    "sound": "루"
   },
   {
     "id": 430,
@@ -2606,13 +2606,13 @@
   {
     "id": 435,
     "hanja": "禽",
-    "meaning": "새",
+    "meaning": "날짐승",
     "sound": "금"
   },
   {
     "id": 436,
     "hanja": "獸",
-    "meaning": "즘승",
+    "meaning": "짐승",
     "sound": "수"
   },
   {
@@ -2642,7 +2642,7 @@
   {
     "id": 441,
     "hanja": "丙",
-    "meaning": "남녁",
+    "meaning": "남녘",
     "sound": "병"
   },
   {
@@ -2666,25 +2666,25 @@
   {
     "id": 445,
     "hanja": "甲",
-    "meaning": "갑",
+    "meaning": "갑옷",
     "sound": "갑"
   },
   {
     "id": 446,
     "hanja": "帳",
-    "meaning": "장",
+    "meaning": "휘장",
     "sound": "장"
   },
   {
     "id": 447,
     "hanja": "對",
-    "meaning": "대답",
+    "meaning": "대할",
     "sound": "대"
   },
   {
     "id": 448,
     "hanja": "楹",
-    "meaning": "기동",
+    "meaning": "기둥",
     "sound": "영"
   },
   {
@@ -2708,13 +2708,13 @@
   {
     "id": 452,
     "hanja": "席",
-    "meaning": "돗",
+    "meaning": "자리",
     "sound": "셕"
   },
   {
     "id": 453,
     "hanja": "鼓",
-    "meaning": "북",
+    "meaning": "북(두드릴)",
     "sound": "고"
   },
   {
@@ -2744,25 +2744,25 @@
   {
     "id": 458,
     "hanja": "階",
-    "meaning": "다리",
+    "meaning": "섬돌(계단)",
     "sound": "계"
   },
   {
     "id": 459,
     "hanja": "納",
-    "meaning": "드릴",
-    "sound": "랍"
+    "meaning": "바칠",
+    "sound": "납"
   },
   {
     "id": 460,
     "hanja": "陛",
-    "meaning": "섬",
+    "meaning": "섬돌",
     "sound": "폐"
   },
   {
     "id": 461,
     "hanja": "弁",
-    "meaning": "곳갈",
+    "meaning": "고깔",
     "sound": "변"
   },
   {
@@ -2774,7 +2774,7 @@
   {
     "id": 463,
     "hanja": "疑",
-    "meaning": "의심",
+    "meaning": "의심할",
     "sound": "의"
   },
   {
@@ -2786,7 +2786,7 @@
   {
     "id": 465,
     "hanja": "右",
-    "meaning": "옳을",
+    "meaning": "오른쪽",
     "sound": "우"
   },
   {
@@ -2870,43 +2870,43 @@
   {
     "id": 479,
     "hanja": "群",
-    "meaning": "물",
+    "meaning": "무리",
     "sound": "군"
   },
   {
     "id": 480,
     "hanja": "英",
-    "meaning": "곳뿌리",
+    "meaning": "꽃부리",
     "sound": "영"
   },
   {
     "id": 481,
     "hanja": "杜",
-    "meaning": "마글",
+    "meaning": "막을",
     "sound": "두"
   },
   {
     "id": 482,
     "hanja": "藁",
-    "meaning": "짚",
+    "meaning": "볏집",
     "sound": "고"
   },
   {
     "id": 483,
     "hanja": "鍾",
-    "meaning": "종자",
+    "meaning": "쇠북",
     "sound": "종"
   },
   {
     "id": 484,
     "hanja": "隷",
-    "meaning": "글시",
+    "meaning": "붙을",
     "sound": "예"
   },
   {
     "id": 485,
     "hanja": "漆",
-    "meaning": "옷",
+    "meaning": "옻칠할",
     "sound": "칠"
   },
   {
@@ -2918,25 +2918,25 @@
   {
     "id": 487,
     "hanja": "壁",
-    "meaning": "바람",
+    "meaning": "벽",
     "sound": "벽"
   },
   {
     "id": 488,
     "hanja": "經",
-    "meaning": "글",
+    "meaning": "경서",
     "sound": "경"
   },
   {
     "id": 489,
     "hanja": "府",
-    "meaning": "마알",
+    "meaning": "마을",
     "sound": "부"
   },
   {
     "id": 490,
     "hanja": "羅",
-    "meaning": "벌",
+    "meaning": "벌릴",
     "sound": "라"
   },
   {
@@ -2966,7 +2966,7 @@
   {
     "id": 495,
     "hanja": "槐",
-    "meaning": "괴화",
+    "meaning": "홰나무",
     "sound": "괴"
   },
   {
@@ -2984,19 +2984,19 @@
   {
     "id": 498,
     "hanja": "封",
-    "meaning": "봉해알",
+    "meaning": "봉할",
     "sound": "봉"
   },
   {
     "id": 499,
     "hanja": "八",
-    "meaning": "여달",
+    "meaning": "여덟",
     "sound": "팔"
   },
   {
     "id": 500,
     "hanja": "縣",
-    "meaning": "고알",
+    "meaning": "고을",
     "sound": "현"
   },
   {
@@ -3020,7 +3020,7 @@
   {
     "id": 504,
     "hanja": "兵",
-    "meaning": "병마",
+    "meaning": "군사",
     "sound": "병"
   },
   {
@@ -3032,20 +3032,20 @@
   {
     "id": 506,
     "hanja": "冠",
-    "meaning": "곳갈",
+    "meaning": "갓",
     "sound": "관"
   },
   {
     "id": 507,
     "hanja": "陪",
-    "meaning": "뫼실",
-    "sound": "비"
+    "meaning": "더할",
+    "sound": "배"
   },
   {
     "id": 508,
     "hanja": "輦",
-    "meaning": "년",
-    "sound": "년"
+    "meaning": "손수레",
+    "sound": "련"
   },
   {
     "id": 509,
@@ -3056,61 +3056,61 @@
   {
     "id": 510,
     "hanja": "轂",
-    "meaning": "술위통",
+    "meaning": "바퀴",
     "sound": "곡"
   },
   {
     "id": 511,
     "hanja": "振",
-    "meaning": "떨",
+    "meaning": "떨칠",
     "sound": "진"
   },
   {
     "id": 512,
     "hanja": "纓",
-    "meaning": "긴",
+    "meaning": "갓끈",
     "sound": "영"
   },
   {
     "id": 513,
     "hanja": "世",
-    "meaning": "인간",
+    "meaning": "세상",
     "sound": "세"
   },
   {
     "id": 514,
     "hanja": "祿",
-    "meaning": "녹",
-    "sound": "녹"
+    "meaning": "녹봉",
+    "sound": "록"
   },
   {
     "id": 515,
     "hanja": "侈",
-    "meaning": "사치",
+    "meaning": "사치할",
     "sound": "치"
   },
   {
     "id": 516,
     "hanja": "富",
-    "meaning": "가며운",
+    "meaning": "부귀",
     "sound": "부"
   },
   {
     "id": 517,
     "hanja": "車",
-    "meaning": "술위",
+    "meaning": "수레",
     "sound": "거"
   },
   {
     "id": 518,
     "hanja": "駕",
-    "meaning": "멍에",
+    "meaning": "가마",
     "sound": "가"
   },
   {
     "id": 519,
     "hanja": "肥",
-    "meaning": "살질",
+    "meaning": "살찔",
     "sound": "비"
   },
   {
@@ -3122,19 +3122,19 @@
   {
     "id": 521,
     "hanja": "策",
-    "meaning": "막대",
-    "sound": "측"
+    "meaning": "꾀",
+    "sound": "책"
   },
   {
     "id": 522,
     "hanja": "功",
-    "meaning": "공",
+    "meaning": "공로",
     "sound": "공"
   },
   {
     "id": 523,
     "hanja": "茂",
-    "meaning": "거칠",
+    "meaning": "무성할",
     "sound": "무"
   },
   {
@@ -3146,7 +3146,7 @@
   {
     "id": 525,
     "hanja": "勒",
-    "meaning": "굴에",
+    "meaning": "굴레",
     "sound": "록"
   },
   {
@@ -3158,7 +3158,7 @@
   {
     "id": 527,
     "hanja": "刻",
-    "meaning": "사길",
+    "meaning": "새길",
     "sound": "각"
   },
   {
@@ -3170,7 +3170,7 @@
   {
     "id": 529,
     "hanja": "磻",
-    "meaning": "돌",
+    "meaning": "강이름",
     "sound": "반"
   },
   {
@@ -3188,19 +3188,19 @@
   {
     "id": 532,
     "hanja": "尹",
-    "meaning": "맏",
+    "meaning": "다스릴",
     "sound": "윤"
   },
   {
     "id": 533,
     "hanja": "佐",
     "meaning": "도울",
-    "sound": "자"
+    "sound": "좌"
   },
   {
     "id": 534,
     "hanja": "時",
-    "meaning": "시절",
+    "meaning": "때",
     "sound": "시"
   },
   {
@@ -3218,7 +3218,7 @@
   {
     "id": 537,
     "hanja": "奄",
-    "meaning": "문득",
+    "meaning": "가릴",
     "sound": "엄"
   },
   {
@@ -3242,14 +3242,14 @@
   {
     "id": 541,
     "hanja": "微",
-    "meaning": "적을",
+    "meaning": "작을",
     "sound": "미"
   },
   {
     "id": 542,
     "hanja": "旦",
     "meaning": "아침",
-    "sound": "조"
+    "sound": "단"
   },
   {
     "id": 543,
@@ -3260,7 +3260,7 @@
   {
     "id": 544,
     "hanja": "營",
-    "meaning": "지을",
+    "meaning": "경영할",
     "sound": "영"
   },
   {
@@ -3272,13 +3272,13 @@
   {
     "id": 546,
     "hanja": "公",
-    "meaning": "공평",
+    "meaning": "공평할",
     "sound": "공"
   },
   {
     "id": 547,
     "hanja": "匡",
-    "meaning": "고칠",
+    "meaning": "바를",
     "sound": "광"
   },
   {
@@ -3290,7 +3290,7 @@
   {
     "id": 549,
     "hanja": "濟",
-    "meaning": "건널",
+    "meaning": "구제할",
     "sound": "제"
   },
   {
@@ -3302,7 +3302,7 @@
   {
     "id": 551,
     "hanja": "扶",
-    "meaning": "붙들",
+    "meaning": "도울",
     "sound": "부"
   },
   {
@@ -3338,7 +3338,7 @@
   {
     "id": 557,
     "hanja": "說",
-    "meaning": "말할",
+    "meaning": "말씀",
     "sound": "설"
   },
   {
@@ -3356,7 +3356,7 @@
   {
     "id": 560,
     "hanja": "丁",
-    "meaning": "장정",
+    "meaning": "고무레",
     "sound": "정"
   },
   {
@@ -3398,13 +3398,13 @@
   {
     "id": 567,
     "hanja": "寔",
-    "meaning": "이",
+    "meaning": "참으로",
     "sound": "식"
   },
   {
     "id": 568,
     "hanja": "寧",
-    "meaning": "편안",
+    "meaning": "편안할",
     "sound": "녕"
   },
   {
@@ -3422,8 +3422,8 @@
   {
     "id": 571,
     "hanja": "更",
-    "meaning": "고칠",
-    "sound": "경"
+    "meaning": "다시",
+    "sound": "갱"
   },
   {
     "id": 572,
@@ -3452,13 +3452,13 @@
   {
     "id": 576,
     "hanja": "橫",
-    "meaning": "비껴가다",
+    "meaning": "가로",
     "sound": "횡"
   },
   {
     "id": 577,
     "hanja": "假",
-    "meaning": "빌릴",
+    "meaning": "거짓",
     "sound": "가"
   },
   {
@@ -3470,7 +3470,7 @@
   {
     "id": 579,
     "hanja": "滅",
-    "meaning": "꺼질",
+    "meaning": "멸할",
     "sound": "멸"
   },
   {
@@ -3494,13 +3494,13 @@
   {
     "id": 583,
     "hanja": "會",
-    "meaning": "모을",
+    "meaning": "모일",
     "sound": "회"
   },
   {
     "id": 584,
     "hanja": "盟",
-    "meaning": "맹세",
+    "meaning": "맹세할",
     "sound": "맹"
   },
   {
@@ -3518,7 +3518,7 @@
   {
     "id": 587,
     "hanja": "約",
-    "meaning": "언약",
+    "meaning": "약속할",
     "sound": "약"
   },
   {
@@ -3536,13 +3536,13 @@
   {
     "id": 590,
     "hanja": "弊",
-    "meaning": "해어질",
+    "meaning": "낡을",
     "sound": "폐"
   },
   {
     "id": 591,
     "hanja": "煩",
-    "meaning": "어지러울",
+    "meaning": "번거로울",
     "sound": "번"
   },
   {
@@ -3596,7 +3596,7 @@
   {
     "id": 600,
     "hanja": "精",
-    "meaning": "깨끗할",
+    "meaning": "자세할",
     "sound": "정"
   },
   {
@@ -3662,7 +3662,7 @@
   {
     "id": 611,
     "hanja": "禹",
-    "meaning": "임금",
+    "meaning": "하우씨",
     "sound": "우"
   },
   {
@@ -3674,7 +3674,7 @@
   {
     "id": 613,
     "hanja": "百",
-    "meaning": "온",
+    "meaning": "일백",
     "sound": "백"
   },
   {
@@ -3698,13 +3698,13 @@
   {
     "id": 617,
     "hanja": "嶽",
-    "meaning": "높은 산",
+    "meaning": "산마루",
     "sound": "악"
   },
   {
     "id": 618,
     "hanja": "宗",
-    "meaning": "근본",
+    "meaning": "마루",
     "sound": "종"
   },
   {
@@ -3722,7 +3722,7 @@
   {
     "id": 621,
     "hanja": "禪",
-    "meaning": "터닦을",
+    "meaning": "봉선",
     "sound": "선"
   },
   {
@@ -3734,7 +3734,7 @@
   {
     "id": 623,
     "hanja": "云",
-    "meaning": "말할",
+    "meaning": "이를",
     "sound": "운"
   },
   {
@@ -3758,13 +3758,13 @@
   {
     "id": 627,
     "hanja": "紫",
-    "meaning": "붉을",
+    "meaning": "자줏빛",
     "sound": "자"
   },
   {
     "id": 628,
     "hanja": "塞",
-    "meaning": "막을",
+    "meaning": "변방",
     "sound": "색"
   },
   {
@@ -3806,7 +3806,7 @@
   {
     "id": 635,
     "hanja": "碣",
-    "meaning": "돌",
+    "meaning": "비석",
     "sound": "갈"
   },
   {
@@ -3818,7 +3818,7 @@
   {
     "id": 637,
     "hanja": "鉅",
-    "meaning": "강철",
+    "meaning": "큰쇠",
     "sound": "거"
   },
   {
@@ -3830,19 +3830,19 @@
   {
     "id": 639,
     "hanja": "洞",
-    "meaning": "골",
+    "meaning": "골짜기",
     "sound": "동"
   },
   {
     "id": 640,
     "hanja": "庭",
-    "meaning": "뜰",
+    "meaning": "마당",
     "sound": "정"
   },
   {
     "id": 641,
     "hanja": "曠",
-    "meaning": "빌",
+    "meaning": "밝을",
     "sound": "광"
   },
   {
@@ -3854,7 +3854,7 @@
   {
     "id": 643,
     "hanja": "綿",
-    "meaning": "이을",
+    "meaning": "이어질",
     "sound": "면"
   },
   {
@@ -3872,7 +3872,7 @@
   {
     "id": 646,
     "hanja": "岫",
-    "meaning": "굴",
+    "meaning": "산굴",
     "sound": "수"
   },
   {
@@ -3884,7 +3884,7 @@
   {
     "id": 648,
     "hanja": "冥",
-    "meaning": "아득할",
+    "meaning": "어두울",
     "sound": "명"
   },
   {
@@ -3896,13 +3896,13 @@
   {
     "id": 650,
     "hanja": "本",
-    "meaning": "밑바탕",
+    "meaning": "근본",
     "sound": "본"
   },
   {
     "id": 651,
     "hanja": "於",
-    "meaning": "어",
+    "meaning": "어조사",
     "sound": "어"
   },
   {
@@ -3920,7 +3920,7 @@
   {
     "id": 654,
     "hanja": "玆",
-    "meaning": "이",
+    "meaning": "이에",
     "sound": "자"
   },
   {
@@ -3944,13 +3944,13 @@
   {
     "id": 658,
     "hanja": "載",
-    "meaning": "기록할",
+    "meaning": "실을",
     "sound": "재"
   },
   {
     "id": 659,
     "hanja": "南",
-    "meaning": "앞",
+    "meaning": "남녘",
     "sound": "남"
   },
   {
@@ -3968,7 +3968,7 @@
   {
     "id": 662,
     "hanja": "藝",
-    "meaning": "심을",
+    "meaning": "재주",
     "sound": "예"
   },
   {
@@ -3986,7 +3986,7 @@
   {
     "id": 665,
     "hanja": "稅",
-    "meaning": "세금",
+    "meaning": "징수할",
     "sound": "세"
   },
   {
@@ -4016,13 +4016,13 @@
   {
     "id": 670,
     "hanja": "賞",
-    "meaning": "줄",
+    "meaning": "상줄",
     "sound": "상"
   },
   {
     "id": 671,
     "hanja": "黜",
-    "meaning": "내칠",
+    "meaning": "물리칠",
     "sound": "출"
   },
   {
@@ -4040,7 +4040,7 @@
   {
     "id": 674,
     "hanja": "軻",
-    "meaning": "술위",
+    "meaning": "수레",
     "sound": "가"
   },
   {
@@ -4058,13 +4058,13 @@
   {
     "id": 677,
     "hanja": "史",
-    "meaning": "사기",
+    "meaning": "역사",
     "sound": "사"
   },
   {
     "id": 678,
     "hanja": "魚",
-    "meaning": "고기",
+    "meaning": "물고기",
     "sound": "어"
   },
   {
@@ -4088,7 +4088,7 @@
   {
     "id": 682,
     "hanja": "幾",
-    "meaning": "거의",
+    "meaning": "몇",
     "sound": "기"
   },
   {
@@ -4100,7 +4100,7 @@
   {
     "id": 684,
     "hanja": "庸",
-    "meaning": "항상",
+    "meaning": "쓸",
     "sound": "용"
   },
   {
@@ -4112,7 +4112,7 @@
   {
     "id": 686,
     "hanja": "謙",
-    "meaning": "겸손",
+    "meaning": "겸손할",
     "sound": "겸"
   },
   {
@@ -4124,7 +4124,7 @@
   {
     "id": 688,
     "hanja": "勅",
-    "meaning": "경계",
+    "meaning": "경계할",
     "sound": "칙"
   },
   {
@@ -4160,13 +4160,13 @@
   {
     "id": 694,
     "hanja": "貌",
-    "meaning": "얼굴",
+    "meaning": "모양",
     "sound": "모"
   },
   {
     "id": 695,
     "hanja": "辨",
-    "meaning": "분별",
+    "meaning": "분별할",
     "sound": "변"
   },
   {
@@ -4196,7 +4196,7 @@
   {
     "id": 700,
     "hanja": "猷",
-    "meaning": "꾀",
+    "meaning": "꾀할",
     "sound": "유"
   },
   {
@@ -4214,7 +4214,7 @@
   {
     "id": 703,
     "hanja": "祗",
-    "meaning": "공경",
+    "meaning": "공경할",
     "sound": "지"
   },
   {
@@ -4244,13 +4244,13 @@
   {
     "id": 708,
     "hanja": "誡",
-    "meaning": "훈계",
+    "meaning": "경계할",
     "sound": "계"
   },
   {
     "id": 709,
     "hanja": "寵",
-    "meaning": "사랑",
+    "meaning": "고일",
     "sound": "총"
   },
   {
@@ -4262,7 +4262,7 @@
   {
     "id": 711,
     "hanja": "抗",
-    "meaning": "맞설",
+    "meaning": "막을",
     "sound": "항"
   },
   {
@@ -4274,7 +4274,7 @@
   {
     "id": 713,
     "hanja": "殆",
-    "meaning": "위태로울",
+    "meaning": "위태할",
     "sound": "태"
   },
   {
@@ -4310,7 +4310,7 @@
   {
     "id": 719,
     "hanja": "幸",
-    "meaning": "행여",
+    "meaning": "다행",
     "sound": "행"
   },
   {
@@ -4328,7 +4328,7 @@
   {
     "id": 722,
     "hanja": "疎",
-    "meaning": "멀",
+    "meaning": "트일",
     "sound": "소"
   },
   {
@@ -4352,7 +4352,7 @@
   {
     "id": 726,
     "hanja": "組",
-    "meaning": "끈",
+    "meaning": "짤",
     "sound": "조"
   },
   {
@@ -4364,7 +4364,7 @@
   {
     "id": 728,
     "hanja": "逼",
-    "meaning": "박두할",
+    "meaning": "핍박할",
     "sound": "핍"
   },
   {
@@ -4382,7 +4382,7 @@
   {
     "id": 731,
     "hanja": "閑",
-    "meaning": "한가",
+    "meaning": "한가할",
     "sound": "한"
   },
   {
@@ -4400,20 +4400,20 @@
   {
     "id": 734,
     "hanja": "黙",
-    "meaning": "잠잠할",
+    "meaning": "묵묵할",
     "sound": "묵"
   },
   {
     "id": 735,
     "hanja": "寂",
-    "meaning": "고요",
+    "meaning": "고요할",
     "sound": "적"
   },
   {
     "id": 736,
     "hanja": "寥",
     "meaning": "고요",
-    "sound": "료"
+    "sound": "요"
   },
   {
     "id": 737,
@@ -4436,31 +4436,31 @@
   {
     "id": 740,
     "hanja": "論",
-    "meaning": "말씀",
+    "meaning": "의논할",
     "sound": "론"
   },
   {
     "id": 741,
     "hanja": "散",
-    "meaning": "흩을",
+    "meaning": "흩어질",
     "sound": "산"
   },
   {
     "id": 742,
     "hanja": "慮",
-    "meaning": "상념",
+    "meaning": "생각할",
     "sound": "려"
   },
   {
     "id": 743,
     "hanja": "逍",
-    "meaning": "노닐",
+    "meaning": "거닐",
     "sound": "소"
   },
   {
     "id": 744,
     "hanja": "遙",
-    "meaning": "노닐",
+    "meaning": "멀",
     "sound": "요"
   },
   {
@@ -4478,7 +4478,7 @@
   {
     "id": 747,
     "hanja": "累",
-    "meaning": "허물",
+    "meaning": "묶을",
     "sound": "루"
   },
   {
@@ -4496,13 +4496,13 @@
   {
     "id": 750,
     "hanja": "謝",
-    "meaning": "사례",
+    "meaning": "사례할",
     "sound": "사"
   },
   {
     "id": 751,
     "hanja": "歡",
-    "meaning": "즐길",
+    "meaning": "기뻐할",
     "sound": "환"
   },
   {
@@ -4514,19 +4514,19 @@
   {
     "id": 753,
     "hanja": "渠",
-    "meaning": "개천",
+    "meaning": "도랑",
     "sound": "거"
   },
   {
     "id": 754,
     "hanja": "荷",
-    "meaning": "짐",
+    "meaning": "연꽃",
     "sound": "하"
   },
   {
     "id": 755,
     "hanja": "的",
-    "meaning": "맞을",
+    "meaning": "과녁",
     "sound": "적"
   },
   {
@@ -4556,7 +4556,7 @@
   {
     "id": 760,
     "hanja": "條",
-    "meaning": "조목",
+    "meaning": "가지",
     "sound": "조"
   },
   {
@@ -4598,19 +4598,19 @@
   {
     "id": 767,
     "hanja": "早",
-    "meaning": "이를",
+    "meaning": "일찍",
     "sound": "조"
   },
   {
     "id": 768,
     "hanja": "凋",
-    "meaning": "마를",
+    "meaning": "시들",
     "sound": "조"
   },
   {
     "id": 769,
     "hanja": "陳",
-    "meaning": "묵을",
+    "meaning": "베풀",
     "sound": "진"
   },
   {
@@ -4628,7 +4628,7 @@
   {
     "id": 772,
     "hanja": "翳",
-    "meaning": "말라죽을",
+    "meaning": "가릴",
     "sound": "예"
   },
   {
@@ -4640,31 +4640,31 @@
   {
     "id": 774,
     "hanja": "葉",
-    "meaning": "잎",
+    "meaning": "잎사귀",
     "sound": "엽"
   },
   {
     "id": 775,
     "hanja": "飄",
-    "meaning": "날릴",
+    "meaning": "회오리바람",
     "sound": "표"
   },
   {
     "id": 776,
     "hanja": "颻",
-    "meaning": "날릴",
+    "meaning": "질풍",
     "sound": "요"
   },
   {
     "id": 777,
     "hanja": "遊",
-    "meaning": "놀",
+    "meaning": "헤엄칠",
     "sound": "유"
   },
   {
     "id": 778,
     "hanja": "鯤",
-    "meaning": "고기",
+    "meaning": "새",
     "sound": "곤"
   },
   {
@@ -4676,13 +4676,13 @@
   {
     "id": 780,
     "hanja": "運",
-    "meaning": "운전",
+    "meaning": "돌",
     "sound": "운"
   },
   {
     "id": 781,
     "hanja": "凌",
-    "meaning": "업신여길",
+    "meaning": "깔볼",
     "sound": "릉"
   },
   {
@@ -4694,7 +4694,7 @@
   {
     "id": 783,
     "hanja": "絳",
-    "meaning": "붉을",
+    "meaning": "진홍색",
     "sound": "강"
   },
   {
@@ -4718,13 +4718,13 @@
   {
     "id": 787,
     "hanja": "翫",
-    "meaning": "구경",
+    "meaning": "가지고 놀",
     "sound": "완"
   },
   {
     "id": 788,
     "hanja": "市",
-    "meaning": "저자",
+    "meaning": "시장",
     "sound": "시"
   },
   {
@@ -4754,8 +4754,8 @@
   {
     "id": 793,
     "hanja": "易",
-    "meaning": "바꿀/쉬울",
-    "sound": "역/이"
+    "meaning": "바꿀",
+    "sound": "역"
   },
   {
     "id": 794,
@@ -4778,7 +4778,7 @@
   {
     "id": 797,
     "hanja": "屬",
-    "meaning": "붙일",
+    "meaning": "엮을",
     "sound": "속"
   },
   {
@@ -4814,7 +4814,7 @@
   {
     "id": 803,
     "hanja": "飧",
-    "meaning": "밥",
+    "meaning": "저녁밥",
     "sound": "손"
   },
   {
@@ -4826,7 +4826,7 @@
   {
     "id": 805,
     "hanja": "適",
-    "meaning": "마침",
+    "meaning": "맞을",
     "sound": "적"
   },
   {
@@ -4856,7 +4856,7 @@
   {
     "id": 810,
     "hanja": "飫",
-    "meaning": "배부를",
+    "meaning": "물릴",
     "sound": "어"
   },
   {
@@ -4874,19 +4874,19 @@
   {
     "id": 813,
     "hanja": "飢",
-    "meaning": "주릴",
+    "meaning": "굶주릴",
     "sound": "기"
   },
   {
     "id": 814,
     "hanja": "厭",
-    "meaning": "싫을",
+    "meaning": "족할",
     "sound": "염"
   },
   {
     "id": 815,
     "hanja": "糟",
-    "meaning": "재강",
+    "meaning": "지게미",
     "sound": "조"
   },
   {
@@ -4910,7 +4910,7 @@
   {
     "id": 819,
     "hanja": "故",
-    "meaning": "연고",
+    "meaning": "옛",
     "sound": "고"
   },
   {
@@ -4928,7 +4928,7 @@
   {
     "id": 822,
     "hanja": "少",
-    "meaning": "젊을",
+    "meaning": "적을",
     "sound": "소"
   },
   {
@@ -4982,7 +4982,7 @@
   {
     "id": 831,
     "hanja": "帷",
-    "meaning": "장막",
+    "meaning": "휘장",
     "sound": "유"
   },
   {
@@ -5012,7 +5012,7 @@
   {
     "id": 836,
     "hanja": "潔",
-    "meaning": "맑을",
+    "meaning": "깨끗할",
     "sound": "결"
   },
   {
@@ -5084,7 +5084,7 @@
   {
     "id": 848,
     "hanja": "床",
-    "meaning": "상",
+    "meaning": "평상",
     "sound": "상"
   },
   {
@@ -5114,7 +5114,7 @@
   {
     "id": 853,
     "hanja": "接",
-    "meaning": "이을",
+    "meaning": "사귈(이을)",
     "sound": "접"
   },
   {
@@ -5150,7 +5150,7 @@
   {
     "id": 859,
     "hanja": "頓",
-    "meaning": "두드릴",
+    "meaning": "조아릴",
     "sound": "돈"
   },
   {
@@ -5186,7 +5186,7 @@
   {
     "id": 865,
     "hanja": "嫡",
-    "meaning": "맏",
+    "meaning": "정실",
     "sound": "적"
   },
   {
@@ -5234,7 +5234,7 @@
   {
     "id": 873,
     "hanja": "稽",
-    "meaning": "머물을",
+    "meaning": "조아릴",
     "sound": "계"
   },
   {
@@ -5246,7 +5246,7 @@
   {
     "id": 875,
     "hanja": "再",
-    "meaning": "둘",
+    "meaning": "거듭",
     "sound": "재"
   },
   {
@@ -5276,7 +5276,7 @@
   {
     "id": 880,
     "hanja": "惶",
-    "meaning": "두려울",
+    "meaning": "두려워할",
     "sound": "황"
   },
   {
@@ -5360,7 +5360,7 @@
   {
     "id": 894,
     "hanja": "熱",
-    "meaning": "뜨거울",
+    "meaning": "더울",
     "sound": "열"
   },
   {
@@ -5379,7 +5379,7 @@
     "id": 897,
     "hanja": "驢",
     "meaning": "나귀",
-    "sound": "여"
+    "sound": "려"
   },
   {
     "id": 898,
@@ -5396,7 +5396,7 @@
   {
     "id": 900,
     "hanja": "特",
-    "meaning": "특별",
+    "meaning": "수컷(특별할)",
     "sound": "특"
   },
   {
@@ -5510,7 +5510,7 @@
   {
     "id": 919,
     "hanja": "阮",
-    "meaning": "성",
+    "meaning": "악기",
     "sound": "완"
   },
   {
@@ -5522,8 +5522,8 @@
   {
     "id": 921,
     "hanja": "恬",
-    "meaning": "편안",
-    "sound": "염"
+    "meaning": "편안할",
+    "sound": "념"
   },
   {
     "id": 922,
@@ -5546,7 +5546,7 @@
   {
     "id": 925,
     "hanja": "鈞",
-    "meaning": "무거울",
+    "meaning": "고를",
     "sound": "균"
   },
   {
@@ -5582,7 +5582,7 @@
   {
     "id": 931,
     "hanja": "利",
-    "meaning": "이할",
+    "meaning": "이로울",
     "sound": "리"
   },
   {
@@ -5690,7 +5690,7 @@
   {
     "id": 949,
     "hanja": "羲",
-    "meaning": "복희/내쉬는 숨",
+    "meaning": "햇빛",
     "sound": "희"
   },
   {
@@ -5732,7 +5732,7 @@
   {
     "id": 956,
     "hanja": "斡",
-    "meaning": "돌",
+    "meaning": "빙빙돌",
     "sound": "알"
   },
   {
@@ -5792,8 +5792,8 @@
   {
     "id": 966,
     "hanja": "綏",
-    "meaning": "편안",
-    "sound": "유"
+    "meaning": "편안할",
+    "sound": "수"
   },
   {
     "id": 967,
@@ -5804,13 +5804,13 @@
   {
     "id": 968,
     "hanja": "邵",
-    "meaning": "높을",
+    "meaning": "아름다울",
     "sound": "소"
   },
   {
     "id": 969,
     "hanja": "矩",
-    "meaning": "법",
+    "meaning": "모날",
     "sound": "구"
   },
   {
@@ -5828,13 +5828,13 @@
   {
     "id": 972,
     "hanja": "領",
-    "meaning": "차지할",
+    "meaning": "옷깃(차지할)",
     "sound": "령"
   },
   {
     "id": 973,
     "hanja": "俯",
-    "meaning": "굽을",
+    "meaning": "구부릴",
     "sound": "부"
   },
   {
@@ -5846,7 +5846,7 @@
   {
     "id": 975,
     "hanja": "廊",
-    "meaning": "행랑",
+    "meaning": "복도(행랑)",
     "sound": "랑"
   },
   {
@@ -5876,19 +5876,19 @@
   {
     "id": 980,
     "hanja": "莊",
-    "meaning": "씩씩할",
+    "meaning": "엄숙할",
     "sound": "장"
   },
   {
     "id": 981,
     "hanja": "徘",
-    "meaning": "배회할",
+    "meaning": "노닐",
     "sound": "배"
   },
   {
     "id": 982,
     "hanja": "徊",
-    "meaning": "어정거릴",
+    "meaning": "노닐",
     "sound": "회"
   },
   {
@@ -5912,7 +5912,7 @@
   {
     "id": 986,
     "hanja": "陋",
-    "meaning": "더러울",
+    "meaning": "좁을",
     "sound": "루"
   },
   {
