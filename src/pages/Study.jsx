@@ -86,7 +86,7 @@ export default function Study() {
     };
 
     return (
-        <div className="flex flex-col h-full bg-slate-50 dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden px-6 pt-4 pb-20">
+        <div className="flex flex-col h-full bg-slate-50 dark:bg-slate-900 transition-colors duration-300 relative overflow-hidden px-6 pt-4 pb-6">
             {/* Header */}
             <div className="flex justify-between items-center mb-8 h-8">
                 <div className="flex items-center gap-3">
@@ -213,33 +213,34 @@ export default function Study() {
                 </AnimatePresence>
             </div>
 
-            {/* Floating Write Button */}
-            <AnimatePresence>
-                {!showCanvas && (
-                    <motion.button
-                        initial={{ scale: 0, x: '-50%' }} animate={{ scale: 1, x: '-50%' }} exit={{ scale: 0, x: '-50%' }}
-                        onClick={() => setShowCanvas(true)}
-                        className="absolute left-1/2 bottom-28 bg-primary-900 dark:bg-primary-600 text-white p-4 rounded-full shadow-lg hover:scale-105 transition-transform z-10 focus:outline-none flex items-center gap-2 pr-6"
-                    >
-                        <Edit3 size={24} /> <span className="font-bold">직접 써보기</span>
-                    </motion.button>
-                )}
-            </AnimatePresence>
-
             {/* Navigation Controls */}
-            <div className="flex justify-between mt-auto pb-4 gap-4 px-2">
+            <div className="flex justify-between items-center mt-6 gap-2 sm:gap-4 px-2">
                 <button
                     onClick={handlePrev}
                     disabled={currentIndex === 0 || showCanvas}
-                    className="bg-white dark:bg-slate-800 p-4 rounded-full shadow-sm disabled:opacity-50 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition focus:outline-none"
+                    className="bg-white dark:bg-slate-800 p-4 rounded-full shadow-sm disabled:opacity-50 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition focus:outline-none shrink-0"
                 >
                     <ChevronLeft size={28} />
                 </button>
-                <div className="flex-1"></div> {/* Spacer for center button */}
+
+                <AnimatePresence>
+                    {!showCanvas && (
+                        <motion.button
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            exit={{ scale: 0 }}
+                            onClick={() => setShowCanvas(true)}
+                            className="bg-primary-900 dark:bg-primary-600 text-white py-4 px-6 rounded-full shadow-lg hover:scale-105 transition-transform z-10 focus:outline-none flex items-center justify-center gap-2 whitespace-nowrap min-h-[60px]"
+                        >
+                            <Edit3 size={24} /> <span className="font-bold text-sm sm:text-base">직접 써보기</span>
+                        </motion.button>
+                    )}
+                </AnimatePresence>
+
                 <button
                     onClick={handleNext}
                     disabled={currentIndex === rangeData.length - 1 || showCanvas}
-                    className="bg-white dark:bg-slate-800 p-4 rounded-full shadow-sm disabled:opacity-50 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition focus:outline-none"
+                    className="bg-white dark:bg-slate-800 p-4 rounded-full shadow-sm disabled:opacity-50 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition focus:outline-none shrink-0"
                 >
                     <ChevronRight size={28} />
                 </button>
