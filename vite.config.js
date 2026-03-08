@@ -14,8 +14,8 @@ export default defineConfig({
         name: '천자문 학습',
         short_name: '천자문 학습',
         description: '하루하루 배우는 재미, 천자문 학습 애플리케이션',
-        theme_color: '#ffffff',
-        background_color: '#ffffff',
+        theme_color: '#08090d',
+        background_color: '#08090d',
         display: 'standalone',
         icons: [
           {
